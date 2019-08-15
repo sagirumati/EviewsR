@@ -1,18 +1,13 @@
 ---
 title: "EviewsR Package created by Sagiru Mati"
-output: github_document
+output: bookdown::html_document2
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NULL)
 options(warn = -1)
+library(EviewsR)
 ```
-
-# About the Author
-
-The author of this package, **Sagiru Mati**, is currently undergoing a PhD Program in Economics in Near East University, North Cyprus. He works at the Department of Economics, Yusuf Maitama Sule (Northwest) University, Kano, Nigeria. Please visit his blog [SMATI ACADEMY](https://smatiacademy.blogspot.com) for more details.
-
-Please follow his publications with his **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
@@ -38,8 +33,8 @@ devtools::install_github('smatiacademy/EviewsR')
 
 To run the package successfully, you need to allow Eviews program to run on Eviews startup. This can be set by clicking on `options, General Options, window behaviour`  and ticking `run program on Eviews startup` as shown below:
 
-```{r image,echo=F}
-knitr::include_graphics('tools/EviewsR.png')
+```{r image,echo=F,out.height='90%',out.width='90%'}
+knitr::include_graphics('EviewsR.png')
 
 ```
 
@@ -68,6 +63,18 @@ Then create a chunk for Eviews as shown below:
   next
 ```  
 `````
+
+```{Eviews EviewsR1,eval=T,echo=F,comment=NULL,results='hide'}
+  'This program is created in R Markdown with the help of EviewsR package
+  %path=@runpath
+  cd %path
+  wfcreate(page=EviewsR) EviewsR m 1999 2019
+  for %y Created By Sagiru Mati Northwest University Kano Nigeria
+  pagecreate(page={%y}) EviewsR m 1999 2019
+  wfsave EviewsR
+  next
+```  
+
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 1999 to 2019. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
