@@ -1,0 +1,11 @@
+Package: EviewsR
+Type: Package
+Title: Eviews Engine for Rmarkdown
+Version: 0.2.0
+Author: Sagiru Mati
+Maintainer: Sagiru Mati <sagirumati@gmail.com>
+Description: It allows running EVIEWS program from Rmarkdown. It serves as a Knit_Engine for Knitr package.Write all your Eviews command in Rmarkdown document.
+License: Publice Licence
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr
