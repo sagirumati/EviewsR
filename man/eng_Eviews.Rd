@@ -30,19 +30,19 @@ eng_Eviews(options)
 %% ~put references to the literature/web site here ~
 }
 \author{
-Sagiru Mati,
+*Sagiru Mati,
 
-Yusuf Maitama Sule (Northwest) University Kano,
+* Yusuf Maitama Sule (Northwest) University Kano, Nigeria
 
-Nigeria
+* Foudation of African Researchers (FAR)
 }
 \note{
 Please configure your Eviews to run program automatically when open: this can be done in Eviews Global Options, Windows Behaviour.
+}
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
