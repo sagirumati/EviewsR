@@ -9,6 +9,8 @@ Eviews startup. This can be set by clicking on `options, General
 Options, window behaviour` and ticking `run program on Eviews startup`
 as shown below:
 
+![](tools/EviewsR.png)<!-- -->
+
 Then load the EviewsR package as
     follows:
 
@@ -34,6 +36,7 @@ below:
 The above chunk creates an Eviews program with the chunk’s content, then
 automatically open Eviews and run the program, which will create an
 Eviews workfile with pages containing monthly sample from 1999 to 2019.
+The program will also save an Eviews workfile named `EviewsR`
 
 Download [EviewsR.Rmd](github.com/sagirumati/EviewsR/EviewsR.Rmd) for a
 better explanation
