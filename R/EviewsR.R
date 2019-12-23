@@ -20,5 +20,5 @@ eng_Eviews <- function(options) {
   engine_output(options, options$code, out)
 }
 .onLoad<-function(libname,pkgname){
-knitr::knit_engines$set(Eviews=eng_Eviews)
+knitr::knit_engines$set(eviews=eng_Eviews)
 }
