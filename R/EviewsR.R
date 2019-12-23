@@ -12,7 +12,7 @@ eng_Eviews <- function(options) {
   # if eval != FALSE compile/run the code, preserving output
 
   if (options$eval) {
-    out <- shell(sprintf('%s/%s',paste(path),paste(f, options$engine.opts)))
+    out <- shell(sprintf('%s',paste(f, options$engine.opts)))
   }
 
   # spit back stuff to the user
