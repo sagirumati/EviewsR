@@ -1,6 +1,5 @@
 
 eng_Eviews <- function(options) {
-  library(knitr)
   options(warn = -1)
   path=getwd()
   # create a temporary file
@@ -17,7 +16,7 @@ eng_Eviews <- function(options) {
 
   # spit back stuff to the user
 
-  engine_output(options, options$code, out)
+  knitr::engine_output(options, options$code, out)
 }
 .onLoad<-function(libname,pkgname){
 knitr::knit_engines$set(eviews=eng_Eviews)
