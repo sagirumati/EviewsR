@@ -51,11 +51,12 @@ library(EviewsR)
 
 Then create a chunk for Eviews
 
-```{Eviews Chunk-name,echo=T,result='hide'}
+```{eviews Chunk-name,echo=T,result='hide'}
 wfcreate(page=EviewsR) EviewsR m 1999 2019
 for \%y Created By Sagiru Mati Northwest University Kano Nigeria
 pagecreate(page={\%y}) EviewsR m 1999 2019
 next
+exit
 ```
 ## The above chunk creates an Eviews program with the chunk's content, automatically open Eviews and run the program, which will create an Eviews workfile with monthly sample from 1999 to 2019,
 Download EviewsR.Rmd from github.com/sagirumati/EviewsR/EviewsR.Rmd for a better explanation

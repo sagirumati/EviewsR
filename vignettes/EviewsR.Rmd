@@ -1,13 +1,21 @@
 ---
-title: "EviewsR Package created by Sagiru Mati"
-output: bookdown::html_document2
+title: "EviewsR: Eviews Knit-Engine"
+author: "Sagiru Mati"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,comment = NULL)
-options(warn = -1)
-library(EviewsR)
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 ```
+
 
 # About EviewsR
 
@@ -19,6 +27,8 @@ EviewsR is an R package that can run Eviews program from R Markdown.
 EviewsR can be installed using the following commands in R.
 
 ```{r installation,eval=FALSE}
+install.packages("EviewsR")
+          OR
 devtools::install_github('sagirumati/EviewsR')
 ```
 
@@ -29,7 +39,7 @@ devtools::install_github('sagirumati/EviewsR')
 To run the package successfully, you need to allow Eviews program to run on Eviews startup. This can be set by clicking on `options, General Options, window behaviour`  and ticking `run program on Eviews startup` as shown below:
 
 ```{r image,echo=F,out.height='90%',out.width='90%'}
-knitr::include_graphics('EviewsR.png')
+knitr::include_graphics('tools/EviewsR.png')
 
 ```
 
@@ -38,16 +48,15 @@ knitr::include_graphics('EviewsR.png')
 Please load the EviewsR package as follows: 
 
 ````
-```{r EviewsR}                                                                .
+```{r EviewsR} `r ''`
 library(EviewsR)
 ```
 ````
 
-
 Then create a chunk for Eviews as shown below:
 
 ````` 
-```{eviews EviewsR1,eval=T,echo=T,comment=NULL,results='hide'}                .
+```{eviews EviewsR1,eval=T,echo=T,comment=NULL,results='hide'}  `r ''`   
   'This program is created in R Markdown with the help of EviewsR package
   %path=@runpath
   cd %path
