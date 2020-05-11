@@ -114,6 +114,4 @@ knitr::kable(olsTable,format = "html")
 
 <br><br><br><br>
 
-Please visit my
-[Github](https://github.com/sagirumati/EviewsR/tree/master/example) for
-a better explanation and example files.
+Please see the example files for a better explanation.

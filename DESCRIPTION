@@ -1,16 +1,16 @@
 Package: EviewsR
 Type: Package
-Title: Eviews Knit-Engine
+Title: 'Eviews' Knit-Engine
 Version: 0.1.0
-Author: Sagiru Mati [aut, cre], (<https://smati.com.ng>)
+Author: Sagiru Mati [aut, cre]
 Authors@R: c(
-    person("Sagiru", "Mati", role = c("aut", "cre"), email = "smati@smati.com.ng", comment = c(ORCID = "0000-0003-1413-3974")))
+    person("Sagiru", "Mati", role = c("aut", "cre"), email = "smati@smati.com.ng"))
 Maintainer: Sagiru Mati <smati@smati.com.ng>
-Description: It allows running Eviews program from R Markdown. It serves as a Knit_Engine for knitr package.Write all your Eviews commands in Rmarkdown chunk.
+Description: This package allows running 'Eviews' program from R Markdown. 'EViews'(Econometric Views) is a statistical software for Econometric analysis.  This package serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'Eviews' commands in R Markdown chunk.
 Depends: R (>= 3.2.3)
 Imports: knitr (>= 1.20)
 License: GPL
-URL: https://github.com/sagirumati/EviewsR/
+URL: https://smati.com.ng
 BugReports: https://github.com/sagirumati/EviewsR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
