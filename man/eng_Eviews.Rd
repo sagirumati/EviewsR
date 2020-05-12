@@ -1,5 +1,5 @@
 \name{eng_Eviews}
-\alias{EviewsR}
+\alias{eng_Eviews}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Package to Run Eviews Scripts from R Markdown
@@ -8,7 +8,19 @@ Package to Run Eviews Scripts from R Markdown
 This package runs on top of knitr to facilitate communication with Eviews. Run Eviews scripts from R Markdown document.
 }
 \usage{
-# library(EviewsR)
+eng_Eviews(options)
+}
+\arguments{
+\item{options}{Chunk options, as provided by \code{knitr} during chunk execution. Chunk option for this is \code{eviews}}
+}
+\value{
+Set of \code{EViews} (Econometric Views) codes
+}
+\details{
+The \code{eviews} can be activated via \preformatted{knitr::knit_engines$set(eviews = EviewsR::eng_Eviews)
+}
+
+This will be set within a R Markdown document's setup chunk.
 }
 %- maybe also 'usage' for other objects documented here.
 \references{
@@ -24,7 +36,7 @@ Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In 
 
 * Yusuf Maitama Sule (Northwest) University Kano, Nigeria
 
-* Foudation of African Researchers (FAR)
+* SMATI Academy
 }
 
 
@@ -32,15 +44,6 @@ Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In 
 
 \examples{
 library(EviewsR)
-
-
-## ```{eviews Chunk-name,echo=T,result='hide'}
-## wfcreate(page=EviewsR) EviewsR m 1999 2019
-## for \%y Created By Sagiru Mati Northwest University Kano Nigeria
-## pagecreate(page={\%y}) EviewsR m 1999 2019
-## next
-## exit
 }
-
 \keyword{documentation}% use one of  RShowDoc("KEYWORDS")
 

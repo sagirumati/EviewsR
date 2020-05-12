@@ -1,7 +1,5 @@
 
 eng_Eviews <- function(options) {
-  options(warn = -1)
-  path=getwd()
   # create a temporary file
   f <-tempfile("prg", '.', paste('.', "prg", sep = ''))
   on.exit(unlink(f)) # cleanup temp file on function exit
@@ -19,5 +17,5 @@ eng_Eviews <- function(options) {
   knitr::engine_output(options, options$code, out)
 }
 .onLoad<-function(libname,pkgname){
-knitr::knit_engines$set(eviews=eng_Eviews)
+  knitr::knit_engines$set(eviews=eng_Eviews)
 }
