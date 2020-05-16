@@ -20,7 +20,7 @@ Set of \code{EViews} (Econometric Views) codes
 The \code{eviews} can be activated via \preformatted{knitr::knit_engines$set(eviews = EviewsR::eng_Eviews)
 }
 
-This will be set within a R Markdown document's setup chunk.
+This will be set within an R Markdown document's setup chunk.
 }
 %- maybe also 'usage' for other objects documented here.
 \references{
@@ -43,7 +43,26 @@ Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
+\dontrun{
+
 library(EviewsR)
+
+# Create a chunk in R Markdown as follows
+
+```{eviews EviewsR,eval=T,echo=T,comment=NULL,results='hide'}                .
+    'This program is created in R Markdown with the help of EviewsR package
+  \%path=@runpath
+  cd \%path
+  wfcreate(page=EviewsR) EviewsR m 1999 2020
+  for \%y Created By Sagiru Mati Northwest University Kano Nigeria
+  pagecreate(page=\{\%y\}) EviewsR m 1999 2020
+  wfsave EviewsR
+  next
+  exit
+```
+
 }
+}
+
 \keyword{documentation}% use one of  RShowDoc("KEYWORDS")
 
