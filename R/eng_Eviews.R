@@ -1,7 +1,7 @@
 
 eng_Eviews <- function(options) {
   # create a temporary file
-  f <-tempfile("prg", '.', paste('.', "prg", sep = ''))
+  f <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
   on.exit(unlink(f)) # cleanup temp file on function exit
   writeLines(options$code, f)
   out <- ''
