@@ -43,10 +43,10 @@ Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
+knitr::knit_engines$set(eviews = EviewsR::eng_Eviews)
 \dontrun{
 
 library(EviewsR)
-
 # Create a chunk in R Markdown as follows
 
 ```{eviews EviewsR,eval=T,echo=T,comment=NULL,results='hide'}                .

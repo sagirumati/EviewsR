@@ -1,4 +1,4 @@
-
+#' @export
 eng_Eviews <- function(options) {
   # create a temporary file
   f <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
