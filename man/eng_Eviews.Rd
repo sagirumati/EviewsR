@@ -49,7 +49,7 @@ knitr::knit_engines$set(eviews = EviewsR::eng_Eviews)
 library(EviewsR)
 # Create a chunk in R Markdown as follows
 
-```{eviews EviewsR,eval=T,echo=T,comment=NULL,results='hide'}                .
+```{eviews EviewsR,eval=T,echo=T,comment=NULL,results='hide'}
     'This program is created in R Markdown with the help of EviewsR package
   \%path=@runpath
   cd \%path
