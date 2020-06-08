@@ -2,8 +2,8 @@
 eng_Eviews <- function(options) {
   # create a temporary file
   f <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
-  on.exit(unlink(f)) # cleanup temp file on function exit
-  writeLines(c("%y=@runpath","path %y",options$code,"exit"), f)
+  #on.exit(unlink(f)) # cleanup temp file on function exit
+  writeLines(c("%path=@runpath","cd %path",options$code,"exit"), f)
   out <- ''
 
   # if eval != FALSE compile/run the code, preserving output
