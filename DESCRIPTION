@@ -15,7 +15,7 @@ URL: https://smati.com.ng
 BugReports: https://github.com/sagirumati/EviewsR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 NeedsCompilation: no
 Packaged: 2020-05-08 15:31:44 UTC; Sagiru
 Repository: CRAN
