@@ -1,6 +1,6 @@
-#' Create an `EViews` workfile from R
+#' Create an `EViews` graph in R Markdown
 #'
-#' Use this function to create an `EViews` workfile from R
+#' Use this function to create an `EViews` graph in R Markdown
 #'
 #' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 #' @param wf_name Object or a character string representing the name of a workfile to be created
@@ -24,17 +24,32 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_wfcreate=function(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T){
+eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE){
   fileName=tempfile("EVIEWS", ".", ".prg")
-  code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
-  if(save==T){
-    condition='%wfname=@wfname
-    %path=
-    wfsave {%wfname}'
-  } else{
-    condition=""
-  }
-  writeLines(c("%path=@runpath","cd %path",code,condition), fileName)
+  if(wf_name!="" & page_name!=""){
+    #code1=paste(paste0("wfopen ",wf_name,"@char(13)","pageselect ",page_name,"@chr(13)","%z=@wlookup(",series,'"series")"',"@chr(13)",))
+    code1=paste0("wfopen ",wf_name)
+    code2=paste0("pageselect ",page_name)
+    code3=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
+    code4='for %y {%z}
+      if %z=" " then
+      %z=" "
+      else
+      graph graph_{%y}).line {%y}
+      endif
+      next'
+
+    }else{
+    code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
+    }
+  # if(save==FALSE){
+  #   condition='%wfname=@wfname
+  #   %path=
+  #   wfsave {%wfname}'
+  # } else{
+  #   condition=""
+  # }
+  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4), fileName)
   shell(fileName)
 on.exit(unlink(fileName))
 }
