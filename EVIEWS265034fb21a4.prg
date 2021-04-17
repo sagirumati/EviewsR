@@ -10,4 +10,4 @@ for %y {%z}
       graph graph_{%y}.line {%y}
       endif
       next
-
+%z=@wlookup("x y","series")

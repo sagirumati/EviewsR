@@ -24,7 +24,8 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE){
+eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE){
+  stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
   fileName=tempfile("EVIEWS", ".", ".prg")
   if(wf_name!="" & page_name!=""){
     #code1=paste(paste0("wfopen ",wf_name,"@char(13)","pageselect ",page_name,"@chr(13)","%z=@wlookup(",series,'"series")"',"@chr(13)",))
@@ -35,9 +36,15 @@ eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date=
       if %z=" " then
       %z=" "
       else
-      graph graph_{%y}).line {%y}
+      graph graph_{%y}.line {%y}
       endif
       next'
+    if(merge==TRUE){
+      graphMerge=tempfile("graph", ".", "merge")
+      code5=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
+      code6=paste0('graph ',graphMerge,".merge {%z}")}else{
+        code5=""
+    }
 
     }else{
     code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
@@ -49,7 +56,8 @@ eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date=
   # } else{
   #   condition=""
   # }
-  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4), fileName)
+  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5), fileName)
   shell(fileName)
 on.exit(unlink(fileName))
 }
+
