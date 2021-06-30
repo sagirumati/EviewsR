@@ -1,6 +1,6 @@
 ---
 title: "graph x"
-output: pdf_document
+output: bookdown::pdf_document2
 ---
 
 ```{r setup, include=FALSE}

@@ -19,22 +19,22 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="WORKFILE",page_name="PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
 eviews_wfcreate=function(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T){
+  wf_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
   fileName=tempfile("EVIEWS", ".", ".prg")
   code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
   if(save==T){
     condition='%wfname=@wfname
-    %path=
-    wfsave {%wfname}'
+    wfsave {%wf_path}{%wfname}'
   } else{
     condition=""
   }
-  writeLines(c("%path=@runpath","cd %path",code,condition), fileName)
+  writeLines(c(wf_path,"%path=@runpath","cd %path",code,condition), fileName)
   shell(fileName)
 on.exit(unlink(fileName))
 }
