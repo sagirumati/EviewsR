@@ -24,7 +24,7 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE){
+eviews_single_graph=function(graph_type="line",graph_options=c(),series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
   stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
   fileName=tempfile("EVIEWS", ".", ".prg")
   if(wf_name!="" & page_name!=""){
@@ -32,22 +32,26 @@ eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date=
     code1=paste0("wfopen ",wf_name)
     code2=paste0("pageselect ",page_name)
     code3=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
-    code4='for %y {%z}
-      if %z=" " then
-      %z=" "
-      else
-      graph graph_{%y}.line {%y}
-      endif
-      next'
+  code4=ifelse(graph_options=="",paste0('%graphType="',graph_type,'"'),paste0('%graphType="',graph_type,'(',paste0(graph_options,collapse = ","),')"'))
+    code5='if %z="" then
+            %z=""
+    else
+        for %y {%z}
+      graph graph_{%y}.{%graphType} {%y}
+      next
+endif'
     if(merge==TRUE){
-      graphMerge=tempfile("graph", ".", "merge")
-      code5=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
-      code6=paste0('graph ',graphMerge,".merge {%z}")}else{
-        code5=""
-    }
+      #series=paste0(gsub(" ","_",series),collapse ="_") #if SERIES is space-delimited, replace with SPACE with "_", if SERIES is a vector of strings,separate the strings with "_".
+      code6='%mergeName="graphs_of_"+@replace(%z," ","_")'
+      code7='%z=@wlookup("graph_*","graph")'
+      code8="graph {%mergeName}.merge {%z}"
+      code9=paste0("{%mergeName}.align(",paste0(align,collapse =","),")")}else{
+#If MERGE!=TRUE
+        code6=""
+        code7=""
+        code8=""
+        code9=""
 
-    }else{
-    code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
     }
   # if(save==FALSE){
   #   condition='%wfname=@wfname
@@ -56,8 +60,9 @@ eviews_graph=function(series="",wf_name="",page_name="",frequency="",start_date=
   # } else{
   #   condition=""
   # }
-  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5), fileName)
+  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5,code6,code7,code8,code9), fileName)
   shell(fileName)
 on.exit(unlink(fileName))
+  }
 }
 
