@@ -24,15 +24,17 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_single_graph=function(graph_type="line",graph_options=c(),series="",wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
+eviews_single_graph=function(graph_type="line",graph_options=c(),series=c(),wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
   stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
+  #stopifnot("Please enter at least one series name"=!is.null(series),series!="",series!=" ",series %in% letters | series %in% LETTERS)
+  stopifnot("Please enter at least one series name"=series %in% letters | series %in% LETTERS,!is.null(series))
   fileName=tempfile("EVIEWS", ".", ".prg")
   if(wf_name!="" & page_name!=""){
     #code1=paste(paste0("wfopen ",wf_name,"@char(13)","pageselect ",page_name,"@chr(13)","%z=@wlookup(",series,'"series")"',"@chr(13)",))
     code1=paste0("wfopen ",wf_name)
     code2=paste0("pageselect ",page_name)
     code3=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
-  code4=ifelse(graph_options=="",paste0('%graphType="',graph_type,'"'),paste0('%graphType="',graph_type,'(',paste0(graph_options,collapse = ","),')"'))
+  code4=ifelse(is.null(graph_options),paste0('%graphType="',graph_type,'"'),paste0('%graphType="',graph_type,'(',paste0(graph_options,collapse = ","),')"'))
     code5='if %z="" then
             %z=""
     else
@@ -41,6 +43,7 @@ eviews_single_graph=function(graph_type="line",graph_options=c(),series="",wf_na
       next
 endif'
     if(merge==TRUE){
+      stopifnot('Length of the "series" must be at least 2'=length(series)>=2)
       #series=paste0(gsub(" ","_",series),collapse ="_") #if SERIES is space-delimited, replace with SPACE with "_", if SERIES is a vector of strings,separate the strings with "_".
       code6='%mergeName="graphs_of_"+@replace(%z," ","_")'
       code7='%z=@wlookup("graph_*","graph")'
@@ -53,16 +56,19 @@ endif'
         code9=""
 
     }
-  # if(save==FALSE){
-  #   condition='%wfname=@wfname
-  #   %path=
-  #   wfsave {%wfname}'
-  # } else{
-  #   condition=""
-  # }
-  writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5,code6,code7,code8,code9), fileName)
+
+
+if(save==T){
+      condition='save(t=%type) {%save_path}{%save_name}'
+    } else{
+      condition=""
+    }
+      writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5,code6,code7,code8,code9), fileName)
   shell(fileName)
 on.exit(unlink(fileName))
   }
 }
 
+# if (merge==TRUE){
+#   include_graphics("")
+# }

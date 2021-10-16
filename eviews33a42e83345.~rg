@@ -2,18 +2,17 @@
 cd %path
 wfopen R\WORKFILE
 pageselect PAGE
-%z=@wlookup("x y z","series")
+%z=@wlookup("y x","series")
+%graphType="line(contract=mean)"
 if %z="" then
             %z=""
     else
         for %y {%z}
-      graph graph_{%y}.line {%y}
+      graph graph_{%y}.{%graphType} {%y}
       next
 endif
-string k=@wreplace(%z,"q","y")
-string mergeName="graphs_of_"+@wreplace(%z," ","_")
-
+%mergeName="graphs_of_"+@replace(%z," ","_")
 %z=@wlookup("graph_*","graph")
 graph {%mergeName}.merge {%z}
-
+{%mergeName}.align(2,1,1)
 
