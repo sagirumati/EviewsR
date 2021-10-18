@@ -24,9 +24,9 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_single_graph=function(graph_type="line",graph_options=c(),series=c(),wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
+eviews_single_graph=function(graph_command="line",graph_options=c(),series=c(),wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
   stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
-  #stopifnot("Please enter at least one series name"=!is.null(series),series!="",series!=" ",series %in% letters | series %in% LETTERS)
+  # stopifnot("Please enter at least one series name"=!is.null(series),series!="",series!=" ",series %in% letters | series %in% LETTERS)
   stopifnot("Please enter at least one series name"=series %in% letters | series %in% LETTERS,!is.null(series))
   fileName=tempfile("EVIEWS", ".", ".prg")
   if(wf_name!="" & page_name!=""){
@@ -34,7 +34,7 @@ eviews_single_graph=function(graph_type="line",graph_options=c(),series=c(),wf_n
     code1=paste0("wfopen ",wf_name)
     code2=paste0("pageselect ",page_name)
     code3=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
-  code4=ifelse(is.null(graph_options),paste0('%graphType="',graph_type,'"'),paste0('%graphType="',graph_type,'(',paste0(graph_options,collapse = ","),')"'))
+  code4=ifelse(is.null(graph_options),paste0('%graphType="',graph_command,'"'),paste0('%graphType="',graph_command,'(',paste0(graph_options,collapse = ","),')"'))
     code5='if %z="" then
             %z=""
     else
@@ -57,7 +57,7 @@ endif'
 
     }
 
-
+save_path_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
 if(save==T){
       condition='save(t=%type) {%save_path}{%save_name}'
     } else{
