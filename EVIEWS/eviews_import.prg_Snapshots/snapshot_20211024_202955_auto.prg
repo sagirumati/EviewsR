@@ -1,15 +1,14 @@
 
 'import example.csv @freq m 1990 @genr yy=ser^2 @rename ser aa
 
+'%type=""
+'%options=""
 %path=@runpath
-cd %path
-
-%type="" 
+cd %path 
 if %type<>"" then
 %type="type="+%type   'to avoid error if %TYPE=""
 endif
 
-%options=""
 if %type<>"" then
 %type="type="+%type   'to avoid error if %TYPE=""
 endif
@@ -141,4 +140,5 @@ import({%type}, {%options}) {%source_description} {%import_specification} {%opti
 '%optional_arguments="@smpl "+%smpl_string+" @genr "+%genr_string+" @rename "+%rename_string
 'endif
 '
+
 

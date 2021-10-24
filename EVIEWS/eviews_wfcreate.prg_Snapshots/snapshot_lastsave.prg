@@ -1,34 +1,39 @@
+'%wf="  "
+'%page="  "
+'%prompt=""
+'%frequency="m"
+'%subperiod_opts=""
+'%start_date="1990"
+'%end_date="2020"
+'!num_cross_sections=10
+'!num_observations=10
+'%save=""
+'%save_path=""
+
 %path=@runpath
 cd %path
-%wf_name=" smati   "
-%wf_name=@wreplace(%wf_name,"* *","**")
-%page_name="academy   "
-%page_name=@wreplace(%page_name,"* *","**")
-%prompt=""
-%frequency="m"
-%subperiod_opts=""
-%subperiod_opts=@wreplace(%subperiod_opts,"* *","**")
+%wf=@wreplace(%wf,"* ","*")
+%page=@wreplace(%page,"* ","*")
+%subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
 if %subperiod_opts<>"" then
 %subperiod_opts="("+%subperiod_opts+")" 
 endif
-
-%start_date="1990"
-%end_date="2020"
-!num_cross_sections=10
-!num_observations=10
-%save=""
-%save_path=""
 if %frequency="u" or %frequency="U" then
-wfcreate(wf={%wf_name},page={%page_name},{%prompt}) {%frequency} {!num_observations}
+wfcreate(wf={%wf},page={%page},{%prompt}) {%frequency} {!num_observations}
 else
-wfcreate(wf={%wf_name},page={%page_name},{%prompt}) {%frequency}{%subperiod_opts} {%start_date} {%end_date} {!num_cross_sections}
+wfcreate(wf={%wf},page={%page},{%prompt}) {%frequency}{%subperiod_opts} {%start_date} {%end_date} {!num_cross_sections}
 endif
 
-if %wf_name="" then
-%wf_name=@wfname
+if %wf="" then
+%wf=@wfname
 endif
 if %save="T" or %save="TRUE" then
-     wfsave {%save_path}\{%wf_name}
+if %save_path="" then
+     wfsave {%wf}
+else
+     wfsave {%save_path}\{%wf}
+endif
 endif
 
+exit
 

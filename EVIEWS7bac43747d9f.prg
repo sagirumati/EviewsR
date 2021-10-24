@@ -1,24 +1,25 @@
 %path=@runpath
 cd %path
-close @wf
-%workfile="workfile"
+%wf="eviews/workfile"
 %page="page"
 %series="x y"
-wfopen {%workfile}
+%graph_command="line"
+%options=""
+%mode="overwrite"
+%file_name=""
+%save_path=""
+%path=@runpath
+cd %path
+close @wf
+wfopen {%wf}
 pageselect {%page}
 %z=@wlookup(%series,"series")
-%graph_command="   line   "
 %graph_command=@wreplace(%graph_command,"* *","**")
-%options=" m  "
-%mode="overwrite   "
 %mode=@wreplace(%mode,"* *","**")
 !mode=@isempty(%mode)
-%dev=" pdf "
-%file_name="some name"
 %file_name=@wreplace(%file_name,"* *","**")
-%save="T"
-%save_path="path "     'PATH should be relative to the CWD
-%save_path=@wreplace(%save_path,"* *","**")
+%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\")
 !save_path=@isempty(%save_path)
 group EviewsR_group {%z}
 !n=EviewsR_group.@count
@@ -32,7 +33,7 @@ endif
 
 if !mode=1 then
 freeze({%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}
-endif 
+endif
 
 if %save="TRUE" or %save="T" then
 if !save_path=1 then
@@ -41,18 +42,18 @@ endif
 if !save_path=0 then
 '%save_path=%save_path+"\"+%file_name
 {%x{!k}}_graph_EviewsR.save(t={%dev}) {%save_path}\{%x{!k}}_graph_EviewsR
-endif 
+endif
 endif
 next
 
 for %y {%z}
 
 if %mode="overwrite" then
- freeze(mode={%mode},graph_EviewsR) EviewsR_group.{%graph_command}({%options}) 
+freeze(mode={%mode},graph_EviewsR) EviewsR_group.{%graph_command}({%options})
 endif
 
 if !mode=1 then
- freeze(graph_EviewsR) EviewsR_group.{%graph_command}({%options})
+freeze(graph_EviewsR) EviewsR_group.{%graph_command}({%options})
 endif
 
 
@@ -62,7 +63,7 @@ if !save_path=1 then
 graph_EviewsR.save(t={%dev}) %file_name
 endif
 if !save_path=0 then
-graph_EviewsR.save(t={%dev}) {%save_path}\{%file_name} 
+graph_EviewsR.save(t={%dev}) {%save_path}\{%file_name}
 endif
 endif
 next
@@ -78,10 +79,3 @@ if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
 {%y}.datelabel format("Mon YYYY")
 endif
 next
-
-'%mergeName="graphs_of_"+@replace(%z," ","_")
-'%z=@wlookup("graph_*","graph")
-'graph {%mergeName}.merge {%z}
-'{%mergeName}.align(2,1,1)
-
-

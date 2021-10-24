@@ -1,24 +1,26 @@
+'%wf="workfile"
+'%page="page"
+'%series="x y"
+'%graph_command="   line   "
+'%options=" m  "
+'%dev=" pdf "
+'%mode="overwrite   "
+'%file_name="some name"
+'%save="T"
+'%save_path="path "     'PATH should be relative to the CWD
+
 %path=@runpath
 cd %path
 close @wf
-%workfile="workfile"
-%page="page"
-%series="x y"
-wfopen {%workfile}
+wfopen {%wf}
 pageselect {%page}
 %z=@wlookup(%series,"series")
-%graph_command="   line   "
 %graph_command=@wreplace(%graph_command,"* *","**")
-%options=" m  "
-%mode="overwrite   "
 %mode=@wreplace(%mode,"* *","**")
 !mode=@isempty(%mode)
-%dev=" pdf "
-%file_name="some name"
 %file_name=@wreplace(%file_name,"* *","**")
-%save="T"
-%save_path="path "     'PATH should be relative to the CWD
-%save_path=@wreplace(%save_path,"* *","**")
+%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\")
 !save_path=@isempty(%save_path)
 group EviewsR_group {%z}
 !n=EviewsR_group.@count
