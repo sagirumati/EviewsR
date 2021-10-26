@@ -1,44 +1,47 @@
 
 'import example.csv @freq m 1990 @genr yy=ser^2 @rename ser aa
-
 '%type=""
 '%options=""
+'%source_description="example.csv" 
+'%smpl_string="" 
+'%genr_string="yy=ser^2"
+'%rename_string="ser aa"
+'
+''DATED 
+'%frequency="m"
+'%start_date="1990" 
+'
+''MERGED
+'%id=""
+'%destid=""
+'
+''APPENDED
+'%append="T" 
+
 %path=@runpath
-cd %path 
+cd %path
+
+ 
 if %type<>"" then
 %type="type="+%type   'to avoid error if %TYPE=""
 endif
 
-if %type<>"" then
-%type="type="+%type   'to avoid error if %TYPE=""
+
+if %option<>"" then
+%option="option="+%option   'to avoid error if %option=""
 endif
-%source_description="example.csv" 
-'%import_specification
-%smpl_string="" 
+
 if %smpl_string<>"" then
 %smpl_string="@smpl "+%smpl_string 'change %SMPL_STRING to @SMPL %SMPL_STRING if %SMPL_STRING<>""
 endif  
 
-%genr_string="yy=ser^2"
 if %genr_string<>"" then
 %genr_string="@genr "+%genr_string
 endif  
 
-%rename_string="ser aa"
 if %rename_string<>"" then
 %rename_string="@rename "+%rename_string
 endif  
-
-'DATED 
-%frequency="m"
-%start_date="1990" 
-
-
-%id=""
-%destid=""
-
-'APPENDED
-%append="T" 
 
 'Determine the IMPORT_SPECIFICATION for DATED
 
