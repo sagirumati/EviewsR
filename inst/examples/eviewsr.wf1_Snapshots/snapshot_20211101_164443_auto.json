@@ -1,0 +1,274 @@
+
+{
+	"commands" : "",
+	"description" : "Generated when this file was opened on 2021/11/01 17:08:24.",
+	"label" : "auto base",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\smati\\google drive\\github\\repos\\sagirumati\\eviewsr\\inst\\examples\\eviewsr.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "EviewsR",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Created",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "By",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Sagiru",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Mati",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Northwest",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "University",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Kano",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			},
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738094.6977199074, "11/01/2021 16:44" ],
+				"_name" : "Nigeria",
+				"_obj_count" : 2,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 737759.0, "12/01/2020" ],
+						"_obs_min" : [ 729754.0, "01/01/1999" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 264
+			}
+		]
+	}
+}

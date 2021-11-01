@@ -1,13 +1,29 @@
 ---
 title: "EviewsR Package created by Sagiru Mati"
 output: bookdown::html_document2
+header-includes:
+- \usepackage{float}
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NULL)
 if(!require(EviewsR)) devtools::install_github('sagirumati/EviewsR')
 library(EviewsR)
+library(here)
+library(knitr)
+library(kableExtra)
+
+kable_format <- function(){
+  if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
+  if(opts_knit$get("rmarkdown.pandoc.to")=="latex") format="latex"
+  if(opts_knit$get("rmarkdown.pandoc.to")=="html") format="html"
+  return(format)
+}
+library(magrittr)
 ```
+
+
 
 # About EviewsR
 
@@ -103,7 +119,7 @@ We can *dynamically and reproducibly* fetch the Eviews graph object we created w
 
 For the color graph object:
 
-```{r color,echo=T,fig.cap="Eviews graph object with colour",fig.pos="center"}
+```{r color,echo=T,fig.cap="Eviews graph object with colour"}
 knitr::include_graphics("tools/EviewsR_Plot_color.png")
 
 ```
@@ -144,3 +160,70 @@ knitr::kable(olsTable,format = "html")
 
 
 Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/example) for a better explanation and example files.
+
+```{r ttt}
+import_kable=function(wf="",page="",table_name=""){
+
+  fileName=basename(tempfile("EVIEWS", ".", ".prg"))
+   save_path=tempfile("EVIEWS",".")
+  # file_name=basename(tempfile("EVIEWS","."))
+  # file_name=table_name
+  save_path_file=basename(save_path)
+  # dir.create(save_path)
+
+
+  wf=paste0('%wf=',shQuote(wf))
+  page=paste0('%page=',shQuote(page))
+  table_name.csv=paste0(table_name,".csv")
+  table_name=paste0('%table_name=',shQuote(table_name))
+  save_path=paste0('%save_path=',shQuote(save_path))
+
+
+  eviews_code=r'(%runpath=@runpath
+  cd %runpath
+  open {%wf}
+
+  if %page<>"" then
+  pageselect {%page}
+  endif
+
+  {%table_name}.save(t=csv) {%table_name})'
+
+   # path=here()
+  path=getwd()
+writeLines(c(wf,page,table_name,save_path,eviews_code,"exit"),fileName)
+  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+  k=kable(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE),booktabs=T,caption = "Caption",escape = F,linesep="",format = kable_format(),align = "c") %>% 
+kable_styling(latex_options =c("basic","hold_position"))%>%
+row_spec(0,bold = T) %>%
+column_spec(1,bold = T)  
+    return(k)
+  on.exit(unlink(c(fileName,table_name.csv),recursive = T))
+
+}
+
+import_kable("eviewsr1",table_name = "SAGIRU")
+```
+
+
+Table \@ref(tab:ttt) 
+
+(ref:chunkFootnote) insert footnote here
+```{r chunk,echo=F,eval=F}
+chunk=read.csv("TABLES/table.csv",allowEscapes = T,header = T,check.names = FALSE,colClasses = "character")
+chunkKable=kable(chunk,format=ifelse(knitr::opts_knit$get("rmarkdown.pandoc.to")=="docx","pandoc","latex"),booktabs=T,caption="caption",escape=F,linesep="")
+```
+
+```{r chunk-latex, eval=F}
+chunkKable=kable_styling(chunkKable,latex_options = c("basic","hold_positon","scale_down")) %>%
+footnote(general="(ref:chunkFootnote)", general_title = "",footnote_as_chunk=T,threeparttable=T,escape=F) %>%
+row_spec(0,bold=T)
+chunkKable
+```
+
+```{r chunk-docx, eval=F}
+chunkKable
+y="(ref:chunkFootnote)"
+kable(y,format=ifelse(knitr::opts_knit$get("rmarkdown.pandoc.to")=="docx","pandoc","latex"),booktabs=T,escape=F,col.names = NULL,linesep="")
+```
+

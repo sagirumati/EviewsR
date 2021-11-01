@@ -1,0 +1,14 @@
+%wf="eviewsr1"
+%page=""
+%table_name="SAGIRU"
+%save_path=".\EVIEWS195c1411144b"
+%runpath=@runpath
+  cd %runpath
+  open {%wf}
+
+  if %page<>"" then
+  pageselect {%page}
+  endif
+
+  {%table_name}.save(t=csv) {%table_name}
+exit

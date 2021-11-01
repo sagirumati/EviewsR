@@ -1,0 +1,10 @@
+sagiru,mati,$\\alpha_t$,,
+S, 0.025335, 0.029843, 0.848961, 0.396100
+C, 0.496573, 0.017632, 28.16297, 0.000000
+,,,,
+R-squared, 0.000654,Mean dependent var,, 0.509605
+Adjusted R-squared,-0.000253,S.D. dependent var,, 0.288216
+S.E. of regression, 0.288252,Akaike info criterion,, 0.351849
+Sum squared resid, 91.56448,Schwarz criterion,, 0.360919
+Log likelihood,-192.2204,Hannan-Quinn criter.,, 0.355279
+F-statistic, 0.720734,Durbin-Watson stat,, 1.952278
