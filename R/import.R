@@ -24,9 +24,11 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_pagesave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
+import=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
+  source_description=tempfile("EviewsR", ".", ".csv")
+  source_description_file=source_description
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
   options=paste0('%options=',shQuote(options))
@@ -78,8 +80,10 @@ path=here()
 writeLines(c("%runpath=@runpath","cd %runpath",wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviews_code),fileName)
   system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
-  on.exit(unlink(fileName))
-}
+  name="eviews_import"
+ assign(name,read.csv(source_description_file),envir = .GlobalEnv)
+ on.exit(unlink(c(fileName,source_description_file)))
+ }
 
 
-# eviews_pagesave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
+# import(wf="eviews/workfile",drop_list = "y")

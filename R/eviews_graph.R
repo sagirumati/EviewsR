@@ -68,7 +68,3 @@ if(save==T){
 on.exit(unlink(fileName))
   }
 }
-
-# if (merge==TRUE){
-#   include_graphics("")
-# }

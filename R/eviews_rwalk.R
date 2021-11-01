@@ -80,4 +80,4 @@ writeLines(c(wf,page,rndseed,series,eviews_code),fileName)
 }
 
 
-eviews_rwalk(wf="eviews/workfile",series="X Y Z",page="",rndseed=NA)
+# eviews_rwalk(wf="eviews/workfile",series="X Y Z",page="",rndseed=NA)

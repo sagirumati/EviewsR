@@ -41,4 +41,4 @@ writeLines(c("%runpath=@runpath","cd %runpath",wf,page,eviews_code,commands),fil
 }
 
 
-eviews_commands(wf="eviews/workfile",commands = c("equation someeq.ls y ar(1)","graph grap1.line y"))
+# eviews_commands(wf="eviews/workfile",commands = c("equation someeq.ls y ar(1)","graph grap1.line y"))

@@ -24,43 +24,11 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_object=function(wf="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list
-=""){
+#'
+EviewsR_unlink=function(){
+  unlink(list.files(pattern=".~f1"))
+  k=list.files(pattern="_Snapshots")
+  unlink(k,recursive = T,force = T)
+  unlink(list.files(pattern=".~rg"))
 
-  fileName=tempfile("EVIEWS", ".", ".prg")
-  wf=paste0('%wf=',shQuote(wf))
-  action=paste0('%action=',shQuote(action))
-  action_opt=paste0('%action_opt=',shQuote(action_opt))
-  object_name=paste0('%object_name=',shQuote(object_name))
-  view_or_proc=paste0('%view_or_proc=',shQuote(view_or_proc))
-  options_list=paste0('%options_list=',shQuote(options_list))
-  arg_list=paste0('%arg_list=',shQuote(arg_list))
-
-
-  eviews_code=r'(wfopen {%wf}
-  if %action_opt<>"" then
-  %action_opt="("+%action_opt+")"
-  endif
-  '
-
-  if %view_or_proc<>"" then
-  %view_or_proc="."+%view_or_proc
-  endif
-
-  if %options_list<>"" then
-  %options_list="("+%options_list+")"
-  endif
-
-  {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
-  )'
-path=here()
-  # path=getwd()
-writeLines(c("%runpath=@runpath","cd %runpath",wf,action,action_opt,object_name,view_or_proc,options_list,arg_list,eviews_code),fileName)
-  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
-  on.exit(unlink(fileName))
-}
-
-
-# eviews_object(wf="eviews/workfile",action="equation",action_opt="",object_name="equ2",view_or_proc="ls",options_list="",arg_list="y ar(1)")
-#
-# eviews_object(wf="eviews/workfile",action="table",action_opt="4,4",object_name="mytable",view_or_proc="",options_list="",arg_list="")
+  }
