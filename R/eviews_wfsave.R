@@ -83,4 +83,4 @@ writeLines(c("%runpath=@runpath","cd %runpath",wf,page,options,source_descriptio
 }
 
 
-eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
+# eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
