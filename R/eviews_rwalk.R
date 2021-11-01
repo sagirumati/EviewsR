@@ -69,6 +69,7 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     ' Change sample period
     smpl @first+1 @last
     {%x{!k}}={%x{!k}}+{%x{!k}}(-1)
+    smpl @all
     next
 
     randomwalk_group.line)'

@@ -39,7 +39,6 @@ for !k=1 to {!n}
 	' Change sample period
 	smpl @first+1 @last
 	{%x{!k}}={%x{!k}}+{%x{!k}}(-1)
-smpl @all
 next
 
 randomwalk_group.line
