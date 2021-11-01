@@ -21,6 +21,7 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
+#' @importFrom here here
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
