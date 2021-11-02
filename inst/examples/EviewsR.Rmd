@@ -208,7 +208,7 @@ y="(ref:chunkFootnote)"
 kable(y,format=ifelse(knitr::opts_knit$get("rmarkdown.pandoc.to")=="docx","pandoc","latex"),booktabs=T,escape=F,col.names = NULL,linesep="")
 ```
 
-```{r,eval=T}
+```{r,eval=F}
 unlink("C:/Users/SMATI/Google Drive/GITHUB/Repos/sagirumati/EviewsR/inst/examples/sagiru.csv",recursive = T,force = T)
 
 ```
