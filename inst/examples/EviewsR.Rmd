@@ -1,6 +1,6 @@
 ---
 title: "EviewsR Package created by Sagiru Mati"
-output: bookdown::html_document2
+output: bookdown::word_document2
 header-includes:
 - \usepackage{float}
 always_allow_html: true
@@ -90,7 +90,7 @@ Then create a chunk for Eviews as shown below:
 ```  
 `````
 
-```{eviews EviewsR1,eval=T,echo=F,comment=NULL,results='hide'}
+```{eviews EviewsR1,eval=F,echo=F,comment=NULL,results='hide'}
   'This program is created in R Markdown with the help of EviewsR package
   %path=@runpath
   cd %path
@@ -161,7 +161,7 @@ knitr::kable(olsTable,format = "html")
 
 Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/example) for a better explanation and example files.
 
-```{r ttt}
+```{r ttt,eval=F}
 import_kable=function(wf="",page="",table_name=""){
 
   fileName=basename(tempfile("EVIEWS", ".", ".prg"))
@@ -193,26 +193,53 @@ import_kable=function(wf="",page="",table_name=""){
   path=getwd()
 writeLines(c(wf,page,table_name,save_path,eviews_code,"exit"),fileName)
   system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
-  k=kable(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE),booktabs=T,caption = "Caption",escape = F,linesep="",format = kable_format(),align = "c") %>% 
-kable_styling(latex_options =c("basic","hold_position"))%>%
-row_spec(0,bold = T) %>%
-column_spec(1,bold = T)  
+k=kableExtra::kbl(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE),booktabs=T,caption = "Caption",escape = F) 
+# kable_styling(latex_options =c("basic","hold_position"))%>%
+# row_spec(0,bold = T) %>%
+# column_spec(1,bold = T)  
     return(k)
   on.exit(unlink(c(fileName,table_name.csv),recursive = T))
 
 }
 
-import_kable("eviewsr1",table_name = "SAGIRU")
+import_kable("eviewsr1",table_name = "SAGIRU") %>% 
+  kable_styling(latex_options =c("basic","hold_position")) %>% 
+  row_spec(0,bold = T)
 ```
 
 
-Table \@ref(tab:ttt) 
+Table \@ref(tab:ttt2) 
+
+
+```{r ttt2}
+import_table("eviewsr1",table_name = "SAGIRU",caption = "Some Nice Caption",digits = 2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (ref:chunkFootnote) insert footnote here
 ```{r chunk,echo=F,eval=F}
 chunk=read.csv("TABLES/table.csv",allowEscapes = T,header = T,check.names = FALSE,colClasses = "character")
 chunkKable=kable(chunk,format=ifelse(knitr::opts_knit$get("rmarkdown.pandoc.to")=="docx","pandoc","latex"),booktabs=T,caption="caption",escape=F,linesep="")
 ```
+
+
+
+
+
+
 
 ```{r chunk-latex, eval=F}
 chunkKable=kable_styling(chunkKable,latex_options = c("basic","hold_positon","scale_down")) %>%
