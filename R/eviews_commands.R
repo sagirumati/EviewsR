@@ -24,12 +24,14 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_commands=function(wf="",page="",commands=""){
+eviews_commands=function(commands="",wf="",page=""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
-  eviews_code=r'(wfopen {%wf}
+  eviews_code=r'(if %wf<>"" then
+  wfopen {%wf}
+  endif
   if %page<>"" then
   pageselect {%page}
   endif)'

@@ -168,6 +168,10 @@ Table \@ref(tab:ttt2)
 EviewsR::eviews_rwalk("Eviewsr",series = "x y z")
 ```
 
+```{r command}
+eviews_commands("wfreate m 1990 +90")
+```
+
 ```{r ttt2}
 import_table("eviewsr1",table_name = "SAGIRU",caption = "Some Nice Caption",digits = 2)
 ```
