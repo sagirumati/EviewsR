@@ -24,48 +24,103 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_single_graph=function(graph_command="line",graph_options=c(),series=c(),wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=FALSE,merge=TRUE,align=c(2,1,1)){
-  stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
+eviews_graph=function(series=c(),wf="",page="",mode="",graph_command="line",options=c(),dev="png",frequency="",start_date="",end_date="",save=FALSE,save_path="",file_name="",merge=TRUE,align=c(2,1,1)){
+  #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
   # stopifnot("Please enter at least one series name"=!is.null(series),series!="",series!=" ",series %in% letters | series %in% LETTERS)
-  stopifnot("Please enter at least one series name"=series %in% letters | series %in% LETTERS,!is.null(series))
+  #stopifnot("Please enter at least one series name"=series %in% letters | series %in% LETTERS,!is.null(series))
   fileName=tempfile("EVIEWS", ".", ".prg")
-  if(wf_name!="" & page_name!=""){
+  # if(wf_name!="" & page_name!=""){
     #code1=paste(paste0("wfopen ",wf_name,"@char(13)","pageselect ",page_name,"@chr(13)","%z=@wlookup(",series,'"series")"',"@chr(13)",))
-    code1=paste0("wfopen ",wf_name)
-    code2=paste0("pageselect ",page_name)
-    code3=paste0("%z=@wlookup(",'"',paste(series,collapse = " "),'"',',"series"',")")
-  code4=ifelse(is.null(graph_options),paste0('%graphType="',graph_command,'"'),paste0('%graphType="',graph_command,'(',paste0(graph_options,collapse = ","),')"'))
-    code5='if %z="" then
-            %z=""
-    else
-        for %y {%z}
-      graph graph_{%y}.{%graphType} {%y}
-      next
-endif'
-    if(merge==TRUE){
-      stopifnot('Length of the "series" must be at least 2'=length(series)>=2)
-      #series=paste0(gsub(" ","_",series),collapse ="_") #if SERIES is space-delimited, replace with SPACE with "_", if SERIES is a vector of strings,separate the strings with "_".
-      code6='%mergeName="graphs_of_"+@replace(%z," ","_")'
-      code7='%z=@wlookup("graph_*","graph")'
-      code8="graph {%mergeName}.merge {%z}"
-      code9=paste0("{%mergeName}.align(",paste0(align,collapse =","),")")}else{
-#If MERGE!=TRUE
-        code6=""
-        code7=""
-        code8=""
-        code9=""
+    wf=paste0('%wf=',shQuote(wf))
+    page=paste0("%page=",shQuote(page))
+    # series=paste0("%z=@wlookup(",shQuote(paste(series,collapse = " ")),',"series")')
+    series=paste0("%series=",shQuote(paste(series,collapse = " ")))
+    graph_command=paste0("%graph_command=",shQuote(graph_command))
+    options=paste0("%options=",shQuote(options))
+    mode=paste0("%mode=",shQuote(mode))
+    file_name=paste0("%file_name=",shQuote(file_name))
+    save_path=gsub("/","\\\\",save_path)
+    save_path=paste0("%save_path=",shQuote(save_path))
 
-    }
+eviews_code=r'(%path=@runpath
+cd %path
+close @wf
+wfopen {%wf}
+pageselect {%page}
+%z=@wlookup(%series,"series")
+%graph_command=@wreplace(%graph_command,"* *","**")
+%mode=@wreplace(%mode,"* *","**")
+!mode=@isempty(%mode)
+%file_name=@wreplace(%file_name,"* *","**")
+%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\")
+!save_path=@isempty(%save_path)
+group EviewsR_group {%z}
+!n=EviewsR_group.@count
 
-save_path_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
-if(save==T){
-      condition='save(t=%type) {%save_path}{%save_name}'
-    } else{
-      condition=""
-    }
-      writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5,code6,code7,code8,code9), fileName)
-      path=getwd()
-      system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+for !k=1 to {!n}
+%x{!k}=EviewsR_group.@seriesname({!k})
+
+if %mode="overwrite" then
+freeze(mode={%mode},{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}
+endif
+
+if !mode=1 then
+freeze({%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}
+endif
+
+if %save="TRUE" or %save="T" then
+if !save_path=1 then
+{%x{!k}}_graph_EviewsR.save(t={%dev}) {%x{!k}}_graph_EviewsR
+endif
+if !save_path=0 then
+'%save_path=%save_path+"\"+%file_name
+{%x{!k}}_graph_EviewsR.save(t={%dev}) {%save_path}\{%x{!k}}_graph_EviewsR
+endif
+endif
+next
+
+for %y {%z}
+
+if %mode="overwrite" then
+freeze(mode={%mode},graph_EviewsR) EviewsR_group.{%graph_command}({%options})
+endif
+
+if !mode=1 then
+freeze(graph_EviewsR) EviewsR_group.{%graph_command}({%options})
+endif
+
+
+graph_EviewsR.align(2,1,1)
+if %save="TRUE" or %save="T" then
+if !save_path=1 then
+graph_EviewsR.save(t={%dev}) %file_name
+endif
+if !save_path=0 then
+graph_EviewsR.save(t={%dev}) {%save_path}\{%file_name}
+endif
+endif
+next
+
+%allGraphs=@wlookup("*","graph")
+for %y {%allGraphs}
+{%y}.textdefault font(Times New Roman,20,-b,-i,-u,-s)
+%freq=@pagefreq
+if %freq="m" or %freq="M" then
+{%y}.datelabel format("YYYY")
+endif
+if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
+{%y}.datelabel format("Mon YYYY")
+endif
+next)'
+
+writeLines(c("%path=@runpath","cd %path",wf,page,series,graph_command,options,mode,file_name,save_path,eviews_code), fileName)
+
+path=getwd()
+system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+
 on.exit(unlink(fileName))
-  }
 }
+
+
+# eviews_graph(wf="eviews/workfile",page = "page",series="x y",mode = "overwrite",options = "m")

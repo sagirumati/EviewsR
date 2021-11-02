@@ -24,20 +24,55 @@
 #' @seealso eng_eviews
 #' @keywords documentation
 #' @export
-eviews_wfcreate=function(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T){
-  wf_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
+eviews_wfcreate=function(wf="",page="",prompt="",frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=1,num_observations="",save_path="",save=T){
+  # wf_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
   fileName=tempfile("EVIEWS", ".", ".prg")
-  code=paste(paste0("wfcreate(wf=",wf_name,",page=",page_name,")"),frequency,start_date,end_date)
-  if(save==T){
-    condition='%wfname=@wfname
-    wfsave {%wf_path}{%wfname}'
-  } else{
-    condition=""
-  }
-  writeLines(c(wf_path,"%path=@runpath","cd %path",code,condition), fileName)
+  wf=paste0('%wf=',shQuote(wf))
+  page=paste0("%page=",shQuote(page))
+  prompt=paste0("%prompt=",shQuote(prompt))
+  frequency=paste0("%frequency=",shQuote(frequency))
+  subperiod_opts=paste0("%subperiod_opts=",shQuote(subperiod_opts))
+  start_date=paste0("%start_date=",shQuote(start_date))
+  end_date=paste0("%end_date=",shQuote(end_date))
+  save=paste0("%save=",shQuote(save))
+  save_path=gsub("/","\\\\",save_path)
+  save_path=paste0("%save_path=",shQuote(save_path))
+  num_cross_sections=paste0("!num_cross_sections=",num_cross_sections)
+  num_observations=paste0("!num_observations=",num_observations)
+
+  eviews_code=r'(%path=@runpath
+  cd %path
+  %wf=@wreplace(%wf,"* ","*")
+  %page=@wreplace(%page,"* ","*")
+  %subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
+  if %subperiod_opts<>"" then
+  %subperiod_opts="("+%subperiod_opts+")"
+  endif
+  if %frequency="u" or %frequency="U" then
+  wfcreate(wf={%wf},page={%page},{%prompt}) {%frequency} {!num_observations}
+  else
+  wfcreate(wf={%wf},page={%page},{%prompt}) {%frequency}{%subperiod_opts} {%start_date} {%end_date} {!num_cross_sections}
+  endif
+
+  if %wf="" then
+  %wf=@wfname
+  endif
+  if %save="T" or %save="TRUE" then
+  if %save_path="" then
+  wfsave {%wf}
+  else
+  wfsave {%save_path}\{%wf}
+  endif
+  endif
+  exit
+  )'
+
+writeLines(c(wf,page,prompt,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,save,eviews_code),fileName)
 
   path=getwd()
   system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
 
   on.exit(unlink(fileName))
 }
+
+# eviews_wfcreate(wf="smati",page="academy",frequency = "m",start_date = "1990",end_date = "2020",num_observations = 2,save_path = "eviews/path")
