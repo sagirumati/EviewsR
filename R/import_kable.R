@@ -51,8 +51,8 @@ import_kable=function(wf="",page="",table_name=""){
 
   {%table_name}.save(t=csv) {%table_name})'
 
-  path=here()
-  # path=getwd()
+  #path=here()
+   path=getwd()
 writeLines(c(wf,page,table_name,save_path,eviews_code),fileName)
   system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
   k=kable(read.csv(table_name.csv))

@@ -25,7 +25,7 @@
 #' @keywords documentation
 #' @export
 #'
-EviewsR_unlink=function(){
+unlink_eviews=function(){
   unlink(list.files(pattern=".~f1"))
   k=list.files(pattern="_Snapshots")
   unlink(k,recursive = T,force = T)

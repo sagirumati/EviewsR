@@ -164,6 +164,9 @@ Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/examp
 
 Table \@ref(tab:ttt2) 
 
+```{r label, options}
+EviewsR::eviews_commands("wfcreate m 1990 +90")
+```
 
 ```{r ttt2}
 import_table("eviewsr1",table_name = "SAGIRU",caption = "Some Nice Caption",digits = 2)

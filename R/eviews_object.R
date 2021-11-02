@@ -53,8 +53,8 @@ eviews_object=function(wf="",action="",action_opt="",object_name="",view_or_proc
 
   {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
   )'
-path=here()
-  # path=getwd()
+# path=here()
+   path=getwd()
 writeLines(c("%runpath=@runpath","cd %runpath",wf,action,action_opt,object_name,view_or_proc,options_list,arg_list,eviews_code),fileName)
   system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))

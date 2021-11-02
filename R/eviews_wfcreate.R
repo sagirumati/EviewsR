@@ -35,6 +35,9 @@ eviews_wfcreate=function(wf_name="",page_name="",frequency="",start_date="",end_
     condition=""
   }
   writeLines(c(wf_path,"%path=@runpath","cd %path",code,condition), fileName)
-  shell(fileName)
-on.exit(unlink(fileName))
+
+  path=getwd()
+  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+
+  on.exit(unlink(fileName))
 }

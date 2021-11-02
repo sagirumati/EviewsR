@@ -73,8 +73,8 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     next
 
     randomwalk_group.line)'
-path=here()
-  # path=getwd()
+# path=here()
+   path=getwd()
 writeLines(c(wf,page,rndseed,series,eviews_code),fileName)
   system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))

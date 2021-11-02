@@ -30,20 +30,15 @@
 #' @export
 eng_eviews <- function(options) {
   # create a temporary file
-  f <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
-  on.exit(unlink(f)) # cleanup temp file on function exit
-  writeLines(c("%path=@runpath","cd %path",options$code,"exit"), f)
-  out <- ''
-
-  # if eval != FALSE compile/run the code, preserving output
+  fileName <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
+  on.exit(unlink(fileName)) # cleanup temp file on function exit
+  writeLines(c("%path=@runpath","cd %path",options$code,"exit"), fileName)
 
   if (options$eval) {
-    out <- shell(sprintf('%s',paste(f, options$engine.opts)))
-  }
+    path=getwd()
+    system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+    }
 
-  # spit back stuff to the user
-
-  knitr::engine_output(options, options$code, out)
 }
 .onLoad<-function(libname,pkgname){
   knitr::knit_engines$set(eviews=eng_eviews)

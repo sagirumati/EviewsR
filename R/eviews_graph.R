@@ -64,7 +64,8 @@ if(save==T){
       condition=""
     }
       writeLines(c("%path=@runpath","cd %path",code1,code2,code3,code4,code5,code6,code7,code8,code9), fileName)
-  shell(fileName)
+      path=getwd()
+      system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
 on.exit(unlink(fileName))
   }
 }

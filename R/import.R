@@ -75,7 +75,7 @@ endif
 pagesave(%options) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
 
 )'
-path=here()
+#path=here()
   path=getwd()
 writeLines(c("%runpath=@runpath","cd %runpath",wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviews_code),fileName)

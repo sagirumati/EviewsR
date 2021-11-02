@@ -33,8 +33,8 @@ eviews_commands=function(wf="",page="",commands=""){
   if %page<>"" then
   pageselect {%page}
   endif)'
-path=here()
-  # path=getwd()
+# path=here()
+   path=getwd()
 writeLines(c("%runpath=@runpath","cd %runpath",wf,page,eviews_code,commands),fileName)
   system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))

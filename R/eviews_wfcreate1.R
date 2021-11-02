@@ -68,7 +68,10 @@ eviews_wfcreate=function(wf="",page="",prompt="",frequency="",subperiod_opts="",
   )'
 
 writeLines(c(wf,page,prompt,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,save,eviews_code),fileName)
-  system2("EViews",paste("run(c,q)",fileName))
+
+  path=getwd()
+  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+
   on.exit(unlink(fileName))
 }
 

@@ -115,7 +115,10 @@ endif
 next)'
 
 writeLines(c("%path=@runpath","cd %path",wf,page,series,graph_command,options,mode,file_name,save_path,eviews_code), fileName)
-  system2("EViews",paste("run(c,q)",fileName))
+
+path=getwd()
+system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+
 on.exit(unlink(fileName))
 }
 

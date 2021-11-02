@@ -99,8 +99,9 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   )'
 
 writeLines(c(type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
-  system2("EViews",paste("run(c,q)",fileName))
-  on.exit(unlink(fileName))
+
+  path=getwd()
+  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
 }
 
 
