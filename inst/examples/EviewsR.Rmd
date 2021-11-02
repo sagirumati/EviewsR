@@ -161,52 +161,6 @@ knitr::kable(olsTable,format = "html")
 
 Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/example) for a better explanation and example files.
 
-```{r ttt,eval=F}
-import_kable=function(wf="",page="",table_name=""){
-
-  fileName=basename(tempfile("EVIEWS", ".", ".prg"))
-   save_path=tempfile("EVIEWS",".")
-  # file_name=basename(tempfile("EVIEWS","."))
-  # file_name=table_name
-  save_path_file=basename(save_path)
-  # dir.create(save_path)
-
-
-  wf=paste0('%wf=',shQuote(wf))
-  page=paste0('%page=',shQuote(page))
-  table_name.csv=paste0(table_name,".csv")
-  table_name=paste0('%table_name=',shQuote(table_name))
-  save_path=paste0('%save_path=',shQuote(save_path))
-
-
-  eviews_code=r'(%runpath=@runpath
-  cd %runpath
-  open {%wf}
-
-  if %page<>"" then
-  pageselect {%page}
-  endif
-
-  {%table_name}.save(t=csv) {%table_name})'
-
-   # path=here()
-  path=getwd()
-writeLines(c(wf,page,table_name,save_path,eviews_code,"exit"),fileName)
-  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
-k=kableExtra::kbl(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE),booktabs=T,caption = "Caption",escape = F) 
-# kable_styling(latex_options =c("basic","hold_position"))%>%
-# row_spec(0,bold = T) %>%
-# column_spec(1,bold = T)  
-    return(k)
-  on.exit(unlink(c(fileName,table_name.csv),recursive = T))
-
-}
-
-import_kable("eviewsr1",table_name = "SAGIRU") %>% 
-  kable_styling(latex_options =c("basic","hold_position")) %>% 
-  row_spec(0,bold = T)
-```
-
 
 Table \@ref(tab:ttt2) 
 
@@ -252,5 +206,10 @@ chunkKable
 chunkKable
 y="(ref:chunkFootnote)"
 kable(y,format=ifelse(knitr::opts_knit$get("rmarkdown.pandoc.to")=="docx","pandoc","latex"),booktabs=T,escape=F,col.names = NULL,linesep="")
+```
+
+```{r,eval=T}
+unlink("C:/Users/SMATI/Google Drive/GITHUB/Repos/sagirumati/EviewsR/inst/examples/sagiru.csv",recursive = T,force = T)
+
 ```
 

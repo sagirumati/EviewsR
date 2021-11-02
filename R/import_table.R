@@ -52,8 +52,8 @@ import_table=function(wf="",page="",table_name="",format=kable_format(), digits 
 
   {%table_name}.save(t=csv) {%table_name})'
 
-  # path=here()
-  path=getwd()
+  path=here()
+  #path=getwd()
   writeLines(c(wf,page,table_name,eviews_code,"exit"),fileName)
   system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
   return(knitr::kable(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
