@@ -168,8 +168,9 @@ Table \@ref(tab:ttt2)
 EviewsR::eviews_rwalk("Eviewsr",series = "x y z")
 ```
 
+
 ```{r command}
-eviews_commands("wfreate m 1990 +90")
+eviews_commands("wfcreate m 1990 +90")
 ```
 
 ```{r ttt2}
