@@ -164,7 +164,7 @@ Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/examp
 
 Table \@ref(tab:ttt2) 
 
-```{r label, options}
+```{r label}
 EviewsR::eviews_commands("wfcreate m 1990 +90")
 ```
 
