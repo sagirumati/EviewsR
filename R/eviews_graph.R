@@ -42,9 +42,7 @@ eviews_graph=function(series=c(),wf="",page="",mode="",graph_command="line",opti
     save_path=gsub("/","\\\\",save_path)
     save_path=paste0("%save_path=",shQuote(save_path))
 
-eviews_code=r'(%path=@runpath
-cd %path
-close @wf
+eviews_code=r'(close @wf
 wfopen {%wf}
 pageselect {%page}
 %z=@wlookup(%series,"series")
@@ -114,10 +112,10 @@ if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
 endif
 next)'
 
-writeLines(c("%path=@runpath","cd %path",wf,page,series,graph_command,options,mode,file_name,save_path,eviews_code), fileName)
+writeLines(c(eviews_path(),wf,page,series,graph_command,options,mode,file_name,save_path,eviews_code), fileName)
 
 path=getwd()
-system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 
 on.exit(unlink(fileName))
 }

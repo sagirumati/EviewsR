@@ -76,9 +76,9 @@ wfsave(%options) {%source_description} {%table_description} {%keep_list} {%drop_
 )'
 #path=here()
   path=getwd()
-writeLines(c("%runpath=@runpath","cd %runpath",wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
+writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviews_code),fileName)
-  system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
+  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))
 }
 

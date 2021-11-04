@@ -33,9 +33,10 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
   rndseed=paste0('!rndseed=',rndseed)
   series=paste0('%series=',shQuote(series))
 
-    eviews_code=r'(%runpath=@runpath
-    cd %runpath
+    eviews_code=r'(
+    if %wf<>"" then
     open {%wf}
+    endif
 
     if %page<>"" then
     pageselect {%page}
@@ -75,8 +76,8 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     randomwalk_group.line)'
 # path=here()
    path=getwd()
-writeLines(c(wf,page,rndseed,series,eviews_code),fileName)
-  system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
+writeLines(c(eviews_path(),wf,page,rndseed,series,eviews_code),fileName)
+  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))
 }
 

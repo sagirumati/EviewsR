@@ -32,11 +32,11 @@ eng_eviews <- function(options) {
   # create a temporary file
   fileName <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
   on.exit(unlink(fileName)) # cleanup temp file on function exit
-  writeLines(c("%path=@runpath","cd %path",options$code,"exit"), fileName)
+  writeLines(c(eviews_path(),options$code,"exit"), fileName)
 
   if (options$eval) {
     path=getwd()
-    system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+    system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
     }
 
 }

@@ -38,10 +38,7 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   destid=paste0("%save=",shQuote(destid))
   append=paste0("%append=",shQuote(append))
 
-  eviews_code=r'(%path=@runpath
-  cd %path
-
-
+  eviews_code=r'(
   if %type<>"" then
   %type="type="+%type   'to avoid error if %TYPE=""
   endif
@@ -98,10 +95,10 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   import({%type}, {%options}) {%source_description} {%import_specification} {%optional_arguments}
   )'
 
-writeLines(c(type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
+writeLines(c(eviews_path(),type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
 
   path=getwd()
-  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 }
 
 

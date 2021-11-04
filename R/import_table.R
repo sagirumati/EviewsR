@@ -42,9 +42,7 @@ import_table=function(wf="",page="",table_name="",format=kable_format(), digits 
   table_name=paste0('%table_name=',shQuote(table_name))
 
 
-  eviews_code=r'(%runpath=@runpath
-  cd %runpath
-  open {%wf}
+  eviews_code=r'(open {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -54,8 +52,8 @@ import_table=function(wf="",page="",table_name="",format=kable_format(), digits 
 
   #path=here()
   path=getwd()
-  writeLines(c(wf,page,table_name,eviews_code,"exit"),fileName)
-  system2("EViews",paste0("run(q)",shQuote(paste0(path,"/",fileName))))
+  writeLines(c(eviews_path(),wf,page,table_name,eviews_code,"exit"),fileName)
+  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))
   return(knitr::kable(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
 

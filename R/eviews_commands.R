@@ -37,8 +37,8 @@ eviews_commands=function(commands="",wf="",page=""){
   endif)'
 # path=here()
    path=getwd()
-writeLines(c("%runpath=@runpath","cd %runpath",wf,page,eviews_code,commands),fileName)
-  system2("EViews",paste0("run(c,q)",shQuote(paste0(path,"/",fileName))))
+writeLines(c(eviews_path(),wf,page,eviews_code,commands),fileName)
+  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
   on.exit(unlink(fileName))
 }
 
