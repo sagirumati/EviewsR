@@ -31,7 +31,7 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
   rndseed=paste0('!rndseed=',rndseed)
-  series=paste0('%series=',shQuote(series))
+  series=paste0("%series=",shQuote(paste(series,collapse = " ")))
 
     eviews_code=r'(
     if %wf<>"" then
