@@ -2,7 +2,7 @@
 % Please edit documentation in R/import.R
 \name{import}
 \alias{import}
-\title{Create an `EViews` workfile from R}
+\title{Create an \code{EViews} workfile from R}
 \usage{
 eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 }
@@ -17,13 +17,13 @@ eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",p
 
 \item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.}
+\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default \code{path}. Specify the \code{path} only if you want the workfile to live in different path from the current working directory.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function to create an \code{EViews} workfile from R
 }
 \examples{
 library(EviewsR)
@@ -32,6 +32,6 @@ eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m
 }
 }
 \seealso{
-eng_eviews
+eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, \link{import_table}
 }
 \keyword{documentation}

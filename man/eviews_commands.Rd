@@ -2,36 +2,26 @@
 % Please edit documentation in R/eviews_commands.R
 \name{eviews_commands}
 \alias{eviews_commands}
-\title{Create an `EViews` workfile from R}
+\title{Execute `EViews` commands from R}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+eviews_commands(commands="",wf="",page="")
 }
 \arguments{
-\item{wf_name}{Object or a character string representing the name of a workfile to be created}
-
-\item{page_name}{Object or a character string representing the name of a workfile page to be created}
-
-\item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
-
-\item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.}
+\item{commands}{Object or a character string of `EViews` commands}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function to execute `EViews` commands from R
 }
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_commands(c("wfcreate(wf=page=eviews_workfile,page=eviews_page) m 1990 2021","genr y=rnd","y.line"))
 }
 }
 \seealso{
-eng_eviews
+eng_eviews, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 }
 \keyword{documentation}

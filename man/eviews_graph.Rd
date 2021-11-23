@@ -32,6 +32,6 @@ eviews_wfcreate(wf_name="WORKFILE",page_name="PAGE",frequency="m",start_date="19
 }
 }
 \seealso{
-eng_eviews
+eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 }
 \keyword{documentation}

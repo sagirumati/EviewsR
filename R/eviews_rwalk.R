@@ -21,7 +21,7 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
@@ -74,12 +74,11 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     next
 
     randomwalk_group.line)'
-# path=here()
-   path=getwd()
-writeLines(c(eviews_path(),wf,page,rndseed,series,eviews_code),fileName)
-  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-  on.exit(unlink(fileName))
-}
+
+  writeLines(c(eviews_path(),wf,page,rndseed,series,eviews_code),fileName)
+    system_exec()
+    on.exit(unlink_eviews(),add = TRUE)
+  }
 
 
 # eviews_rwalk(wf="eviews/workfile",series="X Y Z",page="",rndseed=NA)

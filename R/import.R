@@ -21,9 +21,10 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, [EviewsR::import_table]
 #' @keywords documentation
 #' @export
+#' @md
 import=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
@@ -40,7 +41,8 @@ import=function(wf="",page="",options="",source_description="",table_description
   dropmap_list=paste0('%dropmap_list=',shQuote(dropmap_list))
   smpl_spec=paste0('%smpl_spec=',shQuote(smpl_spec))
 
-  eviews_code=r'(open {%wf}
+
+eviews_code=r'(open {%wf}
 
 if %page<>"" then
 pageselect {%page}

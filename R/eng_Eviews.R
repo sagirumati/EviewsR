@@ -15,7 +15,7 @@
 #' @author Sagiru Mati, ORCID: 0000-0003-1413-3974, https://smati.com.ng
 #' * Yusuf Maitama Sule (Northwest) University Kano, Nigeria
 #' * SMATI Academy
-#' @examples knitr::knit_engines$set(dynare = EviewsR::eng_eviews)
+#' @examples knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
 #' library(EviewsR)
 #' @references Bob Rudis (2015).Running Go language chunks in R Markdown (Rmd) files. Available at:  https://gist.github.com/hrbrmstr/9accf90e63d852337cb7
 #'
@@ -30,16 +30,9 @@
 #' @export
 eng_eviews <- function(options) {
   # create a temporary file
-  fileName <-tempfile("prg", '.', paste('.', "prg", sep = '')) # prg is file extension of Eviews program
-  on.exit(unlink(fileName)) # cleanup temp file on function exit
+  fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
   writeLines(c(eviews_path(),options$code,"exit"), fileName)
 
-  if (options$eval) {
-    path=getwd()
-    system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-    }
-
-}
-.onLoad<-function(libname,pkgname){
-  knitr::knit_engines$set(eviews=eng_eviews)
-}
+ if (options$eval) system_exec()
+  on.exit(unlink_eviews(),add = TRUE)
+  }

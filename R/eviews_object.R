@@ -1,6 +1,6 @@
-#' Create an `EViews` workfile from R
+#' Create an `EViews` object on a workfile from R
 #'
-#' Use this function to create an `EViews` workfile from R
+#' Use this function to create an `EViews` object on a workfile from R
 #'
 #' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 #' @param wf_name Object or a character string representing the name of a workfile to be created
@@ -21,7 +21,7 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 eviews_object=function(wf="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list
@@ -53,12 +53,11 @@ eviews_object=function(wf="",action="",action_opt="",object_name="",view_or_proc
 
   {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
   )'
-# path=here()
-   path=getwd()
 writeLines(c(eviews_path(),wf,action,action_opt,object_name,view_or_proc,options_list,arg_list,eviews_code),fileName)
-  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-  on.exit(unlink(fileName))
-}
+
+  system_exec()
+  on.exit(unlink_eviews(),add = TRUE)
+  }
 
 
 # eviews_object(wf="eviews/workfile",action="equation",action_opt="",object_name="equ2",view_or_proc="ls",options_list="",arg_list="y ar(1)")

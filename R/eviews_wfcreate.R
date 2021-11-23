@@ -21,7 +21,7 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 eviews_wfcreate=function(wf="",page="",prompt="",frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=1,num_observations="",save_path="",save=T){
@@ -67,10 +67,8 @@ eviews_wfcreate=function(wf="",page="",prompt="",frequency="",subperiod_opts="",
 
 writeLines(c(eviews_path(),wf,page,prompt,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,save,eviews_code),fileName)
 
-  path=getwd()
-  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-
-  on.exit(unlink(fileName))
+  system_exec()
+  on.exit(unlink_eviews(),add = TRUE)
 }
 
 # eviews_wfcreate(wf="smati",page="academy",frequency = "m",start_date = "1990",end_date = "2020",num_observations = 2,save_path = "eviews/path")

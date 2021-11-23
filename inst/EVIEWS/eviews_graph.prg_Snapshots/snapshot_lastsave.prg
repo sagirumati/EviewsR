@@ -129,7 +129,7 @@ for !k=1 to {!n}
 	%x{!k}={%EviewsRGroup}.@seriesname({!k})
 	
 	if mode<>"" then
-		%mode=%mode+","
+		%mode="mode="+%mode+","
 	endif
 	
 	freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}

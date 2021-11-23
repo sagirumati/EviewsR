@@ -25,7 +25,7 @@ knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
 This will be set within an R Markdown document's setup chunk.
 }
 \examples{
-knitr::knit_engines$set(dynare = EviewsR::eng_eviews)
+knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
 library(EviewsR)
 }
 \references{

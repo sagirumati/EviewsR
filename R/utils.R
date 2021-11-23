@@ -13,10 +13,28 @@ eviews_path=function(){
   return(eviews_path)
 }
 
-unlink_eviews=function(){
-  unlink(list.files(pattern=".~f1"))
-  k=list.files(pattern="_Snapshots")
-  unlink(k,recursive = T,force = T)
-  unlink(list.files(pattern=".~rg"))
-
+system_exec=function(){
+path=getwd()
+fileName=eval(expression(fileName),envir = parent.frame()) # Dynamic scoping
+system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 }
+
+unlink_eviews=function(){
+
+  unlink(list.files(pattern=".~f1"))
+  unlink(list.files(pattern=".~rg"))
+  unlink(list.files(pattern="_Snapshots"),recursive = T,force = T)
+
+
+  fileName=eval(expression(fileName), parent.frame())
+if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(expression(table_name.csv), parent.frame()) #for deleting table_name.csv in import_table function
+
+  unlink(fileName)
+  if(exists('table_name.csv',envir = parent.frame())) unlink(table_name.csv)
+  }
+
+.onLoad<-function(libname,pkgname){
+  knitr::knit_engines$set(eviews=eng_eviews)
+}
+
+

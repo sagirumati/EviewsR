@@ -1,6 +1,6 @@
-#' Create an `EViews` workfile from R
+#' Import data to `EViews` workfile
 #'
-#' Use this function to create an `EViews` workfile from R
+#' Use this function to Import data to `EViews` workfile from R
 #'
 #' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 #' @param wf_name Object or a character string representing the name of a workfile to be created
@@ -21,10 +21,10 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_import=function(type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T){
+eviews_import=function(type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T,exit=TRUE){
   fileName=tempfile("EVIEWS", ".", ".prg")
   options=paste0('%options=',shQuote(options))
   source_description=gsub("/","\\\\",source_description)
@@ -37,6 +37,9 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   id=paste0("%id=",shQuote(id))
   destid=paste0("%save=",shQuote(destid))
   append=paste0("%append=",shQuote(append))
+
+  if(exit==TRUE) exit="exit" else exit=""
+  exit=paste0("%exit=",shQuote(exit))
 
   eviews_code=r'(
   if %type<>"" then
@@ -93,12 +96,16 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   endif
   'GENERAL
   import({%type}, {%options}) {%source_description} {%import_specification} {%optional_arguments}
+
+  %wf=@wfname
+  wfsave {%wf}
+  {%exit}
   )'
 
-writeLines(c(eviews_path(),type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
+writeLines(c(eviews_path(),type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,exit,eviews_code),fileName)
 
-  path=getwd()
-  system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
+  system_exec()
+  on.exit(unlink_eviews(),add = TRUE)
 }
 
 
