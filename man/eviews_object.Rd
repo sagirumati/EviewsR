@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_object.R
 \name{eviews_object}
 \alias{eviews_object}
-\title{Create an `EViews` workfile from R}
+\title{Create an `EViews` object on a workfile from R}
 \usage{
 eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 }
@@ -23,7 +23,7 @@ eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",p
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function to create an `EViews` object on a workfile from R
 }
 \examples{
 library(EviewsR)

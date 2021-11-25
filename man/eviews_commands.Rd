@@ -7,7 +7,7 @@
 eviews_commands(commands="",wf="",page="")
 }
 \arguments{
-\item{commands}{Object or a character string of `EViews` commands}
+\item{commands}{Object or a vector of character strings of `EViews` commands}
 }
 \value{
 An EViews workfile
@@ -19,6 +19,7 @@ Use this function to execute `EViews` commands from R
 library(EviewsR)
 \dontrun{
 eviews_commands(c("wfcreate(wf=page=eviews_workfile,page=eviews_page) m 1990 2021","genr y=rnd","y.line"))
+eviews_commands(c("genr y=rnd","y.line"),wf="EviewsR")
 }
 }
 \seealso{
