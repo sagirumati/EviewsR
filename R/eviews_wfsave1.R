@@ -1,10 +1,10 @@
-#' Save an `EViews` workfile page from R
+#' Save an `EViews` workfile wf from R
 #'
-#' Use this function to save an `EViews` workfile page from R
+#' Use this function to save an `EViews` workfile  from R
 #'
-#' @usage eviews_pagesave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
+#' @usage eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
 #' @inheritParams eviews_graph
-#' @param options Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.
+#' @param options Object or a character string of any of the acceptable `EViews` \code{wfsave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.
 #' @param source_description The path and name of the file to be saved.
 #' @param table_description Further description of the \code{source_description} such as specifying the \code{range=arg}, \code{byrow}.
 #' @param keep_list Optional. Specify the list of `EViews` object to be saved.
@@ -18,10 +18,10 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_pagesave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
+eviews_wfsave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote(wf))
@@ -48,41 +48,41 @@ eviews_pagesave=function(wf="",page="",options="",source_description="",table_de
 
   eviews_code=r'(open {%wf}
 
-if %page<>"" then
-pageselect {%page}
-endif
+  if %page<>"" then
+  pageselect {%page}
+  endif
 
-if %keep_list<>"" then
-%keep_list="@keep "+%keep_list
-endif
-
-
-if %drop_list<>"" then
-%drop_list="@drop "+%drop_list
-endif
-
-if %keepmap_list<>"" then
-%keepmap_list="@keepmap "+%keepmap_list
-endif
-
-if %dropmap_list<>"" then
-%dropmap_list="@dropmap "+%dropmap_list
-endif
+  if %keep_list<>"" then
+  %keep_list="@keep "+%keep_list
+  endif
 
 
-if %smpl_spec<>"" then
-%smpl_spec="@smpl "+%smpl_spec
-endif
+  if %drop_list<>"" then
+  %drop_list="@drop "+%drop_list
+  endif
 
-pagesave(%options) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
-exit
-)'
-writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
-,eviews_code),fileName)
+  if %keepmap_list<>"" then
+  %keepmap_list="@keepmap "+%keepmap_list
+  endif
+
+  if %dropmap_list<>"" then
+  %dropmap_list="@dropmap "+%dropmap_list
+  endif
+
+
+  if %smpl_spec<>"" then
+  %smpl_spec="@smpl "+%smpl_spec
+  endif
+
+  wfsave(%options) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
+  exit
+  )'
+  writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
+               ,eviews_code),fileName)
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
 }
 
 
-# eviews_pagesave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
+# eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")

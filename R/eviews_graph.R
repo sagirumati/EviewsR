@@ -205,7 +205,7 @@ on.exit(unlink(paste0(wf1,".wf1"),force = T),add = T)
 
 if(merge_graphs==TRUE){
   series1=paste(series1,collapse = "")
-  eviews_graphics=list.files(pattern=paste0(series1,'_graph_eviewsr'))
+  eviews_graphics=list.files(pattern=paste0(series1,'_graph_eviewsr'),ignore.case = T)
   include_graphics(eviews_graphics)
 }
 
@@ -213,31 +213,30 @@ if(merge_graphs==TRUE){
 if(merge_graphs!=TRUE){
 
   for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'))
+    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
    include_graphics(eviews_graphics)
 }
 }
 
-if (save==TRUE){
-  if(save_path1!=""){
-  if(!dir.exists(save_path1)) dir.create(save_path1,recursive = TRUE)
-    for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'))
+  if(save==T & save_path1!=""){
+    if(!dir.exists(save_path1)) dir.create(save_path1,recursive = TRUE)
+        for (i in series1){
+    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
     file.copy(eviews_graphics,save_path1,overwrite = T)
   unlink(eviews_graphics)
   }
+}
 
-  }
-
-}else{
-  for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'))
+if(save==F){
+          for (i in series1){
+    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
     unlink(eviews_graphics)
   }
-
 }
 
 }
+
+
 
 # DELETE CSV and WORKFILES
 

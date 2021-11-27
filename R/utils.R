@@ -1,4 +1,4 @@
-
+#' @importFrom knitr include_graphics
 kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
   if(opts_knit$get("rmarkdown.pandoc.to")=="latex") format="latex"
@@ -37,4 +37,4 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
 }
 
-
+ev=new.env()

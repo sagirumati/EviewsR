@@ -1,20 +1,10 @@
-#' Create an `EViews` workfile from R
+#' Simulate a random walk process using an `EViews` engine from R.
 #'
-#' Use this function to create an `EViews` workfile from R
+#' Use this function to simulate a random walk process using an `EViews` engine.
 #'
 #' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
-#' @param wf_name Object or a character string representing the name of a workfile to be created
-#'
-#' @param page_name Object or a character string representing the name of a workfile page to be created
-#'
-#' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
-#'
-#' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param path Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.
-#'
+#' @inheritParams eviews_wfcreate
+#' @param drift Numeric value as the drift term for random walk.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -24,13 +14,22 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
+eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1){
 
-  fileName=tempfile("EVIEWS", ".", ".prg")
+  fileName=tempfile("EviewsR", ".", ".prg")
 
+  if(wf=="") {
+   wf=gsub(".prg","",fileName) %>%  basename()
+     eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
+  }
+
+  wf1=paste0(wf,".wf1")
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
   rndseed=paste0('!rndseed=',rndseed)
+  drift=paste0("!drift=",drift)
+
+  series1=paste(series,collapse = "") %>%  gsub(" ","",.)
   series=paste0("%series=",shQuote(paste(series,collapse = " ")))
 
     eviews_code=r'(
@@ -41,6 +40,7 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     if %page<>"" then
     pageselect {%page}
     endif
+
 
     for %y {%series}
     series {%y}
@@ -69,16 +69,39 @@ eviews_rwalk=function(wf="",page="",series="",rndseed=NA){
     series {%x{!k}}=wn{!k}
     ' Change sample period
     smpl @first+1 @last
+
+
     {%x{!k}}={%x{!k}}+{%x{!k}}(-1)
+
+    if !drift<>NA then
+    genr {%x{!k}}_drift={!drift}+{%x{!k}}
+    endif
+
     smpl @all
     next
 
-    randomwalk_group.line)'
+    %drift_series=@wlookup("*drift","series")
+    group randomwalk_group_drift {%drift_series}
 
-  writeLines(c(eviews_path(),wf,page,rndseed,series,eviews_code),fileName)
+    if !drift<>NA then
+    pagesave randomwalk_group.csv @keep randomwalk_group_drift
+    else
+    pagesave randomwalk_group.csv @keep randomwalk_group
+    endif
+
+    exit)'
+
+  writeLines(c(eviews_path(),wf,page,rndseed,drift,series,eviews_code),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
-  }
+    on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
+    on.exit(unlink(wf1),add = TRUE)
+
+    # if(options$label!="") series1=options$label else series1=series1
+    assign(series1,read.csv("randomwalk_group.csv"),envir = ev)
 
 
-# eviews_rwalk(wf="eviews/workfile",series="X Y Z",page="",rndseed=NA)
+}
+
+
+eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)

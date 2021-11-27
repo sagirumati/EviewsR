@@ -81,7 +81,7 @@ pagesave(%options) {%source_description} {%table_description} {%keep_list} {%dro
 writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviews_code),fileName)
   system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-  name="eviews_import"
+  name=""
  assign(name,read.csv(source_description_file),envir = .GlobalEnv)
  on.exit(unlink(c(fileName,source_description_file)))
  }

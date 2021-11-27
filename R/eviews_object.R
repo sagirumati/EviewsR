@@ -3,18 +3,13 @@
 #' Use this function to create an `EViews` object on a workfile from R
 #'
 #' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
-#' @param wf_name Object or a character string representing the name of a workfile to be created
-#'
-#' @param page_name Object or a character string representing the name of a workfile page to be created
-#'
-#' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
-#'
-#' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param path Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.
-#'
+#' @inheritParams eviews_graph
+#' @param action Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.
+#' @param action_opt An option that modifies the default behaviour of the `EViews` action.
+#' @param object_name The name of the `EViews` object to be acted upon.
+#' @param view_or_proc The `EViews` object view or procedure to be performed.
+#' @param options_list An option that modifies the default behaviour of the `EViews` view or procedure.
+#' @param arg_list A list of `EViews` view or procedure arguments.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -30,10 +25,18 @@ eviews_object=function(wf="",action="",action_opt="",object_name="",view_or_proc
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote(wf))
   action=paste0('%action=',shQuote(action))
+
+  action_opt=paste(action_opt,collapse = ",")
   action_opt=paste0('%action_opt=',shQuote(action_opt))
   object_name=paste0('%object_name=',shQuote(object_name))
+
+
   view_or_proc=paste0('%view_or_proc=',shQuote(view_or_proc))
+
+  options_list=paste(options_list,collapse = ",")
   options_list=paste0('%options_list=',shQuote(options_list))
+
+  arg_list=paste(arg_list,collapse = " ")
   arg_list=paste0('%arg_list=',shQuote(arg_list))
 
 

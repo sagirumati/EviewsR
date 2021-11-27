@@ -2,19 +2,19 @@
 #'
 #' Use this function to Import data to `EViews` workfile from R
 #'
-#' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
-#' @param wf_name Object or a character string representing the name of a workfile to be created
-#'
-#' @param page_name Object or a character string representing the name of a workfile page to be created
-#'
-#' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
-#'
-#' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#'
-#' @param path Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.
-#'
+#' @usage eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T,exit=TRUE)
+#' @inheritParams eviews_graph
+#' @inheritParams eviews_wfcreate
+#' @param type Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.
+#' @param options Optional.Specify the `EViews` \code{options} for \code{import} command like \code{resize}, \code{link}, \code{page=page_name}.
+#' @param source_description Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.
+#' @param smpl_string Optional. Specify the sample to be used for the data import.
+#' @param genr_string Optional. Any valid `EViews` series creation expression to be used to generate a new series in the workfile as part of the import procedure.
+#' @param id Name of `EViews` ID series. Required for `EViews` \code{Match-Merge Import}.
+#' @param destid Name of the destination ID.  Required for `EViews` \code{Match-Merge Import}.
+#' @param append Logical, whether to append to the bottom of the `EViews` workfile page or not.
+#' @param exit Logical, whether to automatically exit `EViews` window or not.
+#' @param rename_string Optional. Pairs of old object names followed by the new name to be used to rename some of the imported series.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -24,8 +24,20 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_import=function(type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T,exit=TRUE){
-  fileName=tempfile("EVIEWS", ".", ".prg")
+eviews_import=function(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=TRUE,save_path=""){
+
+  if(is.data.frame(source_description)){
+    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")
+    csvFile=paste0(wf,".csv")
+    write.csv(source_description,csvFile,row.names = FALSE)
+
+    source_description=csvFile
+
+    on.exit(unlink(csvFile),add = T)
+  }
+
+
+    fileName=tempfile("EVIEWS", ".", ".prg")
   options=paste0('%options=',shQuote(options))
   source_description=gsub("/","\\\\",source_description)
   source_description=paste0("%source_description=",shQuote(source_description))
@@ -35,15 +47,15 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
   frequency=paste0("%frequency=",shQuote(frequency))
   start_date=paste0("%start_date=",shQuote(start_date))
   id=paste0("%id=",shQuote(id))
-  destid=paste0("%save=",shQuote(destid))
+  destid=paste0("%destid=",shQuote(destid))
   append=paste0("%append=",shQuote(append))
-
-  if(exit==TRUE) exit="exit" else exit=""
-  exit=paste0("%exit=",shQuote(exit))
+  wf=paste0("%wf=",shQuote(wf))
+  save_path1=save_path
+  save_path=paste0("%save_path=",shQuote(save_path))
 
   eviews_code=r'(
   if %type<>"" then
-  %type="type="+%type   'to avoid error if %TYPE=""
+  %type="type="+%type+","   'to avoid error if %TYPE=""
   endif
 
 
@@ -72,16 +84,19 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
 
   if %id<>"" or %destid<>"" then
   %import_type="match-merged"
+  open {%wf}
   %import_specification="@id "+%id+" @destid"+" "+%destid
   endif
 
   if (%append="T" or %append="TRUE") and %id="" and %destid="" and %frequency="" and %start_date="" then
   %import_type="appended"
-  %import_specification="@append"
+  open {%wf}
+    %import_specification="@append"
   endif
 
   if %id="" and %destid="" and %import_specification=""  then
   %import_type="sequential"
+  open {%wf}
   %import_specification=""
   endif
 
@@ -92,17 +107,29 @@ eviews_import=function(type="",options="",source_description="",smpl_string="",g
 
   %optional_arguments=%smpl_string+" "+%genr_string+" "+%rename_string
   if %import_type="appended" then
+  open {%wf}
   %optional_arguments=%genr_string+" "+%rename_string 'APPENDED syntax does not contain @SMPL_STRING
   endif
   'GENERAL
-  import({%type}, {%options}) {%source_description} {%import_specification} {%optional_arguments}
+  import({%type}{%options}) {%source_description} colhead=1  {%import_specification} {%optional_arguments}
 
   %wf=@wfname
-  wfsave {%wf}
-  {%exit}
+
+  if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
+  wfsave {%save_path}{%wf}
+
+exit
   )'
 
-writeLines(c(eviews_path(),type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,exit,eviews_code),fileName)
+writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
+
+
+  if(save_path1!=""){
+    if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
+  }
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
