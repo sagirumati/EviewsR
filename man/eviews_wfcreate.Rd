@@ -7,17 +7,27 @@
 eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 }
 \arguments{
+\item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
+
+\item{wf}{Object or a character string representing the name of a workfile to be created}
+
+\item{page}{Object or a character string representing the name of a workfile page to be created}
+
+\item{prompt}{Logical, whether to force the dialog to appear from within an `EViews` program}
+
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
+
+\item{subperiod_opts}{Optional integer value. Include \code{subperiod_opts} to define subperiod options for \code{frequency} argument.}
 
 \item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
 \item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
-\item{wf_name}{Object or a character string representing the name of a workfile to be created}
+\item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an `EViews` balanced panel page using integer identifiers for each of the cross-sections.}
 
-\item{page_name}{Object or a character string representing the name of a workfile page to be created}
+\item{num_observations}{Numeric value. Specify the number of observations if the \code{frequency="u"}.}
 
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.}
+\item{save_path}{Specify where to save the `EViews` workfile.}
 }
 \value{
 An EViews workfile

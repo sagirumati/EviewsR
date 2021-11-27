@@ -19,7 +19,7 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
   fileName=tempfile("EviewsR", ".", ".prg")
 
   if(wf=="") {
-   wf=gsub(".prg","",fileName) %>%  basename()
+   wf=basename(gsub(".prg","",fileName))
      eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
   }
 
@@ -104,4 +104,4 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
 }
 
 
-eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
+# eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)

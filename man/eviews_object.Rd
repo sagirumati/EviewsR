@@ -8,6 +8,18 @@ eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",p
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+
+\item{action}{Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.}
+
+\item{action_opt}{An option that modifies the default behaviour of the `EViews` action.}
+
+\item{object_name}{The name of the `EViews` object to be acted upon.}
+
+\item{view_or_proc}{The `EViews` object view or procedure to be performed.}
+
+\item{options_list}{An option that modifies the default behaviour of the `EViews` view or procedure.}
+
+\item{arg_list}{A list of `EViews` view or procedure arguments.}
 }
 \value{
 An EViews workfile

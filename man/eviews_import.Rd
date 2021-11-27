@@ -31,6 +31,8 @@ eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr
 
 \item{append}{Logical, whether to append to the bottom of the `EViews` workfile page or not.}
 
+\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
+
 \item{exit}{Logical, whether to automatically exit `EViews` window or not.}
 }
 \value{

@@ -8,6 +8,10 @@ eviews_commands(commands="",wf="",page="")
 }
 \arguments{
 \item{commands}{Object or a vector of character strings of `EViews` commands}
+
+\item{wf}{Object or a character string representing the name of a workfile to be created}
+
+\item{page}{Object or a character string representing the name of a workfile page to be created}
 }
 \value{
 An EViews workfile

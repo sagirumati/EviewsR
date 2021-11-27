@@ -2,28 +2,36 @@
 % Please edit documentation in R/eviews_pagesave.R
 \name{eviews_pagesave}
 \alias{eviews_pagesave}
-\title{Create an `EViews` workfile from R}
+\title{Save an `EViews` workfile page from R}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+eviews_pagesave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
 }
 \arguments{
-\item{wf_name}{Object or a character string representing the name of a workfile to be created}
+\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
-\item{page_name}{Object or a character string representing the name of a workfile page to be created}
+\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
+\item{options}{Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.}
 
-\item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
+\item{source_description}{The path and name of the file to be saved.}
 
-\item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
+\item{table_description}{Further description of the \code{source_description} such as specifying the \code{range=arg}, \code{byrow}.}
 
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.}
+\item{keep_list}{Optional. Specify the list of `EViews` object to be saved.}
+
+\item{drop_list}{Optional. Specify the list of `EViews` object to be dropped.}
+
+\item{keepmap_list}{Optional. Specify the list of patterns of `EViews` object to be saved.}
+
+\item{dropmap_list}{Optional. Specify the list of patterns of `EViews` object to be dropped.}
+
+\item{smpl_spec}{Optional. Specify the `EViews` sample string}
 }
 \value{
-An EViews workfile
+An EViews workfile.
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function to save an `EViews` workfile page from R
 }
 \examples{
 library(EviewsR)

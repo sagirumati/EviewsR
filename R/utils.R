@@ -1,4 +1,6 @@
-#' @importFrom knitr include_graphics
+#' @import knitr
+#' @import magrittr
+
 kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
   if(opts_knit$get("rmarkdown.pandoc.to")=="latex") format="latex"
@@ -38,3 +40,4 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 }
 
 ev=new.env()
+

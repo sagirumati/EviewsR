@@ -7,17 +7,9 @@
 eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
 }
 \arguments{
-\item{wf_name}{Object or a character string representing the name of a workfile to be created}
+\item{wf}{Object or a character string representing the name of a workfile to be created}
 
-\item{page_name}{Object or a character string representing the name of a workfile page to be created}
-
-\item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
-
-\item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default `path`. Specify the `path` only if you want the workfile to live in different path from the current working directory.}
+\item{page}{Object or a character string representing the name of a workfile page to be created}
 }
 \value{
 An EViews workfile

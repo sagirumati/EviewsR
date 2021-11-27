@@ -8,7 +8,7 @@ Authors@R: c(
 Maintainer: Sagiru Mati <smati@smati.com.ng>
 Description: It allows running 'EViews'(<https://eviews.com>) program from R Markdown. 'EViews' (Econometric Views) is a statistical software for Econometric analysis.  This package serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'EViews' commands in R Markdown chunk.
 Depends: R (>= 3.2.3)
-Imports: knitr (>= 1.20), here
+Imports: knitr (>= 1.20), magrittr
 Suggests: rmarkdown
 SystemRequirements: EViews (>= 8)
 License: GPL

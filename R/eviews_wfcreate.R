@@ -29,8 +29,6 @@
 #' @keywords documentation
 #' @export
 eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){
-  # wf_path=ifelse(path=="",'%wf_path=""',paste0("%wf_path=",'"',gsub("/","\\\\",path),'\\"'))
-
 
   if(is.data.frame(source_description)){
 
