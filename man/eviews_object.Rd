@@ -4,10 +4,12 @@
 \alias{eviews_object}
 \title{Create an `EViews` object on a workfile from R}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+eviews_object(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list="")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+
+\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
 \item{action}{Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.}
 
@@ -30,7 +32,7 @@ Use this function to create an `EViews` object on a workfile from R
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_object(wf="EviewsR",action="equation",action_opt="",object_name="equ2",view_or_proc="ls",options_list="",arg_list="y ar(1)")
 }
 }
 \seealso{

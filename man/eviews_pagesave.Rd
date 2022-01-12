@@ -4,7 +4,8 @@
 \alias{eviews_pagesave}
 \title{Save an `EViews` workfile page from R}
 \usage{
-eviews_pagesave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
+eviews_pagesave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",
+dropmap_list="",smpl_spec="")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
@@ -36,7 +37,7 @@ Use this function to save an `EViews` workfile page from R
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_pagesave(wf="workfile",source_description = "EviewsR.csv",drop_list = "y")
 }
 }
 \seealso{

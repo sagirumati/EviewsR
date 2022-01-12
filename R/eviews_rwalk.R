@@ -2,14 +2,17 @@
 #'
 #' Use this function to simulate a random walk process using an `EViews` engine.
 #'
-#' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+#' @usage eviews_rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1)
 #' @inheritParams eviews_wfcreate
+#' @inheritParams eviews_import
+#' @param series Names of series for the random walk.
+#' @param rndseed Set the `seed` for `Eviews` random number generator.
 #' @param drift Numeric value as the drift term for random walk.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#' eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
 #'}
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
@@ -29,7 +32,8 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
   rndseed=paste0('!rndseed=',rndseed)
   drift=paste0("!drift=",drift)
 
-  series1=paste(series,collapse = "") %>%  gsub(" ","",.)
+  series1=paste(series,collapse = "")
+  series1=gsub(" ","",series1)
   series=paste0("%series=",shQuote(paste(series,collapse = " ")))
 
     eviews_code=r'(

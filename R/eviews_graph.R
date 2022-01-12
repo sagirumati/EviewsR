@@ -2,7 +2,9 @@
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
-#' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE)
+#' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
+#' save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+#' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
 #' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.
@@ -14,7 +16,6 @@
 #' @param save Logical, whether to save the `EViews` graphs on disk.
 #' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 #' @param graph_procs A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}
-#' @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 #' @param datelabel A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.
 #' @param save_path Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.
 #' @param merge_graphs Logical, whether to merge two or more graphs on one page. Setting \code{merge_graphs=FALSE} produces `EViews` graph for each series separately.
@@ -22,12 +23,12 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="WORKFILE",page_name="PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#' eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
 #'}
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png"),save_path="",file_name="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
 
     if(frequency!="" & start_date!=""){
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
@@ -80,7 +81,6 @@ datelabel=paste('{%y}.datelabel',datelabel)
     graph_command=paste0("%graph_command=",shQuote(graph_command))
     options=paste0("%options=",shQuote(options))
     mode=paste0("%mode=",shQuote(mode))
-    file_name=paste0("%file_name=",shQuote(file_name))
     save_path=gsub("/","\\\\",save_path)
     save_path1=save_path
     save_path=paste0("%save_path=",shQuote(save_path))
@@ -107,7 +107,6 @@ endif
 %z=@wlookup(%series,"series")
 %graph_command=@wreplace(%graph_command,"* ","*")
 %mode=@wreplace(%mode,"* ","*")
-%file_name=@wreplace(%file_name,"* ","*")
 %save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
@@ -165,7 +164,6 @@ endif
 %z=@wlookup(%series,"series")
 %graph_command=@wreplace(%graph_command,"* ","*")
 %mode=@wreplace(%mode,"* ","*")
-%file_name=@wreplace(%file_name,"* ","*")
 %save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
@@ -196,7 +194,7 @@ delete {%EviewsrGroup}
 exit)'
 }
 
-writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,file_name,save_path,save_options,eviews_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,graph_procs,save_code), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -241,3 +239,4 @@ if(save==F){
 # DELETE CSV and WORKFILES
 
 # eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",options = "m")
+# @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).

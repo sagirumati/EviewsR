@@ -1,11 +1,13 @@
 #' Import data to `EViews` workfile
 #'
-#' Use this function to Import data to `EViews` workfile from R
+#' Use this function to import data to `EViews` workfile from R
 #'
-#' @usage eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T,exit=TRUE)
+#' @usage eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
+#' start_date="",id="",destid="",append=TRUE,save_path="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
 #' @param type Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.
+#' @param save_path Specify the path to save the `Eviews` workfile
 #' @param options Optional.Specify the `EViews` \code{options} for \code{import} command like \code{resize}, \code{link}, \code{page=page_name}.
 #' @param source_description Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.
 #' @param smpl_string Optional. Specify the sample to be used for the data import.
@@ -13,13 +15,12 @@
 #' @param id Name of `EViews` ID series. Required for `EViews` \code{Match-Merge Import}.
 #' @param destid Name of the destination ID.  Required for `EViews` \code{Match-Merge Import}.
 #' @param append Logical, whether to append to the bottom of the `EViews` workfile page or not.
-#' @param exit Logical, whether to automatically exit `EViews` window or not.
 #' @param rename_string Optional. Pairs of old object names followed by the new name to be used to rename some of the imported series.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#' eviews_import(source_description = "eviewsr.csv",start_date = "1990",frequency = "m",rename_string = "x ab",smpl_string = "1990m10 1992m10")
 #'}
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation

@@ -2,33 +2,44 @@
 % Please edit documentation in R/import.R
 \name{import}
 \alias{import}
-\title{Create an \code{EViews} workfile from R}
+\title{Import \code{EViews} series to R as dataframe}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+import(object_name="",wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",
+dropmap_list="",smpl_spec="")
 }
 \arguments{
-\item{wf_name}{Object or a character string representing the name of a workfile to be created}
+\item{object_name}{Object name to be to store the imported \code{EViews} series.}
 
-\item{page_name}{Object or a character string representing the name of a workfile page to be created}
+\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
-\item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
+\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
+\item{options}{Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.}
 
-\item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
+\item{source_description}{The path and name of the file to be saved.}
 
-\item{path}{Object or a character string representing the path to the folder for the  workfile to be saved. The current working directory is the default \code{path}. Specify the \code{path} only if you want the workfile to live in different path from the current working directory.}
+\item{table_description}{Further description of the \code{source_description} such as specifying the \code{range=arg}, \code{byrow}.}
+
+\item{keep_list}{Optional. Specify the list of `EViews` object to be saved.}
+
+\item{drop_list}{Optional. Specify the list of `EViews` object to be dropped.}
+
+\item{keepmap_list}{Optional. Specify the list of patterns of `EViews` object to be saved.}
+
+\item{dropmap_list}{Optional. Specify the list of patterns of `EViews` object to be dropped.}
+
+\item{smpl_spec}{Optional. Specify the `EViews` sample string}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to create an \code{EViews} workfile from R
+Use this function to import \code{EViews} series to R as dataframe
 }
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+import(object_name="myDataFrame",wf="eviews/workfile",drop_list = "y")
 }
 }
 \seealso{

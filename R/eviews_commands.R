@@ -10,8 +10,14 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_commands(c("wfcreate(wf=page=eviews_workfile,page=eviews_page) m 1990 2021","genr y=rnd","y.line"))
-#' eviews_commands(c("genr y=rnd","y.line"),wf="EviewsR")
+#' eviews_commands(c("wfcreate(wf=EViews_Workfile,page=Page) m 1990 2021","genr y=rnd","y.line"))
+#' eviews_commands(c("genr y=rnd","y.line"),wf="EViews_Workfile")
+#' # The first example creates an `EViews` workfile with monthly frequency from 1990 2021,
+#' #
+#' # then generate a series of random numbers named y, and finally plot a linegraph of the y series.
+#'
+#' # The second example opens the `EViews` workfile and then generate a random series
+#' # and plot its line graph.
 #'}
 #' @seealso eng_eviews, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation

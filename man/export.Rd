@@ -2,9 +2,9 @@
 % Please edit documentation in R/export.R
 \name{export}
 \alias{export}
-\title{Save an `EViews` workfile wf from R}
+\title{Export R dataframe as an `EViews` workfile}
 \usage{
-eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
+export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
@@ -21,12 +21,13 @@ eviews_wfsave(wf="",page="",options="",source_description="",table_description="
 An EViews workfile.
 }
 \description{
-Use this function to save an `EViews` workfile  from R
+Use this function to export R dataframe as an `EViews` workfile
 }
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+export(source_description="x",wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",frequency="m",start_date="1990m1",
+end_date="2021m4",path="",save=T)
 }
 }
 \seealso{

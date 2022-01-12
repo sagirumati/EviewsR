@@ -4,14 +4,18 @@
 \alias{eviews_rwalk}
 \title{Simulate a random walk process using an `EViews` engine from R.}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+eviews_rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1)
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
+\item{series}{Names of series for the random walk.}
+
 \item{drift}{Numeric value as the drift term for random walk.}
+
+\item{rndseed}{Set the `seed` for `Eviews` random number generator.}
 
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
@@ -30,7 +34,7 @@ Use this function to simulate a random walk process using an `EViews` engine.
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
 }
 }
 \seealso{

@@ -2,9 +2,9 @@
 #'
 #' Use this function to create an `EViews` workfile from R
 #'
-#' @usage eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+#' @usage eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",
+#' num_cross_sections=NA,num_observations=NA,save_path="")
 #' @param wf Object or a character string representing the name of a workfile to be created
-#'
 #' @param page Object or a character string representing the name of a workfile page to be created
 #'
 #' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
@@ -43,7 +43,7 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency=
     #}
 
     csvFile=paste0(wf,".csv")
-    write.csv(series,csvFile,row.names = FALSE)
+    write.csv(source_description,csvFile,row.names = FALSE)
     eviews_import(wf=wf,source_description = csvFile,start_date = start_date,frequency = frequency,save_path = save_path1)
     on.exit(unlink(csvFile),add = T)
   }else{

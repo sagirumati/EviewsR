@@ -1,13 +1,13 @@
 ---
 title: "EviewsR Package created by Sagiru Mati"
-output: bookdown::word_document2
+output: bookdown::pdf_document2
 header-includes:
 - \usepackage{float}
 always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,comment = NULL)
+knitr::opts_chunk$set(echo = FALSE,comment = NULL)
 if(!require(EviewsR)) devtools::install_github('sagirumati/EviewsR')
 library(EviewsR)
 library(here)
@@ -165,7 +165,7 @@ Please visit my [Github](https://github.com/sagirumati/EviewsR/tree/master/examp
 Table \@ref(tab:ttt2) 
 
 ```{r}
-EviewsR::eviews_rwalk("Eviewsr",series = "x y z")
+EviewsR::eviews_rwalk(series = "x y z")
 ```
 
 

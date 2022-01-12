@@ -2,25 +2,124 @@
 % Please edit documentation in R/import_table.R
 \name{import_table}
 \alias{import_table}
-\title{Create an `EViews` workfile from R}
+\title{Import `EViews` table object as `kable`}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+import_table(wf="",page="",table_name="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
+caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t",
+position = "h", centering = TRUE, vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
+toprule = getOption("knitr.table.toprule",if (booktabs) "\\\\toprule" else "\\\\hline"),
+bottomrule = getOption("knitr.table.bottomrule",if (booktabs) "\\\\bottomrule" else "\\\\hline"),
+midrule = getOption("knitr.table.midrule",if (booktabs) "\\\\midrule" else "\\\\hline"),
+linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline", caption.short = "",
+table.envir = if (!is.null(caption)) "table",...)
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
+
+\item{table_name}{Name of an `EViews` table object in an `EViews` workfile}
+
+\item{format}{A character string. Possible values are \code{latex},
+\code{html}, \code{pipe} (Pandoc's pipe tables), \code{simple} (Pandoc's
+simple tables), and \code{rst}. The value of this argument will be
+automatically determined if the function is called within a \pkg{knitr}
+document. The \code{format} value can also be set in the global option
+\code{knitr.table.format}. If \code{format} is a function, it must return a
+character string.}
+
+\item{digits}{Maximum number of digits for numeric columns, passed to
+\code{round()}. This can also be a vector of length \code{ncol(x)}, to set
+the number of digits for individual columns.}
+
+\item{row.names}{Logical: whether to include row names. By default, row names
+are included if \code{rownames(x)} is neither \code{NULL} nor identical to
+\code{1:nrow(x)}.}
+
+\item{col.names}{A character vector of column names to be used in the table.}
+
+\item{align}{Column alignment: a character vector consisting of \code{'l'}
+(left), \code{'c'} (center) and/or \code{'r'} (right). By default or if
+\code{align = NULL}, numeric columns are right-aligned, and other columns
+are left-aligned. If \code{length(align) == 1L}, the string will be
+expanded to a vector of individual letters, e.g. \code{'clc'} becomes
+\code{c('c', 'l', 'c')}, unless the output format is LaTeX.}
+
+\item{caption}{The table caption.}
+
+\item{label}{The table reference label. By default, the label is obtained
+from \code{knitr::\link[knitr]{opts_current}$get('label')}. To disable the label,
+use \code{label = NA}.}
+
+\item{format.args}{A list of arguments to be passed to \code{\link{format}()}
+to format table values, e.g. \code{list(big.mark = ',')}.}
+
+\item{escape}{Boolean; whether to escape special characters when producing
+HTML or LaTeX tables. When \code{escape = FALSE}, you have to make sure
+that special characters will not trigger syntax errors in LaTeX or HTML.}
+
+\item{table.attr}{A character string for addition HTML table attributes.
+This is convenient if you simply want to add a few HTML classes or styles.
+For example, you can put 'class="table" style="color: red"'.}
+
+\item{booktabs}{T/F for whether to enable the booktabs format for tables. I
+personally would recommend you turn this on for every latex table except
+some special cases.}
+
+\item{longtable}{T/F for whether to use the longtable format. If you have a
+table that will span over two or more pages, you will have to turn this on.}
+
+\item{valign}{You probably won't need to adjust this latex option very often.
+If you are familar with latex tables, this is the optional position for the
+tabular environment controling the vertical position of the table relative
+to the baseline of the surrounding text. Possible choices are \code{b}, \code{c} and
+\code{t} (default).}
+
+\item{position}{This is the "real" or say floating position for the latex
+table environment. The \code{kable} only puts tables in a table environment when
+a caption is provided. That is also the reason why your tables will be
+floating around if you specify captions for your table. Possible choices are
+\code{h} (here), \code{t} (top, default), \code{b} (bottom) and \code{p} (on a dedicated page).}
+
+\item{centering}{T (default)/F. Whether to center tables in the table
+environment.}
+
+\item{vline}{vertical separator. Default is nothing for booktabs
+tables but "|" for normal tables.}
+
+\item{toprule}{toprule. Default is hline for normal table but toprule for
+booktabs tables.}
+
+\item{bottomrule}{bottomrule. Default is hline for normal table but
+bottomrule for booktabs tables.}
+
+\item{midrule}{midrule. Default is hline for normal table but midrule for
+booktabs tables.}
+
+\item{linesep}{By default, in booktabs tables, \code{kable} insert an extra space
+every five rows for clear display. If you don't want this feature or if you
+want to do it in a different pattern, you can consider change this option.
+The default is c('', '', '', '', '\\addlinespace'). Also, if you are not
+using booktabs, but you want a cleaner display, you can change this to ''.}
+
+\item{caption.short}{Another latex feature. Short captions for tables}
+
+\item{table.envir}{You probably don't need to change this as well. The
+default setting is to put a table environment outside of tabular if a
+caption is provided.}
+
+\item{...}{Other arguments (see Examples and References).}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function to import `EViews` table object as `kable`
 }
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+import_table(wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",table_name="EVIEWS_TABLE")
 }
 }
 \seealso{

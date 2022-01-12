@@ -4,7 +4,8 @@
 \alias{eviews_import}
 \title{Import data to `EViews` workfile}
 \usage{
-eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=T,exit=TRUE)
+eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
+start_date="",id="",destid="",append=TRUE,save_path="")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
@@ -31,20 +32,18 @@ eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr
 
 \item{append}{Logical, whether to append to the bottom of the `EViews` workfile page or not.}
 
-\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
-
-\item{exit}{Logical, whether to automatically exit `EViews` window or not.}
+\item{save_path}{Specify the path to save the `Eviews` workfile}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to Import data to `EViews` workfile from R
+Use this function to import data to `EViews` workfile from R
 }
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_import(source_description = "eviewsr.csv",start_date = "1990",frequency = "m",rename_string = "x ab",smpl_string = "1990m10 1992m10")
 }
 }
 \seealso{

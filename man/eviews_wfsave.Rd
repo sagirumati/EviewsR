@@ -2,9 +2,10 @@
 % Please edit documentation in R/eviews_wfsave.R
 \name{eviews_wfsave}
 \alias{eviews_wfsave}
-\title{Save an `EViews` workfile wf from R}
+\title{Save an `EViews` workfile from R}
 \usage{
-eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
+eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",
+dropmap_list="",smpl_spec="")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
@@ -36,7 +37,7 @@ Use this function to save an `EViews` workfile  from R
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
 }
 }
 \seealso{

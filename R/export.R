@@ -1,14 +1,16 @@
-#' Save an `EViews` workfile wf from R
+#' Export R dataframe as an `EViews` workfile
 #'
-#' Use this function to save an `EViews` workfile  from R
+#' Use this function to export R dataframe as an `EViews` workfile
 #'
-#' @usage eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="")
+#' @usage export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
 #' @inheritParams eviews_wfcreate
+#' @inheritParams eviews_pagesave
 #' @return An EViews workfile.
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#' export(source_description="x",wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",frequency="m",start_date="1990m1",
+#' end_date="2021m4",path="",save=T)
 #'}
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
 #' @keywords documentation
@@ -27,7 +29,7 @@ export=function(source_description="",wf="",start_date = "",frequency = "",save_
     #}
 
     csvFile=paste0(wf,".csv")
-    write.csv(series,csvFile,row.names = FALSE)
+    write.csv(source_description,csvFile,row.names = FALSE)
     eviews_import(wf=wf,source_description = csvFile,start_date = start_date,frequency = frequency,save_path = save_path1)
     on.exit(unlink(csvFile),add = T)
 

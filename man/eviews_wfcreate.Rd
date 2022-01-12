@@ -4,7 +4,8 @@
 \alias{eviews_wfcreate}
 \title{Create an `EViews` workfile from R}
 \usage{
-eviews_wfcreate(wf_name="",page_name="",frequency="",start_date="",end_date="",path="",save=T)
+eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",
+num_cross_sections=NA,num_observations=NA,save_path="")
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}

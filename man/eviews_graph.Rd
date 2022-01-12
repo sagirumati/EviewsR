@@ -4,7 +4,9 @@
 \alias{eviews_graph}
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
-eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE)
+eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
+save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+datelabel="",merge_graphs=FALSE)
 }
 \arguments{
 \item{series}{A vector of series names contained in an `EViews` workfile, or an R dataframe.}
@@ -34,8 +36,6 @@ eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",optio
 \item{datelabel}{A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.}
 
 \item{merge_graphs}{Logical, whether to merge two or more graphs on one page. Setting \code{merge_graphs=FALSE} produces `EViews` graph for each series separately.}
-
-\item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 }
 \value{
 An EViews workfile
@@ -46,7 +46,7 @@ Use this function to create an `EViews` graph in R and R Markdown
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_wfcreate(wf_name="WORKFILE",page_name="PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
 }
 }
 \seealso{

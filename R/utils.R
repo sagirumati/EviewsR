@@ -1,5 +1,6 @@
 #' @import knitr
-#' @import magrittr
+#' @importFrom utils write.csv read.csv
+
 
 kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
