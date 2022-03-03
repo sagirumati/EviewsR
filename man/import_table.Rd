@@ -4,7 +4,7 @@
 \alias{import_table}
 \title{Import `EViews` table object as `kable`}
 \usage{
-import_table(wf="",page="",table_name="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
+import_table(wf="",page="",table_name="",table_range="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
 caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t",
 position = "h", centering = TRUE, vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
 toprule = getOption("knitr.table.toprule",if (booktabs) "\\\\toprule" else "\\\\hline"),

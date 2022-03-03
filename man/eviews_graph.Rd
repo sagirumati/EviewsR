@@ -46,7 +46,9 @@ Use this function to create an `EViews` graph in R and R Markdown
 \examples{
 library(EviewsR)
 \dontrun{
+eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
 eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
+unlink("workfile.wf1")
 }
 }
 \seealso{
