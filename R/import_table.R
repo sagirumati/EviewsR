@@ -48,8 +48,10 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   endif
 
   if %table_range<>"" then
-  %table_range="t=csv,"+%table_range
-  {%table_name}.save({%table_range}) {%table_name})'
+  %table_range=","+%table_range
+  endif
+
+  {%table_name}.save(t=csv{%table_range}) {%table_name})'
 
   writeLines(c(eviews_path(),wf,page,table_name,table_range,eviews_code,"exit"),fileName)
 
