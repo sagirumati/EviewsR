@@ -48,7 +48,7 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   endif
 
   if %table_range<>"" then
-  %table_range=","+%table_range
+  %table_range=",r="+%table_range
   endif
 
   {%table_name}.save(t=csv{%table_range}) {%table_name})'
