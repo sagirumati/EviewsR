@@ -37,7 +37,7 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
   table_name.csv=paste0(table_name,".csv")
-  table_range='%table_range=',shQuote(table_range)
+  table_range=paste0('%table_range=',shQuote(table_range))
   table_name=paste0('%table_name=',shQuote(table_name))
 
 
