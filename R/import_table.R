@@ -2,7 +2,7 @@
 #'
 #' Use this function to import `EViews` table object as `kable`
 #'
-#' @usage import_table(wf="",page="",table_name="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
+#' @usage import_table(wf="",page="",table_name="",table_range="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
 #' caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t",
 #' position = "h", centering = TRUE, vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
 #' toprule = getOption("knitr.table.toprule",if (booktabs) "\\\\toprule" else "\\\\hline"),
@@ -23,7 +23,7 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import
 #' @keywords documentation
 #' @export
-import_table=function(wf="",page="",table_name="",format=kable_format(), digits = getOption("digits"), row.names = NA,
+import_table=function(wf="",page="",table_name="",table_range="",format=kable_format(), digits = getOption("digits"), row.names = NA,
                       col.names = NA, align, caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t", position = "h", centering = TRUE, vline = getOption("knitr.table.vline",
                      if (booktabs) "" else "|"), toprule = getOption("knitr.table.toprule",
                      if (booktabs) "\\toprule" else "\\hline"), bottomrule = getOption("knitr.table.bottomrule",
@@ -37,6 +37,7 @@ import_table=function(wf="",page="",table_name="",format=kable_format(), digits 
   wf=paste0('%wf=',shQuote(wf))
   page=paste0('%page=',shQuote(page))
   table_name.csv=paste0(table_name,".csv")
+  table_range='%table_range=',shQuote(table_range)
   table_name=paste0('%table_name=',shQuote(table_name))
 
 
@@ -46,9 +47,11 @@ import_table=function(wf="",page="",table_name="",format=kable_format(), digits 
   pageselect {%page}
   endif
 
-  {%table_name}.save(t=csv) {%table_name})'
+  if %table_range<>"" then
+  %table_range="t=csv,"+%table_range
+  {%table_name}.save({%table_range}) {%table_name})'
 
-  writeLines(c(eviews_path(),wf,page,table_name,eviews_code,"exit"),fileName)
+  writeLines(c(eviews_path(),wf,page,table_name,table_range,eviews_code,"exit"),fileName)
 
   system_exec()
   #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))
