@@ -10,14 +10,15 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_commands(c("wfcreate(wf=EViews_Workfile,page=Page) m 1990 2021","genr y=rnd","y.line"))
-#' eviews_commands(c("genr y=rnd","y.line"),wf="EViews_Workfile")
+#' eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
+#' eviews_commands(c("genr y=rnd","y.line"),wf="Workfile")
+#' unlink("workfile.wf1")
 #' # The first example creates an `EViews` workfile with monthly frequency from 1990 2021,
-#' #
-#' # then generate a series of random numbers named y, and finally plot a linegraph of the y series.
+#' # then save the workfile in the current working directory
 #'
 #' # The second example opens the `EViews` workfile and then generate a random series
-#' # and plot its line graph.
+#' # named `y` and plot its line graph.
+#' # The third line deletes the workfile from your directory.
 #'}
 #' @seealso eng_eviews, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation

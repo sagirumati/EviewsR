@@ -1,5 +1,5 @@
 ---
-title: "EviewsR: Eviews Knit-Engine"
+title: "EviewsR: Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

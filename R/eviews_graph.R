@@ -23,7 +23,9 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
+#' eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
 #' eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
+#' unlink("workfile.wf1")
 #'}
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
