@@ -209,7 +209,7 @@ on.exit(unlink(paste0(wf1,".wf1"),force = T),add = T)
 if(merge_graphs==TRUE){
   series1=paste(series1,collapse = "")
   eviews_graphics=list.files(pattern=paste0(series1,'_graph_eviewsr'),ignore.case = T)
-  return(include_graphics(eviews_graphics))
+output=  include_graphics(eviews_graphics)
 }
 
 
@@ -217,7 +217,7 @@ if(merge_graphs!=TRUE){
 
   for (i in series1){
     eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
-   include_graphics(eviews_graphics)
+    output=  include_graphics(eviews_graphics)
 }
 }
 
@@ -236,7 +236,7 @@ if(save==F){
     unlink(eviews_graphics)
   }
 }
-
+return(output)
 }
 
 
