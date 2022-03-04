@@ -200,8 +200,11 @@ writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mod
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
+
+if(frequency!="" & start_date!=""){
 on.exit(unlink(csvFile,force = T),add = T)
 on.exit(unlink(paste0(wf1,".wf1"),force = T),add = T)
+}
 
 if(merge_graphs==TRUE){
   series1=paste(series1,collapse = "")
