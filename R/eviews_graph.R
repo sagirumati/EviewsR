@@ -236,7 +236,12 @@ if(save==F){
     unlink(eviews_graphics)
   }
 }
-return(output)
+
+for (i in series1){
+  eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
+ include_graphics(eviews_graphics)
+}
+
 }
 
 
