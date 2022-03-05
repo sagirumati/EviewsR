@@ -1,20 +1,33 @@
 ---
-title: "EviewsR: Seamless Integration of Eviews and R"
-author: "Sagiru Mati"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{EviewsR: Seamless Integration of Eviews and R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: 'sdkdkd  '
+author: "Sagiru Mati^1^, Irfan Civcir^2^*, Hüseyin Özdeşer^3^"
+output:
+ bookdown::word_document2:
+    latex_engine: xelatex
+    keep_tex: true
+    df_print: kable
+    toc: FALSE
+    #includes:
+      #in_header: PAPER_3_ECOWAS_MIRAGE_preamble.tex
+    number_sections: yes
+linkcolor: blue
+link-citations: yes
+#bibliography: REFERENCES/MASTER_REFERENCES.bib
+#csl: CSL/apa.csl
+urlcolor: blue
+citecolor: green
+font_size: 12pt
+fig_caption: yes
+pdf_crop: true
+geometry: "a4paper,top=2.5cm,bottom=2.5cm,left=3.5cm,right=2.5cm"
+subparagraph: yes   #to be able to use titlesec package
+documentclass: article
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+
 library(EviewsR)
+library(knitr)
 ```
 
 
@@ -147,18 +160,29 @@ knitr::kable(olsTable,format = "html")
 
 
 
-```{r eviewsGraph, eval=T,fig.cap="some figure"}
-eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs=T,save=F)
+```{r eviewsGraph, eval=T,fig.cap=c("some figure"),out.height="\\textwidth",out.width="\\textwidth"}
+
+par(mfrow=c(2,2))
+
+y=runif(100)
+x=runif(100)
+plot(x)
+uu=data.frame(x,y)
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series=uu,mode = "overwrite",options = "m",merge_graphs=F,start_date="1",frequency="u",save=T,save_path = '')
 #eviews_graphics=list.files(pattern=paste0("x",'_graph_eviewsr'),ignore.case = T)
 #knitr::include_graphics(paste(eviews_graphics))
+
+# include_graphics("x_graph_eviewsr.png")
+# include_graphics("y_graph_eviewsr.png")
 cat(getwd())
 ```
 
 
-```{r graphfunction}
+```{r graphfunction,out.height="\\textwidth",out.width="\\textwidth"}
 
- # graphf(xx=TRUE)
-
+    # graphf()
+k='y_graph_eviewsr.png'
+# include_graphics(k)
 ```
 <br><br><br><br>
 

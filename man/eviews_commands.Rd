@@ -22,7 +22,7 @@ Use this function to execute `EViews` commands from R
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
+eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 2000 2022","save workfile","exit"))
 eviews_commands(c("genr y=rnd","y.line"),wf="Workfile")
 unlink("workfile.wf1")
 # The first example creates an `EViews` workfile with monthly frequency from 1990 2021,

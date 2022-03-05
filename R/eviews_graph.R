@@ -32,7 +32,10 @@
 #' @export
 eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
 
-    if(frequency!="" & start_date!=""){
+  eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
+  file.remove(eviews_graphics)
+
+if(frequency!="" & start_date!=""){
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     wf=basename(tempfile("EViewsR"))
     wf1=wf
@@ -41,15 +44,16 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
         write.csv(series,csvFile,row.names = F)
         eviews_import(source_description = csvFile,frequency = frequency,start_date = start_date)
 
-  series = names(series);wf=wf
+  series = names(series);page=wf
 }
 
   if(is.data.frame(series)) series1=names(series) else series1=series
 
-  save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
 
-  # Append "dpi=300" if "dpi" is not defined in "save_options"
-  if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("dpi",save_options, ignore.case = T))==0) save_options=append(save_options,"dpi=300")
+# Append "dpi=300" if "dpi" is not defined in "save_options"
+
+    save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
+    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("dpi",save_options, ignore.case = T))==0) save_options=append(save_options,"dpi=300")
 
   #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 
@@ -206,43 +210,22 @@ on.exit(unlink(csvFile,force = T),add = T)
 on.exit(unlink(paste0(wf1,".wf1"),force = T),add = T)
 }
 
-if(merge_graphs==TRUE){
-  series1=paste(series1,collapse = "")
-  eviews_graphics=list.files(pattern=paste0(series1,'_graph_eviewsr'),ignore.case = T)
-output=  include_graphics(eviews_graphics)
+eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
+
+    if(save==T & save_path1!=""){
+      if(!dir.exists(save_path1)) dir.create(save_path1,recursive = TRUE)
+      eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
+      file.copy(eviews_graphics,save_path1,overwrite = T)
+       on.exit(unlink(eviews_graphics,force = T),add = T)
+    }
+
+    if(save==F){
+      eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
+      on.exit(unlink(eviews_graphics,force = T),add=T)
+    }
+include_graphics(eviews_graphics)
 }
 
-
-if(merge_graphs!=TRUE){
-
-  for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
-    output=  include_graphics(eviews_graphics)
-}
-}
-
-  if(save==T & save_path1!=""){
-    if(!dir.exists(save_path1)) dir.create(save_path1,recursive = TRUE)
-        for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
-    file.copy(eviews_graphics,save_path1,overwrite = T)
-  unlink(eviews_graphics)
-  }
-}
-
-if(save==F){
-          for (i in series1){
-    eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
-    unlink(eviews_graphics)
-  }
-}
-
-for (i in series1){
-  eviews_graphics=list.files(pattern=paste0(i,'_graph_eviewsr'),ignore.case = T)
- include_graphics(eviews_graphics)
-}
-
-}
 
 
 
