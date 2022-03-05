@@ -3,7 +3,7 @@
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
 #' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
-#' save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+#' save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 #' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
@@ -13,7 +13,6 @@
 #' @param graph_command Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.
 #' @param options Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.
 #' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
-#' @param save Logical, whether to save the `EViews` graphs on disk.
 #' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 #' @param graph_procs A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}
 #' @param datelabel A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.
@@ -30,10 +29,8 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
 
-  eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
-  file.remove(eviews_graphics)
 
   if(is.data.frame(series)) {
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
@@ -94,12 +91,20 @@ datelabel=paste('{%y}.datelabel',datelabel)
     graph_command=paste0("%graph_command=",shQuote(graph_command))
     options=paste0("%options=",shQuote(options))
     mode=paste0("%mode=",shQuote(mode))
+
     save_path=gsub("/","\\\\",save_path)
-    save_path1=save_path
+    if (save_path=="") save_path=paste("EViewsR_files")
+    if(save_path!="") if(!dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
+
+     save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote(save_path))
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote(save_options))
+
+
+    eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
+    file.remove(paste0(save_path1,eviews_graphics))
 
 
 eviews_code=r'(close @wf
@@ -172,25 +177,15 @@ if (merge_graphs==TRUE){
       exit)'
       }
 
-writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freezeze_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
 
-eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
+eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
 
-    if(save==T & save_path1!=""){
-      if(!dir.exists(save_path1)) dir.create(save_path1,recursive = TRUE)
-      eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
-      file.copy(eviews_graphics,save_path1,overwrite = T)
-       on.exit(unlink(eviews_graphics,force = T),add = T)
-    }
-
-    if(save==F){
-      eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
-      on.exit(unlink(eviews_graphics,force = T),add=T)
-    }
+eviews_graphics=paste0(save_path1,eviews_graphics)
 include_graphics(eviews_graphics)
 }
 
