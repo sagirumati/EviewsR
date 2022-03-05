@@ -35,19 +35,22 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
   eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
   file.remove(eviews_graphics)
 
-if(frequency!="" & start_date!=""){
+  if(is.data.frame(series)) {
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
+    stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
+
     wf=basename(tempfile("EViewsR"))
     wf1=wf
-
+    page=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
         eviews_import(source_description = csvFile,frequency = frequency,start_date = start_date)
 
-  series = names(series);page=wf
+        series = names(series)
+
+        on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
 }
 
-  if(is.data.frame(series)) series1=names(series) else series1=series
 
 
 # Append "dpi=300" if "dpi" is not defined in "save_options"
@@ -205,10 +208,6 @@ writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mod
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
-if(frequency!="" & start_date!=""){
-on.exit(unlink(csvFile,force = T),add = T)
-on.exit(unlink(paste0(wf1,".wf1"),force = T),add = T)
-}
 
 eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),ignore.case = T)
 
