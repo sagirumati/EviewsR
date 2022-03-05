@@ -49,6 +49,7 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
         series = names(series)
 
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
+        # on.exit(unlink(),force = T),add = T)
 }
 
 
@@ -72,6 +73,9 @@ datelabel <- '%freq=@pagefreq
   endif
   if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
   {%y}.datelabel format("Mon YYYY")
+  endif
+if %freq="a" or %freq="A" then
+  {%y}.datelabel format("YYYY")
   endif'
 }else{
 datelabel=paste('{%y}.datelabel',datelabel)
@@ -97,113 +101,78 @@ datelabel=paste('{%y}.datelabel',datelabel)
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote(save_options))
 
+
+eviews_code=r'(close @wf
+
+if %wf<>"" then
+wfopen {%wf}
+endif
+
+if %page<>"" then
+pageselect {%page}
+endif
+
+if %mode<>"" then
+%mode="mode="+%mode+","
+endif
+
+
+%z=@wlookup(%series,"series")
+%graph_command=@wreplace(%graph_command,"* ","*")
+%mode=@wreplace(%mode,"* ","*")
+%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\")
+
+
+if %save_path<>"" then
+%save_path=%save_path+"\"
+endif
+
+%save_options=@wreplace(%save_options,"* ","*")
+
+if %save_options<>"" then
+%save_options="("+%save_options+")"
+endif
+
+if %options<>"" then
+%options="("+%options+")"
+endif)'
+
+
+
 if (merge_graphs!=T){
-eviews_code=r'(close @wf
 
-if %wf<>"" then
-wfopen {%wf}
-endif
+  freeze_code=r'(group {%EviewsRGroup} {%z}
+  !n={%EviewsRGroup}.@count
 
-if %page<>"" then
-pageselect {%page}
-endif
-
-if %mode<>"" then
-%mode="mode="+%mode+","
-endif
+  for !k=1 to {!n}
+  %x{!k}={%EviewsRGroup}.@seriesname({!k})
 
 
-%z=@wlookup(%series,"series")
-%graph_command=@wreplace(%graph_command,"* ","*")
-%mode=@wreplace(%mode,"* ","*")
-%save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
+  freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}
+  next)'
 
 
-if %save_path<>"" then
-%save_path=%save_path+"\"
-endif
-
-%save_options=@wreplace(%save_options,"* ","*")
-
-if %save_options<>"" then
-%save_options="("+%save_options+")"
-endif
-
-if %options<>"" then
-%options="("+%options+")"
-endif
-
-
-group {%EviewsRGroup} {%z}
-!n={%EviewsRGroup}.@count
-
-for !k=1 to {!n}
-%x{!k}={%EviewsRGroup}.@seriesname({!k})
-
-
-freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}
-next)'
-
-
-save_code=r'(for !k=1 to {!n}
-{%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%x{!k}}_graph_EviewsR
-next
-delete {%EviewsrGroup}
-exit)'
+  save_code=r'(for !k=1 to {!n}
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%x{!k}}_graph_EviewsR
+  next
+  delete {%EviewsrGroup}
+  exit)'
 }
 
-    if (merge_graphs==TRUE){
+if (merge_graphs==TRUE){
 
-eviews_code=r'(close @wf
+      freeze_code=r'(group {%EviewsRGroup} {%z}
 
-if %wf<>"" then
-wfopen {%wf}
-endif
+      %seriesNames=@replace(%z," ","")
+      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
-if %page<>"" then
-pageselect {%page}
-endif
+      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}_graph_EviewsR
+      delete {%EviewsrGroup}
+      exit)'
+      }
 
-if %mode<>"" then
-%mode="mode="+%mode+","
-endif
-
-
-%z=@wlookup(%series,"series")
-%graph_command=@wreplace(%graph_command,"* ","*")
-%mode=@wreplace(%mode,"* ","*")
-%save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
-
-
-if %save_path<>"" then
-%save_path=%save_path+"\"
-endif
-
-%save_options=@wreplace(%save_options,"* ","*")
-
-if %save_options<>"" then
-%save_options="("+%save_options+")"
-endif
-
-if %options<>"" then
-%options="("+%options+")"
-endif
-
-
-group {%EviewsRGroup} {%z}
-!n={%EviewsRGroup}.@count
-
-%seriesNames=@replace(%z," ","")
-freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
-
-save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}_graph_EviewsR
-delete {%EviewsrGroup}
-exit)'
-}
-
-writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freezeze_code,graph_procs,save_code), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
