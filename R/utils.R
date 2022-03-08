@@ -38,7 +38,16 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 .onLoad<-function(libname,pkgname){
   knitr::knit_engines$set(eviews=eng_eviews)
-}
+  }
 
-ev=new.env()
+# trim whitespace for handling of special commands
+# trimmed <- gsub("^\\s*|\\s*$", "", contents)
+
+# is_blank
+# function (x)
+# {
+#   all(grepl("^\\s*$", x))
+# }
+
+
 

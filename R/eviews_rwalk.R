@@ -18,7 +18,6 @@
 #' @keywords documentation
 #' @export
 eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1){
-
   fileName=tempfile("EviewsR", ".", ".prg")
 
   if(wf=="") {
@@ -99,11 +98,15 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
     on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
-    on.exit(unlink(wf1),add = TRUE)
-
+    # on.exit(unlink(wf1),add = TRUE)
+    # ev<<-knit_global()
     # if(options$label!="") series1=options$label else series1=series1
-    assign(series1,read.csv("randomwalk_group.csv"),envir = ev)
+# if(!exists("EviewsR") || (exists("EviewsR") | !is.environment(EviewsR))) EviewsR<<-new.env()
+    if(!exists("EviewsR") || !is.environment(EviewsR)) EviewsR<<-new.env()
+    assign(series1,read.csv("randomwalk_group.csv"),envir = EviewsR)
 
+    # get(series1,envir = ev)
+# ev[[series1]]=read.csv("randomwalk_group.csv")
 
 }
 
