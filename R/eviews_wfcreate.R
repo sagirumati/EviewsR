@@ -30,17 +30,17 @@
 #' @export
 eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){
 
-  if(is.data.frame(source_description)){
+  save_path=gsub("/","\\\\",save_path)
+  save_path1=save_path
+  save_path=paste0("%save_path=",shQuote(save_path))
 
-    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")
+   if(save_path1!=""){
+     if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
+  }
 
-    save_path=gsub("/","\\\\",save_path)
-    save_path1=save_path
-    save_path=paste0("%save_path=",shQuote(save_path))
+if(is.data.frame(source_description)){
 
-    # if(save_path1!=""){
-    #   if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-    #}
+    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_Workfile")
 
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
@@ -50,25 +50,23 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency=
 
   fileName=tempfile("EVIEWS", ".", ".prg")
 
-  #   wf=paste0('%wf=',shQuote(wf))
-  # page=paste0("%page=",shQuote(page))
-  # prompt=paste0("%prompt=",shQuote(prompt))
-if(wf!="") wf=paste0("wf=",wf)
-if(page!="") page=paste0("page=",wf)
+if(wf=="") wf=basename(gsub(".prg","",fileName))
+if(page=="") page=wf
 if(prompt==T) prompt="prompt"
-  options=paste(wf,page,prompt,collapse = ",")
+
+wf=paste0("wf=",wf)
+page=paste0("page=",page)
+
+  options=paste(wf,page,prompt,sep = ",")
   options=paste0("%options=",shQuote(options))
 
   frequency=paste0("%frequency=",shQuote(frequency))
   subperiod_opts=paste0("%subperiod_opts=",shQuote(subperiod_opts))
   start_date=paste0("%start_date=",shQuote(start_date))
   end_date=paste0("%end_date=",shQuote(end_date))
-  # save=paste0("%save=",shQuote(save))
-  save_path=gsub("/","\\\\",save_path)
-  save_path1=save_path
-  save_path=paste0("%save_path=",shQuote(save_path))
   num_cross_sections=paste0("!num_cross_sections=",num_cross_sections)
   num_observations=paste0("!num_observations=",num_observations)
+
 
   eviews_code=r'('%wf=@wreplace(%wf,"* ","*")
   '%page=@wreplace(%page,"* ","*")
@@ -104,9 +102,6 @@ if(prompt==T) prompt="prompt"
 
 writeLines(c(eviews_path(),options,save_path,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,eviews_code),fileName)
 
-  if(save_path1!=""){
-    if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-  }
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)

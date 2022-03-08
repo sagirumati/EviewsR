@@ -21,8 +21,8 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
   fileName=tempfile("EviewsR", ".", ".prg")
 
   if(wf=="") {
-   wf=basename(gsub(".prg","",fileName));page <- wf
-     # eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
+   wf=basename(gsub(".prg","",fileName));if(page=="") page=wf
+     eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
   }
 
   wf1=paste0(wf,".wf1")
@@ -103,12 +103,9 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
     # on.exit(unlink(wf1),add = TRUE)
     # ev<<-knit_global()
     # if(options$label!="") series1=options$label else series1=series1
-# if(!exists("EviewsR") || (exists("EviewsR") | !is.environment(EviewsR))) EviewsR<<-new.env()
     if(!exists("EviewsR") || !is.environment(EviewsR)) EviewsR<<-new.env()
     assign(series1,read.csv("randomwalk_group.csv"),envir = EviewsR)
 
-    # get(series1,envir = ev)
-# ev[[series1]]=read.csv("randomwalk_group.csv")
 
 }
 
