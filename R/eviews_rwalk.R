@@ -17,12 +17,12 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1){
+eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
   if(wf=="") {
-   wf=basename(gsub(".prg","",fileName))
-     eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
+   wf=basename(gsub(".prg","",fileName));page <- wf
+     # eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
   }
 
   wf1=paste0(wf,".wf1")
@@ -30,6 +30,8 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
   page=paste0('%page=',shQuote(page))
   rndseed=paste0('!rndseed=',rndseed)
   drift=paste0("!drift=",drift)
+  num_observations=paste0("!num_observations=",num_observations)
+  num_cross_sections=paste0("!num_cross_sections=",num_cross_sections)
 
   series1=paste(series,collapse = "")
   series1=gsub(" ","",series1)

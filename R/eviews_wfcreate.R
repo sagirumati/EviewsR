@@ -86,6 +86,11 @@ if(prompt==T) prompt="prompt"
   wfcreate({%options}) {%frequency}{%subperiod_opts} {%start_date} {%end_date} {!num_cross_sections}
   endif
 
+  if !num_cross_sections=NA then
+  !num_cross_sections=1
+  endif
+
+
   %wf=@wfname
 
   if %save_path<>"" then
