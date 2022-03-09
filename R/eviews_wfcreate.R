@@ -30,6 +30,12 @@
 #' @export
 eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){
 
+  if(toupper(frequency)=="U" & is.na(num_observations)) stop("If 'frequency=\"u\"' (undated workfile),'num_observations' cannot be NA or blank")
+  if(toupper(frequency)!="U" & (start_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile),'start_date' and 'num_observations' cannot be blank or NA")
+  if(toupper(frequency)!="U" & (start_date!="" & end_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile) and 'start_date' is not blank, then 'end_date' or 'num_observations' cannot be blank or NA")
+
+  if(start_date!="" && !is.na(num_observations) && end_date=="") end_date=paste0('+',num_observations)
+
   save_path=gsub("/","\\\\",save_path)
   save_path1=save_path
   save_path=paste0("%save_path=",shQuote(save_path))
