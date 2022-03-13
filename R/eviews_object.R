@@ -62,6 +62,9 @@ eviews_object=function(wf="",page="",action="",action_opt="",object_name="",view
   endif
 
   {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
+
+  wfsave {%wf}
+  exit
   )'
 writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,eviews_code),fileName)
 

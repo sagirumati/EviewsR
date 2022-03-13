@@ -5,7 +5,7 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
-save=FALSE,save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 datelabel="",merge_graphs=FALSE)
 }
 \arguments{
@@ -24,8 +24,6 @@ datelabel="",merge_graphs=FALSE)
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
 \item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{save}{Logical, whether to save the `EViews` graphs on disk.}
 
 \item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
 

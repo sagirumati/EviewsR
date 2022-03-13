@@ -40,6 +40,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   }
 
+ # eview=emptyenv()
+ # globalVariables("eviews")
+
 # trim whitespace for handling of special commands
 # trimmed <- gsub("^\\s*|\\s*$", "", contents)
 

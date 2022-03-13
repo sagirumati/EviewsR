@@ -104,7 +104,7 @@ datelabel=paste('{%y}.datelabel',datelabel)
 
 
     eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
-    file.remove(paste0(save_path1,eviews_graphics))
+    # file.remove(paste0(save_path1,eviews_graphics))
 
 
 eviews_code=r'(close @wf

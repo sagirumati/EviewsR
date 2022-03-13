@@ -85,19 +85,19 @@ eviews_import=function(wf="",type="",options="",source_description="",smpl_strin
 
   if %id<>"" or %destid<>"" then
   %import_type="match-merged"
-  open {%wf}
+  'open {%wf}
   %import_specification="@id "+%id+" @destid"+" "+%destid
   endif
 
   if (%append="T" or %append="TRUE") and %id="" and %destid="" and %frequency="" and %start_date="" then
   %import_type="appended"
-  open {%wf}
+  'open {%wf}
     %import_specification="@append"
   endif
 
   if %id="" and %destid="" and %import_specification=""  then
   %import_type="sequential"
-  open {%wf}
+  'open {%wf}
   %import_specification=""
   endif
 
@@ -108,7 +108,7 @@ eviews_import=function(wf="",type="",options="",source_description="",smpl_strin
 
   %optional_arguments=%smpl_string+" "+%genr_string+" "+%rename_string
   if %import_type="appended" then
-  open {%wf}
+  'open {%wf}
   %optional_arguments=%genr_string+" "+%rename_string 'APPENDED syntax does not contain @SMPL_STRING
   endif
   'GENERAL

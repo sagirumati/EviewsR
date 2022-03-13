@@ -20,6 +20,8 @@ table.envir = if (!is.null(caption)) "table",...)
 
 \item{table_name}{Name of an `EViews` table object in an `EViews` workfile}
 
+\item{table_range}{A vector of characters specifying the table range of rows and columns}
+
 \item{format}{A character string. Possible values are \code{latex},
 \code{html}, \code{pipe} (Pandoc's pipe tables), \code{simple} (Pandoc's
 simple tables), and \code{rst}. The value of this argument will be

@@ -2,7 +2,7 @@
 #'
 #' Use this function to simulate a random walk process using an `EViews` engine.
 #'
-#' @usage eviews_rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_observations=1)
+#' @usage rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_import
 #' @param series Names of series for the random walk.
@@ -12,21 +12,24 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
+#' rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){
+rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
+  if(wf=="") save="" else save="save"
   if(wf=="") {
    wf=basename(gsub(".prg","",fileName));if(page=="") page=wf
      eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
-  }
+  on.exit(unlink(paste0(wf,".wf1")))
+    }
 
   wf1=paste0(wf,".wf1")
   wf=paste0('%wf=',shQuote(wf))
+  save=paste0('%save=',shQuote(save))
   page=paste0('%page=',shQuote(page))
   rndseed=paste0('!rndseed=',rndseed)
   drift=paste0("!drift=",drift)
@@ -94,20 +97,23 @@ eviews_rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",
     pagesave randomwalk_group.csv @keep randomwalk_group
     endif
 
+    if %save="save" then
+    wfsave {%wf}
+    endif
+
     exit)'
 
-  writeLines(c(eviews_path(),wf,page,rndseed,drift,series,eviews_code),fileName)
+  writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviews_code),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
     on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
     # on.exit(unlink(wf1),add = TRUE)
     # ev<<-knit_global()
     # if(options$label!="") series1=options$label else series1=series1
-    if(!exists("EviewsR") || !is.environment(EviewsR)) EviewsR<<-new.env()
-    assign(series1,read.csv("randomwalk_group.csv"),envir = EviewsR)
-
+    if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+    assign(series1,read.csv("randomwalk_group.csv"),envir = eviews)
 
 }
 
 
-# eviews_rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
+# rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
