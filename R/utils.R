@@ -19,6 +19,7 @@ eviews_path=function(){
 system_exec=function(){
 path=getwd()
 fileName=eval(expression(fileName),envir = parent.frame()) # Dynamic scoping
+# if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 }
 

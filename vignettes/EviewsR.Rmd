@@ -25,7 +25,7 @@ Please follow his publications with his **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
-EviewsR is an R package that can run Eviews program from R Markdown.
+EviewsR is an R package that can run Eviews program from R. It also adds `eviews` as knit-engine to `knitr` package.
 
 # Installation
 
@@ -131,7 +131,7 @@ exec_commands(c('%path=@runpath','cd %path',
 A set of random walk series can simulated in R using EViews engine, thanks to `rwalk` function.
 
 ```{r rwalk,eval=T}
-rwalk(wf="eviewsr_workfile",series="H J K",page="",rndseed=12345,frequency="M",num_observations=100)
+rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
 
  # eviews_graph(EviewsR$XYZ,frequency="m",start_date="1990",merge_graphs = T)
 ```
@@ -174,12 +174,17 @@ eviews_pagesave(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv
 
 # Importing data to EViews
 
-Data can be imported from external sources by `eviews_import` function
+Data can be imported from external sources by `eviews_import` function.
 
 ```{r eviewsImport}
-eviews_import(source_description = "EviewsR_pagesave.csv")
+eviews_import(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv")
 
 ```
+
+
+# Import data from EViews
+
+Use `import` function to import data from Eviews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
 
 ```{r import}
 
@@ -187,14 +192,20 @@ import(object_name = "import",wf="eviewsr_workfile",keep_list = c("x","y"))
 plot(eviews$import$y,type="l")
 ```
 
+# Exporting dataframe to EViews
+
+Use `export` function to export dataframe object to Eviews.
+
 ```{r export}
-export(wf="eviewr_workfile1",source_description=eviews$import,start_date = '1990',frequency = "m")
+export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',frequency = "m")
 
 ```
 
 <br><br><br><br>
 
-or the entire OLS output:
+# EViews graph
+
+EViews graph can be included in R Markdown by `eviews_graph` function. 
 
 ```{r eviewsGraph, eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
 

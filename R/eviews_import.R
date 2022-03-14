@@ -3,7 +3,7 @@
 #' Use this function to import data to `EViews` workfile from R
 #'
 #' @usage eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
-#' start_date="",id="",destid="",append=TRUE,save_path="")
+#' start_date="",id="",destid="",append=FALSE,save_path="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
 #' @param type Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.
@@ -25,7 +25,7 @@
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_import=function(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=TRUE,save_path=""){
+eviews_import=function(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
 
   if(is.data.frame(source_description)){
     if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")
@@ -91,7 +91,7 @@ eviews_import=function(wf="",type="",options="",source_description="",smpl_strin
 
   if (%append="T" or %append="TRUE") and %id="" and %destid="" and %frequency="" and %start_date="" then
   %import_type="appended"
-  'open {%wf}
+  open {%wf}
     %import_specification="@append"
   endif
 
