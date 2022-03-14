@@ -19,7 +19,7 @@
 #' \dontrun{
 #' eviews_pagesave(wf="workfile",source_description = "EviewsR.csv",drop_list = "y")
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 eviews_pagesave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){

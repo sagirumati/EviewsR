@@ -25,7 +25,7 @@
 #' \dontrun{
 #' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfsave, export, import_table, import
+#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){

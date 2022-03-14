@@ -2,7 +2,7 @@
 #'
 #' Use this function to export R dataframe as an `EViews` workfile
 #'
-#' @usage export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
+#' @usage export(wf="",source_description="",start_date = "",frequency = "",save_path = "")
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.
@@ -12,7 +12,7 @@
 #' export(source_description="x",wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",frequency="m",start_date="1990m1",
 #' end_date="2021m4",path="",save=T)
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
+#' @seealso eng_eviews, create_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
 #' @keywords documentation
 #' @export
 export=function(wf="",source_description="",start_date = "",frequency = "",save_path = ""){

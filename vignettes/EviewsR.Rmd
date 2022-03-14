@@ -17,20 +17,15 @@ knitr::opts_chunk$set(
 library(EviewsR)
 ```
 
-
 # About the Author
 
-
-The author of this package, **Sagiru Mati**, obtained his PhD in Economics from the Near East University, North Cyprus. He works
-at the Department of Economics, Yusuf Maitama Sule (Northwest)
-University, Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more details.
+The author of this package, **Sagiru Mati**, obtained his PhD in Economics from the Near East University, North Cyprus. He works at the Department of Economics, Yusuf Maitama Sule (Northwest) University, Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more details.
 
 Please follow his publications with his **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
-EviewsR is an R package that can run Eviews program from R Markdown. 
-
+EviewsR is an R package that can run Eviews program from R Markdown.
 
 # Installation
 
@@ -44,34 +39,51 @@ install.packages("EviewsR")
 devtools::install_github('sagirumati/EviewsR')
 ```
 
-
-
 # Setup
 
 To run the package successfully, you need to the Eviews executable to `eviews` and then add the EViews installation folder to path.
 
 # Usage
 
-Please load the EviewsR package as follows: 
+Please load the EviewsR package as follows:
 
-````
-```{r}                                                                .
-library(EviewsR)
-```
-````
+    ```{r}                                                                .
+    library(EviewsR)
+    ```
+
+# Creating a workfile from R
+
+An Eviews workfile can be created using `eviews_wfcreate` function in R.
 
 ```{r wfcreate}
 eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",end_date = "2022")
 
 ```
 
+# Eviews chunk
 
+A chunk for Eviews can be created by supplying `eviews` as the engine name as shown below:
 
+    ```{eviews EviewsR,eval=T,echo=T} `r ''`
+        'This program is created in R Markdown with the help of EviewsR package
+      %path=@runpath
+      cd %path
+      wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+      for %y EviewsR package page1 page2
+      pagecreate(page={%y}) EviewsR m 2000 2022
+      next
+      pageselect EviewsR_page
+      rndseed 123456
+      genr y=rnd
+      genr x=rnd
+      equation ols.ls y c x
+      freeze(EviewsROLS,mode=overwrite) ols
+      freeze(EviewsR_Plot,mode=overwrite) y.line
+      wfsave EviewsR_workfile
+      exit
+    ```  
 
-Then create a chunk for Eviews as shown below:
-
-````
-```{eviews EviewsR,eval=T,echo=T} `r ''`
+```{eviews EviewsR,eval=T,echo=F}
     'This program is created in R Markdown with the help of EviewsR package
   %path=@runpath
   cd %path
@@ -88,35 +100,16 @@ Then create a chunk for Eviews as shown below:
   freeze(EviewsR_Plot,mode=overwrite) y.line
   wfsave EviewsR_workfile
   exit
-```  
-````
-
-
-```{eviews EviewsR,eval=T,echo=F}            
-    'This program is created in R Markdown with the help of EviewsR package
-  %path=@runpath
-  cd %path
-  wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
-  for %y EviewsR package page1 page2
-  pagecreate(page={%y}) EviewsR m 2000 2022
-  next
-  pageselect EviewsR_page
-  rndseed 123456
-  genr y=rnd
-  genr x=rnd
-  equation ols.ls y c x
-  freeze(EviewsROLS,mode=overwrite) ols
-  freeze(EviewsR_Plot,mode=overwrite) y.line
-  wfsave EviewsR_workfile
-  exit
-```  
-
+```
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
+# Executing EViews commands in R
 
-```{r eviewsCommands,eval=T}
-eviews_commands(c('%path=@runpath','cd %path',
+A set of Eviews commands can be executed with the help of `exec_commands` function in R. The above Eviews chunk can be translated using this function.
+
+```{r execCommands,eval=T} 
+exec_commands(c('%path=@runpath','cd %path',
   'wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
   'for %y EviewsR package page1 page2',
   'pagecreate(page={%y}) EviewsR m 2000 2022',
@@ -133,46 +126,60 @@ eviews_commands(c('%path=@runpath','cd %path',
 
 ```
 
+# Simulation of random walk 
 
-
+A set of random walk series can simulated in R using EViews engine, thanks to `rwalk` function.
 
 ```{r rwalk,eval=T}
-rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
+rwalk(wf="eviewsr_workfile",series="H J K",page="",rndseed=12345,frequency="M",num_observations=100)
 
  # eviews_graph(EviewsR$XYZ,frequency="m",start_date="1990",merge_graphs = T)
 ```
 
+# Creating EViews object
+
+The function `create_object` can be used to create an Eviews object in the existing EViews workfile.
 
 ```{r object}
-eviews_object(wf="EviewsR_workfile",action="equation",action_opt="",object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
+create_object(wf="EviewsR_workfile",action="equation",action_opt="",object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
 
 ```
 
-we can also include the results of the OLS generated by the Eviews chunk using the following R chunk;
+# Importing table as kable
+
+Eviews tables can be imported as `kable` object by `import_table` function. Therefore, we can include the results of the OLS generated by the Eviews chunk using the following R chunk;
 
 For the OLS result only:
-
-
 
 ```{r importTable,echo=T,eval=T}
 import_table(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",table_range = "r7c1:r10c5")
 ```
 
+# Saving EViews workfile
+
+An EViews workfile can be saved various output formats using `eviews_wfsave` in function in R.
+
 ```{r wfsave}
 eviews_wfsave(wf="eviewsr_workfile",source_description = "EviewsR_wfsave.csv")
 ```
+
+# Saving EViews page
+
+Similar to Eviews workfile, an Eviews page can be saved in various formats by `eviews_pagesave` function.
 
 ```{r pagesave}
 eviews_pagesave(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv",drop_list = "y")
 
 ```
 
+# Importing data to EViews
+
+Data can be imported from external sources by `eviews_import` function
+
 ```{r eviewsImport}
 eviews_import(source_description = "EviewsR_pagesave.csv")
 
 ```
-
-
 
 ```{r import}
 
@@ -184,8 +191,6 @@ plot(eviews$import$y,type="l")
 export(wf="eviewr_workfile1",source_description=eviews$import,start_date = '1990',frequency = "m")
 
 ```
-
-
 
 <br><br><br><br>
 
@@ -200,10 +205,8 @@ uu=data.frame(x,y)
  eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
 ```
 
-
 <br><br><br><br>
 
 We can simulate random walk process using the EViews engine as follows:
-
 
 Please see the example files for a better explanation.

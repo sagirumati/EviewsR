@@ -125,6 +125,6 @@ import_table(wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",table_name="EVIEWS_TABLE"
 }
 }
 \seealso{
-eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, import
+eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import
 }
 \keyword{documentation}

@@ -13,7 +13,7 @@
 #' \dontrun{
 #' import(object_name="myDataFrame",wf="eviews/workfile",drop_list = "y")
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfcreate, eviews_wfsave, export, [EviewsR::import_table]
+#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, [EviewsR::import_table]
 #' @keywords documentation
 #' @export
 #' @md

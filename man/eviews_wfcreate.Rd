@@ -43,6 +43,6 @@ eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m
 }
 }
 \seealso{
-eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, eviews_rwalk, eviews_wfsave, export, import_table, import
+eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfsave, export, import_table, import
 }
 \keyword{documentation}
