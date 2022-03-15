@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(EviewsR)
+# library(knitr)
 ```
 
 # About the Author
@@ -128,7 +129,8 @@ exec_commands(c('%path=@runpath','cd %path',
 
 # Simulation of random walk 
 
-A set of random walk series can simulated in R using EViews engine, thanks to `rwalk` function.
+A set of random walk series can be simulated in R using EViews engine, thanks to `rwalk` function.
+
 
 ```{r rwalk,eval=T}
 rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
@@ -207,17 +209,19 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 EViews graph can be included in R Markdown by `eviews_graph` function. 
 
-```{r eviewsGraph, eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
+```{r eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
 
 y=runif(100)
 x=runif(100)
 
 uu=data.frame(x,y)
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series=uu,mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
+ 
+ # opts_current$get(name = "label")
+ # options$label
 ```
 
 <br><br><br><br>
 
-We can simulate random walk process using the EViews engine as follows:
 
 Please see the example files for a better explanation.

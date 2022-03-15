@@ -100,7 +100,7 @@ rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_d
     if %save="save" then
     wfsave {%wf}
     endif
-
+    delete(noerr) wn* randomwalk_group*
     exit)'
 
   writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviews_code),fileName)
