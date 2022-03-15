@@ -55,3 +55,5 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 
+
+`%n%`=function(x,y) if(is.null(x) || xfun::is_blank(x)) y else x

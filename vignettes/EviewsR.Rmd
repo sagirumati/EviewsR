@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(EviewsR)
-# library(knitr)
+library(knitr)
 ```
 
 # About the Author
@@ -81,10 +81,9 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       freeze(EviewsROLS,mode=overwrite) ols
       freeze(EviewsR_Plot,mode=overwrite) y.line
       wfsave EviewsR_workfile
-      exit
     ```  
 
-```{eviews EviewsR,eval=T,echo=F}
+```{eviews EviewsR,eval=T,echo=T}
     'This program is created in R Markdown with the help of EviewsR package
   %path=@runpath
   cd %path
@@ -98,9 +97,10 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
   genr x=rnd
   equation ols.ls y c x
   freeze(EviewsROLS,mode=overwrite) ols
-  freeze(EviewsR_Plot,mode=overwrite) y.line
+  freeze(yy,mode=overwrite) y.line
+  freeze(xx,mode=overwrite) x.line
   wfsave EviewsR_workfile
-  exit
+
 ```
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
@@ -209,7 +209,7 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 EViews graph can be included in R Markdown by `eviews_graph` function. 
 
-```{r eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
+```{r eviews.Graph,eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
 
 y=runif(100)
 x=runif(100)
@@ -218,7 +218,7 @@ uu=data.frame(x,y)
  eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series=uu,mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
  
  # opts_current$get(name = "label")
- # options$label
+  # options$label
 ```
 
 <br><br><br><br>

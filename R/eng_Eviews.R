@@ -29,10 +29,28 @@
 #' @keywords documentation
 #' @export
 eng_eviews <- function(options) {
+
+  save_path=paste0("EviewsR_files/",options$label)
+  if(!exists(save_path)) dir.create(save_path,recursive = T)
+  save_path=paste0("%save_path=",shQuote(save_path))
+  # dir.create(save_path)
+  # dir.create(options$label)
   # create a temporary file
   fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
-  writeLines(c(eviews_path(),options$code,"exit"), fileName)
+
+  save_code=r'(
+  %graphs=@wlookup("*","graph")
+if @wcount(%graphs)<>0 then
+  for %y {%graphs}
+  {%y}.save(t=png,d=300) {%eviews_path}\{%save_path}\{%y}
+  next
+endif
+  exit
+  )'
+  writeLines(c(eviews_path(),save_path,options$code,save_code), fileName)
+
+
 
  if (options$eval) system_exec()
-  on.exit(unlink_eviews(),add = TRUE)
+  # on.exit(unlink_eviews(),add = TRUE)
   }

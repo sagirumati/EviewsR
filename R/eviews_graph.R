@@ -36,7 +36,8 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
-    wf=basename(tempfile("EViewsR"))
+    wf=opts_current$get("label") %n% basename(tempfile("EViewsR"))
+    wf=gsub("[.,-]","_",wf)
     wf1=wf
     page=wf
     csvFile=paste0(wf,".csv")
