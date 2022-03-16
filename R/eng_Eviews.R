@@ -31,6 +31,7 @@
 eng_eviews <- function(options) {
 
   save_path=paste0("EviewsR_files/",options$label)
+  save_path1=save_path
   if(!exists(save_path)) dir.create(save_path,recursive = T)
   save_path=paste0("%save_path=",shQuote(save_path))
   # dir.create(save_path)
@@ -45,6 +46,40 @@ if @wcount(%graphs)<>0 then
   {%y}.save(t=png,d=300) {%eviews_path}\{%save_path}\{%y}
   next
 endif
+
+
+
+
+  %equation=@wlookup("*","equation")
+
+  if @wcount(%equation)<>0 then
+  for %y {%equation}
+  table {%y}_table
+
+  %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
+
+  scalar n=@wcount(%equationMembers)
+  for !j =1 to n
+  %x{!j}=@word(%equationMembers,{!j})
+  {%y}_table(1,!j)=%x{!j}
+
+  %vectors="coefs pval stderrs tstats"
+  if @wcount(@wintersect(%x{!j},%vectors))>0 then
+  !eqCoef={%y}.@ncoef
+  for !i= 2 to !eqCoef+1 'first row for the header
+  {%y}_table(!i,!j)={%y}.@{%x{!j}}(!i-1)
+  next
+  else
+  {%y}_table(2,!j)={%y}.@{%x{!j}}
+  endif
+  next
+
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}\{%y}
+
+  next
+
+  endif
+
   exit
   )'
   writeLines(c(eviews_path(),save_path,options$code,save_code), fileName)
@@ -52,5 +87,7 @@ endif
 
 
  if (options$eval) system_exec()
+  # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+  # assign(series1,read.csv("randomwalk_group.csv"),envir = eviews)
    on.exit(unlink_eviews(),add = TRUE)
   }
