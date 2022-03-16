@@ -52,5 +52,5 @@ endif
 
 
  if (options$eval) system_exec()
-  # on.exit(unlink_eviews(),add = TRUE)
+   on.exit(unlink_eviews(),add = TRUE)
   }
