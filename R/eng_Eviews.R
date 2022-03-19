@@ -87,7 +87,13 @@ endif
 
 
  if (options$eval) system_exec()
-  # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-  # assign(series1,read.csv("randomwalk_group.csv"),envir = eviews)
+  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
+  equations=list.files(save_path1,".csv")
+  equations=gsub(".csv","",equations)
+  for (i in equations){
+     assign(i,read.csv(paste0(save_path1,"/",i,".csv")),envir = eviews)
+    }
+
    on.exit(unlink_eviews(),add = TRUE)
   }

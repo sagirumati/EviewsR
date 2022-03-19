@@ -16,11 +16,17 @@ eviews_path=function(){
   return(eviews_path)
 }
 
+#' @export
+set_eviews_path <- function(eviews_system_path="eviews") eviews_system_path<<-eviews_system_path
+
+
+
 system_exec=function(){
 path=getwd()
+eviews_system_path=eval(expression(eviews_system_path),envir = parent.frame())
 fileName=eval(expression(fileName),envir = parent.frame()) # Dynamic scoping
 # if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
+system2(set_eviews_path(eviews_system_path),paste0("exec ",shQuote(paste0(path,"/",fileName))))
 }
 
 unlink_eviews=function(){
@@ -39,10 +45,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 .onLoad<-function(libname,pkgname){
   knitr::knit_engines$set(eviews=eng_eviews)
+  set_eviews_path()
+  # assign('eviews_system_path',4,envir = topenv())
   }
-
- # eview=emptyenv()
- # globalVariables("eviews")
 
 # trim whitespace for handling of special commands
 # trimmed <- gsub("^\\s*|\\s*$", "", contents)
@@ -56,4 +61,4 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 
-`%n%`=function(x,y) if(is.null(x) || xfun::is_blank(x)) y else x
+`%n%`=function(x,y) if(is.null(x)) y else x

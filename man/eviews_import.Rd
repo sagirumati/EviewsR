@@ -5,7 +5,7 @@
 \title{Import data to `EViews` workfile}
 \usage{
 eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
-start_date="",id="",destid="",append=TRUE,save_path="")
+start_date="",id="",destid="",append=FALSE,save_path="")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
