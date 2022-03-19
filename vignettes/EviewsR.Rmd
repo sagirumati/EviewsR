@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(EviewsR)
-set_eviews_path('C:/Program Files (x86)/EViews 10/eviews10.exe')
+set_eviews_path('eviews10')
 # set_eviews_path()
 library(knitr)
 ```
@@ -105,7 +105,9 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
 
 ```
 
-The $\R^2$ of the OLS equation is `r eviews$ols$r2`.
+
+
+The $R^2$ of the OLS equation is `r eviews$ols$r2[1]`.
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 

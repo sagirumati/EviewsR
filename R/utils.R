@@ -16,9 +16,6 @@ eviews_path=function(){
   return(eviews_path)
 }
 
-#' @export
-set_eviews_path <- function(eviews_system_path="eviews") eviews_system_path<<-eviews_system_path
-
 
 
 system_exec=function(){

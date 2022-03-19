@@ -90,10 +90,12 @@ endif
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
   equations=list.files(save_path1,".csv")
+
   equations=gsub(".csv","",equations)
   for (i in equations){
      assign(i,read.csv(paste0(save_path1,"/",i,".csv")),envir = eviews)
     }
 
+  on.exit(unlink(paste0(save_path1,"/",equations,".csv")),add = TRUE)
    on.exit(unlink_eviews(),add = TRUE)
   }
