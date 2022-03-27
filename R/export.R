@@ -2,7 +2,7 @@
 #'
 #' Use this function to export R dataframe as an `EViews` workfile
 #'
-#' @usage export(wf="",source_description="",start_date = "",frequency = "",save_path = "")
+#' @usage export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.
@@ -15,7 +15,7 @@
 #' @seealso eng_eviews, create_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
 #' @keywords documentation
 #' @export
-export=function(wf="",source_description="",start_date = "",frequency = "",save_path = ""){
+export=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){
   # if(is.data.frame(source_description)){
 
     # if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")

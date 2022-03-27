@@ -2,7 +2,7 @@
 #'
 #' Use this function to import data to `EViews` workfile from R
 #'
-#' @usage eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
+#' @usage eviews_import(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",
 #' start_date="",id="",destid="",append=FALSE,save_path="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
@@ -25,7 +25,7 @@
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_import=function(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
+eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
 
   if(is.data.frame(source_description)){
     if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")

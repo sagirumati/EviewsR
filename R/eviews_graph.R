@@ -3,7 +3,7 @@
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
 #' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
-#' save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+#' save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 #' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
@@ -29,7 +29,7 @@
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save_options=c("t=png","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
 
 
   if(is.data.frame(series)) {
@@ -52,10 +52,10 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
 
 
 
-# Append "dpi=300" if "dpi" is not defined in "save_options"
+# Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
     save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
-    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("dpi",save_options, ignore.case = T))==0) save_options=append(save_options,"dpi=300")
+    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
 
   #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 

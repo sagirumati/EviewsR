@@ -4,12 +4,12 @@
 \alias{export}
 \title{Export R dataframe as an `EViews` workfile}
 \usage{
-export(wf="",source_description="",start_date = "",frequency = "",save_path = "")
+export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of a workfile to be created}
-
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
+
+\item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 

@@ -2,7 +2,7 @@
 #'
 #' Use this function to simulate a random walk process using an `EViews` engine.
 #'
-#' @usage rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
+#' @usage rwalk(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_import
 #' @param series Names of series for the random walk.
@@ -17,7 +17,7 @@
 #' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
-rwalk=function(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){
+rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
   if(wf=="") save="" else save="save"

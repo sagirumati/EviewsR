@@ -4,17 +4,17 @@
 \alias{eviews_import}
 \title{Import data to `EViews` workfile}
 \usage{
-eviews_import(wf="",type="",options="",source_description="",smpl_string="",genr_string="",rename_string="",frequency="",
+eviews_import(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",
 start_date="",id="",destid="",append=FALSE,save_path="")
 }
 \arguments{
+\item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
+
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
 \item{type}{Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.}
 
 \item{options}{Optional.Specify the `EViews` \code{options} for \code{import} command like \code{resize}, \code{link}, \code{page=page_name}.}
-
-\item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
 
 \item{smpl_string}{Optional. Specify the sample to be used for the data import.}
 

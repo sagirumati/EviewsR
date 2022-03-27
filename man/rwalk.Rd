@@ -4,14 +4,14 @@
 \alias{rwalk}
 \title{Simulate a random walk process using an `EViews` engine from R.}
 \usage{
-rwalk(wf="",page="",series="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
+rwalk(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 }
 \arguments{
+\item{series}{Names of series for the random walk.}
+
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
-
-\item{series}{Names of series for the random walk.}
 
 \item{drift}{Numeric value as the drift term for random walk.}
 
