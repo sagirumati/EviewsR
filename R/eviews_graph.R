@@ -94,17 +94,21 @@ datelabel=paste('{%y}.datelabel',datelabel)
     mode=paste0("%mode=",shQuote(mode))
 
     save_path=gsub("/","\\\\",save_path)
-    if (save_path=="") save_path=paste("EViewsR_files")
-    if(save_path!="") if(!dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
+    if (save_path=="" & is.null(opts_current$get("label"))) save_path=paste("EViewsR_files")
+    if (save_path=="" & !is.null(opts_current$get("label"))) save_path=paste0("EViewsR_files/",opts_current$get("label"))
+    save_path=gsub("[.,-]","_",save_path)
+    if(!dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
-     save_path1=paste0(save_path,"/")
+     # dir.create(paste0("EViewsR_files/",opts_current$get("label")))
+
+       save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote(save_path))
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote(save_options))
 
 
-    eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
+    # eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
     # file.remove(paste0(save_path1,eviews_graphics))
 
 
@@ -160,7 +164,7 @@ if (merge_graphs!=T){
 
 
   save_code=r'(for !k=1 to {!n}
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%x{!k}}_graph_EviewsR
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%x{!k}}
   next
   delete {%EviewsrGroup}
   exit)'
@@ -173,7 +177,7 @@ if (merge_graphs==TRUE){
       %seriesNames=@replace(%z," ","")
       freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
-      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}_graph_EviewsR
+      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}
       delete {%EviewsrGroup}
       exit)'
       }
@@ -184,7 +188,7 @@ system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
 
-eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
+eviews_graphics=list.files(pattern=paste0('[.png,.pdf]'),path=save_path1,ignore.case = T)
 
 eviews_graphics=paste0(save_path1,eviews_graphics)
 include_graphics(eviews_graphics)
