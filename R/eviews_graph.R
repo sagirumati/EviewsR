@@ -94,14 +94,16 @@ datelabel=paste('{%y}.datelabel',datelabel)
     mode=paste0("%mode=",shQuote(mode))
 
     save_path=gsub("/","\\\\",save_path)
+
     if (save_path=="" & is.null(opts_current$get("label"))) save_path=paste("EViewsR_files")
     if (save_path=="" & !is.null(opts_current$get("label"))) save_path=paste0("EViewsR_files/",opts_current$get("label"))
+    if(opts_current$get("fig.path")=="") save_path=""
     save_path=gsub("[.,-]","_",save_path)
-    if(!dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
+    if(save_path!="") dir.create(save_path,recursive = TRUE)
 
      # dir.create(paste0("EViewsR_files/",opts_current$get("label")))
-
-       save_path1=paste0(save_path,"/")
+    save_path1=ifelse(save_path=="",".",save_path)
+       # save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote(save_path))
 
     save_options=paste(save_options,collapse = ",")
@@ -188,8 +190,11 @@ system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
 
-eviews_graphics=list.files(pattern=paste0('[.png,.pdf]'),path=save_path1,ignore.case = T)
+eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 
+# b=list.files(paste0("^",a[1],".png","$"),path = ".")
+
+if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 eviews_graphics=paste0(save_path1,eviews_graphics)
 include_graphics(eviews_graphics)
 }

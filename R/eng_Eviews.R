@@ -3,7 +3,7 @@
 #' The \code{EViews} engine can be activated via
 #'
 #' ```
-#' knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
+#' knitr::knit_engines$set(eviews = eviewsR::eng_eviews)
 #' ```
 #'
 #' This will be set within an R Markdown document's setup chunk.
@@ -31,8 +31,10 @@
 eng_eviews <- function(options) {
 
   save_path=paste0("EviewsR_files/",options$label)
-  save_path1=save_path
-  if(!exists(save_path)) dir.create(save_path,recursive = T)
+  if(opts_current$get("fig.path")=="") save_path=""
+  save_path=gsub("[.,-]","_",save_path)
+  save_path1=ifelse(save_path=="",".",save_path)
+  if(save_path!="") dir.create(save_path,recursive = T)
   save_path=paste0("%save_path=",shQuote(save_path))
   # dir.create(save_path)
   # dir.create(options$label)
@@ -41,9 +43,14 @@ eng_eviews <- function(options) {
 
   save_code=r'(
   %graphs=@wlookup("*","graph")
+
+  if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
 if @wcount(%graphs)<>0 then
   for %y {%graphs}
-  {%y}.save(t=png,d=300) {%eviews_path}\{%save_path}\{%y}
+  {%y}.save(t=png,d=300) {%eviews_path}\{%save_path}{%y}
   next
 endif
 
