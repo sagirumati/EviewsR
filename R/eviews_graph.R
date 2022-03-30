@@ -32,6 +32,10 @@
 eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
 
 
+  if(is.data.frame(series)) series1=names(series) else series1=series
+  if(merge_graphs==T) series1=paste0(series1,collapse = "")
+  if(merge_graphs==T & length(series)==1) series1=gsub(" ","",series)
+
   if(is.data.frame(series)) {
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
@@ -189,9 +193,9 @@ writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mod
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
-
-eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-
+eviews_graphics=c()
+# eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
+for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.png","$"),path=save_path1,ignore.case = T))
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")

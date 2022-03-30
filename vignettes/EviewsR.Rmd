@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(EviewsR)
-set_eviews_path('eviews10')
+# set_eviews_path('eviews10')
 # set_eviews_path()
 library(knitr)
 ```
@@ -216,15 +216,15 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 EViews graph can be included in R Markdown by `eviews_graph` function. 
 
-```{r eviews.Graph,eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
+```{r eviewsGraph,eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
 
 y=runif(100)
 x=runif(100)
 
 uu=data.frame(x,y)
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series=uu,mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graph=T,start_date="1",frequency="5",save_path = '')
  
- # opts_current$get(name = "label")
+  opts_current$get("label")
   # options$label
 ```
 

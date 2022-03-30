@@ -19,7 +19,7 @@ This package runs on top of knitr to facilitate communication with EViews. Run E
 The \code{EViews} engine can be activated via
 
 ```
-knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
+knitr::knit_engines$set(eviews = eviewsR::eng_eviews)
 ```
 
 This will be set within an R Markdown document's setup chunk.
