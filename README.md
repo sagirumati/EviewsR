@@ -9,11 +9,11 @@ Department of Economics, Yusuf Maitama Sule (Northwest) University,
 Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more
 details.
 
-Please follow his publications with his **ORCID: 0000-0003-1413-3974**
+Please follow his publications on **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
-EviewsR is an R package that can run Eviews program from R Markdown.
+EviewsR is an R package that integrates R and EViews.
 
 # Installation
 
@@ -26,15 +26,13 @@ install.packages("EviewsR")
             
 devtools::install_github('sagirumati/EviewsR')
 ```
-
 # Setup
 
-To run the package successfully, you need to allow Eviews program to run
-on Eviews startup. This can be set by clicking on `options, General
-Options, window behaviour` and ticking `run program on Eviews startup`
-as shown below:
+To run the package successfully, you need to rename the Eviews executable to `eviews` and then add the EViews installation folder to path. Alternatively, you can use `set_eviews_path` function to set the EViews path as follows:
 
-![](tools/EviewsR.png)<!-- -->
+```{r}
+set_eviews_path("C:\\Program Files (x86)\\EViews 10\\EViews10.exe")
+```
 
 # Usage
 
