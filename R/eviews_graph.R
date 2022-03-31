@@ -2,8 +2,9 @@
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
-#' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
-#' save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+#' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",
+#' options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),
+#' save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 #' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
@@ -22,7 +23,9 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
+#' exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
+#' "genr y=rnd","genr x=rnd","save workfile","exit"))
+#'
 #' eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
 #' unlink("workfile.wf1")
 #'}
@@ -34,7 +37,12 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
 
   if(is.data.frame(series)) series1=names(series) else series1=series
   if(merge_graphs==T) series1=paste0(series1,collapse = "")
-  if(merge_graphs==T & length(series)==1) series1=gsub(" ","",series)
+  if(merge_graphs==T & length(series1)==1) series1=gsub(" ","",series)
+
+  if(merge_graphs!=T & length(series1)==1){
+    series1=trimws(series1)
+    series1=unlist(strsplit(series1,split=" "))
+  }
 
   if(is.data.frame(series)) {
     stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))

@@ -40,11 +40,19 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   if(exists('table_name.csv',envir = parent.frame())) unlink(table_name.csv)
   }
 
+
+ev_env=function() if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
 .onLoad<-function(libname,pkgname){
   knitr::knit_engines$set(eviews=eng_eviews)
   set_eviews_path()
-  # assign('eviews_system_path',4,envir = topenv())
-  }
+  ev_env()
+}
+
+
+
+
+
 
 # trim whitespace for handling of special commands
 # trimmed <- gsub("^\\s*|\\s*$", "", contents)

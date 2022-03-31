@@ -94,7 +94,7 @@ endif
 
 
  if (options$eval) system_exec()
-  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+  # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
   equations=list.files(save_path1,".csv")
 

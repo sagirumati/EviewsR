@@ -1,0 +1,4 @@
+name: EviewsR
+description: >
+   A reproducible example for EviewsR package
+create_dir: TRUE

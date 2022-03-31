@@ -1,0 +1,11 @@
+create_object create_object Create an `EViews` object on a workfile from R
+eviews_graph eviews_graph Create an `EViews` graph in R and R Markdown
+eviews_import eviews_import Import data to `EViews` workfile
+eviews_pagesave eviews_pagesave Save an `EViews` workfile page from R
+eviews_wfcreate eviews_wfcreate Create an `EViews` workfile from R
+exec_commands exec_commands Execute `EViews` commands from R
+export export Export R dataframe as an `EViews` workfile
+import_table import_table Import `EViews` table object as `kable`
+import import Import `EViews` series to R as dataframe
+rwalk rwalk Simulate a random walk process using an `EViews` engine from R
+set_eviews_path set_eviews_path Set `EViews` path

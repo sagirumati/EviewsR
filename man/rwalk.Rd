@@ -4,7 +4,8 @@
 \alias{rwalk}
 \title{Simulate a random walk process using an `EViews` engine from R.}
 \usage{
-rwalk(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
+rwalk(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",
+start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 }
 \arguments{
 \item{series}{Names of series for the random walk.}
@@ -36,7 +37,12 @@ Use this function to simulate a random walk process using an `EViews` engine.
 \examples{
 library(EviewsR)
 \dontrun{
-rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)
+
+rwalk(wf="",series="X Y Z",page="",rndseed=12345,frequency="M",
+num_observations=100)
+
+plot(eviews$XYZ[[2]],ylab = "EViewsR",type = "l",col="red")
+
 }
 }
 \seealso{

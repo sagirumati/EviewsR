@@ -2,8 +2,9 @@
 #'
 #' Use this function to create an `EViews` workfile from R
 #'
-#' @usage eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",
-#' num_cross_sections=NA,num_observations=NA,save_path="")
+#' @usage eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",
+#' subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,
+#' save_path="")
 #' @param wf Object or a character string representing the name of a workfile to be created
 #' @param page Object or a character string representing the name of a workfile page to be created
 #'
@@ -23,7 +24,8 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf_name="EVIEWSR_WORKFILE",page_name="EVIEWSR_PAGE",frequency="m",start_date="1990m1",end_date="2021m4",path="",save=T)
+#'eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",
+#'end_date = "2022")
 #'}
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfsave, export, import_table, import
 #' @keywords documentation

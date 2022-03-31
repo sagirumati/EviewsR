@@ -4,8 +4,9 @@
 \alias{eviews_graph}
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
-eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",
-save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
+eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",
+options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),
+save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 datelabel="",merge_graphs=FALSE)
 }
 \arguments{
@@ -44,7 +45,9 @@ Use this function to create an `EViews` graph in R and R Markdown
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2021","save workfile","exit"))
+exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
+"genr y=rnd","genr x=rnd","save workfile","exit"))
+
 eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
 unlink("workfile.wf1")
 }

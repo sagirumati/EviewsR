@@ -4,8 +4,9 @@
 \alias{import}
 \title{Import \code{EViews} series to R as dataframe}
 \usage{
-import(object_name="",wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",
-dropmap_list="",smpl_spec="")
+import(object_name="",wf="",page="",options="",source_description="",
+table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
+smpl_spec="")
 }
 \arguments{
 \item{object_name}{Object name to be to store the imported \code{EViews} series.}
@@ -39,7 +40,10 @@ Use this function to import \code{EViews} series to R as dataframe
 \examples{
 library(EviewsR)
 \dontrun{
-import(object_name="myDataFrame",wf="eviews/workfile",drop_list = "y")
+exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022","genr y=rnd","genr x=rnd",
+"save workfile","exit"))
+
+import(object_name="myDataFrame",wf="workfile",drop_list = "y")
 }
 }
 \seealso{

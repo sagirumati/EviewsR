@@ -2,14 +2,18 @@
 #'
 #' Use this function to save an `EViews` workfile  from R
 #'
-#' @usage eviews_wfsave(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",
-#' dropmap_list="",smpl_spec="")
+#' @usage eviews_wfsave(wf="",page="",options="",source_description="",
+#' table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
+#' smpl_spec="")
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")
+#'  exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
+#' "genr y=rnd","genr x=rnd","save workfile","exit"))
+#'
+#' eviews_wfsave(wf="workfile",source_description = "wfsave.csv",drop_list = "x")
 #'}
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, export, import_table, import
 #' @keywords documentation

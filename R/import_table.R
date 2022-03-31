@@ -2,14 +2,19 @@
 #'
 #' Use this function to import `EViews` table object as `kable`
 #'
-#' @usage import_table(wf="",page="",table_name="",table_range="",format=kable_format(), digits = getOption("digits"), row.names = NA,col.names = NA, align,
-#' caption = NULL, label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE, longtable = FALSE, valign = "t",
-#' position = "h", centering = TRUE, vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
-#' toprule = getOption("knitr.table.toprule",if (booktabs) "\\\\toprule" else "\\\\hline"),
-#' bottomrule = getOption("knitr.table.bottomrule",if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-#' midrule = getOption("knitr.table.midrule",if (booktabs) "\\\\midrule" else "\\\\hline"),
-#' linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline", caption.short = "",
-#' table.envir = if (!is.null(caption)) "table",...)
+#' @usage import_table(wf="",page="",table_name="",table_range="",format=kable_format(),
+#'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
+#'   label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
+#'    longtable = FALSE, valign = "t",position = "h", centering = TRUE,
+#'    vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
+#' toprule = getOption("knitr.table.toprule",
+#' if (booktabs) "\\\\toprule" else "\\\\hline"),
+#' bottomrule = getOption("knitr.table.bottomrule",
+#' if (booktabs) "\\\\bottomrule" else "\\\\hline"),
+#' midrule = getOption("knitr.table.midrule",
+#' if (booktabs) "\\\\midrule" else "\\\\hline"),
+#' linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
+#'  caption.short = "",table.envir = if (!is.null(caption)) "table",...)
 #' @inheritParams knitr::kable
 #' @inheritParams kableExtra::kbl
 #' @inheritParams eviews_wfcreate
@@ -19,7 +24,10 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' import_table(wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",table_name="EVIEWS_TABLE")
+#'exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022","genr y=rnd","genr x=rnd",
+#'"equation ols.ls y c x","freeze(EviewsROLS,mode=overwrite) ols","save workfile","exit"))
+#'
+#' import_table(wf="WORKFILE",page="PAGE",table_name="EviewsROLS",format="pandoc")
 #'}
 #' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import
 #' @keywords documentation

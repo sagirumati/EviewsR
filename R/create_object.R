@@ -2,7 +2,8 @@
 #'
 #' Use this function to create an `EViews` object on a workfile from R
 #'
-#' @usage create_object(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list="")
+#' @usage create_object(wf="",page="",action="",action_opt="",object_name="",
+#' view_or_proc="",options_list="",arg_list="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
 #' @param action Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.
@@ -15,9 +16,15 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' create_object(wf="EviewsR",action="equation",action_opt="",object_name="equ2",view_or_proc="ls",options_list="",arg_list="y ar(1)")
+#' eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",
+#' end_date = "2022")
+#'
+#'exec_commands(c("open EviewsR_workfile","genr y=rnd","genr x=rnd","save","exit"))
+#'
+#' create_object(wf="EviewsR_workfile",action="equation",action_opt="",
+#' object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
 #'}
-#' @seealso eng_eviews, create_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
 #' @keywords documentation
 #' @export
 create_object=function(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list

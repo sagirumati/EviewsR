@@ -1,13 +1,11 @@
 ---
-title: "EviewsR: Seamless Integration of Eviews and R"
-author: "Sagiru Mati"
-date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{EviewsR: Seamless Integration of Eviews and R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "EviewsR: A Seamless Integration of R and EViews"
+author: Sagiru Mati (PhD)
+output: bookdown::pdf_document2
+linkcolor: blue
+toc: false
 ---
+
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(

@@ -26,11 +26,12 @@ Use this function to export R dataframe as an `EViews` workfile
 \examples{
 library(EviewsR)
 \dontrun{
-export(source_description="x",wf="EVIEWSR_WORKFILE",page="EVIEWSR_PAGE",frequency="m",start_date="1990m1",
-end_date="2021m4",path="",save=T)
+x=runif(100); y=runif(100); data=data.frame(x,y)
+
+export(wf="eviewr_export",source_description=data,start_date = '1990',frequency = "m")
 }
 }
 \seealso{
-eng_eviews, create_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
+eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
 }
 \keyword{documentation}

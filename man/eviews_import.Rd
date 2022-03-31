@@ -4,8 +4,9 @@
 \alias{eviews_import}
 \title{Import data to `EViews` workfile}
 \usage{
-eviews_import(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",
-start_date="",id="",destid="",append=FALSE,save_path="")
+eviews_import(source_description="",wf="",type="",options="",smpl_string="",
+genr_string="",rename_string="",frequency="",start_date="",id="",destid="",
+append=FALSE,save_path="")
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
@@ -43,7 +44,10 @@ Use this function to import data to `EViews` workfile from R
 \examples{
 library(EviewsR)
 \dontrun{
-eviews_import(source_description = "eviewsr.csv",start_date = "1990",frequency = "m",rename_string = "x ab",smpl_string = "1990m10 1992m10")
+x=runif(100); y=runif(100); data=data.frame(x,y);write.csv(data,"eviewsr.csv",row.names = FALSE)
+
+eviews_import(source_description = "eviewsr.csv",start_date = "1990",frequency = "m",
+rename_string = "x ab",smpl_string = "1990m10 1992m10")
 }
 }
 \seealso{
