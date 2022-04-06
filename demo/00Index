@@ -1,5 +1,5 @@
-export Export R dataframe as an EViews workfile
 create_object	Create an EViews object on a workfile from R
+export Export R dataframe as an EViews workfile
 eviews_graph Create an EViews graph in R and R Markdown
 eviews_import Import data to EViews workfile
 eviews_pagesave Save an EViews workfile page from R
