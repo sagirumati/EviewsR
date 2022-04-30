@@ -4,10 +4,10 @@
 \alias{set_eviews_path}
 \title{Set `EViews` path}
 \usage{
-set_eviews_path(eviews_system_path="eviews")
+set_eviews_path(engine_path="eviews")
 }
 \arguments{
-\item{eviews_system_path}{Path to the EViews executable}
+\item{engine_path}{Path to the EViews executable}
 }
 \value{
 Character
@@ -22,6 +22,20 @@ set_eviews_path('C:/Program Files (x86)/EViews 10/eviews10.exe')
 }
 }
 \seealso{
-eng_eviews, create_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+Other important functions: 
+\code{\link{EviewsR}},
+\code{\link{create_object}()},
+\code{\link{eng_eviews}()},
+\code{\link{eviews_graph}()},
+\code{\link{eviews_import}()},
+\code{\link{eviews_pagesave}()},
+\code{\link{eviews_wfcreate}()},
+\code{\link{eviews_wfsave}()},
+\code{\link{exec_commands}()},
+\code{\link{export}()},
+\code{\link{import_table}()},
+\code{\link{import}()},
+\code{\link{rwalk}()}
 }
+\concept{important functions}
 \keyword{documentation}

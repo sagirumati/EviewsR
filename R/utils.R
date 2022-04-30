@@ -1,6 +1,7 @@
-#' @import knitr
+#' @import knitr magrittr
 #' @importFrom utils write.csv read.csv
 
+# globalVariables(".")
 
 kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
@@ -11,19 +12,23 @@ kable_format <- function(){
 
 
 eviews_path=function(){
-  eviews_path = normalizePath(getwd())
-  eviews_path= paste0("%eviews_path=", shQuote(eviews_path),"\ncd %eviews_path")
-  return(eviews_path)
+  getwd() %>% normalizePath() %>%
+    shQuote(type = "cmd") %>%
+  paste0("%eviews_path=",.,"\ncd %eviews_path")
 }
 
 
 
 system_exec=function(){
-path=getwd()
-eviews_system_path=eval(expression(eviews_system_path),envir = parent.frame())
+
+if(!exists("engine_path")) set_eviews_path()
+
 fileName=eval(expression(fileName),envir = parent.frame()) # Dynamic scoping
-# if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
-system2(set_eviews_path(eviews_system_path),paste0("exec ",shQuote(paste0(path,"/",fileName))))
+engine_path=eval(expression(engine_path),envir = parent.frame())
+
+getwd() %>% paste0(.,"/",fileName) %>% shQuote(type = "cmd") %>%
+  paste("exec",.) %>%
+system2(set_eviews_path(engine_path),.)
 }
 
 unlink_eviews=function(){
@@ -41,13 +46,11 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   }
 
 
-ev_env=function() if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-
 .onLoad<-function(libname,pkgname){
   knitr::knit_engines$set(eviews=eng_eviews)
-  set_eviews_path()
-  ev_env()
-}
+  # set_eviews_path()
+  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+  }
 
 
 
@@ -62,6 +65,8 @@ ev_env=function() if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.
 # {
 #   all(grepl("^\\s*$", x))
 # }
+# which(!nzchar(a))
+# if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 
 
 

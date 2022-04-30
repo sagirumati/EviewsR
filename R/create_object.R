@@ -24,7 +24,7 @@
 #' create_object(wf="EviewsR_workfile",action="equation",action_opt="",
 #' object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 create_object=function(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list

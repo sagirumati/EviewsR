@@ -47,6 +47,20 @@ import(object_name="myDataFrame",wf="workfile",drop_list = "y")
 }
 }
 \seealso{
-eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, \link{import_table}
+Other important functions: 
+\code{\link{EviewsR}},
+\code{\link{create_object}()},
+\code{\link{eng_eviews}()},
+\code{\link{eviews_graph}()},
+\code{\link{eviews_import}()},
+\code{\link{eviews_pagesave}()},
+\code{\link{eviews_wfcreate}()},
+\code{\link{eviews_wfsave}()},
+\code{\link{exec_commands}()},
+\code{\link{export}()},
+\code{\link{import_table}()},
+\code{\link{rwalk}()},
+\code{\link{set_eviews_path}()}
 }
+\concept{important functions}
 \keyword{documentation}

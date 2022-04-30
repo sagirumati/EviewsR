@@ -26,7 +26,7 @@
 #' eviews_import(source_description = "eviewsr.csv",start_date = "1990",frequency = "m",
 #' rename_string = "x ab",smpl_string = "1990m10 1992m10")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){

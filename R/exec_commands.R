@@ -20,7 +20,7 @@
 #' # named `y` and plot its line graph.
 #' # The third line deletes the workfile from your directory.
 #'}
-#' @seealso eng_eviews, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 exec_commands=function(commands="",wf="",page=""){

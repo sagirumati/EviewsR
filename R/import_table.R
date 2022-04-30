@@ -29,7 +29,7 @@
 #'
 #' import_table(wf="WORKFILE",page="PAGE",table_name="EviewsROLS",format="pandoc")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 import_table=function(wf="",page="",table_name="",table_range="",format=kable_format(), digits = getOption("digits"), row.names = NA,
@@ -67,6 +67,18 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   system_exec()
   #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))
   on.exit(unlink_eviews(),add = TRUE)
-  return(knitr::kable(read.csv(table_name.csv,allowEscapes = T,header = T,check.names = FALSE), format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
+
+  table= readLines(table_name.csv)
+
+  ev=new.env()
+  assign("table1",table,envir = ev)
+  print(ev$table1)
+
+   if(any(grepl("^,.*,$", table))) table=table[-grep("^,.*,$", table)]
+
+  table=read.csv(text=table,allowEscapes = T,header = T,check.names = FALSE)
+
+
+  return(kable(table, format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
 
   }

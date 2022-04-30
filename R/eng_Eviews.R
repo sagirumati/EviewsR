@@ -25,8 +25,7 @@
 #'
 #' Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In Victoria Stodden, Friedrich Leisch and Roger D. Peng, editors, Implementing Reproducible Computational Research. Chapman and Hall/CRC. ISBN 978-1466561595
 #'
-#' @seealso  eviews_wfcreate
-#' @keywords documentation
+#' @family important functions
 #' @export
 eng_eviews <- function(options) {
 
@@ -34,7 +33,7 @@ eng_eviews <- function(options) {
   if(opts_current$get("fig.path")=="") save_path=""
   save_path=gsub("[.,-]","_",save_path)
   save_path1=ifelse(save_path=="",".",save_path)
-  if(save_path!="") dir.create(save_path,recursive = T)
+  if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
   save_path=paste0("%save_path=",shQuote(save_path))
   # dir.create(save_path)
   # dir.create(options$label)

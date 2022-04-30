@@ -13,7 +13,7 @@
 #'
 #' export(wf="eviewr_export",source_description=data,start_date = '1990',frequency = "m")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 export=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){

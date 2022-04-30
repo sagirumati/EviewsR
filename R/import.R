@@ -17,7 +17,7 @@
 #'
 #' import(object_name="myDataFrame",wf="workfile",drop_list = "y")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, [EviewsR::import_table]
+#' @family important functions
 #' @keywords documentation
 #' @export
 #' @md

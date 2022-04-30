@@ -20,7 +20,7 @@
 #' plot(eviews$XYZ[[2]],ylab = "EViewsR",type = "l",col="red")
 #'
 #'}
-#' @seealso eng_eviews, eviews_commands, eviews_graph, eviews_import, eviews_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, export, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA){

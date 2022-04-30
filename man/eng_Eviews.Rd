@@ -38,11 +38,24 @@ Yihui Xie (2015) Dynamic Documents with R and knitr. 2nd edition. Chapman and Ha
 Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In Victoria Stodden, Friedrich Leisch and Roger D. Peng, editors, Implementing Reproducible Computational Research. Chapman and Hall/CRC. ISBN 978-1466561595
 }
 \seealso{
-eviews_wfcreate
+Other important functions: 
+\code{\link{EviewsR}},
+\code{\link{create_object}()},
+\code{\link{eviews_graph}()},
+\code{\link{eviews_import}()},
+\code{\link{eviews_pagesave}()},
+\code{\link{eviews_wfcreate}()},
+\code{\link{eviews_wfsave}()},
+\code{\link{exec_commands}()},
+\code{\link{export}()},
+\code{\link{import_table}()},
+\code{\link{import}()},
+\code{\link{rwalk}()},
+\code{\link{set_eviews_path}()}
 }
 \author{
 Sagiru Mati, ORCID: 0000-0003-1413-3974, https://smati.com.ng
 * Yusuf Maitama Sule (Northwest) University Kano, Nigeria
 * SMATI Academy
 }
-\keyword{documentation}
+\concept{important functions}

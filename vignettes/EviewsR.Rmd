@@ -14,19 +14,12 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F
+  eval=T
 )
 library(EviewsR)
-set_eviews_path('eviews12_X64')
-# set_eviews_path()
+set_eviews_path('EViews12_X64')
 library(knitr)
 ```
-
-# About the Author
-
-The author of this package, **Sagiru Mati**, obtained his PhD in Economics from the Near East University, North Cyprus. He works at the Department of Economics, Yusuf Maitama Sule (Northwest) University, Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more details.
-
-Please follow his publications on **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
@@ -46,7 +39,13 @@ devtools::install_github('sagirumati/EviewsR')
 
 # Setup
 
-To run the package successfully, you need to rename the Eviews executable to `eviews` and then add the EViews installation folder to path. Alternatively, you can use `set_eviews_path` function to set the EViews path as follows:
+To run the package successfully, you need to do one of the following
+
+* Don't do anything if the name of EViews executable is one of the following: `EViews12_x64`, `EViews12_x86`, `EViews11_x64`, `EViews11_x86`, `EViews10`. The package will find the executable automatically.
+
+* Rename the Eviews executable to `eviews` or one of names above.
+
+* Alternatively, you can use `set_eviews_path` function to set the path the EViews executable as follows:
 
 ```{r eval=F}
 set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
@@ -76,7 +75,7 @@ eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_
 
 A chunk for Eviews can be created by supplying `eviews` as the engine name as shown below:
 
-    ```{eviews EviewsR,eval=T,echo=T} `r ''`
+    ```{eviews EviewsR,eval=T} `r ''`
         'This program is created in R Markdown with the help of EviewsR package
       %path=@runpath
       cd %path
@@ -115,10 +114,9 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
 ```
 
 
-
-The $R^2$ of the OLS equation is `r eviews$ols$r2[1]`.
-
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
+
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `eviews$equationName`. For example, The $R^2$ of the `ols` equation object is `r eviews$ols$r2[1]`, which can be accessed using `` `r knitr::inline_expr('eviews$ols$r2[1]')` ``.
 
 # Executing EViews commands in R
 
@@ -168,8 +166,8 @@ Eviews tables can be imported as `kable` object by `import_table` function. Ther
 For the OLS result only:
 
 ```{r importTable}
-options(knitr.kable.NA = '')
-import_table(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",table_range = "r7c1:r10c5",digits=3)
+# options(knitr.kable.NA = '')
+import_table(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",format="pandoc",table_range = "r7c1:r10c5",digits=3)
 ```
 
 # Saving EViews workfile
@@ -222,7 +220,7 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 # EViews graph
 
-EViews graph can be included in R Markdown by `eviews_graph` function. 
+EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
 
 ```{r eviewsGraph,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
 
@@ -233,6 +231,26 @@ uu=data.frame(x,y)
  eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  
 ```
+
+
+
+# Demo
+
+The demo files are included and can be accessed via demo(package="EviewsR")
+
+```{r demo}
+demo(create_object())
+demo(eviews_graph())
+demo(eviews_wfcreate())
+```
+
+# Template
+
+Template for R Markdown is created. Go to `file->New File->R Markdown-> From Template->EviewsR`.
+
+<br><br><br><br>
+
+Please download the example files from  [Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).
 
 
 

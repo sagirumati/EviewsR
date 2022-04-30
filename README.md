@@ -1,4 +1,4 @@
-EviewsR Package created by Sagiru Mati
+EviewsR Package
 ================
 
 # About the Author
@@ -13,103 +13,279 @@ Please follow his publications on **ORCID: 0000-0003-1413-3974**
 
 # About EviewsR
 
-EviewsR is an R package that integrates R and EViews.
+EviewsR is an R package that can run Eviews program from R. It also adds
+`eviews` as knit-engine to `knitr` package.
 
 # Installation
 
 EviewsR can be installed using the following commands in R.
 
-``` r
-install.packages("EviewsR") 
+    install.packages("EviewsR") 
 
-            OR
-            
-devtools::install_github('sagirumati/EviewsR')
-```
+                OR
+                
+    devtools::install_github('sagirumati/EviewsR')
+
 # Setup
 
-To run the package successfully, you need to rename the Eviews executable to `eviews` and then add the EViews installation folder to path. Alternatively, you can use `set_eviews_path` function to set the EViews path as follows:
+To run the package successfully, you need to do one of the following
 
-```{r}
-set_eviews_path("C:\\Program Files (x86)\\EViews 10\\EViews10.exe")
-```
+-   Don’t do anything if the name of EViews executable is one of the
+    following: `EViews12_x64`, `EViews12_x86`, `EViews11_x64`,
+    `EViews11_x86`, `EViews10`. The package will find the executable
+    automatically.
+
+-   Rename the Eviews executable to `eviews` or one of names above.
+
+-   Alternatively, you can use `set_eviews_path` function to set the
+    path the EViews executable as follows:
+
+<!-- -->
+
+    set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
 
 # Usage
 
 Please load the EviewsR package as follows:
 
-    ```{r EviewsR}                                                                .
+    ```{r}                                                                .
     library(EviewsR)
     ```
 
-Then create a chunk for Eviews as shown below:
+# Creating a workfile from R
 
-```` 
-```{eviews EviewsR1,eval=T,echo=T,comment=NULL,results='hide'}                .
-    'This program is created in R Markdown with the help of EviewsR package
-  %path=@runpath
-  cd %path
-  wfcreate(page=EviewsR) EviewsR m 1999 2020
-  for %y Created By Sagiru Mati Northwest University Kano Nigeria
-  pagecreate(page={%y}) EviewsR m 1999 2020
-  wfsave EviewsR
-  next
-  pageselect Sagiru
-  genr y=rnd
-  genr x=rnd
-  equation ols.ls y c x
-  freeze(EviewsR_OLS,mode=overwrite) ols
-  EviewsR_OLS.save(t=csv, r=r7c1:r10c5) EviewsROLS
-  EviewsR_OLS.save(t=csv) EviewsRtable
-  freeze(EviewsR_Plot,mode=overwrite) y.line
-  EviewsR_Plot.save(t=png) EviewsR_Plot_color
-  EviewsR_Plot.save(t=png,-c) EviewsR_Plot_nocolor
-  exit
-```  
-````
+An Eviews workfile can be created using `eviews_wfcreate` function in R.
+
+    eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",end_date = "2022")
+
+# Eviews chunk
+
+A chunk for Eviews can be created by supplying `eviews` as the engine
+name as shown below:
+
+    ```{eviews EviewsR,eval=T} 
+        'This program is created in R Markdown with the help of EviewsR package
+      %path=@runpath
+      cd %path
+      wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+      for %y EviewsR package page1 page2
+      pagecreate(page={%y}) EviewsR m 2000 2022
+      next
+      pageselect EviewsR_page
+      rndseed 123456
+      genr y=rnd
+      genr x=rnd
+      equation ols.ls y c x
+      freeze(EviewsROLS,mode=overwrite) ols
+      freeze(EviewsR_Plot,mode=overwrite) y.line
+      wfsave EviewsR_workfile
+    ```  
 
 The above chunk creates an Eviews program with the chunk’s content, then
 automatically open Eviews and run the program, which will create an
-Eviews workfile with pages containing monthly sample from 1999 to 2020.
+Eviews workfile with pages containing monthly sample from 2000 to 2022.
 The program will also save an Eviews workfile named `EviewsR` in the
 current directory.
 
-We can *dynamically and reproducibly* fetch the Eviews graph object we
-created with the Eviews chunk using the following R chunk:
+The `eviews` chunk automatically returns the outputs of each equation
+object as a dataframe, accessible via `eviews$equationName`. For
+example, The *R*<sup>2</sup> of the `ols` equation object is 0.00114,
+which can be accessed using `` `r eviews$ols$r2[1]` ``.
 
-For the color graph object:
+# Executing EViews commands in R
 
-``` r
-knitr::include_graphics("EviewsR_Plot_color.png")
-```
+A set of Eviews commands can be executed with the help of
+`exec_commands` function in R. The above Eviews chunk can be translated
+using this function.
 
-<br><br><br><br>
+    exec_commands(c('%path=@runpath','cd %path',
+      'wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
+      'for %y EviewsR package page1 page2',
+      'pagecreate(page={%y}) EviewsR m 2000 2022',
+      'next',
+    '  pageselect EviewsR_page',
+      'rndseed 123456',
+    '  genr y=rnd',
+      'genr x=rnd',
+      'equation ols.ls y c x',
+      'freeze(EviewsROLS,mode=overwrite) ols',
+      'freeze(EviewsR_Plot,mode=overwrite) y.line',
+      'wfsave EviewsR_workfile',
+      'exit'))
 
-or the black and white graph object:
+# Simulation of random walk
 
-``` r
-knitr::include_graphics("EviewsR_Plot_nocolor.png")
-```
+A set of random walk series can be simulated in R using EViews engine,
+thanks to `rwalk` function.
 
-we can also include the results of the OLS generated by the Eviews chunk
-using the following R chunk;
+    rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
+
+# Creating EViews object
+
+The function `create_object` can be used to create an Eviews object in
+the existing EViews workfile.
+
+    create_object(wf="EviewsR_workfile",action="equation",action_opt="",object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
+
+# Importing table as kable
+
+Eviews tables can be imported as `kable` object by `import_table`
+function. Therefore, we can include the results of the OLS generated by
+the Eviews chunk using the following R chunk;
 
 For the OLS result only:
 
-``` r
-olsResult=read.csv("EviewsROLS.csv")
-knitr::kable(olsResult)
-```
+    # options(knitr.kable.NA = '')
+    import_table(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",format="pandoc",table_range = "r7c1:r10c5",digits=3)
+    #> [1] "Variable,Coefficient,Std. Error,t-Statistic,Prob.  "
+    #> [2] ",,,,"                                               
+    #> [3] "C,0.495927,0.033325,14.88173,0.0000"                
+    #> [4] "X,-0.032962,0.058948,-0.559173,0.5765"
+
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">Coefficient</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t-Statistic</th>
+<th style="text-align: right;">Prob.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">0.496</td>
+<td style="text-align: right;">0.033</td>
+<td style="text-align: right;">14.882</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X</td>
+<td style="text-align: right;">-0.033</td>
+<td style="text-align: right;">0.059</td>
+<td style="text-align: right;">-0.559</td>
+<td style="text-align: right;">0.577</td>
+</tr>
+</tbody>
+</table>
+
+# Saving EViews workfile
+
+An EViews workfile can be saved various output formats using
+`eviews_wfsave` in function in R.
+
+    eviews_wfsave(wf="eviewsr_workfile",source_description = "EviewsR_wfsave.csv")
+
+# Saving EViews page
+
+Similar to Eviews workfile, an Eviews page can be saved in various
+formats by `eviews_pagesave` function.
+
+    eviews_pagesave(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv",drop_list = "y")
+
+# Importing data to EViews
+
+Data can be imported from external sources by `eviews_import` function.
+
+    eviews_import(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv")
+
+# Import data from EViews
+
+Use `import` function to import data from EViews to R as a dataframe.
+The function creates a new environment `eviews`, whose objects can be
+accessed via `eviews$object_name`.
+
+
+    import(object_name = "import",wf="eviewsr_workfile",keep_list = c("x","y"))
+    plot(eviews$import$y,type="l",ylab="EviewsR",col="red")
+
+<img src="C:/Users/SMATI/AppData/Local/Temp/Rtmpa0o0p5/preview-328078e750c8.dir/EviewsR_files/figure-markdown_strict/import-1.png" width="100%" height="100%" />
+
+# Exporting dataframe to EViews
+
+Use `export` function to export dataframe object to Eviews.
+
+    export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',frequency = "m")
 
 <br><br><br><br>
 
-or the entire OLS output:
+# EViews graph
 
-``` r
-olsTable=read.csv("EviewsRtable.csv")
-knitr::kable(olsTable,format = "html")
-```
+EViews graph can be included in R Markdown or Quarto document by
+`eviews_graph` function.
+
+
+    y=runif(100)
+    x=runif(100)
+    uu=data.frame(x,y)
+
+     eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
+
+<img src="x.png" alt="EviewsR example figure" width="80%" height="80%" />
+<p class="caption">
+EviewsR example figure
+</p>
+
+<img src="y.png" alt="EviewsR example figure" width="80%" height="80%" />
+<p class="caption">
+EviewsR example figure
+</p>
+
+# Demo
+
+The demo files are included and can be accessed via
+demo(package=“EviewsR”)
+
+    demo(create_object())
+    #> 
+    #> 
+    #>  demo(create_object)
+    #>  ---- ~~~~~~~~~~~~~
+    #> 
+    #> > library(EviewsR)
+    #> 
+    #> > eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",
+    #> + end_date = "2022")
+    #> 
+    #> > exec_commands(c("open EviewsR_workfile","genr y=rnd","genr x=rnd","save","exit"))
+    #> 
+    #> > create_object(wf="EviewsR_workfile",action="equation",action_opt="",
+    #> + object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
+    demo(eviews_graph())
+    #> 
+    #> 
+    #>  demo(eviews_graph)
+    #>  ---- ~~~~~~~~~~~~
+    #> 
+    #> > library(EviewsR)
+    #> 
+    #> > exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
+    #> + "genr y=rnd","genr x=rnd","save workfile","exit"))
+    #> 
+    #> > eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
+    #> [1] "EViewsR_files/demo/x.png" "EViewsR_files/demo/y.png"
+    #> attr(,"class")
+    #> [1] "knit_image_paths" "knit_asis"       
+    #> 
+    #> > unlink("workfile.wf1")
+    demo(eviews_wfcreate())
+    #> 
+    #> 
+    #>  demo(eviews_wfcreate)
+    #>  ---- ~~~~~~~~~~~~~~~
+    #> 
+    #> > library(EviewsR)
+    #> 
+    #> > eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",start_date = "1990",
+    #> + end_date = "2022")
+
+# Template
+
+Template for R Markdown is created. Go to
+`file->New File->R Markdown-> From Template->EviewsR`.
 
 <br><br><br><br>
 
-Please see the example files for a better explanation.
+Please download the example files from
+[Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).

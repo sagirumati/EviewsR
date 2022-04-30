@@ -15,7 +15,7 @@
 #'
 #' eviews_wfsave(wf="workfile",source_description = "wfsave.csv",drop_list = "x")
 #'}
-#' @seealso eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, export, import_table, import
+#' @family important functions
 #' @keywords documentation
 #' @export
 eviews_wfsave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){

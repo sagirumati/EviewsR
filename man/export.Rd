@@ -32,6 +32,20 @@ export(wf="eviewr_export",source_description=data,start_date = '1990',frequency 
 }
 }
 \seealso{
-eng_eviews, exec_commands, eviews_graph, eviews_import, create_object, eviews_pagesave, rwalk, eviews_wfcreate, eviews_wfsave, import_table, import
+Other important functions: 
+\code{\link{EviewsR}},
+\code{\link{create_object}()},
+\code{\link{eng_eviews}()},
+\code{\link{eviews_graph}()},
+\code{\link{eviews_import}()},
+\code{\link{eviews_pagesave}()},
+\code{\link{eviews_wfcreate}()},
+\code{\link{eviews_wfsave}()},
+\code{\link{exec_commands}()},
+\code{\link{import_table}()},
+\code{\link{import}()},
+\code{\link{rwalk}()},
+\code{\link{set_eviews_path}()}
 }
+\concept{important functions}
 \keyword{documentation}
