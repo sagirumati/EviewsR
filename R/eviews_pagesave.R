@@ -18,10 +18,10 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#'  exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
-#' "genr y=rnd","genr x=rnd","save workfile","exit"))
+#' demo(exec_commands)
 #'
-#' eviews_pagesave(wf="workfile",source_description = "pagesave.csv",drop_list = "y")
+#' eviews_pagesave(wf="EviewsR_exec_commands",source_description = "EviewsR_eviews_pagesave.csv",
+#' drop_list = "y")
 #'}
 #' @family important functions
 #' @keywords documentation

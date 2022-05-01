@@ -10,15 +10,26 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' exec_commands(c("wfcreate(wf=Workfile,page=Page) m 2000 2022","save workfile","exit"))
-#' exec_commands(c("genr y=rnd","y.line"),wf="Workfile")
-#' unlink("workfile.wf1")
 #' # The first example creates an `EViews` workfile with monthly frequency from 1990 2021,
 #' # then save the workfile in the current working directory
 #'
+#' exec_commands(c("wfcreate(wf=EviewsR_exec_commands,page=Page) m 2000 2022",
+#' "save EviewsR_exec_commands","exit"))
+#'
+#'
 #' # The second example opens the `EViews` workfile and then generate a random series
-#' # named `y` and plot its line graph.
-#' # The third line deletes the workfile from your directory.
+#' # named `y` and plots its line graph. It also freezes `ols` equation as `EviewsROLS`
+#'
+#' eviewsCommands=r'(genr y=rnd
+#' genr x=rnd
+#' equation ols.ls y c x
+#' freeze(EviewsROLS,mode=overwrite) ols)'
+#'
+#' exec_commands(commands=eviewsCommands,wf="EviewsR_exec_commands")
+#'
+#' # unlink("EviewsR_exec_commands.wf1")
+#'
+#'
 #'}
 #' @family important functions
 #' @keywords documentation
@@ -35,7 +46,7 @@ exec_commands=function(commands="",wf="",page=""){
   pageselect {%page}
   endif)'
 
-writeLines(c(eviews_path(),wf,page,eviews_code,commands),fileName)
+writeLines(c(eviews_path(),wf,page,eviews_code,commands,"%wf=@wfname","save {%wf}","exit"),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
 }

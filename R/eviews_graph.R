@@ -23,11 +23,9 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
-#' "genr y=rnd","genr x=rnd","save workfile","exit"))
+#' demo(exec_commands)
+#' eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",options = "m")
 #'
-#' eviews_graph(wf="workfile",page = "page",series="x y",mode = "overwrite",options = "m")
-#' unlink("workfile.wf1")
 #'}
 #' @family important functions
 #' @keywords documentation

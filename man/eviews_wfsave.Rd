@@ -38,10 +38,10 @@ Use this function to save an `EViews` workfile  from R
 \examples{
 library(EviewsR)
 \dontrun{
- exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022",
-"genr y=rnd","genr x=rnd","save workfile","exit"))
+ demo(exec_commands)
 
-eviews_wfsave(wf="workfile",source_description = "wfsave.csv",drop_list = "x")
+eviews_wfsave(wf="EviewsR_exec_commands",source_description = "EviewsR_eviews_wfsave.csv",
+drop_list = "x")
 }
 }
 \seealso{

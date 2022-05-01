@@ -12,16 +12,24 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022","genr y=rnd","genr x=rnd",
-#' "save workfile","exit"))
+#' demo(exec_commands)
 #'
-#' import(object_name="myDataFrame",wf="workfile",drop_list = "y")
+#' import(object_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
+#'
+#' eviews$importedDataFrame
+#'
+#' knitr::kable(head(eviews$importedDataFrame),format="pandoc",caption="Table from EviewsR")
 #'}
 #' @family important functions
 #' @keywords documentation
 #' @export
 #' @md
 import=function(object_name="",wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
+
+  keep_list=paste0(keep_list,collapse = " ")
+  drop_list=paste0(drop_list,collapse = " ")
+  keepmap_list=paste0(keepmap_list,collapse = " ")
+  dropmap_list=paste0(dropmap_list,collapse = " ")
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   source_description=tempfile("EviewsR", ".", ".csv")
@@ -69,7 +77,7 @@ if %smpl_spec<>"" then
 %smpl_spec="@smpl "+%smpl_spec
 endif
 
-pagesave(%options) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
+pagesave({%options}) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
 
 exit
 )'
@@ -82,8 +90,14 @@ system_exec()
 
   # system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
 
-  # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
- assign(object_name,read.csv(source_description_file),envir =eviews)
+  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
+dataFrame=read.csv(source_description_file)
+colName=colnames(dataFrame) %>% gsub(".*_date_$","date",.)
+
+colnames(dataFrame)=colName
+
+assign(object_name,dataFrame,envir =eviews)
 
  on.exit(unlink(c(fileName,source_description_file)))
  }

@@ -2,11 +2,7 @@
 title: "EviewsR: Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{EviewsR: Seamless Integration of Eviews and R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: rmarkdown::pdf_document
 ---
 
 ```{r setup, include = FALSE}
@@ -14,7 +10,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F
+  eval=T
 )
 library(EviewsR)
 set_eviews_path('EViews12_X64')

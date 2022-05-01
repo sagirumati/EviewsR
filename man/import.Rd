@@ -40,10 +40,13 @@ Use this function to import \code{EViews} series to R as dataframe
 \examples{
 library(EviewsR)
 \dontrun{
-exec_commands(c("wfcreate(wf=Workfile,page=Page) m 1990 2022","genr y=rnd","genr x=rnd",
-"save workfile","exit"))
+demo(exec_commands)
 
-import(object_name="myDataFrame",wf="workfile",drop_list = "y")
+import(object_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
+
+eviews$importedDataFrame
+
+knitr::kable(head(eviews$importedDataFrame),format="pandoc",caption="Table from EviewsR")
 }
 }
 \seealso{

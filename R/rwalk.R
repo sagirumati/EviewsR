@@ -14,11 +14,14 @@
 #' @examples library(EviewsR)
 #' \dontrun{
 #'
-#' rwalk(wf="",series="X Y Z",page="",rndseed=12345,frequency="M",
+#' rwalk(series="X Y Z",rndseed=12345,frequency="M",
 #' num_observations=100)
 #'
 #' plot(eviews$XYZ[[2]],ylab = "EViewsR",type = "l",col="red")
 #'
+#' rwalk(wf="EviewsR_exec_commands",series="rw1 rw2 rw3",rndseed=12345,frequency="M")
+#'
+#' head(eviews$rw1rw2rw3)
 #'}
 #' @family important functions
 #' @keywords documentation
@@ -113,11 +116,16 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
     on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
-    # on.exit(unlink(wf1),add = TRUE)
-    # ev<<-knit_global()
-    # if(options$label!="") series1=options$label else series1=series1
-    # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-    assign(series1,read.csv("randomwalk_group.csv"),envir = eviews)
+
+      if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
+    dataFrame=read.csv("randomwalk_group.csv")
+
+    colName=colnames(dataFrame) %>% gsub(".*_date_$","date",.)
+
+    colnames(dataFrame)=colName
+
+    assign(series1,dataFrame,envir = eviews)
 
 }
 
