@@ -1,3 +1,17 @@
+# EviewsR 0.1.2
+
+What's new?
+
+* Updated examples to be self-contained
+
+* Updated Vignettes
+
+* Updated demo
+
+* Created example files
+
+* Bug fixes
+
 # EviewsR 0.1.1
 
 
