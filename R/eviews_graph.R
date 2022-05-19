@@ -105,7 +105,10 @@ datelabel=paste('{%y}.datelabel',datelabel)
 
     chunk_name=opts_current$get("label")
 
+    if(is.null(chunk_name)) chunk_nameq="" else chunk_name1=paste0(chunk_name,"_")
     if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0("%chunk_name=",shQuote_cmd(paste0(chunk_name,"_")))
+
+
 
     save_path=gsub("/","\\\\",save_path)
 
@@ -199,14 +202,14 @@ if (merge_graphs){
       exit)'
       }
 
-writeLines(c(eviews_path(),EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),chunk_name,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.png$"),path=save_path1,ignore.case = T))
+for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.png$"),path=save_path1,ignore.case = T))
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")

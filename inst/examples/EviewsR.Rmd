@@ -221,8 +221,8 @@ EViews graph can be included in R Markdown or Quarto document by `eviews_graph` 
 
 ```{r eviewsGraph,eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
 
-y=runif(100)
-x=runif(100)
+y=cumsum(rnorm(100))
+x=cumsum(rnorm(100))
 uu=data.frame(x,y)
 
  eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =T,start_date="1",frequency="5",save_path = '')
