@@ -28,22 +28,22 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
 =""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
-  wf=paste0('%wf=',shQuote(wf))
-  page=paste0('%page=',shQuote(page))
-  action=paste0('%action=',shQuote(action))
+  wf=paste0('%wf=',shQuote_cmd(wf))
+  page=paste0('%page=',shQuote_cmd(page))
+  action=paste0('%action=',shQuote_cmd(action))
 
   action_opt=paste(action_opt,collapse = ",")
-  action_opt=paste0('%action_opt=',shQuote(action_opt))
-  object_name=paste0('%object_name=',shQuote(object_name))
+  action_opt=paste0('%action_opt=',shQuote_cmd(action_opt))
+  object_name=paste0('%object_name=',shQuote_cmd(object_name))
 
 
-  view_or_proc=paste0('%view_or_proc=',shQuote(view_or_proc))
+  view_or_proc=paste0('%view_or_proc=',shQuote_cmd(view_or_proc))
 
   options_list=paste(options_list,collapse = ",")
-  options_list=paste0('%options_list=',shQuote(options_list))
+  options_list=paste0('%options_list=',shQuote_cmd(options_list))
 
   arg_list=paste(arg_list,collapse = " ")
-  arg_list=paste0('%arg_list=',shQuote(arg_list))
+  arg_list=paste0('%arg_list=',shQuote_cmd(arg_list))
 
 
   eviews_code=r'(wfopen {%wf}

@@ -94,18 +94,18 @@ datelabel=paste('{%y}.datelabel',datelabel)
   graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")\n','for %y {%allEviewsGraphs}\n')
 ,c(datelabel,graph_procs,'next'))
 
-  EviewsRGroup=paste0('%EviewsRGroup=',shQuote(EviewsRGroup))
-   wf=paste0('%wf=',shQuote(wf))
-    page=paste0("%page=",shQuote(page))
+  EviewsRGroup=paste0('%EviewsRGroup=',shQuote_cmd(EviewsRGroup))
+   wf=paste0('%wf=',shQuote_cmd(wf))
+    page=paste0("%page=",shQuote_cmd(page))
     series=paste(series,collapse = " ")
-    series=paste0("%series=",shQuote(series))
-    graph_command=paste0("%graph_command=",shQuote(graph_command))
-    options=paste0("%options=",shQuote(options))
-    mode=paste0("%mode=",shQuote(mode))
+    series=paste0("%series=",shQuote_cmd(series))
+    graph_command=paste0("%graph_command=",shQuote_cmd(graph_command))
+    options=paste0("%options=",shQuote_cmd(options))
+    mode=paste0("%mode=",shQuote_cmd(mode))
 
     chunk_name=opts_current$get("label")
 
-    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0("%chunk_name=",shQuote(chunk_name))
+    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0("%chunk_name=",shQuote_cmd(paste0(chunk_name,"_")))
 
     save_path=gsub("/","\\\\",save_path)
 
@@ -118,10 +118,10 @@ datelabel=paste('{%y}.datelabel',datelabel)
      # dir.create(paste0("EViewsR_files/",opts_current$get("label")))
     save_path1=ifelse(save_path=="",".",save_path)
        # save_path1=paste0(save_path,"/")
-    save_path=paste0("%save_path=",shQuote(save_path))
+    save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
     save_options=paste(save_options,collapse = ",")
-    save_options=paste0("%save_options=",shQuote(save_options))
+    save_options=paste0("%save_options=",shQuote_cmd(save_options))
 
 
     # eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)

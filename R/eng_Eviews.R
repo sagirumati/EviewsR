@@ -34,7 +34,7 @@ eng_eviews <- function(options) {
   save_path=gsub("[.,-]","_",save_path)
   save_path1=ifelse(save_path=="",".",save_path)
   if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
-  save_path=paste0("%save_path=",shQuote(save_path))
+  save_path=paste0("%save_path=",shQuote_cmd(save_path))
   # dir.create(save_path)
   # dir.create(options$label)
   # create a temporary file
