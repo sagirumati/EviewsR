@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=T
+  eval=F
 )
 library(EviewsR)
 set_eviews_path('EViews12_X64')
@@ -219,13 +219,13 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
 
-```{r eviewsGraph,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
+```{r eviewsGraph,eval=T,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
 
 y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =T,start_date="1",frequency="5",save_path = '')
  
 ```
 

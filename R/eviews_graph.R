@@ -34,8 +34,8 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
-  if(merge_graphs==T) series1=paste0(series1,collapse = "")
-  if(merge_graphs==T & length(series1)==1) series1=gsub(" ","",series)
+  if(merge_graphs) series1=paste0(series1,collapse = "")
+   if(merge_graphs==T & length(series1)==1) series1=gsub(" ","",series1)
 
   if(merge_graphs!=T & length(series1)==1){
     series1=trimws(series1)
@@ -43,7 +43,7 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
   }
 
   if(is.data.frame(series)) {
-    stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
+    # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
     wf=opts_current$get("label") %n% basename(tempfile("EViewsR"))
@@ -109,7 +109,7 @@ datelabel=paste('{%y}.datelabel',datelabel)
     if (save_path=="" & !is.null(opts_current$get("label"))) save_path=paste0("EViewsR_files/",opts_current$get("label"))
     if(opts_current$get("fig.path")=="") save_path=""
     save_path=gsub("[.,-]","_",save_path)
-    if(save_path!="") dir.create(save_path,recursive = TRUE)
+    if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
      # dir.create(paste0("EViewsR_files/",opts_current$get("label")))
     save_path1=ifelse(save_path=="",".",save_path)
@@ -182,7 +182,7 @@ if (merge_graphs!=T){
   exit)'
 }
 
-if (merge_graphs==TRUE){
+if (merge_graphs){
 
       freeze_code=r'(group {%EviewsRGroup} {%z}
 
@@ -201,11 +201,13 @@ on.exit(unlink_eviews(),add = TRUE)
 
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.png","$"),path=save_path1,ignore.case = T))
+for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.png$"),path=save_path1,ignore.case = T))
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+print(save_path1)
 eviews_graphics=paste0(save_path1,eviews_graphics)
+print(eviews_graphics)
 include_graphics(eviews_graphics)
 }
 
@@ -216,3 +218,4 @@ include_graphics(eviews_graphics)
 
 # eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",options = "m")
 # @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
+
