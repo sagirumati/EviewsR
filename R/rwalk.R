@@ -37,9 +37,9 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
     }
 
   wf1=paste0(wf,".wf1")
-  wf=paste0('%wf=',shQuote(wf))
-  save=paste0('%save=',shQuote(save))
-  page=paste0('%page=',shQuote(page))
+  wf=paste0('%wf=',shQuote_cmd(wf))
+  save=paste0('%save=',shQuote_cmd(save))
+  page=paste0('%page=',shQuote_cmd(page))
   rndseed=paste0('!rndseed=',rndseed)
   drift=paste0("!drift=",drift)
   num_observations=paste0("!num_observations=",num_observations)
@@ -47,7 +47,7 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
 
   series1=paste(series,collapse = "")
   series1=gsub(" ","",series1)
-  series=paste0("%series=",shQuote(paste(series,collapse = " ")))
+  series=paste0("%series=",shQuote_cmd(paste(series,collapse = " ")))
 
     eviews_code=r'(
     if %wf<>"" then

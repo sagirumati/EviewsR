@@ -103,6 +103,10 @@ datelabel=paste('{%y}.datelabel',datelabel)
     options=paste0("%options=",shQuote(options))
     mode=paste0("%mode=",shQuote(mode))
 
+    chunk_name=opts_current$get("label")
+
+    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0("%chunk_name=",shQuote(chunk_name))
+
     save_path=gsub("/","\\\\",save_path)
 
     if (save_path=="" & is.null(opts_current$get("label"))) save_path=paste("EViewsR_files")
@@ -187,6 +191,7 @@ if (merge_graphs){
       freeze_code=r'(group {%EviewsRGroup} {%z}
 
       %seriesNames=@replace(%z," ","")
+      %seriesNames=%chunk_name+%seriesNames
       freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
       save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}

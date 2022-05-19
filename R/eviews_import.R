@@ -49,20 +49,20 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
 
     fileName=tempfile("EVIEWS", ".", ".prg")
-  options=paste0('%options=',shQuote(options))
+  options=paste0('%options=',shQuote_cmd(options))
   # source_description=gsub("/","\\\\",source_description)
-  source_description=paste0("%source_description=",shQuote(source_description))
-  smpl_string=paste0("%smpl_string=",shQuote(smpl_string))
-  genr_string=paste0("%genr_string=",shQuote(genr_string))
-  rename_string=paste0("%rename_string=",shQuote(rename_string))
-  frequency=paste0("%frequency=",shQuote(frequency))
-  start_date=paste0("%start_date=",shQuote(start_date))
-  id=paste0("%id=",shQuote(id))
-  destid=paste0("%destid=",shQuote(destid))
-  append=paste0("%append=",shQuote(append))
-  wf=paste0("%wf=",shQuote(wf))
+  source_description=paste0("%source_description=",shQuote_cmd(source_description))
+  smpl_string=paste0("%smpl_string=",shQuote_cmd(smpl_string))
+  genr_string=paste0("%genr_string=",shQuote_cmd(genr_string))
+  rename_string=paste0("%rename_string=",shQuote_cmd(rename_string))
+  frequency=paste0("%frequency=",shQuote_cmd(frequency))
+  start_date=paste0("%start_date=",shQuote_cmd(start_date))
+  id=paste0("%id=",shQuote_cmd(id))
+  destid=paste0("%destid=",shQuote_cmd(destid))
+  append=paste0("%append=",shQuote_cmd(append))
+  wf=paste0("%wf=",shQuote_cmd(wf))
   save_path1=save_path
-  save_path=paste0("%save_path=",shQuote(save_path))
+  save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
   eviews_code=r'(
   if %type<>"" then

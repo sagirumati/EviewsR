@@ -42,11 +42,11 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   fileName=basename(tempfile("EVIEWS", ".", ".prg"))
   # file_name=table_name
 
-  wf=paste0('%wf=',shQuote(wf))
-  page=paste0('%page=',shQuote(page))
+  wf=paste0('%wf=',shQuote_cmd(wf))
+  page=paste0('%page=',shQuote_cmd(page))
   table_name.csv=paste0(table_name,".csv")
-  table_range=paste0('%table_range=',shQuote(table_range))
-  table_name=paste0('%table_name=',shQuote(table_name))
+  table_range=paste0('%table_range=',shQuote_cmd(table_range))
+  table_name=paste0('%table_name=',shQuote_cmd(table_name))
 
 
   eviews_code=r'(open {%wf}

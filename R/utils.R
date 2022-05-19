@@ -13,7 +13,7 @@ kable_format <- function(){
 
 eviews_path=function(){
   getwd() %>% normalizePath() %>%
-    shQuote(type = "cmd") %>%
+    shQuote_cmd() %>%
   paste0("%eviews_path=",.,"\ncd %eviews_path")
 }
 
@@ -26,7 +26,7 @@ if(!exists("engine_path")) set_eviews_path()
 fileName=eval(expression(fileName),envir = parent.frame()) # Dynamic scoping
 engine_path=eval(expression(engine_path),envir = parent.frame())
 
-getwd() %>% paste0(.,"/",fileName) %>% shQuote(type = "cmd") %>%
+getwd() %>% paste0(.,"/",fileName) %>% shQuote_cmd() %>%
   paste("exec",.) %>%
 system2(set_eviews_path(engine_path),.)
 }
@@ -66,9 +66,12 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 #   all(grepl("^\\s*$", x))
 # }
 # which(!nzchar(a))
-# if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote(paste0(path,"/",fileName))))
+# if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote_cmd(paste0(path,"/",fileName))))
 
 
 
+# shQuote_cmd
+
+shQuote_cmd= \(x) shQuote(x,type="cmd")
 
 `%n%`=function(x,y) if(is.null(x)) y else x

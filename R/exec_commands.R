@@ -37,8 +37,8 @@
 exec_commands=function(commands="",wf="",page=""){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
-  wf=paste0('%wf=',shQuote(wf))
-  page=paste0('%page=',shQuote(page))
+  wf=paste0('%wf=',shQuote_cmd(wf))
+  page=paste0('%page=',shQuote_cmd(page))
   eviews_code=r'(if %wf<>"" then
   wfopen {%wf}
   endif

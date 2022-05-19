@@ -40,7 +40,7 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency=
 
   save_path=gsub("/","\\\\",save_path)
   save_path1=save_path
-  save_path=paste0("%save_path=",shQuote(save_path))
+  save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
    if(save_path1!=""){
      if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
@@ -66,12 +66,12 @@ wf=paste0("wf=",wf)
 page=paste0("page=",page)
 
   options=paste(wf,page,prompt,sep = ",")
-  options=paste0("%options=",shQuote(options))
+  options=paste0("%options=",shQuote_cmd(options))
 
-  frequency=paste0("%frequency=",shQuote(frequency))
-  subperiod_opts=paste0("%subperiod_opts=",shQuote(subperiod_opts))
-  start_date=paste0("%start_date=",shQuote(start_date))
-  end_date=paste0("%end_date=",shQuote(end_date))
+  frequency=paste0("%frequency=",shQuote_cmd(frequency))
+  subperiod_opts=paste0("%subperiod_opts=",shQuote_cmd(subperiod_opts))
+  start_date=paste0("%start_date=",shQuote_cmd(start_date))
+  end_date=paste0("%end_date=",shQuote_cmd(end_date))
   num_cross_sections=paste0("!num_cross_sections=",num_cross_sections)
   num_observations=paste0("!num_observations=",num_observations)
 
