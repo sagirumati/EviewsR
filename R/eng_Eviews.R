@@ -29,7 +29,16 @@
 #' @export
 eng_eviews <- function(options) {
 
-  save_path=paste0("EviewsR_files/",options$label)
+
+  chunk_name=options$label
+  chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
+    shQuote_cmd() %>% paste0('%chunk_name=',.)
+
+  if(options$dev=="png") save_options="t=png,d=300" else save_options=paste(options$dev,collapse = ",")
+  save_options=paste0('%save_options=',shQuote_cmd(save_options))
+
+
+  save_path=paste0("EviewsR_files")
   if(opts_current$get("fig.path")=="") save_path=""
   save_path=gsub("[.,-]","_",save_path)
   save_path1=ifelse(save_path=="",".",save_path)
@@ -38,6 +47,7 @@ eng_eviews <- function(options) {
   # dir.create(save_path)
   # dir.create(options$label)
   # create a temporary file
+
   fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
 
   save_code=r'(
@@ -49,7 +59,7 @@ eng_eviews <- function(options) {
 
 if @wcount(%graphs)<>0 then
   for %y {%graphs}
-  {%y}.save(t=png,d=300) {%eviews_path}\{%save_path}{%y}
+  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
 endif
 
@@ -72,7 +82,7 @@ endif
   %vectors="coefs pval stderrs tstats"
   if @wcount(@wintersect(%x{!j},%vectors))>0 then
   !eqCoef={%y}.@ncoef
-  for !i= 2 to !eqCoef+1 'first row for the header
+  for !i= 2 to !eqCoef+1
   {%y}_table(!i,!j)={%y}.@{%x{!j}}(!i-1)
   next
   else
@@ -80,33 +90,71 @@ endif
   endif
   next
 
-  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}\{%y}
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}_equation_table
 
   next
 
   endif
 
+
+
+  %pagelist=@pagelist
+
+  for %y {%pagelist}
+  pageselect {%y}
+  %tables=@wlookup("*" ,"table")
+
+  if @wcount(%tables)<>0 then
+  for %y {%tables}
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}_eviewsr_table
+  next
+  endif
+
+  next
+
   exit
   )'
-  writeLines(c(eviews_path(),save_path,options$code,save_code), fileName)
+  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,save_options,save_code), fileName)
 
 
 
  if (options$eval){
    system_exec()
 
-  equations=list.files(save_path1,".csv")
+  equations=list.files(save_path1,"_equation_table\\.csv$")
 
-  equations=gsub(".csv","",equations)
+  equations=gsub("_equation_table\\.csv","",equations)
 
-  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+  # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
+
+assign(chunk_name,new.env(),envir=knit_global())
+
+if(length(equations)!=0){
   for (i in equations){
-     assign(i,read.csv(paste0(save_path1,"/",i,".csv")),envir = eviews)
 
-    on.exit(unlink(paste0(save_path1,"/",equations,".csv")),add = TRUE)
-      }
+    assign(i,read.csv(paste0(save_path1,"/",i,"_equation_table.csv")),envir = get(chunk_name))
+
+  }
 }
+
+
+  tables=list.files(save_path1,"_eviewsr_table\\.csv$")
+
+  tables=gsub("_eviewsr_table\\.csv","",tables)
+
+
+if(length(tables)!=0){
+  for (i in tables){
+
+    assign(i,read.csv(paste0(save_path1,"/",i,"_eviewsr_table.csv")),envir = get(chunk_name))
+  }
+}
+
+   on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
+  on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
+
+  }
 
    on.exit(unlink_eviews(),add = TRUE)
   }

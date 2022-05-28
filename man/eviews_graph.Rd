@@ -5,7 +5,7 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",
-options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),
+options="m",frequency="7",start_date="",save_options=c("t=png","d=300"),
 save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 datelabel="",merge_graphs=FALSE)
 }

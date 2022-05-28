@@ -10,7 +10,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F
+  eval=F,
+  prompt = T
 )
 library(EviewsR)
 set_eviews_path('EViews12_X64')

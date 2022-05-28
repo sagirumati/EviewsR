@@ -3,7 +3,7 @@
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
 #' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",
-#' options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),
+#' options="",frequency="7",start_date="",save_options=c("t=png","d=300"),
 #' save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
 #' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
@@ -30,7 +30,14 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="m",frequency="7",start_date="",save_options=c("t=png","d=300","color"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="",frequency="7",start_date="",save_options=c("t=png","d=300"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+
+
+  chunk_name=opts_current$get("label")
+
+  # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpeg", ".png", ".pdf", ".tex", ".md")
+
+  # extensions= c("emf", "wmf", "eps", "bmp", "gif", "jpeg", "png", "pdf", "tex", "md")
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
@@ -46,7 +53,7 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
     # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
-    wf=opts_current$get("label") %n% basename(tempfile("EViewsR"))
+    wf=chunk_name %n% basename(tempfile("EViewsR"))
     wf=gsub("[.,-]","_",wf)
     wf1=wf
     page=wf
@@ -65,9 +72,20 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
     save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
-    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
 
-  #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
+    if(length(intersect(save_options,save_options1)>0)){
+    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
+    }
+
+    save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
+
+    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpeg", "t=png", "t=pdf", "t=tex", "md")
+
+    extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
+
+    if(length(extensions)==0) extensions="emf"
+
+    #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 
     fileName=tempfile("EVIEWS", ".", ".prg")
   EviewsRGroup=basename(tempfile("EviewsRGroup"))
@@ -103,22 +121,25 @@ datelabel=paste('{%y}.datelabel',datelabel)
     options=paste0("%options=",shQuote_cmd(options))
     mode=paste0("%mode=",shQuote_cmd(mode))
 
-    chunk_name=opts_current$get("label")
 
-    if(is.null(chunk_name)) chunk_nameq="" else chunk_name1=paste0(chunk_name,"_")
-    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0("%chunk_name=",shQuote_cmd(paste0(chunk_name,"_")))
+
+    if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"_") %>%  gsub("[.,-]","_",.)
+    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
+      shQuote_cmd() %>% paste0('%chunk_name=',.)
 
 
 
     save_path=gsub("/","\\\\",save_path)
 
-    if (save_path=="" & is.null(opts_current$get("label"))) save_path=paste("EViewsR_files")
-    if (save_path=="" & !is.null(opts_current$get("label"))) save_path=paste0("EViewsR_files/",opts_current$get("label"))
+    # if (save_path=="" & is.null(chunk_name)) save_path=paste("EViewsR_files")
+     # if (save_path=="" & !is.null(chunk_name)) save_path=paste0("EViewsR_files")
+     #
+     if (save_path=="") save_path=paste("EViewsR_files")
     if(opts_current$get("fig.path")=="") save_path=""
     save_path=gsub("[.,-]","_",save_path)
     if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
-     # dir.create(paste0("EViewsR_files/",opts_current$get("label")))
+     # dir.create(paste0("EViewsR_files/",chunk_name))
     save_path1=ifelse(save_path=="",".",save_path)
        # save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
@@ -183,7 +204,7 @@ if (merge_graphs!=T){
 
 
   save_code=r'(for !k=1 to {!n}
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%x{!k}}
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%x{!k}}
   next
   delete {%EviewsrGroup}
   exit)'
@@ -194,10 +215,10 @@ if (merge_graphs){
       freeze_code=r'(group {%EviewsRGroup} {%z}
 
       %seriesNames=@replace(%z," ","")
-      %seriesNames=%chunk_name+%seriesNames
+      %seriesNames=%seriesNames
       freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
-      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%seriesNames}
+      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%seriesNames}
       delete {%EviewsrGroup}
       exit)'
       }
@@ -207,15 +228,18 @@ writeLines(c(eviews_path(),chunk_name,EviewsRGroup,wf,page,series,graph_command,
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
+
+
+
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.png$"),path=save_path1,ignore.case = T))
+
+for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
-print(save_path1)
 eviews_graphics=paste0(save_path1,eviews_graphics)
-print(eviews_graphics)
 include_graphics(eviews_graphics)
 }
 

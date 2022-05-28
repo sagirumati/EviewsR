@@ -76,6 +76,6 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   table=read.csv(text=table,allowEscapes = T,header = T,check.names = FALSE)
 
 
-  return(kable(table, format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...))
+  kable(table, format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...)
 
   }

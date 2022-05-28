@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F
+  eval=T
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
@@ -94,7 +94,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR}
+```{eviews EviewsR,eval=T}
     'This program is created in R Markdown with the help of EviewsR package
   %path=@runpath
   cd %path
@@ -223,13 +223,15 @@ export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',f
 
 EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
 
-```{r eviewsGraph,fig.cap="EviewsR example figure",out.width='80%',out.height='80%',fig.path=""}
+```{r eviewsGraph,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
 
 y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",merge_graphs =T)
+ 
+  # eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  
 ```
 

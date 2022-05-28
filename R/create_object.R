@@ -55,7 +55,7 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
   if %action_opt<>"" then
   %action_opt="("+%action_opt+")"
   endif
-  '
+
 
   if %view_or_proc<>"" then
   %view_or_proc="."+%view_or_proc
