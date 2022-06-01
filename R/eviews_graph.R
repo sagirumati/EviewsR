@@ -2,10 +2,6 @@
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
-#' @usage eviews_graph(series="",wf="",page="",mode="overwrite",graph_command="line",
-#' options="",frequency="7",start_date="",save_options=c("t=png","d=300"),
-#' save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),
-#' datelabel="",merge_graphs=FALSE)
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
 #' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.
@@ -18,7 +14,7 @@
 #' @param graph_procs A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}
 #' @param datelabel A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.
 #' @param save_path Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.
-#' @param merge_graphs Logical, whether to merge two or more graphs on one page. Setting \code{merge_graphs=FALSE} produces `EViews` graph for each series separately.
+#' @param group Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -30,8 +26,11 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="line",options="",frequency="7",start_date="",save_options=c("t=png","d=300"),save_path="",graph_procs=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)'),datelabel="",merge_graphs=FALSE){
+eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="",frequency="7",start_date=""){
 
+graphProcsDefault=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)')
+
+if(graph_procs=="") graph_procs=graphProcsDefault else graph_procs=append(graphProcsDefault,graph_procs)
 
   chunk_name=opts_current$get("label")
 
@@ -41,10 +40,10 @@ eviews_graph=function(series="",wf="",page="",mode="overwrite",graph_command="li
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
-  if(merge_graphs) series1=paste0(series1,collapse = "")
-   if(merge_graphs==T & length(series1)==1) series1=gsub(" ","",series1)
+  if(group) series1=paste0(series1,collapse = "")
+   if(group==T & length(series1)==1) series1=gsub(" ","",series1)
 
-  if(merge_graphs!=T & length(series1)==1){
+  if(group!=T & length(series1)==1){
     series1=trimws(series1)
     series1=unlist(strsplit(series1,split=" "))
   }
@@ -190,7 +189,7 @@ endif)'
 
 
 
-if (merge_graphs!=T){
+if (group!=T){
 
   freeze_code=r'(group {%EviewsRGroup} {%z}
   !n={%EviewsRGroup}.@count
@@ -210,7 +209,7 @@ if (merge_graphs!=T){
   exit)'
 }
 
-if (merge_graphs){
+if (group){
 
       freeze_code=r'(group {%EviewsRGroup} {%z}
 

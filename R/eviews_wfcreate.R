@@ -76,7 +76,7 @@ page=paste0("page=",page)
   num_observations=paste0("!num_observations=",num_observations)
 
 
-  eviews_code=r'('%wf=@wreplace(%wf,"* ","*")
+  eviews_code=r'(%wf=@wreplace(%wf,"* ","*")
   '%page=@wreplace(%page,"* ","*")
   %subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
 

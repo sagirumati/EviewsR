@@ -2,12 +2,11 @@
 #'
 #' Use this function to create an `EViews` object on a workfile from R
 #'
-#' @usage create_object(wf="",page="",action="",action_opt="",object_name="",
-#' view_or_proc="",options_list="",arg_list="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
 #' @param action Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.
 #' @param action_opt An option that modifies the default behaviour of the `EViews` action.
+#' @param assignment Value to be assigned to the object
 #' @param object_name The name of the `EViews` object to be acted upon.
 #' @param view_or_proc The `EViews` object view or procedure to be performed.
 #' @param options_list An option that modifies the default behaviour of the `EViews` view or procedure.
@@ -24,9 +23,10 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-create_object=function(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list
+create_object=function(wf="",page="",action="",action_opt="",object_name="",assignment="",view_or_proc="",options_list="",arg_list
 =""){
 
+  if(assignment!="" && view_or_proc!="") stop("Either 'assignment' or 'view_or_proc' must be blank")
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
