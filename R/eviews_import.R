@@ -38,7 +38,9 @@
 eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
 
   if(is.data.frame(source_description)){
-    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_EviewsR")
+
+wfSuffix=opts_current$get('label') %n% "EViewsR"
+    if(wf=="") wf=paste0(wfSuffix,'_',paste0(names(source_description),collapse = ""))
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
 
@@ -65,6 +67,11 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
   eviews_code=r'(
+%wf1=%wf+".wf1"
+  if @fileexist(%wf1) then
+open {%wf}
+  endif
+
   if %type<>"" then
   %type="type="+%type+","   'to avoid error if %TYPE=""
   endif
@@ -88,12 +95,12 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   'Determine the IMPORT_SPECIFICATION for DATED
 
-  if %frequency<>"" or %start_date<>"" then
+  if %frequency<>"" and %start_date<>"" then
   %import_type="dated"
   %import_specification="@freq "+%frequency+" "+%start_date
   endif
 
-  if %id<>"" or %destid<>"" then
+  if %id<>"" and %destid<>"" then
   %import_type="match-merged"
   'open {%wf}
   %import_specification="@id "+%id+" @destid"+" "+%destid
@@ -101,7 +108,7 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   if (%append="T" or %append="TRUE") and %id="" and %destid="" and %frequency="" and %start_date="" then
   %import_type="appended"
-  open {%wf}
+  'open {%wf}
     %import_specification="@append"
   endif
 
@@ -118,7 +125,7 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   %optional_arguments=%smpl_string+" "+%genr_string+" "+%rename_string
   if %import_type="appended" then
-  'open {%wf}
+ 'open {%wf}
   %optional_arguments=%genr_string+" "+%rename_string 'APPENDED syntax does not contain @SMPL_STRING
   endif
   'GENERAL

@@ -36,6 +36,8 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency=
   if(toupper(frequency)!="U" & (start_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile),'start_date' and 'num_observations' cannot be blank or NA")
   if(toupper(frequency)!="U" & (start_date!="" & end_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile) and 'start_date' is not blank, then 'end_date' or 'num_observations' cannot be blank or NA")
 
+  if(end_date!="" & !is.na(num_observations)) stop("Please set the value of either 'end_date=\"\"' or  'num_observations=NA'.")
+
   if(start_date!="" && !is.na(num_observations) && end_date=="") end_date=paste0('+',num_observations)
 
   save_path=gsub("/","\\\\",save_path)

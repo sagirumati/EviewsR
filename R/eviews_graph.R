@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="",frequency="7",start_date=""){
+eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="",frequency="m",start_date=""){
 
 graphProcsDefault=c('textdefault font("Times",20,-b,-i,-u,-s)','align(2,1,1)')
 

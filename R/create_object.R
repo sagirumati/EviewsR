@@ -6,11 +6,13 @@
 #' @inheritParams eviews_wfcreate
 #' @param action Any valid `EViews` command for `EViews` object declaration, like \code{freeze}, \code{do}, \code{equation}, \code{table}.
 #' @param action_opt An option that modifies the default behaviour of the `EViews` action.
-#' @param assignment Value to be assigned to the object
+#' @param expression Value to be assigned to the object
 #' @param object_name The name of the `EViews` object to be acted upon.
 #' @param view_or_proc The `EViews` object view or procedure to be performed.
 #' @param options_list An option that modifies the default behaviour of the `EViews` view or procedure.
 #' @param arg_list A list of `EViews` view or procedure arguments.
+#' @param object_type EViews object type such as `series`, `equation`.
+#' @param options Options for the `object_type`.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -23,10 +25,10 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-create_object=function(wf="",page="",action="",action_opt="",object_name="",assignment="",view_or_proc="",options_list="",arg_list
-=""){
+create_object=function(wf="",page="",action="",action_opt="",object_name="",view_or_proc="",options_list="",arg_list
+="",object_type="",options="",expression=""){
 
-  if(assignment!="" && view_or_proc!="") stop("Either 'assignment' or 'view_or_proc' must be blank")
+  if(expression!="" && view_or_proc!="") stop("Either 'expression' or 'view_or_proc' must be blank")
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
@@ -44,6 +46,11 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",assi
 
   arg_list=paste(arg_list,collapse = " ")
   arg_list=paste0('%arg_list=',shQuote_cmd(arg_list))
+
+  object_type=paste0('%object_type=',shQuote_cmd(object_type))
+  expression=paste0('%expression=',shQuote_cmd(expression))
+  options=paste0('%options=',shQuote_cmd(options))
+
 
 
   eviews_code=r'(wfopen {%wf}
@@ -65,12 +72,28 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",assi
   %options_list="("+%options_list+")"
   endif
 
+
+  if %options<>"" then
+  %options="("+%options+")"
+  endif
+
+  if %expression<>"" then
+  %expression="="+%expression
+  endif
+
+
+  if %action<>"" then
   {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
+  endif
+
+  if %aobject_type<>"" then
+  {%object_type}{%options} {%object_name}{%expression}
+  endif
 
   wfsave {%wf}
   exit
   )'
-writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,eviews_code),fileName)
+writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,object_type,options,expression,eviews_code),fileName)
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)

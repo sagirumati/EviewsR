@@ -4,8 +4,19 @@
 \alias{create_object}
 \title{Create an `EViews` object on a workfile from R}
 \usage{
-create_object(wf="",page="",action="",action_opt="",object_name="",
-view_or_proc="",options_list="",arg_list="")
+create_object(
+  wf = "",
+  page = "",
+  action = "",
+  action_opt = "",
+  object_name = "",
+  view_or_proc = "",
+  options_list = "",
+  arg_list = "",
+  object_type = "",
+  options = "",
+  expression = ""
+)
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
@@ -23,6 +34,12 @@ view_or_proc="",options_list="",arg_list="")
 \item{options_list}{An option that modifies the default behaviour of the `EViews` view or procedure.}
 
 \item{arg_list}{A list of `EViews` view or procedure arguments.}
+
+\item{object_type}{EViews object type such as `series`, `equation`.}
+
+\item{options}{Options for the `object_type`.}
+
+\item{expression}{Value to be assigned to the object}
 }
 \value{
 An EViews workfile
