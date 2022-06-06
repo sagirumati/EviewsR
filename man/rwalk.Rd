@@ -4,8 +4,18 @@
 \alias{rwalk}
 \title{Simulate a random walk process using an `EViews` engine from R.}
 \usage{
-rwalk(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",
-start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
+rwalk(
+  series = "",
+  wf = "",
+  page = "",
+  drift = NA,
+  rndseed = NA,
+  frequency = "m",
+  start_date = "",
+  end_date = "",
+  num_cross_sections = NA,
+  num_observations = NA
+)
 }
 \arguments{
 \item{series}{Names of series for the random walk.}
@@ -33,6 +43,9 @@ An EViews workfile
 }
 \description{
 Use this function to simulate a random walk process using an `EViews` engine.
+}
+\details{
+start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 }
 \examples{
 library(EviewsR)

@@ -28,11 +28,9 @@
 #' @export
 eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="",frequency="m",start_date=""){
 
-graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
+graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
 
-graph_procs=append(graphProcsDefault,graph_procs)
-
-if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
+if(graph_procs=="") graph_procs=graphProcsDefault else graph_procs=append(graphProcsDefault,graph_procs)
 
   chunk_name=opts_current$get("label")
 
@@ -84,7 +82,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
     extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
 
-    if(length(extension)==0) extension="emf"
+    if(length(extensions)==0) extensions="emf"
 
     #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 

@@ -16,7 +16,7 @@ eviews_graph(
   datelabel = "",
   save_options = c("t=png", "d=300"),
   save_path = "",
-  frequency = "7",
+  frequency = "m",
   start_date = ""
 )
 }
