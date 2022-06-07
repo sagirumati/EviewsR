@@ -96,13 +96,13 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 if(datelabel==""){
 datelabel <- '%freq=@pagefreq
   if %freq="m" or %freq="M" then
-  {%y}.datelabel format("YYYY")
+  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
   endif
   if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
-  {%y}.datelabel format("Mon YYYY")
+  {%y}.datelabel format("Mon YYYY") interval(auto, 1, 1)
   endif
 if %freq="a" or %freq="A" then
-  {%y}.datelabel format("YYYY")
+  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
   endif'
 }else{
 datelabel=paste('{%y}.datelabel',datelabel)

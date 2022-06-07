@@ -86,7 +86,7 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
   {%action}{%action_opt} {%object_name}{%view_or_proc}{%options_list} {%arg_list}
   endif
 
-  if %aobject_type<>"" then
+  if %object_type<>"" then
   {%object_type}{%options} {%object_name}{%expression}
   endif
 
