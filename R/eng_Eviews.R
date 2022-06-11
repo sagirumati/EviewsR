@@ -29,7 +29,7 @@
 #' @export
 eng_eviews <- function(options) {
 
-  dev
+
 
   chunk_name=options$label
   chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
