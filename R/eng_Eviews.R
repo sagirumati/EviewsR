@@ -36,6 +36,8 @@ eng_eviews <- function(options) {
     shQuote_cmd() %>% paste0('%chunk_name=',.)
 
   if(options$dev=="png") save_options="t=png,d=300" else save_options=paste(options$dev,collapse = ",")
+  if(options$dev=="pdf") save_options="t=pdf" else save_options=paste(options$dev,collapse = ",")
+
   save_options=paste0('%save_options=',shQuote_cmd(save_options))
 
 

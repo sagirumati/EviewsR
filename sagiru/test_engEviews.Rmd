@@ -1,0 +1,20 @@
+---
+title: "Untitled"
+output: pdf_document
+date: '2022-06-11'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(EviewsR)
+```
+
+## R Markdown
+
+```{eviews mychunk,fig.path="sagiru"}
+wfcreate(wf=sagiru,page=mati) m 2000 2025
+genr y=@cumsum(nrnd)
+genr x=@cumsum(nrnd)
+graph grap.line(m) x y
+wfsave mychunk
+```
