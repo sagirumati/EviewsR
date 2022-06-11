@@ -31,18 +31,24 @@ eng_eviews <- function(options) {
 
 
 
+  if (!is.null(options$dev.args)) graph_procs=options$dev.args
+  graph_procs=paste0("{%y}.",graph_procs)
+  graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")','if @wcount(%allEviewsGraphs)>0 then','for %y {%allEviewsGraphs}')
+                     ,c(graph_procs,'next','endif'))
+
+
   chunk_name=options$label
   chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
     shQuote_cmd() %>% paste0('%chunk_name=',.)
 
   if(options$dev=="png") save_options="t=png,d=300" else save_options=paste(options$dev,collapse = ",")
-  if(options$dev=="pdf") save_options="t=pdf" else save_options=paste(options$dev,collapse = ",")
+  if(options$dev=="pdf") save_options="t=pdf"
 
   save_options=paste0('%save_options=',shQuote_cmd(save_options))
 
 
   save_path=paste0("EviewsR_files")
-  if(opts_current$get("fig.path")=="") save_path=""
+  if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
   save_path=gsub("[.,-]","_",save_path)
   save_path1=ifelse(save_path=="",".",save_path)
   if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
@@ -53,23 +59,26 @@ eng_eviews <- function(options) {
 
   fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
 
-  save_code=r'(
-  %graphs=@wlookup("*","graph")
 
-  if %save_path<>"" then
+  figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
-if @wcount(%graphs)<>0 then
-  for %y {%graphs}
+  if @wcount(%figKeep)<>0 then
+  for %y {%figKeep}
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
-endif
+  endif)'
+
+  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
+  if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
+  if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
+  if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
+  save_code=r'(
 
-
-  %equation=@wlookup("*","equation")
+    %equation=@wlookup("*","equation")
 
   if @wcount(%equation)<>0 then
   for %y {%equation}
@@ -117,7 +126,7 @@ endif
 
   exit
   )'
-  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,save_options,save_code), fileName)
+  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,save_code), fileName)
 
 
 
@@ -160,7 +169,20 @@ if(length(tables)!=0){
   }
 
    on.exit(unlink_eviews(),add = TRUE)
-  }
+
+
+
+   eviews_graphics=c()
+
+   for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+
+   # b=list.files(paste0("^",a[1],".png","$"),path = ".")
+
+   if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+   eviews_graphics=paste0(save_path1,eviews_graphics)
+   include_graphics(eviews_graphics)
+
+}
 
 
 

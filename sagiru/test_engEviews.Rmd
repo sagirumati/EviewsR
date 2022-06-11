@@ -1,6 +1,8 @@
 ---
 title: "Untitled"
-output: pdf_document
+output: 
+  bookdown::pdf_document2:
+    keep_tex: true
 date: '2022-06-11'
 ---
 
@@ -11,10 +13,19 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,fig.path="sagiru"}
+```{eviews my-chunk,echo=T,dev="t=png,-c",dev.args="axis(b) font(40,b)",fig.keep="none"}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
+graph grap1.line x y
 graph grap.line(m) x y
+
 wfsave mychunk
+```
+
+```{r label}
+y=cumsum(rnorm(100))
+x=cumsum(rnorm(100))
+
+plot(x,y)
 ```
