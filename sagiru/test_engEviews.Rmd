@@ -13,7 +13,7 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews my-chunk,echo=T,dev="t=png,-c",dev.args="axis(b) font(40,b)",fig.keep="none"}
+```{eviews my-chunk,echo=T,dev="t=png,-c",dev.args="axis(b) font(40,b)",fig.keep="all"}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)

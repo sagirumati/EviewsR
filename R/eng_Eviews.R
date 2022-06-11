@@ -68,7 +68,10 @@ eng_eviews <- function(options) {
   for %y {%figKeep}
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
-  endif)'
+  endif)
+  freeze(eviewsr_text,mode=overwrite) {%figkeep}.text
+  eviewsr_text.save eviewsr_text
+  '
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
@@ -76,7 +79,7 @@ eng_eviews <- function(options) {
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
-  save_code=r'(
+  saveCode=r'(
 
     %equation=@wlookup("*","equation")
 
@@ -126,7 +129,8 @@ eng_eviews <- function(options) {
 
   exit
   )'
-  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,save_code), fileName)
+
+  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), fileName)
 
 
 
@@ -172,9 +176,27 @@ if(length(tables)!=0){
 
 
 
+   save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
+
+   if(length(intersect(save_options,save_options1)>0)){
+     if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
+   }
+
+   save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
+
+   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpeg", "t=png", "t=pdf", "t=tex", "md")
+
+   extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
+
+   if(length(extension)==0) extension="emf"
+
    eviews_graphics=c()
 
-   for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+   series2=readLines('eviewsr_text.txt')
+
+   series2=unlist(strsplit(series2,split=" "))
+
+    for (i in series2) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
