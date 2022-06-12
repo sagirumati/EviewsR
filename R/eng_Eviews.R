@@ -38,18 +38,24 @@ eng_eviews <- function(options) {
 
 
   chunk_name=options$label
-  chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
+  # chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
+  #   shQuote_cmd() %>% paste0('%chunk_name=',.)
+
+  chunk_name1=paste0(chunk_name,'-') %>%
     shQuote_cmd() %>% paste0('%chunk_name=',.)
 
   if(options$dev=="png") save_options="t=png,d=300" else save_options=paste(options$dev,collapse = ",")
   if(options$dev=="pdf") save_options="t=pdf"
 
+  save_options2=save_options
+
   save_options=paste0('%save_options=',shQuote_cmd(save_options))
 
 
-  save_path=paste0("EviewsR_files")
-  if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
-  save_path=gsub("[.,-]","_",save_path)
+  # save_path=paste0("EviewsR_files")
+  # if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
+  save_path=opts_current$get("fig.path")
+  # save_path=gsub("[.,-]","_",save_path)
   save_path1=ifelse(save_path=="",".",save_path)
   if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
@@ -68,10 +74,11 @@ eng_eviews <- function(options) {
   for %y {%figKeep}
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
-  endif)
-  freeze(eviewsr_text,mode=overwrite) {%figkeep}.text
+  endif
+  text eviewsr_text
+  eviewsr_text.append {%figkeep}
   eviewsr_text.save eviewsr_text
-  '
+  )'
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
@@ -143,13 +150,13 @@ eng_eviews <- function(options) {
 
   # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
-
-assign(chunk_name,new.env(),envir=knit_global())
+envName=chunk_name %>% gsub("[._-]","",.)
+assign(envName,new.env(),envir=knit_global())
 
 if(length(equations)!=0){
   for (i in equations){
 
-    assign(i,read.csv(paste0(save_path1,"/",i,"_equation_table.csv")),envir = get(chunk_name))
+    assign(i,read.csv(paste0(save_path1,"/",i,"_equation_table.csv")),envir = get(envName))
 
   }
 }
@@ -163,7 +170,7 @@ if(length(equations)!=0){
 if(length(tables)!=0){
   for (i in tables){
 
-    assign(i,read.csv(paste0(save_path1,"/",i,"_eviewsr_table.csv")),envir = get(chunk_name))
+    assign(i,read.csv(paste0(save_path1,"/",i,"_eviewsr_table.csv")),envir = get(envName))
   }
 }
 
@@ -182,7 +189,7 @@ if(length(tables)!=0){
      if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
    }
 
-   save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
+   save_options2=paste0(save_options2,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpeg", "t=png", "t=pdf", "t=tex", "md")
 
@@ -196,15 +203,29 @@ if(length(tables)!=0){
 
    series2=unlist(strsplit(series2,split=" "))
 
-    for (i in series2) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
+   # chunk_name2=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.)
+
+   chunk_name2=paste0(chunk_name,'-')
+
+   for (i in series2) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
    # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+
    eviews_graphics=paste0(save_path1,eviews_graphics)
-   include_graphics(eviews_graphics)
 
+
+ code=engine_output(options,code = options$code, out = "")
+
+ if(opts_current$get('fig.keep')=='none') out="" else  out=knitr::engine_output(
+     options,
+     out =list(knitr::include_graphics(eviews_graphics))
+     )
+
+
+
+     if(options$echo) return(c(code,out)) else return(out)
 }
-
 
 

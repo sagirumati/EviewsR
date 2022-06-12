@@ -3,25 +3,36 @@ title: "Untitled"
 output: 
   bookdown::pdf_document2:
     keep_tex: true
+header-includes:
+  - \usepackage{subfig}
 date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "right",fig.pos="h",out.width="0.5\\textwidth")
+options(prompt = "EViews> ")
 library(EviewsR)
 ```
 
 ## R Markdown
 
-```{eviews my-chunk,echo=T,dev="t=png,-c",dev.args="axis(b) font(40,b)",fig.keep="all"}
+```{eviews mychunk-,dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.show="hide",fig.keep="all",fig.subcap=c("A figure","Another figure")}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 graph grap1.line x y
 graph grap.line(m) x y
+equation ols.ls y c x
 
 wfsave mychunk
 ```
+
+```{r }
+mychunk$ols
+
+```
+
+# R plots
 
 ```{r label}
 y=cumsum(rnorm(100))
