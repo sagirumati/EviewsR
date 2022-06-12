@@ -89,26 +89,32 @@
 
 \begin{figure}[h]
 
-\hfill{}\subfloat[A figure\label{fig:mychunk--1}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk--grap} }\subfloat[Another figure\label{fig:mychunk--2}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk--grap1} }
+{\centering \subfloat[A figure\label{fig:mychunk--1}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk--grap} }\subfloat[Another figure\label{fig:mychunk--2}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk--grap1} }
+
+}
 
 \caption{somefigure}\label{fig:mychunk-}
 \end{figure}
 
 \begin{verbatim}
-##        aic  df      coefs       dw        f    fprob       hq      logl
-## 1 6.601688 310 -12.472990 0.023519 12.32696 0.000513 6.611277 -1027.863
-## 2       NA  NA  -0.211735       NA       NA       NA       NA        NA
-##     meandep ncoef      pval       r2    rbar2 regobs  schwarz    sddep      se
-## 1 -12.73519     2 1.90e-103 0.038244 0.035141    312 6.625681 6.663183 6.54506
-## 2        NA    NA  5.13e-04       NA       NA     NA       NA       NA      NA
-##        ssr  stderrs     tstats
-## 1 13279.72 0.377992 -32.998060
-## 2       NA 0.060307  -3.510977
+##        aic  df     coefs       dw        f   fprob       hq      logl  meandep
+## 1 5.280425 310  4.561258 0.141827 524.2696 1.3e-68 5.290015 -821.7464 3.680889
+## 2       NA  NA -0.793189       NA       NA      NA       NA        NA       NA
+##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
+## 1     2 2.43e-70 0.628417 0.627219    312 5.304419 5.537047 3.380689 3543.007
+## 2    NA 1.30e-68       NA       NA     NA       NA       NA       NA       NA
+##    stderrs    tstats
+## 1 0.195218  23.36499
+## 2 0.034642 -22.89693
 \end{verbatim}
 
 \hypertarget{r-plots}{%
 \section{R plots}\label{r-plots}}
 
-\begin{flushright}\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex/label-1} \end{flushright}
+\begin{center}\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex/label-1} \end{center}
+
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-y} \end{center}
+
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-x} \end{center}
 
 \end{document}

@@ -9,7 +9,7 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "right",fig.pos="h",out.width="0.5\\textwidth")
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth")
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
@@ -39,4 +39,10 @@ y=cumsum(rnorm(100))
 x=cumsum(rnorm(100))
 
 plot(x,y)
+```
+
+```{r eview-graph}
+data=data.frame(y=runif(100),x=runif(100))
+eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m")
+
 ```

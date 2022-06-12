@@ -55,7 +55,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
     stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
     wf=chunk_name %n% basename(tempfile("EViewsR"))
-    wf=gsub("[.,-]","_",wf)
+    wf=gsub("[.-]","_",wf)
     wf1=wf
     page=wf
     csvFile=paste0(wf,".csv")
@@ -124,10 +124,13 @@ datelabel=paste('{%y}.datelabel',datelabel)
 
 
 
-    if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"_") %>%  gsub("[.,-]","_",.)
-    if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
-      shQuote_cmd() %>% paste0('%chunk_name=',.)
+    # if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"_") %>%  gsub("[.,-]","_",.)
+    # if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
+    #   shQuote_cmd() %>% paste0('%chunk_name=',.)
 
+    if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
+        if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'-') %>%
+      shQuote_cmd() %>% paste0('%chunk_name=',.)
 
 
     save_path=gsub("/","\\\\",save_path)

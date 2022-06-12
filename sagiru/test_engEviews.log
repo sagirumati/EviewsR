@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  12 JUN 2022 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  12 JUN 2022 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -574,10 +574,10 @@ Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk--grap1.pdf  
 (pdftex.def)             Requested size: 234.87735pt x 177.41179pt.
 
 Overfull \hbox (6.67126pt too wide) in paragraph at lines 92--93
-[] [][][][] 
+ [][][][] 
  []
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 97.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 99.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
@@ -586,25 +586,35 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <test_engEviews_files/figure-latex/label-1.pdf, id=53, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/label-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/label-1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/label-1.pdf  used on input line 112.
+Package pdftex.def Info: test_engEviews_files/figure-latex/label-1.pdf  used on input line 114.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-[2 <./test_engEviews_files/figure-latex/label-1.pdf>] (./test_engEviews.aux)
+<EViewsR_files/eview-graph-y.png, id=54, 822.07124pt x 572.1375pt>
+File: EViewsR_files/eview-graph-y.png Graphic file (type png)
+<use EViewsR_files/eview-graph-y.png>
+Package pdftex.def Info: EViewsR_files/eview-graph-y.png  used on input line 116.
+(pdftex.def)             Requested size: 234.86975pt x 163.46246pt.
+<EViewsR_files/eview-graph-x.png, id=56, 822.07124pt x 569.62813pt>
+File: EViewsR_files/eview-graph-x.png Graphic file (type png)
+<use EViewsR_files/eview-graph-x.png>
+Package pdftex.def Info: EViewsR_files/eview-graph-x.png  used on input line 118.
+(pdftex.def)             Requested size: 234.86975pt x 162.74553pt.
+[2 <./test_engEviews_files/figure-latex/label-1.pdf> <./EViewsR_files/eview-graph-y.png> <./EViewsR_files/eview-graph-x.png>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 14560 strings out of 480000
- 241163 string characters out of 5886844
- 565392 words of memory out of 5000000
- 32440 multiletter control sequences out of 15000+600000
+ 14584 strings out of 480000
+ 241929 string characters out of 5886844
+ 566392 words of memory out of 5000000
+ 32460 multiletter control sequences out of 15000+600000
  520271 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,10n,79p,1011b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,10n,79p,1011b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 289135 bytes).
+Output written on test_engEviews.pdf (2 pages, 509191 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  11 named destinations out of 1000 (max. 500000)
- 28704 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 28714 words of extra memory for PDF output out of 29859 (max. 10000000)
 
