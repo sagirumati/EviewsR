@@ -137,7 +137,11 @@ eng_eviews <- function(options) {
   exit
   )'
 
-  writeLines(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), fileName)
+
+
+  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n")
+if(options$fig.show=='asis')
+writeLines(eviewsCode,fileName)
 
 
 
