@@ -1,10 +1,13 @@
 string graphs="" 
-
+string existing=@wlookup("*","graph")
 for %y  y x
 freeze(graph_{%y},mode=overwrite) {%y}.line
 '%z="*"+%y
 '%newgraph=@wlookup(%z,"graph")
-%newgraph=@wlookup(%z,"graph")
-%newgraph=@wunique(%newgraph)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wnotin(%newgraph,existing)
+'graphs=@wdrop(graphs,%newgraph)
 graphs=graphs+" "+ %newgraph
 next
+
+

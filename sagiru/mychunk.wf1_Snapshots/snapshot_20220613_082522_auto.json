@@ -1,6 +1,13 @@
 
 {
-	"commands" : [ "graphs.string" ],
+	"commands" : 
+	[
+		"graphs.string",
+		"delete graph_x graph_y ",
+		"close GRAPHS",
+		"delete graph_x graph_y ",
+		"graphs.string"
+	],
 	"description" : "Generated based on timer.",
 	"label" : "auto",
 	"workbook_meta" : 
@@ -11,7 +18,7 @@
 			
 			{
 				"_frequency" : "M",
-				"_last_update" : [ 738317.8590740741, "06/12/2022 20:37" ],
+				"_last_update" : [ 738318.3507060185, "06/13/2022 08:25" ],
 				"_name" : "mati",
 				"_obj_count" : 11,
 				"_objects" : 
@@ -28,6 +35,11 @@
 					{
 						"_name" : "C",
 						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "EXISTING",
+						"_type" : "STRING"
 					},
 					
 					{
@@ -63,11 +75,6 @@
 					{
 						"_name" : "RESID",
 						"_type" : "SERIES"
-					},
-					
-					{
-						"_name" : "UN",
-						"_type" : "STRING"
 					},
 					
 					{
