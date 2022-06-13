@@ -36,9 +36,9 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
   chunk_name=opts_current$get("label")
 
-  # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpeg", ".png", ".pdf", ".tex", ".md")
+  # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpg", ".png", ".pdf", ".tex", ".md")
 
-  # extensions= c("emf", "wmf", "eps", "bmp", "gif", "jpeg", "png", "pdf", "tex", "md")
+  # extensions= c("emf", "wmf", "eps", "bmp", "gif", "jpg", "png", "pdf", "tex", "md")
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
@@ -72,7 +72,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
-    save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
+    save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
 
     if(length(intersect(save_options,save_options1)>0)){
     if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
@@ -80,7 +80,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
     save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
-    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpeg", "t=png", "t=pdf", "t=tex", "md")
+    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpg", "t=png", "t=pdf", "t=tex", "md")
 
     extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
 

@@ -195,7 +195,7 @@ if(length(tables)!=0){
 
 
 
-   save_options1=c("t=bmp","t=gif", "t=jpeg", "t=png")
+   save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
 
    if(length(intersect(save_options,save_options1)>0)){
      if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
@@ -203,7 +203,7 @@ if(length(tables)!=0){
 
    save_options2=paste0(save_options2,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
-   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpeg", "t=png", "t=pdf", "t=tex", "md")
+   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpg", "t=png", "t=pdf", "t=tex", "md")
 
    extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
 

@@ -1,0 +1,102 @@
+
+{
+	"commands" : [ "pagestruct(freq=h, start=1990)" ],
+	"description" : "Generated based on timer.",
+	"label" : "auto",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\smati\\google drive\\github\\repos\\sagirumati\\eviewsr\\sagiru\\mychunk.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "H",
+				"_last_update" : [ 738318.436250, "06/13/2022 10:28" ],
+				"_name" : "mati",
+				"_obj_count" : 14,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 726479.9583333334, "01/13/1990 23:00" ],
+						"_obs_min" : [ 726467.0, "01/01/1990" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "EXISTING",
+						"_type" : "STRING"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP1",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAPH_X",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAPH_Y",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAPH_Z",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAPHS",
+						"_type" : "STRING"
+					},
+					
+					{
+						"_name" : "NEWGRAPH",
+						"_type" : "STRING"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 312
+			}
+		]
+	}
+}
