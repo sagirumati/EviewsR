@@ -83,8 +83,7 @@ eng_eviews <- function(options) {
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.show=="asis") figKeep=c('%existing=@wlookup("*","graph")',
-'%figKeep=""')
+  if(options$fig.show=="new") figKeep=c('%figKeep=""','%existing=@wlookup("*","graph")')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -142,14 +141,16 @@ eng_eviews <- function(options) {
 
 
   eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n")
-  eviewsCode1=grep("^(freeze|graph)",eviewsCode)
 
-  appendCode=c('%newgraph=@wlookup("*","graph")','%figKeep=%figKeep+" "+%newgraph')
-  # for (i in eviewsCode1) eviewsCode=append("sagiru",eviewsCode,i)
+    eviewsCode1=grep("^(freeze|graph)",eviewsCode)
 
+  appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(newgraph,existing)'
+,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
 
+ for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
   # if(options$fig.show=='asis')
-writeLines(eviewsCode,fileName)
+
+  writeLines(eviewsCode,fileName)
 
 
 

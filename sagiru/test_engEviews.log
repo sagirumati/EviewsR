@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  12 JUN 2022 17:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  13 JUN 2022 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,15 +562,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `test_engEviews.toc'.
 
-<test_engEviews_files/figure-latex//mychunk--grap.pdf, id=14, 333.55617pt x 507.72685pt>
-File: test_engEviews_files/figure-latex//mychunk--grap.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk--grap.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk--grap.pdf  used on input line 92.
+<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=14, 333.55617pt x 507.72685pt>
+File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 92.
 (pdftex.def)             Requested size: 234.88228pt x 357.52911pt.
-<test_engEviews_files/figure-latex//mychunk--grap1.pdf, id=15, 406.15741pt x 306.78616pt>
-File: test_engEviews_files/figure-latex//mychunk--grap1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk--grap1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk--grap1.pdf  used on input line 92.
+<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 406.15741pt x 306.78616pt>
+File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 92.
 (pdftex.def)             Requested size: 234.87735pt x 177.41179pt.
 
 Overfull \hbox (6.67126pt too wide) in paragraph at lines 92--93
@@ -582,7 +582,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 99
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk--grap.pdf> <./test_engEviews_files/figure-latex//mychunk--grap1.pdf>]
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-grap.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf>]
 <test_engEviews_files/figure-latex/label-1.pdf, id=53, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/label-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/label-1.pdf>
@@ -604,14 +604,14 @@ Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  14584 strings out of 480000
- 241929 string characters out of 5886844
+ 241906 string characters out of 5886844
  566392 words of memory out of 5000000
  32460 multiletter control sequences out of 15000+600000
  520271 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  69i,10n,79p,1011b,602s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 513051 bytes).
+Output written on test_engEviews.pdf (2 pages, 507396 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream

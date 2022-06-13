@@ -16,7 +16,7 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk-,dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.show="hide",fig.keep="all",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.show="new",fig.keep="all",fig.subcap=c("A figure","Another figure")}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
