@@ -2,7 +2,7 @@
 cd %eviews_path
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
-
+%figkeep=""
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 %existing=@wlookup("*","graph")
 genr y=@cumsum(nrnd)
@@ -44,7 +44,7 @@ if %save_path<>"" then
   next
   endif
   text eviewsr_text
-  eviewsr_text.append {%newgraph}
+  eviewsr_text.append {%figkeep}
   eviewsr_text.save eviewsr_text
   
 
