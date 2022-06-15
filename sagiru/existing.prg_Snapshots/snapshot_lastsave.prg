@@ -11,20 +11,19 @@ genr z=@cumsum(nrnd)
 graph grap1.line z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
 %existing=@wlookup("*","graph")
+%figKeep=%figKeep+" "+%newgraph
 graph grap.line y
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
 %existing=@wlookup("*","graph")
+%figKeep=%figKeep+" "+%newgraph
 freeze(grap2,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
 %figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=@wunique(%figKeep)
 equation ols.ls y c x
 
 wfsave mychunk

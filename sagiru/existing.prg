@@ -2,7 +2,7 @@
 cd %eviews_path
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
-%figkeep=""
+
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 %existing=@wlookup("*","graph")
 genr y=@cumsum(nrnd)
@@ -11,20 +11,22 @@ genr z=@cumsum(nrnd)
 graph grap1.line z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 %figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
 graph grap.line y
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 %figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
 freeze(grap2,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 %figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
+%figKeep=@wunique(%figKeep)
 equation ols.ls y c x
+
+text eviewsr_text1 
+eviewsr_text1.append {%figkeeep}
 
 wfsave mychunk
 %allEviewsGraphs=@wlookup("*","graph")
