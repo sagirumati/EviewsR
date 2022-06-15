@@ -89,7 +89,7 @@
 
 \begin{figure}[h]
 
-{\centering \subfloat[A figure\label{fig:mychunk-1}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }\subfloat[Another figure\label{fig:mychunk-2}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\subfloat[A figure\label{fig:mychunk-3}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }
+{\centering \subfloat[A figure\label{fig:mychunk-1}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }\subfloat[Another figure\label{fig:mychunk-2}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\newline\subfloat[A figure\label{fig:mychunk-3}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }
 
 }
 
@@ -97,16 +97,24 @@
 \end{figure}
 
 \begin{verbatim}
-## NULL
+##        aic  df     coefs       dw       f    fprob       hq      logl  meandep
+## 1 6.867172 310 20.113400 0.030899 78.8816 5.45e-17 6.876762 -1069.279 19.67548
+## 2       NA  NA -0.832297       NA      NA       NA       NA        NA       NA
+##   ncoef      pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
+## 1     2 1.30e-143 0.202842 0.200271    312 6.891166 8.357788 7.474168 17317.59
+## 2    NA  5.45e-17       NA       NA     NA       NA       NA       NA       NA
+##    stderrs    tstats
+## 1 0.426004 47.214050
+## 2 0.093711 -8.881531
 \end{verbatim}
 
 \hypertarget{r-plots}{%
 \section{R plots}\label{r-plots}}
 
-\begin{center}\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/label-1} \end{center}
+\begin{center}\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex/label-1} \end{center}
 
-\begin{center}\includegraphics[width=0.3\textwidth]{EViewsR_files/eview-graph-y} \end{center}
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-y} \end{center}
 
-\begin{center}\includegraphics[width=0.3\textwidth]{EViewsR_files/eview-graph-x} \end{center}
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-x} \end{center}
 
 \end{document}

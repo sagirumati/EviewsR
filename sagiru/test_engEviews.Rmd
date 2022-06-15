@@ -9,7 +9,7 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.3\\textwidth")
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth",fig.ncol=2)
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
