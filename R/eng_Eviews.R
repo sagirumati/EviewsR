@@ -146,7 +146,7 @@ eng_eviews <- function(options) {
 
   eviewsCode=readLines(fileName)
 
-    eviewsCode1=grep("^(freeze|graph)",eviewsCode)
+    eviewsCode1=grep("^(freeze|graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
 ,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')

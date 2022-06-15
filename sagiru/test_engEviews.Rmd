@@ -9,19 +9,21 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth")
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.3\\textwidth")
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
 
 ## R Markdown
 
-```{eviews mychunk,dev="t=pdf",prompt=T,fig.keep="new",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.keep="new",fig.keep="all",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,fig.show="hold" ,dev="t=pdf",prompt=T,fig.keep="new",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.keep="new",fig.keep="all",fig.subcap=c("A figure","Another figure")}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
-graph grap1.line x y
-graph grap.line(m) x y
+genr z=@cumsum(nrnd)
+graph grap1.line z  
+graph grap.line y
+freeze(grap2,mode=overwrite) x.line
 equation ols.ls y c x
 
 wfsave mychunk
