@@ -10,14 +10,14 @@ genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 graph grap1.line z  
 %newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
+%newgraph=@wnotin(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=@wunique(%figKeep)
 graph grap.line y
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=@wunique(%figKeep)
 freeze(grap2,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
@@ -26,7 +26,7 @@ freeze(grap2,mode=overwrite) x.line
 equation ols.ls y c x
 
 text eviewsr_text1 
-eviewsr_text1.append {%figkeeep}
+eviewsr_text1.append {%figkeep}
 
 wfsave mychunk
 %allEviewsGraphs=@wlookup("*","graph")
