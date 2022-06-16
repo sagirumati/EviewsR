@@ -16,7 +16,7 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,fig.show="hold" ,dev="t=pdf",prompt=T,fig.keep="new",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.keep="new",fig.keep="all",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,dev="t=pdf",prompt=T,fig.show="hold",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
@@ -39,6 +39,7 @@ mychunk$ols
 
 
 ```{r label}
+print(knitr::opts_current$get("fig.show"))
 y=cumsum(rnorm(100))
 x=cumsum(rnorm(100))
 

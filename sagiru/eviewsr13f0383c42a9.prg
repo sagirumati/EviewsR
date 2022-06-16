@@ -2,32 +2,26 @@
 cd %eviews_path
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
-
 wfcreate(wf=sagiru,page=mati) m 2000 2025
-%existing=@wlookup("*","graph")
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-graph grap1.line z  
+graph gra2.line z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
 %figKeep=@wunique(%figKeep)
-graph grap.line y
+graph grap1.line y
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
 %figKeep=@wunique(%figKeep)
-freeze(grap2,mode=overwrite) x.line
+freeze(grap,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
 %figKeep=@wunique(%figKeep)
 equation ols.ls y c x
-
-text eviewsr_text1 
-eviewsr_text1.append {%figkeep}
-
 
 wfsave mychunk
 %allEviewsGraphs=@wlookup("*","graph")
@@ -37,7 +31,8 @@ for %y {%allEviewsGraphs}
 next
 endif
 %save_options="t=pdf"
-'%figKeep=@wlookup("*","graph")
+%figKeep=""
+%existing=@wlookup("*","graph")
 if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
@@ -48,7 +43,7 @@ if %save_path<>"" then
   next
   endif
   text eviewsr_text
-  eviewsr_text.append {%figKeep}
+  eviewsr_text.append {%figkeep}
   eviewsr_text.save eviewsr_text
   
 
