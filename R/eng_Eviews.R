@@ -236,13 +236,13 @@ if(length(tables)!=0){
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
-a=print(opts_chunk$get("fig.show"))
-b=print(options$engine)
+a=print(opts_current$get("fig.show"))
+b=print(options$ummi)
 
 
- code=engine_output(opts_chunk$merge(list(engine = "eviews")),code = options$code, out = "")
+ code=engine_output(options,code = options$code, out = "")
 
- if(opts_current$get('fig.keep')=='none') out="" else  out=knitr::engine_output(opts_chunk$merge(list(engine = "eviews")),
+ if(opts_current$get('fig.keep')=='none') out="" else  out=engine_output(options,
      out =list(knitr::include_graphics(eviews_graphics))
      )
 

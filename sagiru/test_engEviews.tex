@@ -41,46 +41,6 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -127,73 +87,44 @@
 \hypertarget{r-markdown}{%
 \subsection{R Markdown}\label{r-markdown}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{wfcreate(wf=sagiru,page=mati) m 2000 2025}
-\NormalTok{genr y=@cumsum(nrnd)}
-\NormalTok{genr x=@cumsum(nrnd)}
-\NormalTok{genr z=@cumsum(nrnd)}
-\NormalTok{graph gra2.line z  }
-\NormalTok{graph grap1.line y}
-\NormalTok{freeze(grap,mode=overwrite) x.line}
-\NormalTok{equation ols.ls y c x}
+\begin{figure}[h]
 
-\NormalTok{wfsave mychunk}
-\end{Highlighting}
-\end{Shaded}
+{\centering \subfloat[A figure\label{fig:mychunk-1}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-gra2} }\subfloat[Another figure\label{fig:mychunk-2}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\newline\subfloat[A figure\label{fig:mychunk-3}]{\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }
 
-\includegraphics{test_engEviews_files/figure-latex//mychunk-gra2.pdf} \includegraphics{test_engEviews_files/figure-latex//mychunk-grap1.pdf} \includegraphics{test_engEviews_files/figure-latex//mychunk-grap.pdf} holdeviews
+}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mychunk}\SpecialCharTok{$}\NormalTok{ols}
-\end{Highlighting}
-\end{Shaded}
+\caption{somefigure}\label{fig:mychunk}
+\end{figure}
+
+holdsagiru
 
 \begin{verbatim}
-##        aic  df     coefs       dw        f    fprob       hq      logl
-## 1 5.142685 310 -8.436940 0.106596 212.1487 5.66e-37 5.152274 -800.2588
-## 2       NA  NA -0.328339       NA       NA       NA       NA        NA
-##     meandep ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se
-## 1 -2.977558     2 6.07e-59 0.406299 0.404384    312 5.166678 4.088952 3.155696
-## 2        NA    NA 5.66e-37       NA       NA     NA       NA       NA       NA
-##        ssr  stderrs    tstats
-## 1 3087.108 0.415221 -20.31916
-## 2       NA 0.022542 -14.56533
+##        aic  df      coefs       dw        f    fprob       hq      logl
+## 1 6.581994 310 -11.273770 0.025327 53.60658 2.12e-12 6.591583 -1024.791
+## 2       NA  NA   0.244146       NA       NA       NA       NA        NA
+##     meandep ncoef     pval      r2   rbar2 regobs  schwarz    sddep       se
+## 1 -15.52534     2 5.28e-44 0.14743 0.14468    312 6.605987 7.007655 6.480926
+## 2        NA    NA 2.12e-12      NA      NA     NA       NA       NA       NA
+##        ssr  stderrs     tstats
+## 1 13020.74 0.686889 -16.412800
+## 2       NA 0.033346   7.321651
 \end{verbatim}
 
 \hypertarget{r-plots}{%
 \section{R plots}\label{r-plots}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"fig.show"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## [1] "new"
+\end{verbatim}
 
 \begin{verbatim}
 ## [1] "asis"
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{y}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
-\NormalTok{x}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\begin{center}\includegraphics[width=0.5\textwidth]{test_engEviews_files/figure-latex/label-1} \end{center}
 
-\FunctionTok{plot}\NormalTok{(x,y)}
-\end{Highlighting}
-\end{Shaded}
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-y} \end{center}
 
-\includegraphics{test_engEviews_files/figure-latex/label-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{),}\AttributeTok{x=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{))}
-\FunctionTok{eviews\_graph}\NormalTok{(data,}\AttributeTok{save\_path =} \StringTok{""}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"m"}\NormalTok{,}\AttributeTok{start\_date =} \DecValTok{1990}\NormalTok{,}\AttributeTok{group =}\NormalTok{ F,}\AttributeTok{options =} \StringTok{"m"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=22.75in]{EViewsR_files/eview-graph-y}
-\includegraphics[width=22.75in]{EViewsR_files/eview-graph-x}
+\begin{center}\includegraphics[width=0.5\textwidth]{EViewsR_files/eview-graph-x} \end{center}
 
 \end{document}

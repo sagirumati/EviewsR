@@ -57,7 +57,6 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 
-
 # trim whitespace for handling of special commands
 # trimmed <- gsub("^\\s*|\\s*$", "", contents)
 
@@ -76,3 +75,13 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 shQuote_cmd= \(x) shQuote(x,type="cmd")
 
 `%n%`=function(x,y) if(is.null(x)) y else x
+
+
+
+
+opts_hooks$set(fig.show = function(options) {
+  if (options$fig.show == "hold") {
+    options$fig.show == "new"
+  }
+  options$fig.show == options$fig.show
+})
