@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
 output: 
-  bookdown::word_document2:
+  bookdown::pdf_document2:
     keep_tex: true
 header-includes:
   - \usepackage{subfig}
@@ -9,14 +9,14 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth",fig.ncol=2)
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth",fig.ncol=2,fig.show = 'asis')
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
 
 ## R Markdown
 
-```{eviews mychunk,dev="t=pdf",prompt=T,fig.show="new",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,dev="t=pdf",prompt=T,fig.show="asis",dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
@@ -38,7 +38,7 @@ mychunk$ols
 
 
 
-```{r label}
+```{r label,fig.show='hold'}
 print(knitr::opts_current$get("fig.show"))
 y=cumsum(rnorm(100))
 x=cumsum(rnorm(100))

@@ -50,7 +50,8 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-  }
+  opts_current$set(opts_chunk$get())
+    }
 
 
 
