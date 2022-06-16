@@ -29,8 +29,10 @@
 #' @export
 eng_eviews <- function(options) {
 
-fig.show=options$fig.show
-# opts_current$set(opts_chunk$get())
+  if(options$fig.show=="new") opts_current$set(fig.show=c("new"))
+ # opts_current$set(opts_chunk$get())
+
+# opts_current$set(fig.show=c("asis","hold","desc","asc"))
 
   if (!is.null(options$dev.args)) graph_procs=options$dev.args
   graph_procs=paste0("{%y}.",graph_procs)
