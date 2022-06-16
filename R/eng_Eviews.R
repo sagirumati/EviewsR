@@ -30,7 +30,9 @@
 eng_eviews <- function(options) {
 
   if(options$fig.show=="new") opts_current$set(fig.show=c("new"))
- # opts_current$set(opts_chunk$get())
+
+  # if(options$fig.show=="new") fig.show=opts_current$set(fig.show=c("new"))
+  # opts_current$set(opts_chunk$get())
 
 # opts_current$set(fig.show=c("asis","hold","desc","asc"))
 
@@ -235,7 +237,7 @@ if(length(tables)!=0){
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
 a=print(opts_current$get("fig.show"))
-b=print(fig.show)
+b=print(options$fig.show)
 
 
  code=engine_output(options,code = options$code, out = "")

@@ -3,11 +3,9 @@ cd %eviews_path
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
 wfcreate(wf=sagiru,page=mati) m 2000 2025
-%existing=@wlookup("*","graph")
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-
 graph gra2.line z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
@@ -33,6 +31,7 @@ for %y {%allEviewsGraphs}
 next
 endif
 %save_options="t=pdf"
+%existing=@wlookup("*","graph")
 if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
@@ -94,6 +93,5 @@ if %save_path<>"" then
 
   next
 
-'  exit
-
-
+  exit
+  
