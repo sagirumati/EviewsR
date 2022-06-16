@@ -21,9 +21,9 @@ wfcreate(wf=sagiru,page=mati) m 2000 2025
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-graph grap1.line z  
-graph grap.line y
-freeze(grap2,mode=overwrite) x.line
+graph gra2.line z  
+graph grap1.line y
+freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 
 wfsave mychunk
@@ -35,6 +35,8 @@ mychunk$ols
 ```
 
 # R plots
+
+
 
 ```{r label}
 y=cumsum(rnorm(100))

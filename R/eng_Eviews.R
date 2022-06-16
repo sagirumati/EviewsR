@@ -231,6 +231,8 @@ if(length(tables)!=0){
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
+a=print(opts_current$get("fig.show"))
+b=cat(options$fig.keep)
 
  code=engine_output(options,code = options$code, out = "")
 
@@ -241,7 +243,7 @@ if(length(tables)!=0){
 
 
 
-     if(options$echo) return(c(code,out)) else return(out)
+     if(options$echo) return(c(code,out,a,b)) else return(c(out,a,b))
 }
 
 

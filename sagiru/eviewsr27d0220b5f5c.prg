@@ -25,6 +25,10 @@ freeze(grap2,mode=overwrite) x.line
 %figKeep=@wunique(%figKeep)
 equation ols.ls y c x
 
+text eviewsr_text1 
+eviewsr_text1.append {%figkeep}
+
+
 wfsave mychunk
 %allEviewsGraphs=@wlookup("*","graph")
 if @wcount(%allEviewsGraphs)>0 then
@@ -33,7 +37,7 @@ for %y {%allEviewsGraphs}
 next
 endif
 %save_options="t=pdf"
-%figKeep=@wlookup("*","graph")
+'%figKeep=@wlookup("*","graph")
 if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
@@ -44,7 +48,7 @@ if %save_path<>"" then
   next
   endif
   text eviewsr_text
-  eviewsr_text.append {%newgraph}
+  eviewsr_text.append {%figKeep}
   eviewsr_text.save eviewsr_text
   
 

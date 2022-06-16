@@ -10,14 +10,14 @@ genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 graph grap1.line z  
 %newgraph=@wlookup("*","graph")
-%newgraph=@wnotin(%newgraph,%existing)
+%newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
+%figKeep=@wunique(%figKeep)
 graph grap.line y
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
 %figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
+%figKeep=@wunique(%figKeep)
 freeze(grap2,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
