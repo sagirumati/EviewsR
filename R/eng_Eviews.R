@@ -236,7 +236,7 @@ if(length(tables)!=0){
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
-a=print(opts_current$get("fig.show"))
+a=print(opts_chunk$get("fig.show"))
 b=print(options$engine)
 
 

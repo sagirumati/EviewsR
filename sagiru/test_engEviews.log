@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  16 JUN 2022 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  16 JUN 2022 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,68 +315,83 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen159
 \Gm@layoutvoffset=\dimen160
 \Gm@dimlist=\toks25
+) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count288
+\FV@InFile=\read2
+\FV@TabBox=\box54
+\c@FancyVerbLine=\count289
+\FV@StepNumber=\count290
+\FV@OutFile=\write3
+) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip54
+\fb@frw=\dimen161
+\fb@frh=\dimen162
+\FrameRule=\dimen163
+\FrameSep=\dimen164
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip54
-\LTright=\skip55
-\LTpre=\skip56
-\LTpost=\skip57
-\LTchunksize=\count288
-\LTcapwidth=\dimen161
-\LT@head=\box54
-\LT@firsthead=\box55
-\LT@foot=\box56
-\LT@lastfoot=\box57
-\LT@gbox=\box58
-\LT@cols=\count289
-\LT@rows=\count290
-\c@LT@tables=\count291
-\c@LT@chunks=\count292
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count291
+\LTcapwidth=\dimen165
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
 \LT@p@ftn=\toks26
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen162
-\lightrulewidth=\dimen163
-\cmidrulewidth=\dimen164
-\belowrulesep=\dimen165
-\belowbottomsep=\dimen166
-\aboverulesep=\dimen167
-\abovetopsep=\dimen168
-\cmidrulesep=\dimen169
-\cmidrulekern=\dimen170
-\defaultaddspace=\dimen171
-\@cmidla=\count293
-\@cmidlb=\count294
-\@aboverulesep=\dimen172
-\@belowrulesep=\dimen173
-\@thisruleclass=\count295
-\@lastruleclass=\count296
-\@thisrulewidth=\dimen174
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count296
+\@cmidlb=\count297
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count298
+\@lastruleclass=\count299
+\@thisrulewidth=\dimen178
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen175
-\ar@mcellbox=\box59
-\extrarowheight=\dimen176
+\col@sep=\dimen179
+\ar@mcellbox=\box60
+\extrarowheight=\dimen180
 \NC@list=\toks27
-\extratabsurround=\skip58
-\backup@length=\skip59
-\ar@cellbox=\box60
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box61
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count297
-\calc@Bcount=\count298
-\calc@Adimen=\dimen177
-\calc@Bdimen=\dimen178
-\calc@Askip=\skip60
-\calc@Bskip=\skip61
+\calc@Acount=\count300
+\calc@Bcount=\count301
+\calc@Adimen=\dimen181
+\calc@Bdimen=\dimen182
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count299
-\calc@Cskip=\skip62
+\calc@Ccount=\count302
+\calc@Cskip=\skip63
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box61
-\fn@width=\dimen179
+\fn@notes=\box62
+\fn@width=\dimen183
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -388,83 +403,83 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen180
-\Gin@req@width=\dimen181
+\Gin@req@height=\dimen184
+\Gin@req@width=\dimen185
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen182
-\captionmargin=\dimen183
-\caption@leftmargin=\dimen184
-\caption@rightmargin=\dimen185
-\caption@width=\dimen186
-\caption@indent=\dimen187
-\caption@parindent=\dimen188
-\caption@hangindent=\dimen189
+\caption@tempdima=\dimen186
+\captionmargin=\dimen187
+\caption@leftmargin=\dimen188
+\caption@rightmargin=\dimen189
+\caption@width=\dimen190
+\caption@indent=\dimen191
+\caption@parindent=\dimen192
+\caption@hangindent=\dimen193
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count300
-\c@continuedfloat=\count301
+\c@caption@flags=\count303
+\c@continuedfloat=\count304
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
-\c@KVtest=\count302
-\sf@farskip=\skip63
-\sf@captopadj=\dimen190
-\sf@capskip=\skip64
-\sf@nearskip=\skip65
-\c@subfigure=\count303
-\c@subfigure@save=\count304
-\c@lofdepth=\count305
-\c@subtable=\count306
-\c@subtable@save=\count307
-\c@lotdepth=\count308
-\sf@top=\skip66
-\sf@bottom=\skip67
+\c@KVtest=\count305
+\sf@farskip=\skip64
+\sf@captopadj=\dimen194
+\sf@capskip=\skip65
+\sf@nearskip=\skip66
+\c@subfigure=\count306
+\c@subfigure@save=\count307
+\c@lofdepth=\count308
+\c@subtable=\count309
+\c@subtable@save=\count310
+\c@lotdepth=\count311
+\sf@top=\skip67
+\sf@bottom=\skip68
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count309
-\l__pdf_internal_box=\box62
+\l__color_backend_stack_int=\count312
+\l__pdf_internal_box=\box63
 ) (./test_engEviews.aux)
 \openout1 = `test_engEviews.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Info: Redefining \microtypecontext on input line 80.
-Package microtype Info: Applying patch `item' on input line 80.
-Package microtype Info: Applying patch `toc' on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
+LaTeX Font Info:    ... okay on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 120.
+Package microtype Info: Applying patch `item' on input line 120.
+Package microtype Info: Applying patch `toc' on input line 120.
 
-Package microtype Warning: Unable to apply patch `eqnum' on input line 80.
+Package microtype Warning: Unable to apply patch `eqnum' on input line 120.
 
-Package microtype Info: Applying patch `footnote' on input line 80.
+Package microtype Info: Applying patch `footnote' on input line 120.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 80.
+LaTeX Info: Redefining \showhyphens on input line 120.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -476,10 +491,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 120.
 (./test_engEviews.out) (./test_engEviews.out)
-\@outlinefile=\write3
-\openout3 = `test_engEviews.out'.
+\@outlinefile=\write4
+\openout4 = `test_engEviews.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -518,35 +533,35 @@ Package hyperref Info: Link coloring OFF on input line 80.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 82.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 82.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 82.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 82.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 82.
+(Font)              <12> on input line 122.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 82.
+(Font)              <8> on input line 122.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 82.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
+(Font)              <6> on input line 122.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 122.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -559,67 +574,79 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 1.
 )
-\tf@toc=\write4
-\openout4 = `test_engEviews.toc'.
+\tf@toc=\write5
+\openout5 = `test_engEviews.toc'.
 
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 131.
+(c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 <test_engEviews_files/figure-latex//mychunk-gra2.pdf, id=14, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-gra2.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-gra2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-gra2.pdf  used on input line 92.
-(pdftex.def)             Requested size: 234.87735pt x 175.76909pt.
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-gra2.pdf  used on input line 145.
+(pdftex.def)             Requested size: 406.15642pt x 303.9448pt.
 <test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 92.
-(pdftex.def)             Requested size: 234.87735pt x 175.76909pt.
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 145.
+(pdftex.def)             Requested size: 406.15642pt x 303.9448pt.
 <test_engEviews_files/figure-latex//mychunk-grap.pdf, id=16, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 92.
-(pdftex.def)             Requested size: 234.87735pt x 175.76909pt.
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 145.
+(pdftex.def)             Requested size: 406.15642pt x 303.9448pt.
 
-Overfull \hbox (6.66634pt too wide) in paragraph at lines 92--93
- [][][][]  
+Overfull \hbox (344.78003pt too wide) in paragraph at lines 145--146
+[][] []
  []
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 101.
-(c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
+[1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-gra2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap.pdf>]
-<test_engEviews_files/figure-latex/label-1.pdf, id=64, 469.755pt x 325.215pt>
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-gra2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf>]
+<test_engEviews_files/figure-latex/label-1.pdf, id=50, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/label-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/label-1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/label-1.pdf  used on input line 120.
-(pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<EViewsR_files/eview-graph-y.png, id=65, 822.07124pt x 572.1375pt>
+Package pdftex.def Info: test_engEviews_files/figure-latex/label-1.pdf  used on input line 187.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[2 <./test_engEviews_files/figure-latex//mychunk-grap.pdf>]
+<EViewsR_files/eview-graph-y.png, id=66, 822.07124pt x 572.1375pt>
 File: EViewsR_files/eview-graph-y.png Graphic file (type png)
 <use EViewsR_files/eview-graph-y.png>
-Package pdftex.def Info: EViewsR_files/eview-graph-y.png  used on input line 122.
-(pdftex.def)             Requested size: 234.86975pt x 163.46246pt.
-<EViewsR_files/eview-graph-x.png, id=67, 822.07124pt x 569.62813pt>
+Package pdftex.def Info: EViewsR_files/eview-graph-y.png  used on input line 196.
+(pdftex.def)             Requested size: 822.08177pt x 572.14482pt.
+<EViewsR_files/eview-graph-x.png, id=68, 822.07124pt x 569.62813pt>
 File: EViewsR_files/eview-graph-x.png Graphic file (type png)
 <use EViewsR_files/eview-graph-x.png>
-Package pdftex.def Info: EViewsR_files/eview-graph-x.png  used on input line 124.
-(pdftex.def)             Requested size: 234.86975pt x 162.74553pt.
-[2 <./test_engEviews_files/figure-latex/label-1.pdf> <./EViewsR_files/eview-graph-y.png>] [3 <./EViewsR_files/eview-graph-x.png>] (./test_engEviews.aux)
+Package pdftex.def Info: EViewsR_files/eview-graph-x.png  used on input line 197.
+(pdftex.def)             Requested size: 822.06923pt x 569.62674pt.
+
+Overfull \hbox (352.32675pt too wide) in paragraph at lines 196--198
+[][]
+ []
+
+
+Overfull \hbox (352.31421pt too wide) in paragraph at lines 196--198
+[] 
+ []
+
+[3 <./test_engEviews_files/figure-latex/label-1.pdf>] [4 <./EViewsR_files/eview-graph-y.png>] [5 <./EViewsR_files/eview-graph-x.png>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 14597 strings out of 480000
- 242442 string characters out of 5886844
- 564474 words of memory out of 5000000
- 32470 multiletter control sequences out of 15000+600000
- 520271 words of font info for 96 fonts, out of 8000000 for 9000
+ 15067 strings out of 480000
+ 249762 string characters out of 5886844
+ 575206 words of memory out of 5000000
+ 32939 multiletter control sequences out of 15000+600000
+ 517111 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,10n,79p,1011b,593s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (3 pages, 543935 bytes).
+ 69i,5n,79p,1011b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on test_engEviews.pdf (5 pages, 527273 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 28719 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 26671 words of extra memory for PDF output out of 29859 (max. 10000000)
 
