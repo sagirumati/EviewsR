@@ -240,10 +240,9 @@ a=print(opts_current$get("fig.show"))
 b=print(options$engine)
 
 
- code=engine_output(options,code = options$code, out = "")
+ code=engine_output(opts_chunk$merge(list(engine = "eviews")),code = options$code, out = "")
 
- if(opts_current$get('fig.keep')=='none') out="" else  out=knitr::engine_output(
-     options,
+ if(opts_current$get('fig.keep')=='none') out="" else  out=knitr::engine_output(opts_chunk$merge(list(engine = "eviews")),
      out =list(knitr::include_graphics(eviews_graphics))
      )
 
