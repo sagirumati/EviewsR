@@ -29,7 +29,8 @@
 #' @export
 eng_eviews <- function(options) {
 
-
+fig.show=options$fig.show
+# opts_current$set(opts_chunk$get())
 
   if (!is.null(options$dev.args)) graph_procs=options$dev.args
   graph_procs=paste0("{%y}.",graph_procs)
@@ -83,7 +84,7 @@ eng_eviews <- function(options) {
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.show=="new") figKeep=c('%existing=@wlookup("*","graph")')
+  if(options$fig.show=="hold") figKeep=c('%existing=@wlookup("*","graph")')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -232,7 +233,8 @@ if(length(tables)!=0){
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
 a=print(opts_current$get("fig.show"))
-b=print(options$fig.keep)
+b=print(fig.show)
+
 
  code=engine_output(options,code = options$code, out = "")
 
