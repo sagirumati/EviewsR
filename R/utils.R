@@ -80,8 +80,7 @@ shQuote_cmd= \(x) shQuote(x,type="cmd")
 
 
 opts_hooks$set(fig.show = function(options) {
-  if (options$fig.show == "hold") {
+  if (options$engine== "eviews")
     options$fig.show == "new"
-  }
-  options$fig.show == options$fig.show
+
 })
