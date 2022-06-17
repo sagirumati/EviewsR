@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
 output: 
-  bookdown::pdf_document2:
+  bookdown::html_document2:
     keep_tex: true
 header-includes:
   - \usepackage{subfig}
@@ -9,14 +9,14 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth",fig.ncol=2)
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth")
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
 
 ## R Markdown
 
-```{eviews mychunk,sagir="new",save_options="t=png,d=300",dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,sagir="new",save_options="t=png,d=300",dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure"}
 #| fig.show: new
 #| save_options: "t=png,-c"
 

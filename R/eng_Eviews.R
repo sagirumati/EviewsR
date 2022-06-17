@@ -237,7 +237,7 @@ if(length(tables)!=0){
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
 a=print(opts_current$get("fig.show"))
-b=print(options$save_options)
+b=print(options$fig.ncol)
 
 
  code=engine_output(options,code = options$code, out = "")
