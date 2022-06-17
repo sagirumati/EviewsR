@@ -79,8 +79,7 @@ shQuote_cmd= \(x) shQuote(x,type="cmd")
 
 
 
-opts_hooks$set(fig.show = function(options) {
-  if (options$engine== "eviews")
-    options$fig.show == "new"
+opts_hooks$set(fig.ncol = function(options) {
+  if (is.null(options$fig.ncol)) opts_chunk$set(fig.ncol=1,out.width = "0.2\\textwidth")
 
 })

@@ -29,8 +29,6 @@
 #' @export
 eng_eviews <- function(options) {
 
-  if (is.null(opts_current$get('fig.ncol'))) opts_current$set(options$fig.ncol=4)
-
   if (!is.null(options$dev.args)) graph_procs=options$dev.args
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")','if @wcount(%allEviewsGraphs)>0 then','for %y {%allEviewsGraphs}')
@@ -232,7 +230,7 @@ if(length(tables)!=0){
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
 a=print(opts_current$get("fig.show"))
-b=print(options$fig.ncol)
+b=print(opts_current$get('fig.ncol'))
 
 
  code=engine_output(options,code = options$code, out = "")
