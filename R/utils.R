@@ -50,8 +50,8 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-  if(opts_current$get("engine")=="eviews") opts_chunk$set(opts_chunk$get())
-    }
+  if (is.null(opts_chunk$get('fig.ncol'))) opts_chunk$set(fig.ncol=2,out.width = "0.45\\textwidth")
+  }
 
 
 
@@ -75,11 +75,3 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 shQuote_cmd= \(x) shQuote(x,type="cmd")
 
 `%n%`=function(x,y) if(is.null(x)) y else x
-
-
-
-
-opts_hooks$set(fig.ncol = function(options) {
-  if (is.null(options$fig.ncol)) opts_chunk$set(fig.ncol=1,out.width = "0.2\\textwidth")
-
-})

@@ -1,8 +1,8 @@
 ---
 title: "Untitled"
 output: 
-  bookdown::pdf_document2:
-    keep_tex: true
+  bookdown::html_document2:
+    # keep_tex: true
 header-includes:
   - \usepackage{subfig}
 date: '2022-06-11'
@@ -16,7 +16,7 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,sagir="new",save_options="t=png,d=300",dev="t=pdf",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,sagir="new",save_options="t=png,d=300",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure"),fig.ncol=1}
 #| fig.show: new
 #| save_options: "t=png,-c"
 
@@ -41,7 +41,7 @@ mychunk$ols
 
 
 
-```{r label,sagir="new"}
+```{r labe,fig.cap="another fig"}
 print(knitr::opts_current$get("sagir"))
 print(knitr::opts_current$get("fig.show"))
 y=cumsum(rnorm(100))
