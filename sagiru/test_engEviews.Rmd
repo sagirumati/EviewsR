@@ -1,7 +1,6 @@
 ---
 title: "Untitled"
-output: 
-  bookdown::html_document2:
+output: bookdown::pdf_document2
     # keep_tex: true
 header-includes:
   - \usepackage{subfig}
@@ -9,22 +8,25 @@ date: '2022-06-11'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width="0.5\\textwidth")
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h")
 options(prompt = "EViews> ")
 library(EviewsR)
 ```
 
 ## R Markdown
 
-```{eviews mychunk,sagir="new",save_options="t=png,d=300",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure"),fig.ncol=1}
+```{eviews mychunk,sagir="new",save_options="t=png,d=300",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: new
 #| save_options: "t=png,-c"
+#| fig.keep: new
 
-wfcreate(wf=sagiru,page=mati) m 2000 2025
+'wfcreate(wf=sagiru,page=mati) m 2000 2025
+open mychunk
+delete grap*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-graph gra2.line z  
+graph grap2.line z  
 graph grap1.line y
 freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
