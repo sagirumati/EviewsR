@@ -138,11 +138,11 @@ eng_eviews <- function(options) {
 
 
 
-  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n")
+  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%  strsplit(split="\n") %>% unlist()
 
-  writeLines(eviewsCode,fileName)
+  # writeLines(eviewsCode,fileName)
 
-  eviewsCode=readLines(fileName)
+  # eviewsCode=readLines(fileName)
 
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
@@ -233,9 +233,10 @@ if(length(tables)!=0){
 
 
  code=engine_output(options,code = options$code, out = "")
+ if(length(eviews_graphics)>0) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
  if(opts_current$get('fig.keep')=='none') out="" else  out=engine_output(options,
-     out =list(knitr::include_graphics(eviews_graphics))
+     out =output
      )
 
 

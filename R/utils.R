@@ -50,8 +50,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-   if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=2,out.width = "0.45\\textwidth")
-  }
+   if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=2)
+  if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
+    }
 
 
 
