@@ -19,7 +19,10 @@ library(EviewsR)
 #| fig.show: hold
 #| echo: TRUE
 #| fig.keep: new
-#| graph_procs: ["axis(b) font(40,b)","template modern","template default"]
+#| graph_procs: 
+#| - axis(b) font(40,b)
+#| - template(w) modern
+#| - template(w,b) midnight
 
 'wfcreate(wf=sagiru,page=mati) m 2000 2025
 open mychunk
