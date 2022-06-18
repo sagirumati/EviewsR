@@ -55,6 +55,6 @@ plot(x,y)
 
 ```{r eview-graph}
 data=data.frame(y=runif(100),x=runif(100))
-eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m")
+eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m",graph_procs = "template eviews7")
 
 ```

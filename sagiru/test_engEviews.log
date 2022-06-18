@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  18 JUN 2022 11:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  18 JUN 2022 14:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,16 +598,16 @@ File: test_engEviews_files/figure-latex/labe-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/labe-1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on input line 181.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
-<EViewsR_files/eview-graph-y.png, id=41, 822.07124pt x 572.1375pt>
+<EViewsR_files/eview-graph-y.png, id=41, 816.55063pt x 565.61313pt>
 File: EViewsR_files/eview-graph-y.png Graphic file (type png)
 <use EViewsR_files/eview-graph-y.png>
 Package pdftex.def Info: EViewsR_files/eview-graph-y.png  used on input line 188.
-(pdftex.def)             Requested size: 211.38779pt x 147.1197pt.
-<EViewsR_files/eview-graph-x.png, id=43, 822.07124pt x 569.62813pt>
+(pdftex.def)             Requested size: 211.38861pt x 146.4259pt.
+<EViewsR_files/eview-graph-x.png, id=43, 816.55063pt x 565.61313pt>
 File: EViewsR_files/eview-graph-x.png Graphic file (type png)
 <use EViewsR_files/eview-graph-x.png>
 Package pdftex.def Info: EViewsR_files/eview-graph-x.png  used on input line 190.
-(pdftex.def)             Requested size: 211.38779pt x 146.47444pt.
+(pdftex.def)             Requested size: 211.38861pt x 146.4259pt.
 [2 <./test_engEviews_files/figure-latex/labe-1.pdf> <./EViewsR_files/eview-graph-y.png> <./EViewsR_files/eview-graph-x.png>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
@@ -621,7 +621,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  69i,6n,79p,1011b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 437632 bytes).
+Output written on test_engEviews.pdf (2 pages, 436464 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
