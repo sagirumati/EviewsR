@@ -21,14 +21,14 @@ library(EviewsR)
 #| save_options: "t=png,-c"
 #| fig.keep: new
 
-'wfcreate(wf=sagiru,page=mati) m 2000 2025
-open mychunk
-delete gra* grap
+wfcreate(wf=sagiru,page=mati) m 2000 2025
+'open mychunk
+
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-                         graph grap1.line z  
-                             graph grap2.line y
+'                         graph grap1.line z  
+ '                            graph grap2.line y
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 

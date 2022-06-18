@@ -233,7 +233,7 @@ if(length(tables)!=0){
 
 
  code=engine_output(options,code = options$code, out = "")
- if(length(eviews_graphics)>0) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+ if(save_path1!=eviews_graphics) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
  if(opts_current$get('fig.keep')=='none') out="" else  out=engine_output(options,
      out =output
