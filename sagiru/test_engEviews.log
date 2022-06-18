@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.12)  17 JUN 2022 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  18 JUN 2022 08:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **test_engEviews.tex
 (./test_engEviews.tex
-LaTeX2e <2022-06-01> pre-release-0 (develop 2022-6-12 branch)
-L3 programming layer <2022-06-02> (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
+LaTeX2e <2022-06-01> patch level 1
+L3 programming layer <2022-06-16> (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -173,7 +173,7 @@ File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
 )) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
@@ -562,22 +562,17 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write4
 \openout4 = `test_engEviews.toc'.
 
-<test_engEviews_files/figure-latex//mychunk-gra2.pdf, id=14, 406.15741pt x 303.94554pt>
-File: test_engEviews_files/figure-latex//mychunk-gra2.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-gra2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-gra2.pdf  used on input line 92.
-(pdftex.def)             Requested size: 211.3828pt x 158.18709pt.
-<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=15, 406.15741pt x 303.94554pt>
+<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=14, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 92.
 (pdftex.def)             Requested size: 211.3828pt x 158.18709pt.
-<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=16, 406.15741pt x 303.94554pt>
+<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 92.
 (pdftex.def)             Requested size: 211.3828pt x 158.18709pt.
-<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=17, 406.15741pt x 303.94554pt>
+<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=16, 406.15741pt x 303.94554pt>
 File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 92.
@@ -587,18 +582,18 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 10
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-gra2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap.pdf>]
-<test_engEviews_files/figure-latex/labe-1.pdf, id=77, 469.755pt x 325.215pt>
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap.pdf>]
+<test_engEviews_files/figure-latex/labe-1.pdf, id=65, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/labe-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/labe-1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on input line 126.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
-<EViewsR_files/eview-graph-y.png, id=78, 822.07124pt x 572.1375pt>
+<EViewsR_files/eview-graph-y.png, id=66, 822.07124pt x 572.1375pt>
 File: EViewsR_files/eview-graph-y.png Graphic file (type png)
 <use EViewsR_files/eview-graph-y.png>
 Package pdftex.def Info: EViewsR_files/eview-graph-y.png  used on input line 133.
 (pdftex.def)             Requested size: 211.38779pt x 147.1197pt.
-<EViewsR_files/eview-graph-x.png, id=80, 822.07124pt x 569.62813pt>
+<EViewsR_files/eview-graph-x.png, id=68, 822.07124pt x 569.62813pt>
 File: EViewsR_files/eview-graph-x.png Graphic file (type png)
 <use EViewsR_files/eview-graph-x.png>
 Package pdftex.def Info: EViewsR_files/eview-graph-x.png  used on input line 135.
@@ -608,18 +603,18 @@ Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 14633 strings out of 480000
- 243601 string characters out of 5886844
- 567864 words of memory out of 5000000
- 32501 multiletter control sequences out of 15000+600000
+ 14621 strings out of 479998
+ 243071 string characters out of 5886794
+ 566790 words of memory out of 5000000
+ 32493 multiletter control sequences out of 15000+600000
  520271 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  69i,10n,79p,1011b,600s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 608119 bytes).
+Output written on test_engEviews.pdf (2 pages, 553856 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 28724 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 28719 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -20,9 +20,9 @@ library(EviewsR)
 #| save_options: "t=png,-c"
 #| fig.keep: new
 
-'wfcreate(wf=sagiru,page=mati) m 2000 2025
-open mychunk
-delete grap*
+wfcreate(wf=sagiru,page=mati) m 2000 2025
+'open mychunk
+'delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)

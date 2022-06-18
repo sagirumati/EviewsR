@@ -151,6 +151,7 @@ eng_eviews <- function(options) {
 
  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
+  eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
 
   writeLines(eviewsCode,fileName)
 
