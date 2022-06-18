@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  18 JUN 2022 20:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  18 JUN 2022 21:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,21 +585,21 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=14, 542.025pt x 258.15051pt>
+<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=14, 542.025pt x 254.9491pt>
 File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 149.
-(pdftex.def)             Requested size: 211.38889pt x 100.67828pt.
-<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=15, 542.025pt x 258.15051pt>
+(pdftex.def)             Requested size: 211.38889pt x 99.42973pt.
+<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=15, 542.025pt x 257.0743pt>
 File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 149.
-(pdftex.def)             Requested size: 211.38889pt x 100.67828pt.
-<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=16, 542.025pt x 259.61028pt>
+(pdftex.def)             Requested size: 211.38889pt x 100.25856pt.
+<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=16, 542.025pt x 256.37411pt>
 File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//mychunk-grap.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 149.
-(pdftex.def)             Requested size: 211.38889pt x 101.24759pt.
+(pdftex.def)             Requested size: 211.38889pt x 99.98549pt.
 [1
 
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap.pdf>]
@@ -631,7 +631,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  69i,10n,79p,1011b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (3 pages, 451370 bytes).
+Output written on test_engEviews.pdf (3 pages, 482903 bytes).
 PDF statistics:
  115 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
