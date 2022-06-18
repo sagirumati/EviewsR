@@ -29,6 +29,8 @@
 #' @export
 eng_eviews <- function(options) {
 
+  if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
+
   if (!is.null(options$dev.args)) graph_procs=options$dev.args
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")','if @wcount(%allEviewsGraphs)>0 then','for %y {%allEviewsGraphs}')
