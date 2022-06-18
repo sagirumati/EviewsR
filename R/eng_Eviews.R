@@ -34,7 +34,7 @@ eng_eviews <- function(options) {
   if (!is.null(options$graph_procs)){
     graph_procs=options$graph_procs
   graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")','if @wcount(%allEviewsGraphs)>0 then','for %y {%allEviewsGraphs}')
+  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
   }else graph_procs=""
 
@@ -87,7 +87,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.show=="hold") figKeep=c('%existing=@wlookup("*","graph")')
+  if(options$fig.keep=="new") figKeep=c('%existing=@wlookup("*","graph")')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -144,12 +144,14 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
 
 
-  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%  strsplit(split="\n") %>% unlist()
+  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
+    strsplit(split="\n") %>% unlist()
 
   # writeLines(eviewsCode,fileName)
 
   # eviewsCode=readLines(fileName)
 
+if(options$fig.keep=="new"){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -158,8 +160,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
   eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
+}
 
-  writeLines(eviewsCode,fileName)
+writeLines(eviewsCode,fileName)
 
 
  if (options$eval){
@@ -239,7 +242,7 @@ if(length(tables)!=0){
 
 
  code=engine_output(options,code = options$code, out = "")
- if(save_path1!=eviews_graphics) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+ if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
  if(opts_current$get('fig.keep')=='none') out="" else  out=engine_output(options,
      out =output

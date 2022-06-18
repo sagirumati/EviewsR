@@ -15,19 +15,20 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,prompt=T,graph_procs=c("axis(b) font(40,b)","template modern"),eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: hold
 #| echo: TRUE
 #| fig.keep: new
+#| graph_procs: ["axis(b) font(40,b)","template modern","template default"]
 
-wfcreate(wf=sagiru,page=mati) m 2000 2025
-'open mychunk
-
+'wfcreate(wf=sagiru,page=mati) m 2000 2025
+open mychunk
+delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-'                         graph grap1.line z  
- '                            graph grap2.line y
+                     graph grap1.line z  
+                           graph grap2.line y
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 
