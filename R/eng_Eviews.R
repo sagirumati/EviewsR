@@ -31,10 +31,13 @@ eng_eviews <- function(options) {
 
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
-  if (!is.null(options$dev.args)) graph_procs=options$dev.args
+  if (!is.null(options$graph_procs)){
+    graph_procs=options$graph_procs
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")','if @wcount(%allEviewsGraphs)>0 then','for %y {%allEviewsGraphs}')
                      ,c(graph_procs,'next','endif'))
+  }else graph_procs=""
+
 
 
   chunk_name=options$label
@@ -44,8 +47,9 @@ eng_eviews <- function(options) {
   chunk_name1=paste0(chunk_name,'-') %>%
     shQuote_cmd() %>% paste0('%chunk_name=',.)
 
-  if(options$dev=="png") save_options="t=png,d=300" else save_options=paste(options$dev,collapse = ",")
-  if(options$dev=="pdf") save_options="t=pdf"
+  if(options$dev=="png" && is.null(options$save_options)) save_options="t=png,d=300"
+  if(options$dev=="pdf" && is.null(options$save_options)) save_options="t=pdf"
+if(!is.null(options$save_options)) save_options=paste(options$save_options,collapse = ",")
 
   save_options2=save_options
 

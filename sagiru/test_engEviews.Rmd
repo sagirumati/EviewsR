@@ -15,10 +15,9 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,sagir="new",save_options="t=png,d=300",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,prompt=T,graph_procs=c("axis(b) font(40,b)","template modern"),eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: hold
 #| echo: TRUE
-#| save_options: "t=png,-c"
 #| fig.keep: new
 
 wfcreate(wf=sagiru,page=mati) m 2000 2025
@@ -55,6 +54,6 @@ plot(x,y)
 
 ```{r eview-graph}
 data=data.frame(y=runif(100),x=runif(100))
-eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m",graph_procs = "template eviews7")
+eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m",graph_procs = "template eviews5")
 
 ```
