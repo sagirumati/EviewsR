@@ -16,19 +16,20 @@ library(EviewsR)
 ## R Markdown
 
 ```{eviews mychunk,sagir="new",save_options="t=png,d=300",prompt=T,dev.args="axis(b) font(40,b)",eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
-#| fig.show: new
+#| fig.show: hold
+#| echo: TRUE
 #| save_options: "t=png,-c"
 #| fig.keep: new
 
 wfcreate(wf=sagiru,page=mati) m 2000 2025
 'open mychunk
-'delete gra*
-genr y=@cumsum(nrnd)
+'delete grap2 grap
+   genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
-graph grap2.line z  
-graph grap1.line y
-freeze(grap,mode=overwrite) x.line
+                         graph grap2.line z  
+                             graph grap1.line y
+   freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 
 wfsave mychunk

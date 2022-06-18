@@ -144,7 +144,7 @@ eng_eviews <- function(options) {
 
   eviewsCode=readLines(fileName)
 
-    eviewsCode1=grep("^(freeze|graph)",eviewsCode) %>% rev()
+    eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
 ,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
@@ -230,8 +230,6 @@ if(length(tables)!=0){
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
-a=print(opts_current$get("fig.show"))
-b=print(opts_current$get('fig.ncol'))
 
 
  code=engine_output(options,code = options$code, out = "")
@@ -242,7 +240,7 @@ b=print(opts_current$get('fig.ncol'))
 
 
 
-     if(options$echo) return(c(code,out,a,b)) else return(c(out,a,b))
+     if(options$echo) return(c(code,out)) else return(c(out))
 }
 
 
