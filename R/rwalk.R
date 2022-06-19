@@ -115,6 +115,7 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
     on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
+    on.exit(unlink(c(fileName)),add = TRUE)
 
       if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 

@@ -65,7 +65,6 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
         series = names(series)
 
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
-        # on.exit(unlink(),force = T),add = T)
 }
 
 
