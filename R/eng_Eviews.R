@@ -199,6 +199,11 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
 
 
+series=r'(%series=@wlookup("*","series")
+wfsave all_eviewsr_series.csv @drop date
+  {%series}
+  )'
+
   eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,graphicsDefault,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
 
