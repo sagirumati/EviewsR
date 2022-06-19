@@ -52,7 +52,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
   if(is.data.frame(series)) {
     # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
-    stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
+    # stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
     wf=chunk_name %n% basename(tempfile("EViewsR"))
     wf=gsub("[.-]","_",wf)

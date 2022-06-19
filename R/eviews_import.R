@@ -129,7 +129,7 @@ open {%wf}
   %optional_arguments=%genr_string+" "+%rename_string 'APPENDED syntax does not contain @SMPL_STRING
   endif
   'GENERAL
-  import({%type}{%options}) {%source_description} colhead=1  {%import_specification} {%optional_arguments}
+  import({%type}{%options}) {%source_description} {%import_specification} {%optional_arguments}
 
   %wf=@wfname
 

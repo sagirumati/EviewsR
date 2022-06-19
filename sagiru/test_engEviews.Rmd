@@ -28,6 +28,7 @@ delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
+genr date=@date
                      graph grap1.line z  
                            graph grap2.line z y x
    freeze(grap,mode=overwrite) x.line
@@ -37,8 +38,11 @@ wfsave mychunk
 ```
 
 ```{r }
+library(magrittr)
+
 mychunk$ols
 
+mychunk$series %>% head 
 ```
 
 # R plots

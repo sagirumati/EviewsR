@@ -93,9 +93,11 @@ system_exec()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
 dataFrame=read.csv(source_description_file)
-colName=colnames(dataFrame) %>% gsub(".*_date_$","date",.)
 
-colnames(dataFrame)=colName
+if(grepl('date',colnames(dataFrame)[1])){
+  colnames(dataFrame)[1]="date"
+  data$date=as.POSIXct(dataFrame$date)
+}
 
 assign(object_name,dataFrame,envir =eviews)
 

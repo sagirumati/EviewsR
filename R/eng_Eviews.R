@@ -194,15 +194,19 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
   next
 
+
+  wfsave all_eviewsr_series.csv @drop date
+
   exit
   )'
 
 
 
-series=r'(%series=@wlookup("*","series")
-wfsave all_eviewsr_series.csv @drop date
-  {%series}
-  )'
+# series=r'(%series=@wlookup("*","series")
+#
+# wfsave all_eviewsr_series.csv @drop date
+#   {%series}
+#   )'
 
   eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,graphicsDefault,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
@@ -257,6 +261,16 @@ if(length(tables)!=0){
     assign(i,read.csv(paste0(save_path1,"/",i,"_eviewsr_table.csv")),envir = get(envName))
   }
 }
+
+
+  if(file.exists('all_eviewsr_series.csv')){
+  dataFrame=read.csv('all_eviewsr_series.csv')
+  if(grepl('date',colnames(dataFrame)[1])){
+  colnames(dataFrame)[1]="date"
+  dataFrame$date=as.POSIXct(dataFrame$date)
+  }
+    assign("series",dataFrame,envir =get(envName))
+  }
 
    on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
   on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
