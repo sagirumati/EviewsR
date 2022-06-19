@@ -47,7 +47,15 @@ eng_eviews <- function(options) {
   chunk_name1=paste0(chunk_name,'-') %>%
     shQuote_cmd() %>% paste0('%chunk_name=',.)
 
-  if(options$dev=="png" && is.null(options$save_options)) save_options="t=png,d=300"
+
+  eviewsr_text=tempfile("eviewsr_text",".") %>%
+    basename
+  eviewsr_text1=eviewsr_text
+
+  eviewsr_text %<>%   shQuote_cmd %>%
+    paste0("%eviewsr_text=",.)
+
+    if(options$dev=="png" && is.null(options$save_options)) save_options="t=png,d=300"
   if(options$dev=="pdf" && is.null(options$save_options)) save_options="t=pdf"
 if(!is.null(options$save_options)) save_options=paste(options$save_options,collapse = ",")
 
@@ -79,9 +87,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
   endif
-  text eviewsr_text
-  eviewsr_text.append {%figkeep}
-  eviewsr_text.save eviewsr_text
+  text {%eviewsr_text}
+  {%eviewsr_text}.append {%figkeep}
+  {%eviewsr_text}.save {%eviewsr_text}
   )'
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
@@ -144,7 +152,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
 
 
-  eviewsCode=paste0(c(eviews_path(),chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
+  eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
 
   # writeLines(eviewsCode,fileName)
@@ -223,7 +231,7 @@ if(length(tables)!=0){
 
    eviews_graphics=c()
 
-   series2=readLines('eviewsr_text.txt')
+   series2=readLines(paste0(eviewsr_text1,'.txt'))
 
    series2=unlist(strsplit(series2,split=" "))
 
