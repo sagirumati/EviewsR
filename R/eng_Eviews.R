@@ -34,7 +34,7 @@ eng_eviews <- function(options) {
 
   graphicsDefault=r'(if @wcount(%figKeep)>0 then
   for %y {%figKeep}
-  ({%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
+  {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(r) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(b) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(t) font(Calibri,14,-b,-i,-u,-s)

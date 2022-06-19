@@ -11,7 +11,7 @@ date: '2022-06-11'
 knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h")
 options(prompt = "EViews> ")
 library(EviewsR)
-set_eviews_path("eviews10")
+# set_eviews_path("eviews10")
 ```
 
 ## R Markdown
@@ -21,9 +21,6 @@ set_eviews_path("eviews10")
 #| echo: TRUE
 #| fig.keep: new
 #| graph_procs: 
-#| - axis(b) font(40,b)
-#| - template(w) modern
-#| - template(w) simple
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
 'open mychunk
