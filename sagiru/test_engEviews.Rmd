@@ -11,6 +11,7 @@ date: '2022-06-11'
 knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h")
 options(prompt = "EViews> ")
 library(EviewsR)
+set_eviews_path("eviews10")
 ```
 
 ## R Markdown
@@ -22,16 +23,16 @@ library(EviewsR)
 #| graph_procs: 
 #| - axis(b) font(40,b)
 #| - template(w) modern
-#| - template(w) monochrome
+#| - template(w) simple
 
-'wfcreate(wf=sagiru,page=mati) m 2000 2025
-open mychunk
+wfcreate(wf=sagiru,page=mati) q 2000 2025
+'open mychunk
 delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
                      graph grap1.line z  
-                           graph grap2.area z y x
+                           graph grap2.line z y x
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 

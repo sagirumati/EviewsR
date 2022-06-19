@@ -231,17 +231,16 @@ if(length(tables)!=0){
 
    eviews_graphics=c()
 
-   series2=readLines(paste0(eviewsr_text1,'.txt'))
-
-   series2=unlist(strsplit(series2,split=" "))
+   eviewsGraphics=readLines(paste0(eviewsr_text1,'.txt')) %>%
+     strsplit(split=" ") %>%
+     unlist
 
 
    # chunk_name2=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.)
 
    chunk_name2=paste0(chunk_name,'-')
 
-   for (i in series2) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-   # b=list.files(paste0("^",a[1],".png","$"),path = ".")
+   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
