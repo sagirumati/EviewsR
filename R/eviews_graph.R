@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="",frequency="m",start_date=""){
+eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files",frequency="m",start_date=""){
 
 graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
 
@@ -140,8 +140,8 @@ datelabel=paste('{%y}.datelabel',datelabel)
     # if (save_path=="" & is.null(chunk_name)) save_path=paste("EViewsR_files")
      # if (save_path=="" & !is.null(chunk_name)) save_path=paste0("EViewsR_files")
      #
-     if (save_path=="") save_path=paste("EViewsR_files")
-    if(!is.null(opts_current$get("fig.path"))) save_path=opts_current$get("fig.path")
+     # if (save_path=="") save_path=paste("EViewsR_files")
+    save_path=opts_current$get("fig.path") %n% save_path
     # save_path=gsub("[.,-]","_",save_path)
     if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 

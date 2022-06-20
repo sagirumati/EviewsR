@@ -1,7 +1,8 @@
 ---
 title: "Untitled"
-output: bookdown::pdf_document2
-    # keep_tex: true
+output: 
+  bookdown::pdf_document2:
+   # keep_tex: true
 header-includes:
   - \usepackage{subfig}
 date: '2022-06-11'
@@ -73,5 +74,5 @@ rwalk("x y z",num_observations = 100,frequency = "m",start_date = "1")
 
 eviews$xyz %>% head
 
-eviews_graph(eviews$xyz,group = T)
+eviews_graph(eviews$xyz,group = T,graph_procs = "template midnight")
 ```
