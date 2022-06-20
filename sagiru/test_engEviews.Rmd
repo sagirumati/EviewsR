@@ -50,7 +50,7 @@ library(magrittr)
 
 mychunk$ols
 
-mychunk$page1_ols_table %>% head 
+mychunk$page1_ols_table 
 
 mychunk$series %>% head 
 ```

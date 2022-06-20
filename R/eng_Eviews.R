@@ -176,7 +176,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   endif
   next
 
-  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}_equation_table
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_equation_table
 
   next
 
@@ -282,8 +282,8 @@ if(length(tables)!=0){
     assign("series",dataFrame,envir =get(envName))
   }
 
-   on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
-  on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
+   # on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
+  # on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
 
   }
 
