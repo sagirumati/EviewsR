@@ -70,9 +70,9 @@ eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,opt
 
 
 ```{r rwalk}
-rwalk("x y z",num_observations = 100,frequency = "m",start_date = "1")
+rwalk("x y z",num_observations = 100,frequency = "7",start_date = "1")
 
 eviews$xyz %>% head
 
-eviews_graph(eviews$xyz,group = T,graph_procs = "template midnight")
+eviews_graph(eviews$xyz,group = T,graph_procs = "template(b) midnight")
 ```
