@@ -21,6 +21,9 @@ library(EviewsR)
 #| echo: TRUE
 #| fig.keep: new
 #| graph_procs: 
+#| - template modern
+#| - template reverse
+#| - legend columns(5)
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
 'open mychunk
