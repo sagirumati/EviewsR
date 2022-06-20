@@ -42,7 +42,10 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
-  if(group) series1=paste0(series1,collapse = "")
+  if(group) {
+    if(grepl("date",series1[1])) series1=series1[-1]
+    series1=paste0(series1,collapse = "")
+  }
    if(group==T & length(series1)==1) series1=gsub(" ","",series1)
 
   if(group!=T & length(series1)==1){
@@ -138,8 +141,8 @@ datelabel=paste('{%y}.datelabel',datelabel)
      # if (save_path=="" & !is.null(chunk_name)) save_path=paste0("EViewsR_files")
      #
      if (save_path=="") save_path=paste("EViewsR_files")
-    if(opts_current$get("fig.path")=="") save_path=""
-    save_path=gsub("[.,-]","_",save_path)
+    if(!is.null(opts_current$get("fig.path"))) save_path=opts_current$get("fig.path")
+    # save_path=gsub("[.,-]","_",save_path)
     if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
      # dir.create(paste0("EViewsR_files/",chunk_name))
@@ -170,7 +173,8 @@ if %mode<>"" then
 endif
 
 
-%z=@wlookup(%series,"series")
+%allSeries=@wlookup(%series,"series")
+%allSeries=@wdrop(%allSeries,"DATE")
 %graph_command=@wreplace(%graph_command,"* ","*")
 %mode=@wreplace(%mode,"* ","*")
 %save_path=@wreplace(%save_path,"* ","*")
@@ -195,7 +199,8 @@ endif)'
 
 if (group!=T){
 
-  freeze_code=r'(group {%EviewsRGroup} {%z}
+  freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
+  group {%EviewsRGroup} {%allSeries}
   !n={%EviewsRGroup}.@count
 
   for !k=1 to {!n}
@@ -215,9 +220,10 @@ if (group!=T){
 
 if (group){
 
-      freeze_code=r'(group {%EviewsRGroup} {%z}
+      freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
+      group {%EviewsRGroup} {%allSeries}
 
-      %seriesNames=@replace(%z," ","")
+      %seriesNames=@replace(%allSeries," ","")
       %seriesNames=%seriesNames
       freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
