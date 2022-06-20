@@ -189,8 +189,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
   if @wcount(%tables)<>0 then
   for %z {%tables}
+  table {%y}_{%z}
   %tablePath=%tablePath+" "+%y+"_"+%z+"_"+"eviewsr_table"
-  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
+  {%y}_{%z}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
   next
   endif
 
