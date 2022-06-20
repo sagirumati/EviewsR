@@ -2,7 +2,7 @@
 title: "Untitled"
 output: 
   bookdown::pdf_document2:
-   # keep_tex: true
+   keep_tex: true
 header-includes:
   - \usepackage{subfig}
 date: '2022-06-11'
@@ -27,7 +27,10 @@ library(EviewsR)
 #| - legend columns(5)
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
+for %y page1 page2 page3 page4
+pagecreate(page={%y}) q 2000 2025
 'open mychunk
+pageselect {%y}
 delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
@@ -37,14 +40,17 @@ genr date=@date
                            graph grap2.line z y x
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
-
+next
 wfsave mychunk
+
 ```
 
 ```{r }
 library(magrittr)
 
 mychunk$ols
+
+mychunk$page1_ols_table %>% head 
 
 mychunk$series %>% head 
 ```

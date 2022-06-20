@@ -1,10 +1,13 @@
 %eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
-%eviewsr_text="eviewsr_text38b8378558fd"
+%eviewsr_text="eviewsr_text1d90266a1dbb"
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
 wfcreate(wf=sagiru,page=mati) q 2000 2025
+for %y page1 page2 page3 page4
+pagecreate(page={%y}) q 2000 2025
 'open mychunk
+pageselect {%y}
 delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
@@ -27,7 +30,7 @@ genr date=@date
 %figKeep=%figKeep+" "+%newgraph
 %figKeep=@wunique(%figKeep)
 equation ols.ls y c x
-
+next
 wfsave mychunk
 if @wcount(%figKeep)>0 then
   for %y {%figKeep}
@@ -139,8 +142,9 @@ if %save_path<>"" then
 
   if @wcount(%tables)<>0 then
   for %z {%tables}
+  table {%y}_{%z}
   %tablePath=%tablePath+" "+%y+"_"+%z+"_"+"eviewsr_table"
-'  {%y}.save(t=csv) {%eviews_path}\{%y}_{%z}_eviewsr_table
+  {%y}_{%z}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
   next
   endif
 
@@ -154,6 +158,5 @@ if %save_path<>"" then
 
   wfsave all_eviewsr_series.csv @drop date
 
+  exit
   
-
-

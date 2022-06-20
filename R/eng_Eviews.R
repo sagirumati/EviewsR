@@ -148,6 +148,10 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
   saveCode=r'(
 
+  %pagelist=@pagelist
+
+  for %page {%pagelist}
+  pageselect {%page}
     %equation=@wlookup("*","equation")
 
   if @wcount(%equation)<>0 then
@@ -177,11 +181,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   next
 
   endif
-
+next
 
 %tablePath=""
-
-  %pagelist=@pagelist
 
   for %y {%pagelist}
   pageselect {%y}
@@ -189,9 +191,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
   if @wcount(%tables)<>0 then
   for %z {%tables}
-  table {%y}_{%z}
+  'table {%y}_{%z}
   %tablePath=%tablePath+" "+%y+"_"+%z+"_"+"eviewsr_table"
-  {%y}_{%z}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
+  {%z}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
   next
   endif
 
