@@ -124,7 +124,7 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
 
     if(grepl('date',colnames(dataFrame)[1])){
       colnames(dataFrame)[1]="date"
-      data$date=as.POSIXct(dataFrame$date)
+      dataFrame$date=as.POSIXct(dataFrame$date)
     }
 
     assign(series1,dataFrame,envir = eviews)

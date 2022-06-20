@@ -22,7 +22,7 @@ library(EviewsR)
 #| fig.keep: new
 #| graph_procs: 
 #| - template modern
-#| - template reverse
+#| - options fillcolor(@hex(d9d9d9))
 #| - legend columns(5)
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
@@ -65,4 +65,13 @@ plot(x,y)
 data=data.frame(y=runif(100),x=runif(100))
 eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m",graph_procs = "template eviews5")
 
+```
+
+
+```{r rwalk}
+rwalk("x y z",num_observations = 100,frequency = "m",start_date = "1")
+
+eviews$xyz %>% head
+
+eviews_graph(eviews$xyz,group = T)
 ```
