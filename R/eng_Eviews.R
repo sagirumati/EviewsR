@@ -146,13 +146,35 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
-  saveCode=r'(
+if(options$page){  saveCode=r'(
 
   %pagelist=@pagelist
 
+%tablePath=""
+
   for %page {%pagelist}
   pageselect {%page}
-    %equation=@wlookup("*","equation")
+  %tables=@wlookup("*" ,"table")
+
+  if @wcount(%tables)<>0 then
+  for %y {%tables}
+  'table {%page}_{%y}
+  %tablePath=%tablePath+" "+%page+"_"+%y+"_"+"eviewsr_table"
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_eviewsr_table
+  next
+  endif
+
+  text eviewsr_table_text
+  eviewsr_table_text.append {%tablePath}
+  eviewsr_table_text.save eviewsr_table_text
+
+  next
+
+
+
+  for %page {%pagelist}
+  pageselect {%page}
+  %equation=@wlookup("*","equation")
 
   if @wcount(%equation)<>0 then
   for %y {%equation}
@@ -181,22 +203,33 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   next
 
   endif
-next
+  next
 
-%tablePath=""
+  wfsave all_eviewsr_series.csv @drop date
 
-  for %y {%pagelist}
-  pageselect {%y}
+  exit
+  )'
+}
+
+
+
+  if(!options$page){  saveCode=r'(
+
+  %pagelist=@pagelist
+
+  %tablePath=""
+
+  for %page {%pagelist}
+  pageselect {%page}
   %tables=@wlookup("*" ,"table")
 
   if @wcount(%tables)<>0 then
-  for %z {%tables}
-  'table {%y}_{%z}
-  %tablePath=%tablePath+" "+%y+"_"+%z+"_"+"eviewsr_table"
-  {%z}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
+  for %y {%tables}
+  'table {%page}_{%y}
+  %tablePath=%tablePath+" "+%page+"_"+%y+"_"+"eviewsr_table"
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_eviewsr_table
   next
   endif
-
 
   text eviewsr_table_text
   eviewsr_table_text.append {%tablePath}
@@ -205,11 +238,45 @@ next
   next
 
 
+
+  for %page {%pagelist}
+  pageselect {%page}
+  %equation=@wlookup("*","equation")
+
+  if @wcount(%equation)<>0 then
+  for %y {%equation}
+  table {%y}_table
+
+  %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
+
+  scalar n=@wcount(%equationMembers)
+  for !j =1 to n
+  %x{!j}=@word(%equationMembers,{!j})
+  {%y}_table(1,!j)=%x{!j}
+
+  %vectors="coefs pval stderrs tstats"
+  if @wcount(@wintersect(%x{!j},%vectors))>0 then
+  !eqCoef={%y}.@ncoef
+  for !i= 2 to !eqCoef+1
+  {%y}_table(!i,!j)={%y}.@{%x{!j}}(!i-1)
+  next
+  else
+  {%y}_table(2,!j)={%y}.@{%x{!j}}
+  endif
+  next
+
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_equation_table
+
+  next
+
+  endif
+  next
+
   wfsave all_eviewsr_series.csv @drop date
 
   exit
   )'
-
+  }
 
 
 # series=r'(%series=@wlookup("*","series")

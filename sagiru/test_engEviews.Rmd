@@ -43,6 +43,7 @@ genr date=@date
                            graph grap2.line z y x
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
+freeze(tab) ols
 next
 wfsave mychunk
 
@@ -54,6 +55,8 @@ library(magrittr)
 mychunk$mati_ols
 
 mychunk$page1_ols 
+
+mychunk$page1_tab
 
 mychunk$series %>% head 
 ```
