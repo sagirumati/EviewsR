@@ -179,6 +179,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   endif
 
 
+%tablePath=""
 
   %pagelist=@pagelist
 
@@ -187,8 +188,9 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   %tables=@wlookup("*" ,"table")
 
   if @wcount(%tables)<>0 then
-  for %y {%tables}
-  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}_eviewsr_table
+  for %z {%tables}
+  %tablePath=%tablePath+" "+%y+"_"+%z+"_"+"eviewsr_table"
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}_{%z}_eviewsr_table
   next
   endif
 
