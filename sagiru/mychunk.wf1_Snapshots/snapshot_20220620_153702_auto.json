@@ -1,0 +1,97 @@
+
+{
+	"commands" : [ "close EVIEWSR_TEXT38B8378558FD" ],
+	"description" : "Generated based on timer.",
+	"label" : "auto",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\smati\\google drive\\github\\repos\\sagirumati\\eviewsr\\sagiru\\mychunk.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "Q",
+				"_last_update" : [ 738325.6500810186, "06/20/2022 15:36" ],
+				"_name" : "mati",
+				"_obj_count" : 13,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739524.0, "10/01/2025" ],
+						"_obs_min" : [ 730119.0, "01/01/2000" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "DATE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "EVIEWSR_TEXT38B8378558FD",
+						"_type" : "TEXT"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP1",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP2",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "N",
+						"_type" : "SCALAR"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "OLS_TABLE",
+						"_type" : "TABLE"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 104
+			}
+		]
+	}
+}

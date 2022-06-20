@@ -194,6 +194,11 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   next
   endif
 
+
+  text eviewsr_table_text
+  eviewsr_table_text.append {%tablePath}
+  eviewsr_table_text.save eviewsr_table_text
+
   next
 
 
