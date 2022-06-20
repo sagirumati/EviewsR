@@ -282,12 +282,13 @@ if(length(tables)!=0){
     assign("series",dataFrame,envir =get(envName))
   }
 
-   # on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
-  # on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
+    on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
+   on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
 
   }
 
    on.exit(unlink_eviews(),add = TRUE)
+   on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
 

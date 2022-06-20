@@ -2,7 +2,7 @@
 title: "Untitled"
 output: 
   bookdown::pdf_document2:
-   keep_tex: true
+   # keep_tex: true
 header-includes:
   - \usepackage{subfig}
 date: '2022-06-11'

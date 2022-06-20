@@ -32,7 +32,6 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
   if(wf=="") {
    wf=basename(gsub(".prg","",fileName));if(page=="") page=wf
      eviews_wfcreate(wf=wf,page=wf,frequency=frequency,start_date=start_date,end_date=end_date,num_observations = num_observations)
-  on.exit(unlink(paste0(wf,".wf1")))
     }
 
   wf1=paste0(wf,".wf1")
@@ -108,14 +107,13 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
     if %save="save" then
     wfsave {%wf}
     endif
-    delete(noerr) wn* randomwalk_group*
+'    delete(noerr) wn* randomwalk_group*
     exit)'
 
   writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviews_code),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
-    on.exit(unlink(c("randomwalk_group.csv")),add = TRUE)
-    on.exit(unlink(c(fileName)),add = TRUE)
+    on.exit(unlink(c("randomwalk_group.csv",fileName,wf1)),add = TRUE)
 
       if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
