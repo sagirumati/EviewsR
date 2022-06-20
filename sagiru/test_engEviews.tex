@@ -132,7 +132,10 @@
 \NormalTok{EViews\textgreater{} wfcreate(wf=sagiru,page=mati) q 2000 2025}
 \NormalTok{+ for \%y page1 page2 page3 page4}
 \NormalTok{+ pagecreate(page=\{\%y\}) q 2000 2025}
+\NormalTok{+ next}
+\NormalTok{+ \%pagelist=@pagelist}
 \NormalTok{+ \textquotesingle{}open mychunk}
+\NormalTok{+ for \%y \{\%pagelist\}}
 \NormalTok{+ pageselect \{\%y\}}
 \NormalTok{+ delete gra*}
 \NormalTok{+ genr y=@cumsum(nrnd)}
@@ -158,33 +161,37 @@
 \end{figure}
 
 \begin{verbatim}
-##        aic  df     coefs       dw        f    fprob       hq      logl  meandep
-## 1 6.420486 102 -2.000060 0.040916 11.66674 0.000915 6.441088 -331.8653 3.185255
-## 2       NA  NA -0.556338       NA       NA       NA       NA        NA       NA
-##   ncoef     pval      r2    rbar2 regobs schwarz    sddep       se      ssr
-## 1     2 0.221514 0.10264 0.093842    104 6.47134 6.240458 5.940437 3599.457
-## 2    NA 0.000915      NA       NA     NA      NA       NA       NA       NA
+##        aic  df     coefs       dw        f    fprob       hq      logl
+## 1 5.282974 102 -3.497069 0.104191 9.228703 0.003026 5.303577 -272.7147
+## 2       NA  NA -0.154079       NA       NA       NA       NA        NA
+##     meandep ncoef      pval       r2   rbar2 regobs  schwarz    sddep       se
+## 1 -5.874184     2 0.0000777 0.082971 0.07398    104 5.333828 3.495431 3.363651
+## 2        NA    NA 0.0030260       NA      NA     NA       NA       NA       NA
+##        ssr  stderrs    tstats
+## 1 1154.043 0.849166 -4.118237
+## 2       NA 0.050719 -3.037878
+\end{verbatim}
+
+\begin{verbatim}
+##        aic  df     coefs      dw        f    fprob       hq      logl  meandep
+## 1 6.745148 102  4.050244 0.05466 29.21134 4.28e-07 6.765751 -348.7477 6.747683
+## 2       NA  NA -1.318425      NA       NA       NA       NA        NA       NA
+##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
+## 1     2 5.95e-06 0.222628 0.215007    104 6.796002 7.886513 6.987437 4980.077
+## 2    NA 4.28e-07       NA       NA     NA       NA       NA       NA       NA
 ##    stderrs    tstats
-## 1 1.626021 -1.230033
-## 2 0.162879 -3.415660
+## 1 0.847674  4.778067
+## 2 0.243938 -5.404752
 \end{verbatim}
 
 \begin{verbatim}
-## [1] 102
-## attr(,"na.action")
-## [1] 2
-## attr(,"class")
-## [1] "omit"
-\end{verbatim}
-
-\begin{verbatim}
-##         date          x           y          z
-## 1 2000-01-01  0.9573830  0.08212177  0.5195634
-## 2 2000-04-01  0.5242838  1.57199365 -0.5714357
-## 3 2000-07-01 -0.1000225  1.07387418 -0.8045620
-## 4 2000-10-01 -2.3302412 -0.70266674  0.4728364
-## 5 2001-01-01 -2.6229446 -0.21864240  1.0139448
-## 6 2001-04-01 -1.7250749  0.24590107  1.8887011
+##         date         x           y          z
+## 1 2000-01-01 0.2833776  0.41325243 -0.5082583
+## 2 2000-04-01 1.3905559  0.05601737 -1.0322353
+## 3 2000-07-01 1.6186456 -0.54610002 -0.3454605
+## 4 2000-10-01 1.3899275  0.15314155 -1.4400351
+## 5 2001-01-01 2.2350646  0.39452281 -1.8614388
+## 6 2001-04-01 3.1352239  2.37738292 -1.4341431
 \end{verbatim}
 
 \hypertarget{r-plots}{%
@@ -212,13 +219,13 @@
 \begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//eview-graph-x} \end{center}
 
 \begin{verbatim}
-##         date        x          y        z
-## 1 2001-01-01 2.480251 -0.1161992 1.696703
-## 2 2001-01-02 1.747177 -0.2826314 2.926118
-## 3 2001-01-03 1.166155 -0.6474547 3.852691
-## 4 2001-01-04 1.961779 -0.5669765 4.357686
-## 5 2001-01-05 3.142310 -1.3430673 5.298862
-## 6 2001-01-06 3.042487 -1.1681385 3.631511
+##         date          x          y         z
+## 1 2001-01-01 -0.1752777 -0.8095509 -1.723300
+## 2 2001-01-02 -2.0590310 -0.3201809 -2.492425
+## 3 2001-01-03 -3.8612069 -0.8271296 -2.088396
+## 4 2001-01-04 -2.4486016 -1.4653937 -3.378882
+## 5 2001-01-05 -2.0373300 -1.5978963 -2.466871
+## 6 2001-01-06 -3.5206709 -1.3343573 -1.249703
 \end{verbatim}
 
 \begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//rwalk-xyz} \end{center}

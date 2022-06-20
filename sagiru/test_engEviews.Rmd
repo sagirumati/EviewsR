@@ -29,7 +29,10 @@ library(EviewsR)
 wfcreate(wf=sagiru,page=mati) q 2000 2025
 for %y page1 page2 page3 page4
 pagecreate(page={%y}) q 2000 2025
+next
+%pagelist=@pagelist
 'open mychunk
+for %y {%pagelist}
 pageselect {%y}
 delete gra*
 genr y=@cumsum(nrnd)
@@ -45,12 +48,12 @@ wfsave mychunk
 
 ```
 
-```{r }
+```{r}
 library(magrittr)
 
-mychunk$ols
+mychunk$mati_ols
 
-mychunk$page1_ols_table 
+mychunk$page1_ols 
 
 mychunk$series %>% head 
 ```
