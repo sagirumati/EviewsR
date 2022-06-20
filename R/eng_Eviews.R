@@ -139,6 +139,25 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   {%eviewsr_text}.save {%eviewsr_text}
   )'
 
+
+# PAGE
+
+if(options$page)  {
+  figSave=r'(if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
+  if @wcount(%figKeep)<>0 then
+  for %y {%figKeep}
+  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
+  next
+  endif
+  text {%eviewsr_text}
+  {%eviewsr_text}.append {%figkeep}
+  {%eviewsr_text}.save {%eviewsr_text}
+  )'
+}
+
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
@@ -213,21 +232,19 @@ if(options$page){  saveCode=r'(
 
 
 
-  if(!options$page){  saveCode=r'(
+  if(!options$page){
+    saveCode=r'(
 
-  %pagelist=@pagelist
 
   %tablePath=""
 
-  for %page {%pagelist}
-  pageselect {%page}
   %tables=@wlookup("*" ,"table")
 
   if @wcount(%tables)<>0 then
   for %y {%tables}
-  'table {%page}_{%y}
-  %tablePath=%tablePath+" "+%page+"_"+%y+"_"+"eviewsr_table"
-  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_eviewsr_table
+  'table {%y}
+  %tablePath=%tablePath+" "+%y+"_"+"eviewsr_table"
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}_eviewsr_table
   next
   endif
 
@@ -235,12 +252,9 @@ if(options$page){  saveCode=r'(
   eviewsr_table_text.append {%tablePath}
   eviewsr_table_text.save eviewsr_table_text
 
-  next
 
 
 
-  for %page {%pagelist}
-  pageselect {%page}
   %equation=@wlookup("*","equation")
 
   if @wcount(%equation)<>0 then
@@ -265,12 +279,11 @@ if(options$page){  saveCode=r'(
   endif
   next
 
-  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_equation_table
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}_equation_table
 
   next
 
   endif
-  next
 
   wfsave all_eviewsr_series.csv @drop date
 

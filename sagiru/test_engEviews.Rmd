@@ -2,7 +2,7 @@
 title: "Untitled"
 output: 
   bookdown::pdf_document2:
-   # keep_tex: true
+   keep_tex: true
 header-includes:
   - \usepackage{subfig}
 date: '2022-06-11'
@@ -17,7 +17,7 @@ library(EviewsR)
 
 ## R Markdown
 
-```{eviews mychunk,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: hold
 #| echo: TRUE
 #| fig.keep: new
@@ -52,11 +52,11 @@ wfsave mychunk
 ```{r}
 library(magrittr)
 
-mychunk$mati_ols
+mychunk$ols
 
-mychunk$page1_ols 
+mychunk$ols 
 
-mychunk$page1_tab
+mychunk$tab
 
 mychunk$series %>% head 
 ```
