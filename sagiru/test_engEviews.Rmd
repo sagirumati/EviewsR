@@ -21,13 +21,14 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 ```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: hold
 #| echo: TRUE
-#| fig.keep: all
+#| fig.keep: new
 #| graph_procs: 
 #| - template modern
 #| - options fillcolor(@hex(d9d9d9))
 #| - legend columns(5)
 #| page: TRUE
-#| out.width: 0.3\textwidth
+#| out.width: 0.23\textwidth
+#| fig.ncol: 3
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
 for %y page1 page2 page3 

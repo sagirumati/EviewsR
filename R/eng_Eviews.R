@@ -81,8 +81,12 @@ eng_eviews <- function(options) {
   if (!is.null(options$graph_procs)){
     graph_procs=options$graph_procs
   graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
+
+if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
+  if(options$page)   graph_procs=append(c('if @wcount(%figKeep)>0 then','for %page {%pagelist}','pageselect {%page}','for %y {%figKeep}')
+                                        ,c(graph_procs,'next','endif','next'))
+
   }else graph_procs=""
 
 
@@ -159,13 +163,15 @@ if(options$page)  {
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
-  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}_{%page}_{%y}
+  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
   next
   endif
 
   %figkeep=%figkeep+" "+%figkeep
 
 next
+
+  %figkeep=@wunique(%figkeep)
 
   text {%eviewsr_text}
   {%eviewsr_text}.append {%figkeep}
