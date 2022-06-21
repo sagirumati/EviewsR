@@ -142,23 +142,24 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
 # PAGE
 
-if(options$page)  {
+if(!options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
   %pagelist=@pagelist
   for %page {%pagelist}
+  pageselect {%page}
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
-  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
+  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}_{%page}_{%y}
   next
   endif
   text {%eviewsr_text}
   {%eviewsr_text}.append {%figkeep}
   {%eviewsr_text}.save {%eviewsr_text}
-  )'
+next  )'
 }
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
