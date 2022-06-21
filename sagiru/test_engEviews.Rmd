@@ -11,7 +11,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width = "\\textwidth")
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth")
 
 # set_eviews_path("eviews10")
 ```
@@ -21,11 +21,12 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 ```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
 #| fig.show: hold
 #| echo: TRUE
-#| fig.keep: new
+#| fig.keep: all
 #| graph_procs: 
 #| - template modern
 #| - options fillcolor(@hex(d9d9d9))
 #| - legend columns(5)
+#| page: TRUE
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
 for %y page1 page2 page3 page4
@@ -41,7 +42,7 @@ genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
                      graph grap1.line z  
-                           graph grap2.line z y x
+                           graph grap2.line y 
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(tab) ols
@@ -87,5 +88,5 @@ rwalk("x y z",num_observations = 100,frequency = "7",start_date = "1")
 
 eviews$xyz %>% head
 
-eviews_graph(eviews$xyz,group = T,graph_procs = "template(b) midnight",graph_command = "scat")
+eviews_graph(eviews$xyz,group = T,graph_procs = "template midnight",graph_command = "line")
 ```

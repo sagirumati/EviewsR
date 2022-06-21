@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  21 JUN 2022 08:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  21 JUN 2022 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -584,48 +584,80 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 137.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [1
+)
+<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=14, 381.45511pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38412pt x 149.54247pt.
+<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38756pt x 148.65305pt.
+<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=16, 383.74367pt x 272.78912pt>
+File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38756pt x 150.26756pt.
+File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38412pt x 149.54247pt.
+File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38756pt x 148.65305pt.
+File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 211.38756pt x 150.26756pt.
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<test_engEviews_files/figure-latex/labe-1.pdf, id=33, 469.755pt x 325.215pt>
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<test_engEviews_files/figure-latex/labe-1.pdf, id=32, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/labe-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/labe-1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on input line 243.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<test_engEviews_files/figure-latex//eview-graph-y.png, id=34, 656.95438pt x 566.61688pt>
+Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on input line 199.
+(pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<test_engEviews_files/figure-latex//eview-graph-y.png, id=33, 656.95438pt x 566.61688pt>
 File: test_engEviews_files/figure-latex//eview-graph-y.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//eview-graph-y.png>
-Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-y.png  used on input line 250.
-(pdftex.def)             Requested size: 469.75891pt x 405.16258pt.
-[3 <./test_engEviews_files/figure-latex/labe-1.pdf>]
-<test_engEviews_files/figure-latex//eview-graph-x.png, id=46, 656.95438pt x 566.61688pt>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-y.png  used on input line 206.
+(pdftex.def)             Requested size: 211.39252pt x 182.32402pt.
+<test_engEviews_files/figure-latex//eview-graph-x.png, id=35, 656.95438pt x 566.61688pt>
 File: test_engEviews_files/figure-latex//eview-graph-x.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//eview-graph-x.png>
-Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-x.png  used on input line 252.
-(pdftex.def)             Requested size: 469.75891pt x 405.16258pt.
-[4 <./test_engEviews_files/figure-latex//eview-graph-y.png>]
-<test_engEviews_files/figure-latex//rwalk-xyz.png, id=52, 588.69937pt x 545.53813pt>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-x.png  used on input line 208.
+(pdftex.def)             Requested size: 211.39252pt x 182.32402pt.
+<test_engEviews_files/figure-latex//rwalk-xyz.png, id=36, 818.55812pt x 599.23875pt>
 File: test_engEviews_files/figure-latex//rwalk-xyz.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//rwalk-xyz.png>
-Package pdftex.def Info: test_engEviews_files/figure-latex//rwalk-xyz.png  used on input line 264.
-(pdftex.def)             Requested size: 469.75642pt x 435.31566pt.
-[5 <./test_engEviews_files/figure-latex//eview-graph-x.png>] [6 <./test_engEviews_files/figure-latex//rwalk-xyz.png>] (./test_engEviews.aux)
+Package pdftex.def Info: test_engEviews_files/figure-latex//rwalk-xyz.png  used on input line 220.
+(pdftex.def)             Requested size: 211.38371pt x 154.74687pt.
+[2 <./test_engEviews_files/figure-latex//eview-graph-y.png> <./test_engEviews_files/figure-latex//eview-graph-x.png> <./test_engEviews_files/figure-latex//rwalk-xyz.png>] [3 <./test_engEviews_files/figure-latex//mychunk-grap.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap2.pdf>] [4 <./test_engEviews_files/figure-latex/labe-1.pdf>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 15129 strings out of 479998
- 251111 string characters out of 5886794
- 589522 words of memory out of 5000000
- 32997 multiletter control sequences out of 15000+600000
- 517416 words of font info for 94 fonts, out of 8000000 for 9000
+ 15183 strings out of 479998
+ 253012 string characters out of 5886794
+ 583055 words of memory out of 5000000
+ 33038 multiletter control sequences out of 15000+600000
+ 520576 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,79p,1011b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (6 pages, 363966 bytes).
+ 69i,10n,79p,1011b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on test_engEviews.pdf (4 pages, 522654 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 26661 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 28724 words of extra memory for PDF output out of 29859 (max. 10000000)
 

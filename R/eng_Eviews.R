@@ -142,24 +142,35 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
 
 # PAGE
 
-if(!options$page)  {
+if(options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
+
+
   %pagelist=@pagelist
+
   for %page {%pagelist}
   pageselect {%page}
+
+
+  %figKeep=@wlookup("*","graph")
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}_{%page}_{%y}
   next
   endif
+
+  %figkeep=%figkeep+" "+%figkeep
+
+next
+
   text {%eviewsr_text}
   {%eviewsr_text}.append {%figkeep}
-  {%eviewsr_text}.save {%eviewsr_text}
-next  )'
+{%eviewsr_text}.save {%eviewsr_text}
+  )'
 }
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
@@ -372,7 +383,7 @@ if(length(tables)!=0){
   }
 
    on.exit(unlink_eviews(),add = TRUE)
-   on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
+   # on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
 

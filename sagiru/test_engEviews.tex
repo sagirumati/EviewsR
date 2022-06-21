@@ -143,7 +143,7 @@
 \NormalTok{+ genr z=@cumsum(nrnd)}
 \NormalTok{+ genr date=@date}
 \NormalTok{+                      graph grap1.line z  }
-\NormalTok{+                            graph grap2.line z y x}
+\NormalTok{+                            graph grap2.line y }
 \NormalTok{+    freeze(grap,mode=overwrite) x.line}
 \NormalTok{+ equation ols.ls y c x}
 \NormalTok{+ freeze(tab) ols}
@@ -152,79 +152,35 @@
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[h]
+
+{\centering \subfloat[A figure\label{fig:mychunk-1}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }\subfloat[Another figure\label{fig:mychunk-2}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\newline\subfloat[A figure\label{fig:mychunk-3}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }\subfloat[Another figure\label{fig:mychunk-4}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }\newline\subfloat[A figure\label{fig:mychunk-5}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\subfloat[Another figure\label{fig:mychunk-6}]{\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }
+
+}
+
+\caption{somefigure}\label{fig:mychunk}
+\end{figure}
+
 \begin{verbatim}
-##        aic  df     coefs       dw        f    fprob       hq      logl  meandep
-## 1 5.917171 102 -3.513948 0.078297 102.2672 4.58e-17 5.937773 -305.6929 4.854126
-## 2       NA  NA  0.851298       NA       NA       NA       NA        NA       NA
-##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 3.20e-04 0.500654 0.495759    104 5.968024 6.504375 4.618754 2175.955
-## 2    NA 4.58e-17       NA       NA     NA       NA       NA       NA       NA
-##    stderrs    tstats
-## 1 0.943317 -3.725099
-## 2 0.084181 10.112730
+## NULL
 \end{verbatim}
 
 \begin{verbatim}
-##        aic  df     coefs       dw        f    fprob       hq      logl  meandep
-## 1 5.917171 102 -3.513948 0.078297 102.2672 4.58e-17 5.937773 -305.6929 4.854126
-## 2       NA  NA  0.851298       NA       NA       NA       NA        NA       NA
-##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 3.20e-04 0.500654 0.495759    104 5.968024 6.504375 4.618754 2175.955
-## 2    NA 4.58e-17       NA       NA     NA       NA       NA       NA       NA
-##    stderrs    tstats
-## 1 0.943317 -3.725099
-## 2 0.084181 10.112730
+## NULL
 \end{verbatim}
 
 \begin{verbatim}
-##           Dependent.Variable..Y           X                       X.1
-## 1         Method: Least Squares                                      
-## 2  Date: 06/21/22   Time: 08:19                                      
-## 3         Sample: 2000Q1 2025Q4                                      
-## 4    Included observations: 104                                      
-## 5                                                                    
-## 6                      Variable Coefficient                Std. Error
-## 7                                                                    
-## 8                             C   -3.513948                  0.943317
-## 9                             X    0.851298                  0.084181
-## 10                                                                   
-## 11                    R-squared    0.500654        Mean dependent var
-## 12           Adjusted R-squared    0.495759        S.D. dependent var
-## 13           S.E. of regression    4.618754     Akaike info criterion
-## 14            Sum squared resid    2175.955         Schwarz criterion
-## 15               Log likelihood   -305.6929      Hannan-Quinn criter.
-## 16                  F-statistic    102.2672        Durbin-Watson stat
-## 17            Prob(F-statistic)    0.000000                          
-## 18                                                                   
-##            X.2      X.3
-## 1                      
-## 2                      
-## 3                      
-## 4                      
-## 5                      
-## 6  t-Statistic  Prob.  
-## 7                      
-## 8    -3.725099   0.0003
-## 9     10.11273   0.0000
-## 10                     
-## 11             4.854126
-## 12             6.504375
-## 13             5.917171
-## 14             5.968024
-## 15             5.937773
-## 16             0.078297
-## 17                     
-## 18
+## NULL
 \end{verbatim}
 
 \begin{verbatim}
-##         date          x           y          z
-## 1 2000-01-01 -0.1764268  0.82553279 -0.8597092
-## 2 2000-04-01 -0.8585432  0.47004426 -1.4952354
-## 3 2000-07-01 -1.4277713  0.72106428 -2.0666701
-## 4 2000-10-01 -1.5665197 -0.83778156 -3.2763182
-## 5 2001-01-01 -2.0204583 -0.09023613 -5.2876991
-## 6 2001-04-01 -1.3490041 -0.10562838 -6.3244963
+##         date         x          y          z
+## 1 2000-01-01 -2.013156 -1.3977194 -0.4669343
+## 2 2000-04-01 -1.320455 -1.1167813 -1.0540809
+## 3 2000-07-01 -1.251847 -0.8065594 -1.5940714
+## 4 2000-10-01 -1.929108 -1.5653894 -1.6892367
+## 5 2001-01-01 -1.304793 -2.4539923 -2.6227574
+## 6 2001-04-01 -1.889078 -3.2594426 -3.3489358
 \end{verbatim}
 
 \hypertarget{r-plots}{%
@@ -240,27 +196,27 @@
 
 \begin{figure}[h]
 
-{\centering \includegraphics[width=\textwidth]{test_engEviews_files/figure-latex/labe-1} 
+{\centering \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex/labe-1} 
 
 }
 
 \caption{another fig}\label{fig:labe}
 \end{figure}
 
-\begin{center}\includegraphics[width=\textwidth]{test_engEviews_files/figure-latex//eview-graph-y} \end{center}
+\begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//eview-graph-y} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{test_engEviews_files/figure-latex//eview-graph-x} \end{center}
+\begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//eview-graph-x} \end{center}
 
 \begin{verbatim}
-##         date           x            y         z
-## 1 2001-01-01  0.96611785  0.722339900 -2.279482
-## 2 2001-01-02 -0.24151933  0.883142132 -1.464104
-## 3 2001-01-03 -0.02438748 -0.004796057 -1.833490
-## 4 2001-01-04  1.06441681  0.381263203 -1.460074
-## 5 2001-01-05  0.04504655  0.525364741 -1.130334
-## 6 2001-01-06 -0.01245917  0.987442426 -1.423734
+##         date         x          y          z
+## 1 2001-01-01 -2.126425 -0.6682504 -0.2473525
+## 2 2001-01-02 -3.267832  0.1085274 -1.8091363
+## 3 2001-01-03 -3.330059  0.5431902 -2.5003805
+## 4 2001-01-04 -4.283230  0.3836583 -4.5757833
+## 5 2001-01-05 -3.034397 -0.7648502 -3.6151761
+## 6 2001-01-06 -2.336755 -1.1901703 -4.6831593
 \end{verbatim}
 
-\begin{center}\includegraphics[width=\textwidth]{test_engEviews_files/figure-latex//rwalk-xyz} \end{center}
+\begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//rwalk-xyz} \end{center}
 
 \end{document}
