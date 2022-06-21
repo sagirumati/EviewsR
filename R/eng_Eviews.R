@@ -412,7 +412,7 @@ if(length(tables)!=0){
 
    chunk_name2=paste0(chunk_name,'-')
 
-   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 

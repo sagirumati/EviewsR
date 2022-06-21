@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  21 JUN 2022 09:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.18)  21 JUN 2022 10:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -143,7 +143,7 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
+Package: microtype 2022/06/20 v3.0e Micro-typographical refinements (RS)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
@@ -154,22 +154,22 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \MT@toks=\toks24
 \MT@tempbox=\box53
 \MT@count=\count272
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
-LaTeX Info: Redefining \leftprotrusion on input line 1028.
-LaTeX Info: Redefining \rightprotrusion on input line 1036.
-LaTeX Info: Redefining \textls on input line 1195.
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1045.
+LaTeX Info: Redefining \leftprotrusion on input line 1046.
+LaTeX Info: Redefining \rightprotrusion on input line 1056.
+LaTeX Info: Redefining \textls on input line 1240.
 \MT@outer@kern=\dimen148
-LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1864.
 \MT@listname@count=\count273
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2022/03/14 v3.0d Definitions specific to pdftex (RS)
-LaTeX Info: Redefining \lsstyle on input line 900.
-LaTeX Info: Redefining \lslig on input line 900.
+File: microtype-pdftex.def 2022/06/20 v3.0e Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
 \MT@outer@space=\skip52
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
+File: microtype.cfg 2022/06/20 v3.0e microtype main configuration file (RS)
 )) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -197,7 +197,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-06-13 v7.00r Hypertext links for LaTeX
+Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
@@ -229,7 +229,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 \Hy@linkcounter=\count275
 \Hy@pagecounter=\count276
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-06-13 v7.00r Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -239,24 +239,24 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count277
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-06-13 v7.00r Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4020.
-Package hyperref Info: Hyper figures OFF on input line 4139.
-Package hyperref Info: Link nesting OFF on input line 4144.
-Package hyperref Info: Hyper index ON on input line 4147.
-Package hyperref Info: Plain pages OFF on input line 4154.
-Package hyperref Info: Backreferencing OFF on input line 4159.
+Package hyperref Info: Option `unicode' set `true' on input line 4045.
+Package hyperref Info: Hyper figures OFF on input line 4162.
+Package hyperref Info: Link nesting OFF on input line 4167.
+Package hyperref Info: Hyper index ON on input line 4170.
+Package hyperref Info: Plain pages OFF on input line 4177.
+Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4385.
+Package hyperref Info: Bookmarks ON on input line 4408.
 \c@Hy@tempcnt=\count278
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4723.
+LaTeX Info: Redefining \url on input line 4746.
 \XeTeXLinkMargin=\dimen150
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -266,13 +266,13 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count279
 \Field@Width=\dimen151
 \Fld@charsize=\dimen152
-Package hyperref Info: Hyper figures OFF on input line 6001.
-Package hyperref Info: Link nesting OFF on input line 6006.
-Package hyperref Info: Hyper index ON on input line 6009.
-Package hyperref Info: backreferencing OFF on input line 6016.
-Package hyperref Info: Link coloring OFF on input line 6021.
-Package hyperref Info: Link coloring with OCG OFF on input line 6026.
-Package hyperref Info: PDF/A mode OFF on input line 6031.
+Package hyperref Info: Hyper figures OFF on input line 6024.
+Package hyperref Info: Link nesting OFF on input line 6029.
+Package hyperref Info: Hyper index ON on input line 6032.
+Package hyperref Info: backreferencing OFF on input line 6039.
+Package hyperref Info: Link coloring OFF on input line 6044.
+Package hyperref Info: Link coloring with OCG OFF on input line 6049.
+Package hyperref Info: PDF/A mode OFF on input line 6054.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
@@ -283,7 +283,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-06-13 v7.00r Hyperref driver for pdfTeX
+File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -469,9 +469,7 @@ LaTeX Font Info:    ... okay on input line 120.
 LaTeX Info: Redefining \microtypecontext on input line 120.
 Package microtype Info: Applying patch `item' on input line 120.
 Package microtype Info: Applying patch `toc' on input line 120.
-
-Package microtype Warning: Unable to apply patch `eqnum' on input line 120.
-
+Package microtype Info: Applying patch `eqnum' on input line 120.
 Package microtype Info: Applying patch `footnote' on input line 120.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -585,40 +583,124 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<test_engEviews_files/figure-latex//mychunk-grap.pdf, id=14, 381.45511pt x 269.8582pt>
-File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38412pt x 149.54247pt.
-<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 383.74367pt x 269.8582pt>
-File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38756pt x 148.65305pt.
-<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=16, 383.74367pt x 272.78912pt>
-File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38756pt x 150.26756pt.
-File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38412pt x 149.54247pt.
-File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38756pt x 148.65305pt.
-File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 157.
-(pdftex.def)             Requested size: 211.38756pt x 150.26756pt.
+<test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf, id=14, 395.14627pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+<test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf, id=15, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+<test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf, id=16, 395.14627pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+<test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf, id=17, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+<test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf, id=18, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+<test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf, id=19, 381.45511pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92664pt x 99.69772pt.
+<test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf, id=20, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+<test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf, id=21, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+<test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf, id=22, 395.14627pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+<test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf, id=23, 386.93558pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.93214pt x 98.28947pt.
+<test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf, id=24, 386.93558pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.93214pt x 98.28947pt.
+<test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf, id=25, 383.74367pt x 269.8582pt>
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92664pt x 99.69772pt.
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+File: test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92607pt x 96.24298pt.
+File: test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.93214pt x 98.28947pt.
+File: test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.93214pt x 98.28947pt.
+File: test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf  used on input line 157.
+(pdftex.def)             Requested size: 140.92894pt x 99.10478pt.
+
+LaTeX Warning: Float too large for page by 853.38246pt on input line 162.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<test_engEviews_files/figure-latex/labe-1.pdf, id=32, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/labe-1.pdf, id=41, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/labe-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/labe-1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on input line 199.
@@ -626,38 +708,38 @@ Package pdftex.def Info: test_engEviews_files/figure-latex/labe-1.pdf  used on i
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<test_engEviews_files/figure-latex//eview-graph-y.png, id=33, 656.95438pt x 566.61688pt>
+<test_engEviews_files/figure-latex//eview-graph-y.png, id=42, 656.95438pt x 566.61688pt>
 File: test_engEviews_files/figure-latex//eview-graph-y.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//eview-graph-y.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-y.png  used on input line 206.
 (pdftex.def)             Requested size: 211.39252pt x 182.32402pt.
-<test_engEviews_files/figure-latex//eview-graph-x.png, id=35, 656.95438pt x 566.61688pt>
+<test_engEviews_files/figure-latex//eview-graph-x.png, id=44, 656.95438pt x 566.61688pt>
 File: test_engEviews_files/figure-latex//eview-graph-x.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//eview-graph-x.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//eview-graph-x.png  used on input line 208.
 (pdftex.def)             Requested size: 211.39252pt x 182.32402pt.
-<test_engEviews_files/figure-latex//rwalk-xyz.png, id=36, 818.55812pt x 599.23875pt>
+<test_engEviews_files/figure-latex//rwalk-xyz.png, id=45, 818.55812pt x 599.23875pt>
 File: test_engEviews_files/figure-latex//rwalk-xyz.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//rwalk-xyz.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//rwalk-xyz.png  used on input line 220.
 (pdftex.def)             Requested size: 211.38371pt x 154.74687pt.
-[2 <./test_engEviews_files/figure-latex//eview-graph-y.png> <./test_engEviews_files/figure-latex//eview-graph-x.png> <./test_engEviews_files/figure-latex//rwalk-xyz.png>] [3 <./test_engEviews_files/figure-latex//mychunk-grap.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap2.pdf>] [4 <./test_engEviews_files/figure-latex/labe-1.pdf>] (./test_engEviews.aux)
+[2 <./test_engEviews_files/figure-latex//eview-graph-y.png> <./test_engEviews_files/figure-latex//eview-graph-x.png> <./test_engEviews_files/figure-latex//rwalk-xyz.png>] [3 <./test_engEviews_files/figure-latex//mychunk-_mati_grap.pdf> <./test_engEviews_files/figure-latex//mychunk-_page1_grap.pdf> <./test_engEviews_files/figure-latex//mychunk-_page2_grap.pdf> <./test_engEviews_files/figure-latex//mychunk-_page3_grap.pdf> <./test_engEviews_files/figure-latex//mychunk-_mati_grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-_page1_grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-_page2_grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-_page3_grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-_mati_grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-_page1_grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-_page2_grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-_page3_grap2.pdf>] [4 <./test_engEviews_files/figure-latex/labe-1.pdf>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 15183 strings out of 479998
- 253012 string characters out of 5886794
- 583055 words of memory out of 5000000
- 33038 multiletter control sequences out of 15000+600000
+ 15350 strings out of 479998
+ 259632 string characters out of 5886794
+ 592773 words of memory out of 5000000
+ 33178 multiletter control sequences out of 15000+600000
  520576 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,10n,79p,1011b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,10n,79p,3557b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (4 pages, 522654 bytes).
+Output written on test_engEviews.pdf (4 pages, 784307 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 28724 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 28769 words of extra memory for PDF output out of 29859 (max. 10000000)
 
