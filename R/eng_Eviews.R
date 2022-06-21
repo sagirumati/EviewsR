@@ -125,7 +125,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
 
 
-  figSave=r'(if %save_path<>"" then
+    figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
@@ -146,6 +146,9 @@ if(options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
+
+  %pagelist=@pagelist
+  for %page {%pagelist}
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
