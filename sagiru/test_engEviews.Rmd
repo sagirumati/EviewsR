@@ -40,14 +40,14 @@ next
 'open mychunk
 for %y {%pagelist}
 pageselect {%y}
-delete gra*
+'delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
-                     graph grap1.dot z  
+                     graph grap3.dot z  
                            graph grap2.bar y 
-                           graph grap3.area x  
+                           graph grap1.area x  
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(tab) ols
