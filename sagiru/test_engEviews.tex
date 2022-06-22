@@ -153,49 +153,58 @@
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[h]
+
+{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap3} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\subfloat[Page 1 Figure 4\label{fig:mychunk-4}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }
+
+}
+
+\caption{somefigure}\label{fig:mychunk}
+\end{figure}
+
 \begin{verbatim}
-##        aic  df    coefs       dw        f    fprob       hq      logl   meandep
-## 1 4.284363 102 1.618489 0.316322 59.62814 8.14e-12 4.304965 -220.7869 -0.262679
-## 2       NA  NA 0.356968       NA       NA       NA       NA        NA        NA
-##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 1.37e-06 0.368922 0.362735    104 4.335217 2.557438 2.041574 425.1386
-## 2    NA 8.14e-12       NA       NA     NA       NA       NA       NA       NA
-##    stderrs   tstats
-## 1 0.315317 5.132894
-## 2 0.046228 7.721926
+##        aic  df     coefs       dw        f    fprob       hq      logl
+## 1 4.579665 102 -1.682751 0.210973 25.67591 1.81e-06 4.600267 -236.1426
+## 2       NA  NA  0.226348       NA       NA       NA       NA        NA
+##     meandep ncoef     pval       r2   rbar2 regobs  schwarz    sddep       se
+## 1 -1.917609     2 1.62e-10 0.201102 0.19327    104 4.630519 2.634663 2.366406
+## 2        NA    NA 1.81e-06       NA      NA     NA       NA       NA       NA
+##        ssr  stderrs    tstats
+## 1 571.1873 0.236629 -7.111349
+## 2       NA 0.044670  5.067141
 \end{verbatim}
 
 \begin{verbatim}
-##        aic  df    coefs       dw        f    fprob       hq      logl   meandep
-## 1 4.284363 102 1.618489 0.316322 59.62814 8.14e-12 4.304965 -220.7869 -0.262679
-## 2       NA  NA 0.356968       NA       NA       NA       NA        NA        NA
-##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 1.37e-06 0.368922 0.362735    104 4.335217 2.557438 2.041574 425.1386
-## 2    NA 8.14e-12       NA       NA     NA       NA       NA       NA       NA
-##    stderrs   tstats
-## 1 0.315317 5.132894
-## 2 0.046228 7.721926
+##        aic  df     coefs       dw        f    fprob       hq      logl
+## 1 4.579665 102 -1.682751 0.210973 25.67591 1.81e-06 4.600267 -236.1426
+## 2       NA  NA  0.226348       NA       NA       NA       NA        NA
+##     meandep ncoef     pval       r2   rbar2 regobs  schwarz    sddep       se
+## 1 -1.917609     2 1.62e-10 0.201102 0.19327    104 4.630519 2.634663 2.366406
+## 2        NA    NA 1.81e-06       NA      NA     NA       NA       NA       NA
+##        ssr  stderrs    tstats
+## 1 571.1873 0.236629 -7.111349
+## 2       NA 0.044670  5.067141
 \end{verbatim}
 
 \begin{verbatim}
 ##           Dependent.Variable..Y           X                       X.1
 ## 1         Method: Least Squares                                      
-## 2  Date: 06/22/22   Time: 12:08                                      
+## 2  Date: 06/22/22   Time: 15:09                                      
 ## 3         Sample: 2000Q1 2025Q4                                      
 ## 4    Included observations: 104                                      
 ## 5                                                                    
 ## 6                      Variable Coefficient                Std. Error
 ## 7                                                                    
-## 8                             C    1.618489                  0.315317
-## 9                             X    0.356968                  0.046228
+## 8                             C   -1.682751                  0.236629
+## 9                             X    0.226348                  0.044670
 ## 10                                                                   
-## 11                    R-squared    0.368922        Mean dependent var
-## 12           Adjusted R-squared    0.362735        S.D. dependent var
-## 13           S.E. of regression    2.041574     Akaike info criterion
-## 14            Sum squared resid    425.1386         Schwarz criterion
-## 15               Log likelihood   -220.7869      Hannan-Quinn criter.
-## 16                  F-statistic    59.62814        Durbin-Watson stat
-## 17            Prob(F-statistic)    0.000000                          
+## 11                    R-squared    0.201102        Mean dependent var
+## 12           Adjusted R-squared    0.193270        S.D. dependent var
+## 13           S.E. of regression    2.366406     Akaike info criterion
+## 14            Sum squared resid    571.1873         Schwarz criterion
+## 15               Log likelihood   -236.1426      Hannan-Quinn criter.
+## 16                  F-statistic    25.67591        Durbin-Watson stat
+## 17            Prob(F-statistic)    0.000002                          
 ## 18                                                                   
 ##            X.2       X.3
 ## 1                       
@@ -205,27 +214,27 @@
 ## 5                       
 ## 6  t-Statistic   Prob.  
 ## 7                       
-## 8     5.132894    0.0000
-## 9     7.721926    0.0000
+## 8    -7.111349    0.0000
+## 9     5.067141    0.0000
 ## 10                      
-## 11             -0.262679
-## 12              2.557438
-## 13              4.284363
-## 14              4.335217
-## 15              4.304965
-## 16              0.316322
+## 11             -1.917609
+## 12              2.634663
+## 13              4.579665
+## 14              4.630519
+## 15              4.600267
+## 16              0.210973
 ## 17                      
 ## 18
 \end{verbatim}
 
 \begin{verbatim}
-##         date          x         y        z
-## 1 2000-01-01 -0.3106965 0.5952196 2.155483
-## 2 2000-04-01 -1.3559345 2.4231030 2.527102
-## 3 2000-07-01 -0.2129150 1.8166069 1.677010
-## 4 2000-10-01 -1.9515780 2.7405054 1.126702
-## 5 2001-01-01 -0.9584800 2.8870654 1.692854
-## 6 2001-04-01  1.4437669 1.3602628 2.419011
+##         date          x          y          z
+## 1 2000-01-01 -0.1353059  1.4206925  0.4846286
+## 2 2000-04-01  2.0203728  2.4761377  0.3529873
+## 3 2000-07-01  1.5001717  2.6000195 -0.1001810
+## 4 2000-10-01  1.0960083  2.4586167  0.6564267
+## 5 2001-01-01 -0.5117930  0.2756739 -0.1460702
+## 6 2001-04-01 -2.1842526 -0.7051364  2.2652452
 \end{verbatim}
 
 \hypertarget{r-plots}{%
@@ -253,13 +262,13 @@
 \begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//eview-graph-x} \end{center}
 
 \begin{verbatim}
-##         date          x         y         z
-## 1 2001-01-01 -0.2684732  1.139020  1.188658
-## 2 2001-01-02 -1.7669824 -1.459477 -2.404255
-## 3 2001-01-03 -2.3173390 -1.277565 -2.264911
-## 4 2001-01-04 -3.7827117 -1.756087 -3.460443
-## 5 2001-01-05 -4.1608649 -2.226178 -2.130210
-## 6 2001-01-06 -2.5958362 -3.763353 -1.783314
+##         date           x           y          z
+## 1 2001-01-01  0.81477050 -0.03803438 -0.2931569
+## 2 2001-01-02 -0.03035706  0.02438662 -0.5171557
+## 3 2001-01-03 -1.26231821 -1.67176899 -1.9173458
+## 4 2001-01-04 -0.82472846 -1.19529533 -1.6895399
+## 5 2001-01-05  0.30140583 -0.52275230 -0.7716202
+## 6 2001-01-06 -0.50840450 -0.24706542 -1.0434044
 \end{verbatim}
 
 \begin{center}\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//rwalk-xyz} \end{center}
