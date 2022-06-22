@@ -153,7 +153,11 @@ if(options$page)  {
   endif
 
 
-  %figurePath=""
+  text {%eviewsr_text}
+  {%eviewsr_text}.append {%figkeep}
+  {%eviewsr_text}.save {%eviewsr_text}
+
+'  %figurePath=""
 
   %pagelist=@pagelist
 
@@ -165,28 +169,22 @@ if(options$page)  {
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
-  %figurePath=%figurePath+" "+%chunk_name+%page+"-"+%y
+  '%figurePath=%figurePath+" "+%chunk_name+%page+"-"+%y
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
   next
   endif
 
-'  %figkeep1=%figkeep1+" "+%figkeep1
-  '%figkeep=%figkeep+" "+%figkeep
-
 next
 
-  %figkeep=@wunique(%figurePath)
+  '%figkeep=@wunique(%figurePath)
 
-  text {%eviewsr_text}
-  {%eviewsr_text}.append {%figkeep}
-{%eviewsr_text}.save {%eviewsr_text}
   )'
 }
 
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKee=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.keep=="new") figKeep=c('%existing=@wlookup("*","graph")')
+  if(options$fig.keep=="new") figKeep=c('%figPath=""')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -332,7 +330,7 @@ if(options$page){  saveCode=r'(
 
   # eviewsCode=readLines(fileName)
 
-if(options$fig.keep=="new"){
+if(options$fig.keep=="new" && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -344,11 +342,11 @@ if(options$fig.keep=="new"){
 }
 
 
-  if(options$fig.keep=="new"){
+  if(options$fig.keep=="new" && options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
     appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-                 ,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
+                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%y+%newgraph')
 
     for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
