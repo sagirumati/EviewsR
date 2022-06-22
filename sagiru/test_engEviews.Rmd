@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| - datelabeL  format("Month YYYY")
 #| - axis(b) angle(45)
 #| - legend columns(auto) position(right)
-#| page: TRUE
+#| page: FALSE
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
