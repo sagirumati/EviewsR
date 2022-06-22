@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 
 ## R Markdown
 
-```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=c("A figure","Another figure")}
+```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
 #| fig.show: hold
 #| echo: TRUE
 #| fig.keep: new
@@ -27,12 +27,12 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| - options fillcolor(@hex(d9d9d9))
 #| - legend columns(5)
 #| page: TRUE
-#| out.width: 0.32\textwidth
+#| out.width: 0.25\textwidth
 #| fig.align: center
-#| fig.ncol : 3
+#| fig.ncol : 4
 
 wfcreate(wf=sagiru,page=mati) q 2000 2025
-for %y page1 page2 page3 
+for %y page1 page2 page3  
 pagecreate(page={%y}) q 2000 2025
 next
 %pagelist=@pagelist
@@ -44,8 +44,9 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
-                     graph grap1.line z  
-                           graph grap2.line y 
+                     graph grap1.dot z  
+                           graph grap2.bar y 
+                           graph grap3.line x y z
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(tab) ols
