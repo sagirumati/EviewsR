@@ -181,7 +181,7 @@ next
   )'
 }
 
-  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKee=@wlookup("*","graph")'
+  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
   if(options$fig.keep=="new") figKeep=c('%figKeep=@wlookup("*","graph")')
@@ -437,6 +437,7 @@ if(length(tables)!=0){
    chunk_name2=paste0(chunk_name,'-')
 
    if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+   if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
    if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
