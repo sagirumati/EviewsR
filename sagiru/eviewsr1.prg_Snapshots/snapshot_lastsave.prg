@@ -1,3 +1,4 @@
+close @wf
 %eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
 %eviewsr_text="eviewsr_text47424a06f0e"
@@ -9,8 +10,12 @@ pagecreate(page={%y}) q 2000 2025
 next
 %pagelist=@pagelist
 'open mychunk
+
+%figPath=""
 for %y {%pagelist}
 pageselect {%y}
+
+'%page=@pagename
 'delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
@@ -21,51 +26,34 @@ genr date=@date
                      graph grap3.dot z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=%figKeep+" "+%newgraph
+'%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%y+%newgraph
                            graph grap2.bar y 
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=%figKeep+" "+%newgraph
+'%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%y+%newgraph
                            graph grap1.area x  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=%figKeep+" "+%newgraph
+'%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%y+%newgraph
    freeze(grap,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
+'%figKeep=%figKeep+" "+%newgraph
+'%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%y+%newgraph
 equation ols.ls y c x
 freeze(tab) ols
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
-%newgraph=@wlookup("*","graph")
-%newgraph=@wdrop(%newgraph,%existing)
-%figKeep=%figKeep+" "+%newgraph
-%figKeep=@wunique(%figKeep)
 next
 wfsave mychunk
+
+string figpath=@wunique(%figPath)
+'string page=%page
 
 if @wcount(%figKeep)>0 then
   for %y {%figKeep}
@@ -132,7 +120,7 @@ if %save_path<>"" then
   next
   endif
   text {%eviewsr_text}
-    {%eviewsr_text}.append {%figkeep}
+    {%eviewsr_text}.append {%figpath}
    ' if @wcount(%eviewsr_text)>0 then
   {%eviewsr_text}.save {%eviewsr_text}
   

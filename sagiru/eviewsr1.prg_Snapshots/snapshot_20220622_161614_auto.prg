@@ -15,8 +15,8 @@ next
 for %y {%pagelist}
 pageselect {%y}
 
-'%page=@pagename
-delete gra*
+%page=@pagename
+'delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
@@ -26,38 +26,59 @@ genr date=@date
                      graph grap3.dot z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
-'%figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
-%figPath=%figPath+" "+%y+%newgraph
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%page+%figKeep
                            graph grap2.bar y 
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
-'%figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
-%figPath=%figPath+" "+%y+%newgraph
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%page+%figKeep
                            graph grap1.area x  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
-'%figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
-%figPath=%figPath+" "+%y+%newgraph
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%page+%figKeep
    freeze(grap,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
-'%figKeep=%figKeep+" "+%newgraph
-'%figKeep=@wunique(%figKeep)
-%figPath=%figPath+" "+%y+%newgraph
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%figPath=%figPath+" "+%page+%figKeep
 equation ols.ls y c x
 freeze(tab) ols
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%figKeep=%figKeep+" "+%newgraph
+%figKeep=@wunique(%figKeep)
+'%figPath=%figPath+" "+%page+%figKeep
 next
 wfsave mychunk
 
 string figpath=@wunique(%figPath)
-'string page=%page
+string page=%page
 
 if @wcount(%figKeep)>0 then
   for %y {%figKeep}

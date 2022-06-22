@@ -26,28 +26,24 @@ genr date=@date
                      graph grap3.dot z  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 '%figKeep=%figKeep+" "+%newgraph
 '%figKeep=@wunique(%figKeep)
 %figPath=%figPath+" "+%y+%newgraph
                            graph grap2.bar y 
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 '%figKeep=%figKeep+" "+%newgraph
 '%figKeep=@wunique(%figKeep)
 %figPath=%figPath+" "+%y+%newgraph
                            graph grap1.area x  
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 '%figKeep=%figKeep+" "+%newgraph
 '%figKeep=@wunique(%figKeep)
 %figPath=%figPath+" "+%y+%newgraph
    freeze(grap,mode=overwrite) x.line
 %newgraph=@wlookup("*","graph")
 %newgraph=@wdrop(%newgraph,%existing)
-%existing=@wlookup("*","graph")
 '%figKeep=%figKeep+" "+%newgraph
 '%figKeep=@wunique(%figKeep)
 %figPath=%figPath+" "+%y+%newgraph
