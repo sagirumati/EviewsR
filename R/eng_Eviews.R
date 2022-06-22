@@ -139,7 +139,8 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   next
   endif
   text {%eviewsr_text}
-  {%eviewsr_text}.append {%figkeep}
+    {%eviewsr_text}.append {%figkeep}
+   ' if @wcount(%eviewsr_text)>0 then
   {%eviewsr_text}.save {%eviewsr_text}
   )'
 
@@ -152,6 +153,7 @@ if(options$page)  {
   endif
 
 
+  %figurePath=""
 
   %pagelist=@pagelist
 
@@ -163,20 +165,17 @@ if(options$page)  {
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
-  %figkeep1=%chunk_name+%page+"-"+%y
-
-  %figkeep1=%figkeep1+" "+%figkeep1
-
+  %figurePath=%figurePath+" "+%chunk_name+%page+"-"+%y
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
   next
   endif
 
-  %figkeep1=%figkeep1+" "+%figkeep1
+'  %figkeep1=%figkeep1+" "+%figkeep1
   '%figkeep=%figkeep+" "+%figkeep
 
 next
 
-  %figkeep=@wunique(%figkeep1)
+  %figkeep=@wunique(%figurePath)
 
   text {%eviewsr_text}
   {%eviewsr_text}.append {%figkeep}
@@ -184,7 +183,7 @@ next
   )'
 }
 
-  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
+  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKee=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
   if(options$fig.keep=="new") figKeep=c('%existing=@wlookup("*","graph")')
@@ -193,9 +192,11 @@ next
 
 if(options$page){  saveCode=r'(
 
+%tablePath=""
+
   %pagelist=@pagelist
 
-%tablePath=""
+'%tablePath=""
 
   for %page {%pagelist}
   pageselect {%page}
@@ -331,7 +332,7 @@ if(options$page){  saveCode=r'(
 
   # eviewsCode=readLines(fileName)
 
-if(options$fig.keep=="new"){
+if(options$fig.keep=="new" || options$fig.keep=="none"){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'

@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| echo: TRUE
 #| fig.keep: new
 #| graph_procs: 
-#| - template magazine
+#| - template eviews5
 #| - datelabeL  format("Month YYYY")
 #| - axis(b) angle(45)
 #| - legend columns(auto) position(right)
