@@ -85,7 +85,7 @@ eng_eviews <- function(options) {
 if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
   if(options$page)   graph_procs=append(c('if @wcount(%figKeep)>0 then','for %page {%pagelist}','pageselect {%page}','for %y {%figKeep}')
-                                        ,c(graph_procs,'next','endif','next'))
+                                        ,c(graph_procs,'next','next','endif'))
 
   }else graph_procs=""
 
@@ -154,7 +154,7 @@ if(options$page)  {
 
 
   text {%eviewsr_text}
-  {%eviewsr_text}.append {%figkeep}
+  {%eviewsr_text}.append {%figpath}
   {%eviewsr_text}.save {%eviewsr_text}
 
 '  %figurePath=""
@@ -184,7 +184,7 @@ next
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKee=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.keep=="new") figKeep=c('%figPath=""')
+  if(options$fig.keep=="new") figKeep=c('%figKeep=@wlookup("*","graph")')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -342,11 +342,25 @@ if(options$fig.keep=="new" && !options$page){
 }
 
 
+
+
+  if((options$fig.keep! %in% c("high", && !options$page){
+    eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
+
+    appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
+                 ,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
+
+    for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
+
+    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
+  }
+
+
   if(options$fig.keep=="new" && options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
     appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%y+%newgraph')
+                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%y+"-"+%newgraph')
 
     for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
@@ -442,7 +456,7 @@ if(length(tables)!=0){
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
 
-print(eviews_graphics)
+# include_graphics(eviews_graphics)
 
  code=engine_output(options,code = options$code, out = "")
  if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()

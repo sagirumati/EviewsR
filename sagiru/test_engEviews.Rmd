@@ -21,13 +21,13 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 ```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
 #| fig.show: hold
 #| echo: TRUE
-#| fig.keep: new
+#| fig.keep: high
 #| graph_procs: 
 #| - template eviews5
 #| - datelabeL  format("Month YYYY")
 #| - axis(b) angle(45)
 #| - legend columns(auto) position(right)
-#| page: FALSE
+#| page: TRUE
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
