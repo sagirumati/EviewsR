@@ -23,9 +23,10 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| echo: TRUE
 #| fig.keep: new
 #| graph_procs: 
-#| - template modern
-#| - options fillcolor(@hex(d9d9d9))
-#| - legend columns(5)
+#| - template magazine
+#| - datelabeL  format("Month YYYY")
+#| - axis(b) angle(45)
+#| - legend columns(auto) position(right)
 #| page: TRUE
 #| out.width: 0.25\textwidth
 #| fig.align: center
@@ -46,7 +47,7 @@ genr z=@cumsum(nrnd)
 genr date=@date
                      graph grap1.dot z  
                            graph grap2.bar y 
-                           graph grap3.line x y z
+                           graph grap3.area x  
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(tab) ols

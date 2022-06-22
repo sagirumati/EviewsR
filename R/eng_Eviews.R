@@ -163,15 +163,20 @@ if(options$page)  {
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
+  %figkeep1=%chunk_name+%page+"-"+%y
+
+  %figkeep1=%figkeep1+" "+%figkeep1
+
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
   next
   endif
 
-  %figkeep=%figkeep+" "+%figkeep
+  %figkeep1=%figkeep1+" "+%figkeep1
+  '%figkeep=%figkeep+" "+%figkeep
 
 next
 
-  %figkeep=@wunique(%figkeep)
+  %figkeep=@wunique(%figkeep1)
 
   text {%eviewsr_text}
   {%eviewsr_text}.append {%figkeep}
@@ -418,7 +423,8 @@ if(length(tables)!=0){
 
    chunk_name2=paste0(chunk_name,'-')
 
-   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T)) %>% sort
+   # for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T)) %>% sort
+   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T)) %>% sort
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
