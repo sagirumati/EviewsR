@@ -332,7 +332,7 @@ if(options$page){  saveCode=r'(
 
   # eviewsCode=readLines(fileName)
 
-if(options$fig.keep=="new" || options$fig.keep=="none"){
+if(options$fig.keep=="new"){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -342,6 +342,19 @@ if(options$fig.keep=="new" || options$fig.keep=="none"){
 
   eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
 }
+
+
+  if(options$fig.keep=="new"){
+    eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
+
+    appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
+                 ,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
+
+    for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
+
+    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
+  }
+
 
 writeLines(eviewsCode,fileName)
 
@@ -425,7 +438,7 @@ if(length(tables)!=0){
    chunk_name2=paste0(chunk_name,'-')
 
    # for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T)) %>% sort
-   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T)) %>% sort
+   for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
