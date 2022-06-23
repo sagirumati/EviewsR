@@ -184,7 +184,7 @@ next
   if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
   if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
   if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-  if(options$fig.keep=="new") figKeep=c('%figKeep=@wlookup("*","graph")')
+   if(options$fig.keep=="new") figKeep=c('%figKeep=%figKeep')
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -334,7 +334,7 @@ if(options$fig.keep=="new" && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-,'%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
+,'%existing=@wlookup("*","graph")','%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
 
  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 

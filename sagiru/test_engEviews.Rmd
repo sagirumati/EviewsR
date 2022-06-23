@@ -21,13 +21,13 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 ```{eviews mychunk,page=F,prompt=T,eval=TRUE,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
 #| fig.show: hold
 #| echo: TRUE
-#| fig.keep: right
 #| graph_procs: 
 #| - template eviews5
 #| - datelabeL  format("Month YYYY")
 #| - axis(b) angle(45)
 #| - legend columns(auto) position(right)
-#| page: FALSE
+#| page: TRUE
+#| fig.keep: new
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
@@ -56,7 +56,7 @@ wfsave mychunk
 
 ```
 
-```{r}
+```{r,eval=F}
 library(magrittr)
 
 mychunk$ols
@@ -72,7 +72,7 @@ mychunk$series %>% head
 
 
 
-```{r labe,fig.cap="another fig"}
+```{r labe,fig.cap="another fig",eval=F}
 print(knitr::opts_current$get("sagir"))
 print(knitr::opts_current$get("fig.show"))
 y=cumsum(rnorm(100))
@@ -81,14 +81,14 @@ x=cumsum(rnorm(100))
 plot(x,y)
 ```
 
-```{r eview-graph}
+```{r eview-graph,eval=F}
 data=data.frame(y=runif(100),x=runif(100))
 eviews_graph(data,save_path = "",frequency = "m",start_date = 1990,group = F,options = "m",graph_procs = "template eviews5")
 
 ```
 
 
-```{r rwalk}
+```{r rwalk,eval=F}
 rwalk("x y z",num_observations = 100,frequency = "7",start_date = "1")
 
 eviews$xyz %>% head
