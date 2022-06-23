@@ -338,9 +338,15 @@ if(options$page){  saveCode=r'(
   endif
   next
 
-  wfsave all_eviewsr_series.csv @drop date
 
-  exit
+%seriesPath=""
+for %page {%pagelist}
+pageselect {%page}
+  pagesave {%chunk_name}{%page}.csv @drop date
+%seriesPath=%seriesPath+" "+%chunk_name+%page
+next
+
+exit
   )'
 }
 
@@ -494,7 +500,7 @@ if(length(tables)!=0){
   }
 
    on.exit(unlink_eviews(),add = TRUE)
-   # on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
+    on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
 

@@ -131,7 +131,7 @@
 \begin{Highlighting}[]
 \NormalTok{EViews\textgreater{} \textquotesingle{}wfcreate(wf=sagiru,page=mati) q 2000 2025}
 \NormalTok{+ open mychunk}
-\NormalTok{+ for !i=4 to 100}
+\NormalTok{+ for !i=1 to 100}
 \NormalTok{+ \%page="page"+@STR(!i)}
 \NormalTok{+ if @pageexist(\%page) then}
 \NormalTok{+ pagedelete page!i}
@@ -139,7 +139,8 @@
 \NormalTok{+ next}
 \NormalTok{+ }
 \NormalTok{+ for \%y page1 page2 page3  }
-\NormalTok{+ pagecreate(page=\{\%y\}) q 2000 2025}
+\NormalTok{+ }
+\NormalTok{+ pagecreate(page=\{\%y\}) a 2020 2025}
 \NormalTok{+ next}
 \NormalTok{+ \%pagelist=@pagelist}
 \NormalTok{+ for \%y \{\%pagelist\}}
@@ -151,7 +152,7 @@
 \NormalTok{+ genr date=@date}
 \NormalTok{+                      graph grap3.dot z  }
 \NormalTok{+                            graph grap2.bar y }
-\NormalTok{+                            graph grap1.area x  }
+\NormalTok{+                            graph grap1.area x  y z}
 \NormalTok{+    freeze(grap,mode=overwrite) x.line}
 \NormalTok{+ equation ols.ls y c x}
 \NormalTok{+ freeze(mode=overwrite,tab) ols}
