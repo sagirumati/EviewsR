@@ -133,11 +133,31 @@ if(!options$page) figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
+  if %figKeep="left" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wleft(%figKeep,1)
+  endif
+
+  if %figKeep="right" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
   next
   endif
+
   text {%eviewsr_text}
     {%eviewsr_text}.append {%figkeep}
   {%eviewsr_text}.save {%eviewsr_text}
@@ -180,9 +200,6 @@ if(options$fig.keep!="new" && options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
-  '
-  '%figKeep="left" %figKeep=@wleft(%figKeep,1)
-  '%figKeep="right" %figKeep=@wright(%figKeep,1)
 
  %figPath=""
 
@@ -192,7 +209,26 @@ if(options$fig.keep!="new" && options$page)  {
   pageselect {%page}
 
 
+  if %figKeep="left" then
   %figKeep=@wlookup("*","graph")
+  %figKeep=@wleft(%figKeep,1)
+  endif
+
+  if %figKeep="right" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+
+
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
@@ -217,7 +253,9 @@ next
   if(options$fig.keep=="left") figKeep='%figKeep="left"'
   if(options$fig.keep=="right") figKeep='%figKeep="right"'
    if(options$fig.keep=="new") figKeep=""
-  if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
+  if(options$fig.keep=="none") figKeep='%figKeep="none"'
+
+  figSave=append(figKeep,figSave)
 
 
 if(options$page){  saveCode=r'(
