@@ -129,7 +129,7 @@ if(!is.null(options$save_options)) save_options=paste(options$save_options,colla
   fileName <-tempfile("EviewsR", '.', ".prg") # prg is file extension of Eviews program
 
 
-figSave=r'(if %save_path<>"" then
+if(!options$page) figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
@@ -140,24 +140,51 @@ figSave=r'(if %save_path<>"" then
   endif
   text {%eviewsr_text}
     {%eviewsr_text}.append {%figkeep}
-   ' if @wcount(%eviewsr_text)>0 then
   {%eviewsr_text}.save {%eviewsr_text}
   )'
 
 
 # PAGE
 
-if(options$page)  {
+
+  if(options$fig.keep=="new" && options$page)  {
+    figSave=r'(if %save_path<>"" then
+    %save_path=%save_path+"\"
+    endif
+
+    text {%eviewsr_text}
+    {%eviewsr_text}.append {%figpath}
+    {%eviewsr_text}.save {%eviewsr_text}
+
+    %pagelist=@pagelist
+
+    for %page {%pagelist}
+    pageselect {%page}
+
+
+    %figKeep=@wlookup("*","graph")
+
+    if @wcount(%figKeep)<>0 then
+    for %y {%figKeep}
+    '%figPath=%figPath+" "+%chunk_name+%page+"-"+%y
+    {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
+    next
+    endif
+
+    next
+    )'
+  }
+
+
+if(options$fig.keep!="new" && options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
+  '
+  '%figKeep="left" %figKeep=@wleft(%figKeep,1)
+  '%figKeep="right" %figKeep=@wright(%figKeep,1)
 
-
-  text {%eviewsr_text}
-  {%eviewsr_text}.append {%figpath}
-  {%eviewsr_text}.save {%eviewsr_text}
-
-'  %figurePath=""
+ %figPath=""
 
   %pagelist=@pagelist
 
@@ -169,22 +196,27 @@ if(options$page)  {
 
   if @wcount(%figKeep)<>0 then
   for %y {%figKeep}
-  '%figurePath=%figurePath+" "+%chunk_name+%page+"-"+%y
+  %figPath=%figPath+" "+%chunk_name+%page+"-"+%y
   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
   next
   endif
 
 next
 
-  '%figkeep=@wunique(%figurePath)
+  %figPath=@wunique(%figPath)
+
+
+  text {%eviewsr_text}
+  {%eviewsr_text}.append {%figpath}
+  {%eviewsr_text}.save {%eviewsr_text}
 
   )'
 }
 
-  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep=@wlookup("*","graph")'
-  if(options$fig.keep=="left") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wleft(%figKeep,1)')
-  if(options$fig.keep=="right") figKeep=c('%figKeep=@wlookup("*","graph")','%figKeep=@wright(%figKeep,1)')
-   if(options$fig.keep=="new") figKeep=c('%figKeep=%figKeep')
+  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep="all"'
+  if(options$fig.keep=="left") figKeep='%figKeep="left"'
+  if(options$fig.keep=="right") figKeep='%figKeep="right"'
+   if(options$fig.keep=="new") figKeep=""
   if(options$fig.keep=="none") figSave="" else figSave=append(figKeep,figSave)
 
 
@@ -354,18 +386,7 @@ if(options$fig.keep=="new" && !options$page){
     eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
   } else eviewsCode=eviewsCode
 
-  if((options$fig.keep=="all" || options$fig.keep=="high") && options$page){
-    eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
-
-    appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph')
-
-    for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
-
-    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
-  } else eviewsCode=eviewsCode
-writeLines(eviewsCode,fileName)
-
+  writeLines(eviewsCode,fileName)
 
  if (options$eval){
    system_exec()
