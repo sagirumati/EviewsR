@@ -32,8 +32,7 @@ eng_eviews <- function(options) {
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
 
-  graphicsDefault=r'(%figKeep1=%figKeep
-  if %figKeep="left" then
+  graphicsDefault=r'(if %figKeep="left" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
@@ -269,13 +268,13 @@ next
   )'
 }
 
-  if(any(options$fig.keep %in% c("high","all","*","new"))) figKeep='%figKeep="all"'
-  if(options$fig.keep=="left") figKeep='%figKeep="left"'
-  if(options$fig.keep=="right") figKeep='%figKeep="right"'
-   if(options$fig.keep=="new") figKeep=""
-  if(options$fig.keep=="none") figKeep='%figKeep="none"'
+  if(any(options$fig.keep %in% c("high","all","*","new","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
+  if(any(options$fig.keep=="left")) figKeep='%figKeep="left"'
+  if(any(options$fig.keep=="right")) figKeep='%figKeep="right"'
+   # if(options$fig.keep=="new") figKeep=""
+  if(any(options$fig.keep=="none")) figKeep='%figKeep="none"'
 
-  # figSave=append(figKeep,figSave)
+   # figSave=append(figKeep,figSave)
 
 
 if(options$page){  saveCode=r'(
@@ -528,6 +527,10 @@ if(length(tables)!=0){
    # if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
    if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
+   if(any(options$fig.keep=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
+
+   if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
+
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
    eviews_graphics=paste0(save_path1,eviews_graphics)
@@ -537,7 +540,7 @@ if(length(tables)!=0){
  code=engine_output(options,code = options$code, out = "")
  if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
- if(opts_current$get('fig.keep')=='none') out="" else  out=engine_output(options,
+ if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,
      out =output
      )
 
