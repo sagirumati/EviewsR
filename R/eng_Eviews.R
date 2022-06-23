@@ -82,9 +82,9 @@ eng_eviews <- function(options) {
     graph_procs=options$graph_procs
   graph_procs=paste0("{%y}.",graph_procs)
 
-if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
+if(!options$page)  graph_procs=append(c('%figKeep1=@wlookup("*","graph")','if @wcount(%figKeep1)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('if @wcount(%figKeep)>0 then','%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','for %y {%figKeep}')
+  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','%figKeep1=@wlookup("*","graph")','if @wcount(%figKeep1)>0 then','for %y {%figKeep1}')
                                         ,c(graph_procs,'next','next','endif'))
 
   }else graph_procs=""
@@ -393,7 +393,7 @@ if(options$page){  saveCode=r'(
 #   {%series}
 #   )'
 
-  eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,graphicsDefault,graph_procs,save_options,figSave,saveCode), collapse = "\n") %>%
+  eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
 
   # writeLines(eviewsCode,fileName)
