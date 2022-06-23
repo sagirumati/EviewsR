@@ -1,6 +1,7 @@
 %eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
-%eviewsr_text="eviewsr_text331016ad4259"
+
+%eviewsr_text="eviewsr_texte041c02333e"
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
 wfcreate(wf=sagiru,page=mati) q 2000 2025
@@ -51,7 +52,27 @@ freeze(tab) ols
 next
 wfsave mychunk
 
-if @wcount(%figKeep)>0 then
+%save_options="t=pdf"
+%figKeep1=%figKeep
+  if %figKeep="left" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wleft(%figKeep,1)
+  endif
+
+  if %figKeep="right" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+  if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(r) font(Calibri,14,-b,-i,-u,-s)
@@ -96,10 +117,11 @@ if @wcount(%figKeep)>0 then
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
   next
   endif
-if @wcount(%figKeep)>0 then
+  
 %pagelist=@pagelist
 for %page {%pagelist}
 pageselect {%page}
+if @wcount(%figKeep)>0 then
 for %y {%figKeep}
 {%y}.template eviews5
 {%y}.datelabeL  format("Month YYYY")
@@ -108,8 +130,6 @@ for %y {%figKeep}
 next
 next
 endif
-%save_options="t=pdf"
-
 if %save_path<>"" then
     %save_path=%save_path+"\"
     endif

@@ -32,7 +32,26 @@ eng_eviews <- function(options) {
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
 
-  graphicsDefault=r'(if @wcount(%figKeep)>0 then
+  graphicsDefault=r'(%figKeep1=%figKeep
+  if %figKeep="left" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wleft(%figKeep,1)
+  endif
+
+  if %figKeep="right" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+  if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(r) font(Calibri,14,-b,-i,-u,-s)
@@ -76,15 +95,16 @@ eng_eviews <- function(options) {
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
   next
-  endif)'
+  endif
+  )'
 
   if (!is.null(options$graph_procs)){
     graph_procs=options$graph_procs
   graph_procs=paste0("{%y}.",graph_procs)
 
-if(!options$page)  graph_procs=append(c('%figKeep1=@wlookup("*","graph")','if @wcount(%figKeep1)>0 then','for %y {%figKeep}')
+if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','%figKeep1=@wlookup("*","graph")','if @wcount(%figKeep1)>0 then','for %y {%figKeep1}')
+  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                                         ,c(graph_procs,'next','next','endif'))
 
   }else graph_procs=""
@@ -249,13 +269,13 @@ next
   )'
 }
 
-  if(options$fig.keep=="high" || options$fig.keep=="all") figKeep='%figKeep="all"'
+  if(any(options$fig.keep %in% c("high","all","*","new"))) figKeep='%figKeep="all"'
   if(options$fig.keep=="left") figKeep='%figKeep="left"'
   if(options$fig.keep=="right") figKeep='%figKeep="right"'
    if(options$fig.keep=="new") figKeep=""
   if(options$fig.keep=="none") figKeep='%figKeep="none"'
 
-  figSave=append(figKeep,figSave)
+  # figSave=append(figKeep,figSave)
 
 
 if(options$page){  saveCode=r'(
@@ -393,7 +413,7 @@ if(options$page){  saveCode=r'(
 #   {%series}
 #   )'
 
-  eviewsCode=paste0(c(eviews_path(),eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
+  eviewsCode=paste0(c(eviews_path(),figKeep,eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
 
   # writeLines(eviewsCode,fileName)
@@ -504,8 +524,8 @@ if(length(tables)!=0){
 
    chunk_name2=paste0(chunk_name,'-')
 
-   if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,".*",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-   if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+  if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+   # if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
    if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")

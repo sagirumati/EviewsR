@@ -1,7 +1,7 @@
 %eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
-%figkeep="none"
-%eviewsr_text="eviewsr_text1ca47a74278"
+
+%eviewsr_text="eviewsr_texte041c02333e"
 %chunk_name="mychunk-"
 %save_path="test_engEviews_files/figure-latex/"
 wfcreate(wf=sagiru,page=mati) q 2000 2025
@@ -17,16 +17,62 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
+%existing=@wlookup("*","graph")
                      graph grap3.dot z  
+%currentpage=@pagename
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
+%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
                            graph grap2.bar y 
+%currentpage=@pagename
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
+%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
                            graph grap1.area x  
+%currentpage=@pagename
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
+%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
    freeze(grap,mode=overwrite) x.line
+%currentpage=@pagename
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
+%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
 equation ols.ls y c x
 freeze(tab) ols
+%currentpage=@pagename
+%newgraph=@wlookup("*","graph")
+%newgraph=@wdrop(%newgraph,%existing)
+%existing=@wlookup("*","graph")
+%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
 next
 wfsave mychunk
 
-if @wcount(%figKeep)>0 then
+%save_options="t=pdf"
+%figKeep1=%figKeep
+  if %figKeep="left" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wleft(%figKeep,1)
+  endif
+
+  if %figKeep="right" then
+  %figKeep=@wlookup("*","graph")
+  %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+  if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
   {%y}.axis(r) font(Calibri,14,-b,-i,-u,-s)
@@ -71,9 +117,11 @@ if @wcount(%figKeep)>0 then
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
   next
   endif
-if @wcount(%figKeep)>0 then
+  
+%pagelist=@pagelist
 for %page {%pagelist}
 pageselect {%page}
+if @wcount(%figKeep)>0 then
 for %y {%figKeep}
 {%y}.template eviews5
 {%y}.datelabeL  format("Month YYYY")
@@ -82,58 +130,31 @@ for %y {%figKeep}
 next
 next
 endif
-%save_options="t=pdf"
-none
 if %save_path<>"" then
-  %save_path=%save_path+"\"
-  endif
+    %save_path=%save_path+"\"
+    endif
 
- %figPath=""
+    text {%eviewsr_text}
+    {%eviewsr_text}.append {%figpath}
+    {%eviewsr_text}.save {%eviewsr_text}
 
-  %pagelist=@pagelist
+    %pagelist=@pagelist
 
-  for %page {%pagelist}
-  pageselect {%page}
-
-
-  if %figKeep="left" then
-  %figKeep=@wlookup("*","graph")
-  %figKeep=@wleft(%figKeep,1)
-  endif
-
-  if %figKeep="right" then
-  %figKeep=@wlookup("*","graph")
-  %figKeep=@wright(%figKeep,1)
-  endif
-
-  if %figKeep="all" then
-  %figKeep=@wlookup("*","graph")
-  endif
-
-  if %figKeep="none" then
-  %figKeep=""
-  endif
+    for %page {%pagelist}
+    pageselect {%page}
 
 
+    %figKeep=@wlookup("*","graph")
 
+    if @wcount(%figKeep)<>0 then
+    for %y {%figKeep}
+    '%figPath=%figPath+" "+%chunk_name+%page+"-"+%y
+    {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
+    next
+    endif
 
-  if @wcount(%figKeep)<>0 then
-  for %y {%figKeep}
-  %figPath=%figPath+" "+%chunk_name+%page+"-"+%y
-  {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
-  next
-  endif
-
-next
-
-  %figPath=@wunique(%figPath)
-
-
-  text {%eviewsr_text}
-  {%eviewsr_text}.append {%figpath}
-  {%eviewsr_text}.save {%eviewsr_text}
-
-  
+    next
+    
 
 
 %tablePath=""
@@ -197,4 +218,5 @@ next
 
   wfsave all_eviewsr_series.csv @drop date
 
- 
+  exit
+  
