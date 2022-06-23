@@ -22,10 +22,9 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| fig.show: hold
 #| echo: TRUE
 #| graph_procs: 
-#| - template(w,b) midnight
 #| - legend columns(auto) position(right)
 #| page: true
-#| fig.keep: new
+#| fig.keep: desc
 #| fig.path: ""
 #| out.width: 0.25\textwidth
 #| fig.align: center
@@ -52,7 +51,7 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
-                     graph grap3.dot z  
+                     graph grap3.line z y x  
                            graph grap2.bar y 
                            graph grap1.area x  y z
    freeze(grap,mode=overwrite) x.line

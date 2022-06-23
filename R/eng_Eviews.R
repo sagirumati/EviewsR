@@ -50,6 +50,14 @@ eng_eviews <- function(options) {
   %figKeep=""
   endif
 
+  if %figKeep="" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  %pagelist=@pagelist
+  for %page {%pagelist}
+  pageselect {%page}
+  %figKeep=@wlookup("*","graph")
   if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
@@ -60,7 +68,7 @@ eng_eviews <- function(options) {
   {%y}.options antialias(on)
   {%y}.options size(6,3)
   {%y}.options -background frameaxes(all) framewidth(0.5)
-  {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(1.5)
+  {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(5)
   {%y}.setelem(2) linecolor(@rgb(218,124,48)) linewidth(1.5)
   {%y}.setelem(3) linecolor(@rgb(62,150,81)) linewidth(1.5)
   {%y}.setelem(4) linecolor(@rgb(204,37,41)) linewidth(1.5)
@@ -95,6 +103,7 @@ eng_eviews <- function(options) {
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
   next
   endif
+  next
   )'
 
   if (!is.null(options$graph_procs)){
@@ -186,7 +195,7 @@ if(!options$page) figSave=r'(if %save_path<>"" then
 # PAGE
 
 
-  if(options$fig.keep=="new" && options$page)  {
+  if(any(options$fig.keep=="new") && options$page)  {
     figSave=r'(if %save_path<>"" then
     %save_path=%save_path+"\"
     endif
@@ -268,10 +277,10 @@ next
   )'
 }
 
-  if(any(options$fig.keep %in% c("high","all","*","new","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
+  if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
   if(any(options$fig.keep=="left")) figKeep='%figKeep="left"'
   if(any(options$fig.keep=="right")) figKeep='%figKeep="right"'
-   # if(options$fig.keep=="new") figKeep=""
+   if(any(options$fig.keep=="new")) figKeep='%figKeep=""'
   if(any(options$fig.keep=="none")) figKeep='%figKeep="none"'
 
    # figSave=append(figKeep,figSave)
