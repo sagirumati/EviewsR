@@ -215,7 +215,7 @@ if(!options$page) figSave=r'(if %save_path<>"" then
   }
 
 
-if(options$fig.keep!="new" && options$page)  {
+if(any(options$fig.keep!="new") && options$page)  {
   figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
@@ -342,8 +342,8 @@ if(options$page){  saveCode=r'(
 %seriesPath=""
 for %page {%pagelist}
 pageselect {%page}
-  pagesave {%chunk_name}{%page}-{%eviewsr_text}.csv @drop date
-%seriesPath=%seriesPath+" "+%chunk_name+%page+"-"+%eviewsr_text
+  pagesave {%page}-{%chunk_name}{%eviewsr_text}.csv @drop date
+%seriesPath=%seriesPath+" "+%page+"-"+%chunk_name+%eviewsr_text
 next
 
 text {%eviewsr_text}_1
@@ -432,7 +432,7 @@ exit
 
   # eviewsCode=readLines(fileName)
 
-if(options$fig.keep=="new" && !options$page){
+if(any(options$fig.keep=="new") && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -445,7 +445,7 @@ if(options$fig.keep=="new" && !options$page){
 
 
 
-  if(options$fig.keep=="new" && options$page){
+  if(any(options$fig.keep=="new") && options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
     appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -505,16 +505,16 @@ if(length(tables)!=0){
 
 
   if(file.exists(paste0(eviewsr_text1,'-1.txt'))){
-    seriesPath=readlines(paste0(eviewsr_text1,'-1.txt')) %>% strsplit(split=",") %>% unlist()
+    seriesPath=readLines(paste0(eviewsr_text1,'-1.txt')) %>% strsplit(split=" ") %>% unlist()
 
     for (i in seriesPath){
-      pageName=gsub("[]")
-      dataFrame=read.csv(i)
+      pageName=gsub("\\-.*","",i)
+      dataFrame=read.csv(paste0(i,".csv"))
     if(grepl('date',colnames(dataFrame)[1])){
       colnames(dataFrame)[1]="date"
       dataFrame$date=as.POSIXct(dataFrame$date)
     }
-    assign("series",dataFrame,envir =get(envName))
+    assign(pageName,dataFrame,envir =get(envName))
     }
   }
 

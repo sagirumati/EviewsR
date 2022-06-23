@@ -22,10 +22,10 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| fig.show: hold
 #| echo: TRUE
 #| graph_procs: 
-#| - template(w,b) spartan
+#| - template(w,b) midnight
 #| - legend columns(auto) position(right)
-#| page: false
-#| fig.keep: !expr 1:2
+#| page: true
+#| fig.keep: new
 #| fig.path: ""
 #| out.width: 0.25\textwidth
 #| fig.align: center
@@ -63,10 +63,12 @@ wfsave mychunk
 
 ```
 
-```{r,eval=F}
+
+
+```{r,eval=T}
 library(magrittr)
 
-mychunk$ols
+mychunk$mychunk %>% head
 
 mychunk$ols 
 
