@@ -346,15 +346,24 @@ if(options$fig.keep=="new" && !options$page){
   if(options$fig.keep=="new" && options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
-    appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%y+"-"+%newgraph')
+    appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
+                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph')
 
     for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
     eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
   } else eviewsCode=eviewsCode
 
+  if((options$fig.keep=="all" || options$fig.keep=="high") && options$page){
+    eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
+    appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
+                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph')
+
+    for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
+
+    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
+  } else eviewsCode=eviewsCode
 writeLines(eviewsCode,fileName)
 
 
