@@ -27,21 +27,28 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| - axis(b) angle(45)
 #| - legend columns(auto) position(right)
 #| page: TRUE
-#| fig.keep: !expr 1:16
+#| fig.keep: all
 #| fig.path: ""
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
 
-wfcreate(wf=sagiru,page=mati) q 2000 2025
+'wfcreate(wf=sagiru,page=mati) q 2000 2025
+open mychunk
+for !i=4 to 100
+%page="page"+@STR(!i)
+if @pageexist(%page) then
+pagedelete page!i
+endif
+next
+
 for %y page1 page2 page3  
 pagecreate(page={%y}) q 2000 2025
 next
 %pagelist=@pagelist
-'open mychunk
 for %y {%pagelist}
 pageselect {%y}
-'delete gra*
+delete gra*
 genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
@@ -51,7 +58,7 @@ genr date=@date
                            graph grap1.area x  
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
-freeze(tab) ols
+freeze(mode=overwrite,tab) ols
 next
 wfsave mychunk
 

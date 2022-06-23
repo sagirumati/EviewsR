@@ -129,15 +129,22 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{EViews\textgreater{} wfcreate(wf=sagiru,page=mati) q 2000 2025}
+\NormalTok{EViews\textgreater{} \textquotesingle{}wfcreate(wf=sagiru,page=mati) q 2000 2025}
+\NormalTok{+ open mychunk}
+\NormalTok{+ for !i=4 to 100}
+\NormalTok{+ \%page="page"+@STR(!i)}
+\NormalTok{+ if @pageexist(\%page) then}
+\NormalTok{+ pagedelete page!i}
+\NormalTok{+ endif}
+\NormalTok{+ next}
+\NormalTok{+ }
 \NormalTok{+ for \%y page1 page2 page3  }
 \NormalTok{+ pagecreate(page=\{\%y\}) q 2000 2025}
 \NormalTok{+ next}
 \NormalTok{+ \%pagelist=@pagelist}
-\NormalTok{+ \textquotesingle{}open mychunk}
 \NormalTok{+ for \%y \{\%pagelist\}}
 \NormalTok{+ pageselect \{\%y\}}
-\NormalTok{+ \textquotesingle{}delete gra*}
+\NormalTok{+ delete gra*}
 \NormalTok{+ genr y=@cumsum(nrnd)}
 \NormalTok{+ genr x=@cumsum(nrnd)}
 \NormalTok{+ genr z=@cumsum(nrnd)}
@@ -147,7 +154,7 @@
 \NormalTok{+                            graph grap1.area x  }
 \NormalTok{+    freeze(grap,mode=overwrite) x.line}
 \NormalTok{+ equation ols.ls y c x}
-\NormalTok{+ freeze(tab) ols}
+\NormalTok{+ freeze(mode=overwrite,tab) ols}
 \NormalTok{+ next}
 \NormalTok{+ wfsave mychunk}
 \end{Highlighting}
