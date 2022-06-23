@@ -342,10 +342,13 @@ if(options$page){  saveCode=r'(
 %seriesPath=""
 for %page {%pagelist}
 pageselect {%page}
-  pagesave {%chunk_name}{%page}.csv @drop date
-%seriesPath=%seriesPath+" "+%chunk_name+%page
+  pagesave {%chunk_name}{%page}-{%eviewsr_text}.csv @drop date
+%seriesPath=%seriesPath+" "+%chunk_name+%page+"-"+%eviewsr_text
 next
 
+text {%eviewsr_text}-1
+text.append {%seriesPath}
+{%eviewsr_text}-1.save {%eviewsr_text}-1
 exit
   )'
 }
@@ -405,7 +408,7 @@ exit
 
   endif
 
-  wfsave all_eviewsr_series.csv @drop date
+  pagesave {%eviewsr_text}.csv @drop date
 
   exit
   )'

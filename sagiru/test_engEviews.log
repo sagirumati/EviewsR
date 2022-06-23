@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  23 JUN 2022 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  23 JUN 2022 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,128 +583,38 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<mychunk-mati-grap.pdf, id=14, 381.70605pt x 269.19571pt>
-File: mychunk-mati-grap.pdf Graphic file (type pdf)
-<use mychunk-mati-grap.pdf>
-Package pdftex.def Info: mychunk-mati-grap.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43652pt x 82.82133pt.
-<mychunk-mati-grap1.pdf, id=15, 424.68663pt x 240.82973pt>
-File: mychunk-mati-grap1.pdf Graphic file (type pdf)
-<use mychunk-mati-grap1.pdf>
-Package pdftex.def Info: mychunk-mati-grap1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43396pt x 66.59401pt.
-<mychunk-mati-grap2.pdf, id=16, 383.9946pt x 269.19571pt>
-File: mychunk-mati-grap2.pdf Graphic file (type pdf)
-<use mychunk-mati-grap2.pdf>
-Package pdftex.def Info: mychunk-mati-grap2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.4375pt x 82.32843pt.
-<mychunk-mati-grap3.pdf, id=17, 381.70605pt x 269.19571pt>
-File: mychunk-mati-grap3.pdf Graphic file (type pdf)
-<use mychunk-mati-grap3.pdf>
-Package pdftex.def Info: mychunk-mati-grap3.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43652pt x 82.82133pt.
-<mychunk-page1-grap.pdf, id=18, 387.03596pt x 269.19571pt>
-File: mychunk-page1-grap.pdf Graphic file (type pdf)
-<use mychunk-page1-grap.pdf>
-Package pdftex.def Info: mychunk-page1-grap.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43456pt x 81.67943pt.
-<mychunk-page1-grap1.pdf, id=19, 422.39809pt x 240.82973pt>
-File: mychunk-page1-grap1.pdf Graphic file (type pdf)
-<use mychunk-page1-grap1.pdf>
-Package pdftex.def Info: mychunk-page1-grap1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43921pt x 66.95781pt.
-<mychunk-page1-grap2.pdf, id=20, 281.97346pt x 269.19571pt>
-File: mychunk-page1-grap2.pdf Graphic file (type pdf)
-<use mychunk-page1-grap2.pdf>
-Package pdftex.def Info: mychunk-page1-grap2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43845pt x 112.11667pt.
-<mychunk-page1-grap3.pdf, id=21, 290.19415pt x 269.19571pt>
-File: mychunk-page1-grap3.pdf Graphic file (type pdf)
-<use mychunk-page1-grap3.pdf>
-Package pdftex.def Info: mychunk-page1-grap3.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43942pt x 108.94151pt.
-<mychunk-page2-grap.pdf, id=22, 387.03596pt x 269.19571pt>
-File: mychunk-page2-grap.pdf Graphic file (type pdf)
-<use mychunk-page2-grap.pdf>
-Package pdftex.def Info: mychunk-page2-grap.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43456pt x 81.67943pt.
-<mychunk-page2-grap1.pdf, id=23, 430.61879pt x 240.82973pt>
-File: mychunk-page2-grap1.pdf Graphic file (type pdf)
-<use mychunk-page2-grap1.pdf>
-Package pdftex.def Info: mychunk-page2-grap1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.4382pt x 65.679pt.
-<mychunk-page2-grap2.pdf, id=24, 286.99222pt x 269.19571pt>
-File: mychunk-page2-grap2.pdf Graphic file (type pdf)
-<use mychunk-page2-grap2.pdf>
-Package pdftex.def Info: mychunk-page2-grap2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43985pt x 110.15735pt.
-<mychunk-page2-grap3.pdf, id=25, 295.6646pt x 269.19571pt>
-File: mychunk-page2-grap3.pdf Graphic file (type pdf)
-<use mychunk-page2-grap3.pdf>
-Package pdftex.def Info: mychunk-page2-grap3.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43814pt x 106.92468pt.
-<mychunk-page3-grap.pdf, id=26, 387.03596pt x 274.53568pt>
-File: mychunk-page3-grap.pdf Graphic file (type pdf)
-<use mychunk-page3-grap.pdf>
-Package pdftex.def Info: mychunk-page3-grap.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43456pt x 83.29968pt.
-<mychunk-page3-grap1.pdf, id=27, 422.39809pt x 240.82973pt>
-File: mychunk-page3-grap1.pdf Graphic file (type pdf)
-<use mychunk-page3-grap1.pdf>
-Package pdftex.def Info: mychunk-page3-grap1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43921pt x 66.95781pt.
-<mychunk-page3-grap2.pdf, id=28, 290.19415pt x 274.53568pt>
-File: mychunk-page3-grap2.pdf Graphic file (type pdf)
-<use mychunk-page3-grap2.pdf>
-Package pdftex.def Info: mychunk-page3-grap2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43942pt x 111.10254pt.
-<mychunk-page3-grap3.pdf, id=29, 290.19415pt x 274.53568pt>
-File: mychunk-page3-grap3.pdf Graphic file (type pdf)
-<use mychunk-page3-grap3.pdf>
-Package pdftex.def Info: mychunk-page3-grap3.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43942pt x 111.10254pt.
-
-Overfull \hbox (13.3228pt too wide) in paragraph at lines 166--167
- [][][][][][][][]  
- []
-
-
-Overfull \hbox (13.32993pt too wide) in paragraph at lines 166--167
- [][][][][][][][]  
- []
-
-
-Overfull \hbox (13.32904pt too wide) in paragraph at lines 166--167
- [][][][][][][][]  
- []
-
-
-Overfull \hbox (13.3309pt too wide) in paragraph at lines 166--167
- [][][][][][][][] 
- []
-
+<mychunk-grap.pdf, id=14, 542.025pt x 262.12686pt>
+File: mychunk-grap.pdf Graphic file (type pdf)
+<use mychunk-grap.pdf>
+Package pdftex.def Info: mychunk-grap.pdf  used on input line 166.
+(pdftex.def)             Requested size: 117.4346pt x 56.79213pt.
+<mychunk-grap1.pdf, id=15, 542.025pt x 216.58635pt>
+File: mychunk-grap1.pdf Graphic file (type pdf)
+<use mychunk-grap1.pdf>
+Package pdftex.def Info: mychunk-grap1.pdf  used on input line 166.
+(pdftex.def)             Requested size: 117.4346pt x 46.92537pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./mychunk-mati-grap.pdf> <./mychunk-mati-grap1.pdf> <./mychunk-mati-grap2.pdf> <./mychunk-mati-grap3.pdf> <./mychunk-page1-grap.pdf> <./mychunk-page1-grap1.pdf> <./mychunk-page1-grap2.pdf> <./mychunk-page1-grap3.pdf> <./mychunk-page2-grap.pdf> <./mychunk-page2-grap1.pdf> <./mychunk-page2-grap2.pdf> <./mychunk-page2-grap3.pdf> <./mychunk-page3-grap.pdf> <./mychunk-page3-grap1.pdf> <./mychunk-page3-grap2.pdf> <./mychunk-page3-grap3.pdf>] (./test_engEviews.aux)
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./mychunk-grap.pdf> <./mychunk-grap1.pdf>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 15297 strings out of 479997
- 254283 string characters out of 5886778
- 585152 words of memory out of 5000000
- 33156 multiletter control sequences out of 15000+600000
+ 15143 strings out of 479997
+ 250106 string characters out of 5886778
+ 578990 words of memory out of 5000000
+ 33016 multiletter control sequences out of 15000+600000
  520576 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,10n,79p,1846b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,10n,79p,1011b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 610800 bytes).
+Output written on test_engEviews.pdf (2 pages, 227375 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 28769 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 28699 words of extra memory for PDF output out of 29859 (max. 10000000)
 
