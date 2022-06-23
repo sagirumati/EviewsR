@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  23 JUN 2022 19:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  23 JUN 2022 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -583,11 +583,11 @@ LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<mychunk-grap.pdf, id=14, 542.025pt x 262.12686pt>
+<mychunk-grap.pdf, id=14, 542.025pt x 263.61235pt>
 File: mychunk-grap.pdf Graphic file (type pdf)
 <use mychunk-grap.pdf>
 Package pdftex.def Info: mychunk-grap.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.4346pt x 56.79213pt.
+(pdftex.def)             Requested size: 117.4346pt x 57.11398pt.
 <mychunk-grap1.pdf, id=15, 542.025pt x 216.58635pt>
 File: mychunk-grap1.pdf Graphic file (type pdf)
 <use mychunk-grap1.pdf>
@@ -611,7 +611,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  69i,10n,79p,1011b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (2 pages, 227375 bytes).
+Output written on test_engEviews.pdf (2 pages, 226408 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream

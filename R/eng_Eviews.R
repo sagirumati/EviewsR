@@ -346,9 +346,9 @@ pageselect {%page}
 %seriesPath=%seriesPath+" "+%chunk_name+%page+"-"+%eviewsr_text
 next
 
-text {%eviewsr_text}-1
-text.append {%seriesPath}
-{%eviewsr_text}-1.save {%eviewsr_text}-1
+text {%eviewsr_text}_1
+{%eviewsr_text}_1.append {%seriesPath}
+{%eviewsr_text}_1.save {%eviewsr_text}-1
 exit
   )'
 }
@@ -408,7 +408,11 @@ exit
 
   endif
 
-  pagesave {%eviewsr_text}.csv @drop date
+  pagesave {%chunk_name}{%eviewsr_text}.csv @drop date
+    %seriesPath=%chunk_name+%eviewsr_text
+    text {%eviewsr_text}_1
+    {%eviewsr_text}_1.append {%seriesPath}
+    {%eviewsr_text}_1.save {%eviewsr_text}-1
 
   exit
   )'
@@ -488,13 +492,30 @@ if(length(tables)!=0){
 }
 
 
-  if(file.exists('all_eviewsr_series.csv')){
-  dataFrame=read.csv('all_eviewsr_series.csv')
-  if(grepl('date',colnames(dataFrame)[1])){
-  colnames(dataFrame)[1]="date"
-  dataFrame$date=as.POSIXct(dataFrame$date)
-  }
+  # if(file.exists('all_eviewsr_series.csv')){
+  # dataFrame=read.csv('all_eviewsr_series.csv')
+  # if(grepl('date',colnames(dataFrame)[1])){
+  # colnames(dataFrame)[1]="date"
+  # dataFrame$date=as.POSIXct(dataFrame$date)
+  # }
+  #   assign("series",dataFrame,envir =get(envName))
+  # }
+
+
+
+
+  if(file.exists(paste0(eviewsr_text1,'-1.txt'))){
+    seriesPath=readlines(paste0(eviewsr_text1,'-1.txt')) %>% strsplit(split=",") %>% unlist()
+
+    for (i in seriesPath){
+      pageName=gsub("[]")
+      dataFrame=read.csv(i)
+    if(grepl('date',colnames(dataFrame)[1])){
+      colnames(dataFrame)[1]="date"
+      dataFrame$date=as.POSIXct(dataFrame$date)
+    }
     assign("series",dataFrame,envir =get(envName))
+    }
   }
 
     on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
