@@ -84,7 +84,7 @@ eng_eviews <- function(options) {
 
 if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('if @wcount(%figKeep)>0 then','for %page {%pagelist}','pageselect {%page}','for %y {%figKeep}')
+  if(options$page)   graph_procs=append(c('if @wcount(%figKeep)>0 then','%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','for %y {%figKeep}')
                                         ,c(graph_procs,'next','next','endif'))
 
   }else graph_procs=""
