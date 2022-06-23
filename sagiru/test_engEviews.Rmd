@@ -24,8 +24,7 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| graph_procs: 
 #| - legend columns(auto) position(right)
 #| page: true
-#| fig.keep: desc
-#| fig.path: ""
+#| fig.keep: right
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
@@ -51,9 +50,9 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
-                     graph grap3.line z y x  
+                     graph grap3.line z   
                            graph grap2.bar y 
-                           graph grap1.area x  y z
+                           graph grap1.area x  
    freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(mode=overwrite,tab) ols
