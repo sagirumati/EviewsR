@@ -96,7 +96,7 @@ dataFrame=read.csv(source_description_file)
 
 if(grepl('date',colnames(dataFrame)[1])){
   colnames(dataFrame)[1]="date"
-  data$date=as.POSIXct(dataFrame$date)
+  dataFrame$date=as.POSIXct(dataFrame$date)
 }
 
 assign(object_name,dataFrame,envir =eviews)
