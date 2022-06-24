@@ -24,6 +24,6 @@ exec_commands(commands)
 
 
  # good one#hexSticker::sticker("zyx.png",package = "EviewsR1",s_width =1.8,s_height = 1.8,s_x = 1.27,s_y = 1,p_color = "#01B5F2",spotlight=T,p_y = 1.8,h_color = "#01B5F2",white_around_sticker=T)
-  hexSticker::sticker("zyx.png",asp = 1.1,package = "EviewsR1",s_width =1.8,s_height = 1.8,s_x = 1.2608,s_y = 0.94,p_color = "#01B5F2",spotlight=T,p_y = 1.8,h_color = "#01B5F2",white_around_sticker=T)
+  hexSticker::sticker("zyx.png",asp = 1.1,package = "EviewsR1",s_width =1.9,s_height = 1.8,s_x = 1.26098,s_y = 0.94,p_color = "#01B5F2",spotlight=T,p_y = 1.8,h_color = "#01B5F2",white_around_sticker=T,url="www.smati.com.ng")
 
  shell.exec("Eviewsr1.png")
