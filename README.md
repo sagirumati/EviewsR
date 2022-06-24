@@ -1,13 +1,8 @@
-EviewsR Package
-================
-
 # EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="150" />
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
-
-[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=gree)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)
 
 <!-- badges: end -->
 
