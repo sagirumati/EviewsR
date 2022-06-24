@@ -306,9 +306,9 @@ if(options$page){  saveCode=r'(
   next
   endif
 
-  text {%eviewsr_text}_2
-{%eviewsr_text}_2.append {%tablePath}
-{%eviewsr_text}_2.save {%eviewsr_text}-2
+  text {%eviewsr_text}_table
+{%eviewsr_text}_table.append {%tablePath}
+{%eviewsr_text}_table.save {%eviewsr_text}-table
 
   next
 
@@ -349,9 +349,9 @@ if(options$page){  saveCode=r'(
   endif
   next
 
-text {%eviewsr_text}_eq
-{%eviewsr_text}_eq.append {%equationPath}
-{%eviewsr_text}_eq.save {%eviewsr_text}-eq
+text {%eviewsr_text}_equation
+{%eviewsr_text}_equation.append {%equationPath}
+{%eviewsr_text}_equation.save {%eviewsr_text}-equation
 
 
 %seriesPath=""
@@ -361,9 +361,9 @@ pageselect {%page}
 %seriesPath=%seriesPath+" "+%page+"-"+%chunk_name+%eviewsr_text
 next
 
-text {%eviewsr_text}_1
-{%eviewsr_text}_1.append {%seriesPath}
-{%eviewsr_text}_1.save {%eviewsr_text}-1
+text {%eviewsr_text}_series
+{%eviewsr_text}_series.append {%seriesPath}
+{%eviewsr_text}_series.save {%eviewsr_text}-series
 exit
   )'
 }
@@ -386,9 +386,9 @@ exit
   next
   endif
 
-  text {%eviewsr_text}_2
-    {%eviewsr_text}_2.append {%tablePath}
-    {%eviewsr_text}_2.save {%eviewsr_text}-2
+  text {%eviewsr_text}_table
+    {%eviewsr_text}_table.append {%tablePath}
+    {%eviewsr_text}_table.save {%eviewsr_text}-table
 
 
 
@@ -424,18 +424,18 @@ exit
 
   endif
 
-    text {%eviewsr_text}_eq
-    {%eviewsr_text}_eq.append {%equationPath}
-    {%eviewsr_text}_eq.save {%eviewsr_text}-eq
+    text {%eviewsr_text}_equation
+    {%eviewsr_text}_equation.append {%equationPath}
+    {%eviewsr_text}_equation.save {%eviewsr_text}-equation
 
 
     %currentPage=@pagename
   pagesave {%currentPage}-{%chunk_name}{%eviewsr_text}.csv @drop date
 
     %seriesPath=%currentPage+"-"+%chunk_name+%eviewsr_text
-    text {%eviewsr_text}_1
-    {%eviewsr_text}_1.append {%seriesPath}
-    {%eviewsr_text}_1.save {%eviewsr_text}-1
+    text {%eviewsr_text}_series
+    {%eviewsr_text}_series.append {%seriesPath}
+    {%eviewsr_text}_series.save {%eviewsr_text}-series
 
   exit
   )'
@@ -503,7 +503,7 @@ assign(envName,new.env(),envir=knit_global())
 
 
 
-if(file.exists(paste0(eviewsr_text1,"-eq.txt"))) equationPath=readLines(paste0(eviewsr_text1,"-eq.txt")) %>%
+if(file.exists(paste0(eviewsr_text1,"-equation.txt"))) equationPath=readLines(paste0(eviewsr_text1,"-equation.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
 for (i in equationPath){
@@ -512,7 +512,7 @@ for (i in equationPath){
 }
 
 
-if(file.exists(paste0(eviewsr_text1,"-2.txt"))) tablePath=readLines(paste0(eviewsr_text1,"-2.txt")) %>%
+if(file.exists(paste0(eviewsr_text1,"-table.txt"))) tablePath=readLines(paste0(eviewsr_text1,"-table.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
   # tables=list.files(save_path1,paste0(eviewsr_text1,"\\.csv$"))
@@ -540,8 +540,8 @@ tableName=gsub("\\-.*","",i) %>% tolower
 
 
 
-  if(file.exists(paste0(eviewsr_text1,'-1.txt'))){
-    seriesPath=readLines(paste0(eviewsr_text1,'-1.txt')) %>% strsplit(split=" ") %>% unlist()
+  if(file.exists(paste0(eviewsr_text1,'-series.txt'))){
+    seriesPath=readLines(paste0(eviewsr_text1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
 on.exit(unlink(paste0(seriesPath,".csv")))
     for (i in seriesPath){
       pageName=gsub("\\-.*","",i)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  24 JUN 2022 10:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.24)  24 JUN 2022 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -143,7 +143,7 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2022/06/20 v3.0e Micro-typographical refinements (RS)
+Package: microtype 2022/06/23 v3.0f Micro-typographical refinements (RS)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
@@ -157,19 +157,19 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1045.
 LaTeX Info: Redefining \leftprotrusion on input line 1046.
 LaTeX Info: Redefining \rightprotrusion on input line 1056.
-LaTeX Info: Redefining \textls on input line 1240.
+LaTeX Info: Redefining \textls on input line 1234.
 \MT@outer@kern=\dimen148
-LaTeX Info: Redefining \textmicrotypecontext on input line 1864.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1858.
 \MT@listname@count=\count273
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2022/06/20 v3.0e Definitions specific to pdftex (RS)
-LaTeX Info: Redefining \lsstyle on input line 902.
-LaTeX Info: Redefining \lslig on input line 902.
+File: microtype-pdftex.def 2022/06/23 v3.0f Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 900.
+LaTeX Info: Redefining \lslig on input line 900.
 \MT@outer@space=\skip52
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2022/06/20 v3.0e microtype main configuration file (RS)
+File: microtype.cfg 2022/06/23 v3.0f microtype main configuration file (RS)
 )) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -588,48 +588,28 @@ File: test_engEviews_files/figure-latex//mychunk-grap.pdf Graphic file (type pdf
 <use test_engEviews_files/figure-latex//mychunk-grap.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap.pdf  used on input line 166.
 (pdftex.def)             Requested size: 117.43456pt x 83.29968pt.
-<test_engEviews_files/figure-latex//mychunk-grap1.pdf, id=15, 390.38847pt x 274.53568pt>
-File: test_engEviews_files/figure-latex//mychunk-grap1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap1.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.4391pt x 82.58754pt.
-<test_engEviews_files/figure-latex//mychunk-grap2.pdf, id=16, 290.19415pt x 274.53568pt>
-File: test_engEviews_files/figure-latex//mychunk-grap2.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap2.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43942pt x 111.10254pt.
-<test_engEviews_files/figure-latex//mychunk-grap3.pdf, id=17, 387.03596pt x 274.53568pt>
-File: test_engEviews_files/figure-latex//mychunk-grap3.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//mychunk-grap3.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//mychunk-grap3.pdf  used on input line 166.
-(pdftex.def)             Requested size: 117.43456pt x 83.29968pt.
-
-Overfull \hbox (13.32593pt too wide) in paragraph at lines 166--167
- [][][][][][][][] 
- []
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./test_engEviews_files/figure-latex//mychunk-grap.pdf> <./test_engEviews_files/figure-latex//mychunk-grap1.pdf> <./test_engEviews_files/figure-latex//mychunk-grap2.pdf> <./test_engEviews_files/figure-latex//mychunk-grap3.pdf>] [3] (./test_engEviews.aux)
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <./test_engEviews_files/figure-latex//mychunk-grap.pdf>] [3] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 15171 strings out of 479997
- 251810 string characters out of 5886778
- 590154 words of memory out of 5000000
- 33036 multiletter control sequences out of 15000+600000
- 520576 words of font info for 97 fonts, out of 8000000 for 9000
+ 15122 strings out of 479997
+ 250000 string characters out of 5886778
+ 587775 words of memory out of 5000000
+ 32999 multiletter control sequences out of 15000+600000
+ 517416 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,10n,79p,1011b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (3 pages, 284955 bytes).
+ 69i,6n,79p,1011b,655s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on test_engEviews.pdf (3 pages, 182918 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 28709 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 80 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 26646 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -131,12 +131,12 @@
 \begin{Highlighting}[]
 \NormalTok{EViews\textgreater{} wfcreate(wf=sagiru,page=mati) q 2000 2025}
 \NormalTok{+ \textquotesingle{}open mychunk}
-\NormalTok{+ for !i=1 to 100}
-\NormalTok{+ \%page="page"+@STR(!i)}
-\NormalTok{+ if @pageexist(\%page) then}
-\NormalTok{+ pagedelete page!i}
-\NormalTok{+ endif}
-\NormalTok{+ next}
+\NormalTok{+ \textquotesingle{}for !i=1 to 100}
+\NormalTok{+ \textquotesingle{}\%page="page"+@STR(!i)}
+\NormalTok{+ \textquotesingle{}if @pageexist(\%page) then}
+\NormalTok{+ \textquotesingle{}pagedelete page!i}
+\NormalTok{+ \textquotesingle{}endif}
+\NormalTok{+ \textquotesingle{}next}
 \NormalTok{+ }
 \NormalTok{+ for \%y page1 page2 page3  }
 \NormalTok{+ }
@@ -145,14 +145,14 @@
 \NormalTok{+ \%pagelist=@pagelist}
 \NormalTok{+ for \%y \{\%pagelist\}}
 \NormalTok{+ pageselect \{\%y\}}
-\NormalTok{+ delete gra*}
+\NormalTok{+ delete(noerr) grap*}
 \NormalTok{+ genr y=@cumsum(nrnd)}
 \NormalTok{+ genr x=@cumsum(nrnd)}
 \NormalTok{+ genr z=@cumsum(nrnd)}
 \NormalTok{+ genr date=@date}
-\NormalTok{+                      graph grap3.line z   }
-\NormalTok{+                            graph grap2.bar y }
-\NormalTok{+                            graph grap1.area x  }
+\NormalTok{+  \textquotesingle{}                    graph grap3.line z   }
+\NormalTok{+   \textquotesingle{}                graph grap2.bar y }
+\NormalTok{+    \textquotesingle{}                       graph grap1.area x  }
 \NormalTok{+    freeze(grap,mode=overwrite) x.line}
 \NormalTok{+ equation ols.ls y c x}
 \NormalTok{+ freeze(mode=overwrite,tab) ols}
@@ -163,7 +163,7 @@
 
 \begin{figure}[h]
 
-{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }\subfloat[Page 1 Figure 4\label{fig:mychunk-4}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap3} }
+{\centering \includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} 
 
 }
 
@@ -179,13 +179,13 @@
 \end{Shaded}
 
 \begin{verbatim}
-##         date          x          y          z
-## 1 2020-01-01 -0.7605138 -0.9508378 -0.8448532
-## 2 2021-01-01 -0.2752869  0.1563070 -1.6441980
-## 3 2022-01-01 -1.0725691  1.0035227 -1.5647876
-## 4 2023-01-01 -2.3338290  1.8540075 -1.7157423
-## 5 2024-01-01 -2.7513944  2.2361159 -1.0080755
-## 6 2025-01-01 -3.0890108  2.4398549 -1.3682452
+##         date         x        y          z
+## 1 2020-01-01 -1.129815 1.490471 -0.5534944
+## 2 2021-01-01 -2.337099 2.742103 -1.0478218
+## 3 2022-01-01 -2.907247 3.316451  0.3308785
+## 4 2023-01-01 -1.464758 4.763057  1.2231814
+## 5 2024-01-01 -3.776139 4.218609  0.7396137
+## 6 2025-01-01 -2.974502 4.325482  0.2858918
 \end{verbatim}
 
 \begin{Shaded}
@@ -195,15 +195,15 @@
 \end{Shaded}
 
 \begin{verbatim}
-##        aic df     coefs       dw        f    fprob       hq      logl  meandep
-## 1 2.283594  4 -0.621579 1.567691 15.79337 0.016482 2.005726 -4.850783 1.123162
-## 2       NA NA -1.018073       NA       NA       NA       NA        NA       NA
-##   ncoef     pval       r2   rbar2 regobs  schwarz    sddep      se    ssr
-## 1     2 0.294931 0.797912 0.74739      6 2.214181 1.323411 0.66515 1.7697
-## 2    NA 0.016482       NA      NA     NA       NA       NA      NA     NA
+##       aic df     coefs       dw        f    fprob       hq      logl  meandep
+## 1 3.48178  4  2.108521 1.569123 1.071463 0.359089 3.203913 -8.445341 3.476029
+## 2      NA NA -0.562391       NA       NA       NA       NA        NA       NA
+##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
+## 1     2 0.209283 0.211273 0.014091      6 3.412367 1.219507 1.210884 5.864963
+## 2    NA 0.359089       NA       NA     NA       NA       NA       NA       NA
 ##    stderrs    tstats
-## 1 0.516221 -1.204095
-## 2 0.256178 -3.974087
+## 1 1.410575  1.494796
+## 2 0.543313 -1.035115
 \end{verbatim}
 
 \begin{Shaded}
@@ -215,22 +215,22 @@
 \begin{verbatim}
 ##           Dependent.Variable..Y           X                       X.1
 ## 1         Method: Least Squares                                      
-## 2  Date: 06/24/22   Time: 10:34                                      
+## 2  Date: 06/24/22   Time: 11:38                                      
 ## 3             Sample: 2020 2025                                      
 ## 4      Included observations: 6                                      
 ## 5                                                                    
 ## 6                      Variable Coefficient                Std. Error
 ## 7                                                                    
-## 8                             C   -0.621579                  0.516221
-## 9                             X   -1.018073                  0.256178
+## 8                             C    2.108521                  1.410575
+## 9                             X   -0.562391                  0.543313
 ## 10                                                                   
-## 11                    R-squared    0.797912        Mean dependent var
-## 12           Adjusted R-squared    0.747390        S.D. dependent var
-## 13           S.E. of regression    0.665150     Akaike info criterion
-## 14            Sum squared resid    1.769700         Schwarz criterion
-## 15               Log likelihood   -4.850783      Hannan-Quinn criter.
-## 16                  F-statistic    15.79337        Durbin-Watson stat
-## 17            Prob(F-statistic)    0.016482                          
+## 11                    R-squared    0.211273        Mean dependent var
+## 12           Adjusted R-squared    0.014091        S.D. dependent var
+## 13           S.E. of regression    1.210884     Akaike info criterion
+## 14            Sum squared resid    5.864963         Schwarz criterion
+## 15               Log likelihood   -8.445341      Hannan-Quinn criter.
+## 16                  F-statistic    1.071463        Durbin-Watson stat
+## 17            Prob(F-statistic)    0.359089                          
 ## 18                                                                   
 ##            X.2      X.3
 ## 1                      
@@ -240,15 +240,15 @@
 ## 5                      
 ## 6  t-Statistic  Prob.  
 ## 7                      
-## 8    -1.204095   0.2949
-## 9    -3.974087   0.0165
+## 8     1.494796   0.2093
+## 9    -1.035115   0.3591
 ## 10                     
-## 11             1.123162
-## 12             1.323411
-## 13             2.283594
-## 14             2.214181
-## 15             2.005726
-## 16             1.567691
+## 11             3.476029
+## 12             1.219507
+## 13             3.481780
+## 14             3.412367
+## 15             3.203913
+## 16             1.569123
 ## 17                     
 ## 18
 \end{verbatim}
