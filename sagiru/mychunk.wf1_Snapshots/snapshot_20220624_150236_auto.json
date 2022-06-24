@@ -1,0 +1,284 @@
+
+{
+	"commands" : [ "grap.options size(9,3)" ],
+	"description" : "Generated based on timer.",
+	"label" : "auto",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\smati\\google drive\\github\\repos\\sagirumati\\eviewsr\\sagiru\\mychunk.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "Q",
+				"_last_update" : [ 738329.4633333334, "06/24/2022 11:07" ],
+				"_name" : "mati",
+				"_obj_count" : 12,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739524.0, "10/01/2025" ],
+						"_obs_min" : [ 730119.0, "01/01/2000" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "DATE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP1",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP2",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "GRAP3",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "TAB",
+						"_type" : "TABLE"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 104
+			},
+			
+			{
+				"_frequency" : "A",
+				"_last_update" : [ 738329.4633333334, "06/24/2022 11:07" ],
+				"_name" : "page1",
+				"_obj_count" : 9,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739251.0, "01/01/2025" ],
+						"_obs_min" : [ 737424.0, "01/01/2020" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "DATE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "TAB",
+						"_type" : "TABLE"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 6
+			},
+			
+			{
+				"_frequency" : "A",
+				"_last_update" : [ 738329.4633333334, "06/24/2022 11:07" ],
+				"_name" : "page2",
+				"_obj_count" : 9,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739251.0, "01/01/2025" ],
+						"_obs_min" : [ 737424.0, "01/01/2020" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "DATE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "TAB",
+						"_type" : "TABLE"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 6
+			},
+			
+			{
+				"_frequency" : "A",
+				"_last_update" : [ 738329.6268055555, "06/24/2022 15:02" ],
+				"_name" : "page3",
+				"_obj_count" : 9,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739251.0, "01/01/2025" ],
+						"_obs_min" : [ 737424.0, "01/01/2020" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "DATE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "GRAP",
+						"_type" : "GRAPH"
+					},
+					
+					{
+						"_name" : "OLS",
+						"_type" : "EQUATION"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "TAB",
+						"_type" : "TABLE"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Z",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 6
+			}
+		]
+	}
+}
