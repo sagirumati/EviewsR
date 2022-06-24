@@ -2,7 +2,8 @@
 
 <!-- badges: start -->
 
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
+[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=green)
 
 <!-- badges: end -->
 
