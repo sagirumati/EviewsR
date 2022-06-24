@@ -1,6 +1,17 @@
 EviewsR Package
 ================
 
+# EviewsR <img src="inst/Eviews/EviewsR.png" align="right" width="120" />
+
+<!-- badges: start -->
+
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
+[![CRAN_Status_Badge]([![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
+)](https://cran.r-project.org/package=EviewsR)
+
+<!-- badges: end -->
+
+
 # About the Author
 
 The author of this package, **Sagiru Mati**, obtained his PhD in
