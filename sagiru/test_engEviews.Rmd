@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| - legend columns(auto) position(right)
 #| - template midnight
 #| page: true
-#| fig.keep: last
+#| fig.keep: all
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
@@ -73,7 +73,7 @@ mychunk$mati_ols
 
 mychunk$mati_tab
 
-mychunk$series %>% head 
+mychunk$mati %>% head 
 ```
 
 # R plots
