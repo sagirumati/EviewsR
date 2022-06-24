@@ -301,8 +301,8 @@ if(options$page){  saveCode=r'(
   if @wcount(%tables)<>0 then
   for %y {%tables}
   'table {%page}_{%y}
-  %tablePath=%tablePath+" "+%page+"_"+%y+"_"+%eviewsr_text
-  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}_{%eviewsr_text}
+  %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsr_text
+  {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
   next
   endif
 
@@ -313,6 +313,7 @@ if(options$page){  saveCode=r'(
   next
 
 
+%equationPath=""
 
   for %page {%pagelist}
   pageselect {%page}
@@ -340,12 +341,17 @@ if(options$page){  saveCode=r'(
   endif
   next
 
-  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}-{%y}_equation_table
+%equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsr_text
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
 
   next
 
   endif
   next
+
+text {%eviewsr_text}_eq
+{%eviewsr_text}_eq.append {%equationPath}
+{%eviewsr_text}_eq.save {%eviewsr_text}-eq
 
 
 %seriesPath=""
@@ -380,9 +386,9 @@ exit
   next
   endif
 
-  text %eviewsr_text_3
-    %eviewsr_text_3.append {%tablePath}
-    %eviewsr_text_3.save %eviewsr_text-3
+  text {%eviewsr_text}_2
+    {%eviewsr_text}_2.append {%tablePath}
+    {%eviewsr_text}_2.save {%eviewsr_text}-2
 
 
 
@@ -411,11 +417,17 @@ exit
   endif
   next
 
-  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}_equation_table
+    %equationPath=%y+"-"+%eviewsr_text
+  {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsr_text}
 
   next
 
   endif
+
+    text {%eviewsr_text}_eq
+    {%eviewsr_text}_eq.append {%equationPath}
+    {%eviewsr_text}_eq.save {%eviewsr_text}-eq
+
 
     %currentPage=@pagename
   pagesave {%currentPage}-{%chunk_name}{%eviewsr_text}.csv @drop date
@@ -472,38 +484,48 @@ if(any(options$fig.keep=="new") && !options$page){
  if (options$eval){
    system_exec()
 
-  equations=list.files(save_path1,"_equation_table\\.csv$")
-
-  equations=gsub("_equation_table\\.csv","",equations)
+  # equations=list.files(save_path1,"_equation_table\\.csv$")
+  #
+  # equations=gsub("_equation_table\\.csv","",equations)
 
   # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
 envName=chunk_name %>% gsub("[._-]","",.)
 assign(envName,new.env(),envir=knit_global())
 
-if(length(equations)!=0){
-  for (i in equations){
+# if(length(equations)!=0){
+#   for (i in equations){
+#
+#     assign(i,read.csv(paste0(save_path1,"/",i,"_equation_table.csv")),envir = get(envName))
+#
+#   }
+# }
 
-    assign(i,read.csv(paste0(save_path1,"/",i,"_equation_table.csv")),envir = get(envName))
-
-  }
-}
 
 
-if(file.exists(paste0(eviewsr_text1,"-2.txt"))) tables=readLines(paste0(eviewsr_text1,"-2.txt")) %>%
+if(file.exists(paste0(eviewsr_text1,"-eq.txt"))) equationPath=readLines(paste0(eviewsr_text1,"-eq.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
-  tables=list.files(save_path1,paste0(eviewsr_text1,"\\.csv$"))
-
-  tables=gsub(paste0(eviewsr_text1,"\\.csv"),"",tables)
-
-
-if(length(tables)!=0){
-  for (i in tables){
-
-    assign(i,read.csv(paste0(save_path1,"/",i,eviewsr_text1,".csv")),envir = get(envName))
-  }
+for (i in equationPath){
+  equationName=gsub("\\-.*","",i) %>% tolower
+  assign(equationName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
 }
+
+
+if(file.exists(paste0(eviewsr_text1,"-2.txt"))) tablePath=readLines(paste0(eviewsr_text1,"-2.txt")) %>%
+  strsplit(split=" ") %>% unlist()
+
+  # tables=list.files(save_path1,paste0(eviewsr_text1,"\\.csv$"))
+
+  # tables=gsub(paste0(eviewsr_text1,"\\.csv"),"",tables)
+
+
+# if(length(tables)!=0){
+  for (i in tablePath){
+tableName=gsub("\\-.*","",i) %>% tolower
+    assign(tableName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
+  }
+# }
 
 
   # if(file.exists('all_eviewsr_series.csv')){
@@ -532,8 +554,8 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     }
   }
 
-    on.exit(file.remove(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
-   on.exit(file.remove(paste0(save_path1,"/",tables,eviewsr_text1,".csv")),add = TRUE)
+    on.exit(file.remove(paste0(save_path1,"/",equationPath,"_equation_table.csv")),add = TRUE)
+   on.exit(file.remove(paste0(save_path1,"/",tablePath,eviewsr_text1,".csv")),add = TRUE)
 
   }
 
