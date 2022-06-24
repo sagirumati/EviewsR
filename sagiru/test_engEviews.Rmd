@@ -23,6 +23,7 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| echo: TRUE
 #| graph_procs: 
 #| - legend columns(auto) position(right)
+#| - template midnight
 #| page: true
 #| fig.keep: right
 #| out.width: 0.25\textwidth
