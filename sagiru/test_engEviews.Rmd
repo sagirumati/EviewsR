@@ -24,14 +24,14 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| graph_procs: 
 #| - legend columns(auto) position(right)
 #| - template midnight
-#| page: true
-#| fig.keep: right
+#| page: false
+#| fig.keep: new
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
 
-'wfcreate(wf=sagiru,page=mati) q 2000 2025
-open mychunk
+wfcreate(wf=sagiru,page=mati) q 2000 2025
+'open mychunk
 for !i=1 to 100
 %page="page"+@STR(!i)
 if @pageexist(%page) then

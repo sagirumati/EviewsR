@@ -57,7 +57,7 @@ eng_eviews <- function(options) {
   %pagelist=@pagelist
   for %page {%pagelist}
   pageselect {%page}
-  %figKeep=@wlookup("*","graph")
+  %figKeep=%figKeep
   if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
@@ -533,7 +533,7 @@ if(length(tables)!=0){
   }
 
    on.exit(unlink_eviews(),add = TRUE)
-    on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
+    # on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
 
