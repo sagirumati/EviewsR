@@ -32,12 +32,12 @@ eng_eviews <- function(options) {
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
 
-  graphicsDefault=r'(if %figKeep="left" then
+  graphicsDefault=r'(if %figKeep="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="right" then
+  if %figKeep="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
@@ -161,12 +161,12 @@ if(!options$page) figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
-  if %figKeep="left" then
+  if %figKeep="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="right" then
+  if %figKeep="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
@@ -237,12 +237,12 @@ if(any(options$fig.keep!="new") && options$page)  {
   pageselect {%page}
 
 
-  if %figKeep="left" then
+  if %figKeep="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="right" then
+  if %figKeep="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
@@ -278,8 +278,8 @@ next
 }
 
   if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
-  if(any(options$fig.keep=="left")) figKeep='%figKeep="left"'
-  if(any(options$fig.keep=="right")) figKeep='%figKeep="right"'
+  if(any(options$fig.keep=="first")) figKeep='%figKeep="first"'
+  if(any(options$fig.keep=="last")) figKeep='%figKeep="last"'
    if(any(options$fig.keep=="new")) figKeep='%figKeep=""'
   if(any(options$fig.keep=="none")) figKeep='%figKeep="none"'
 
@@ -417,8 +417,10 @@ exit
 
   endif
 
-  pagesave {%chunk_name}{%eviewsr_text}.csv @drop date
-    %seriesPath=%chunk_name+%eviewsr_text
+    %currentPage=@pagename
+  pagesave {%currentPage}-{%chunk_name}{%eviewsr_text}.csv @drop date
+
+    %seriesPath=%currentPage+"-"+%chunk_name+%eviewsr_text
     text {%eviewsr_text}_1
     {%eviewsr_text}_1.append {%seriesPath}
     {%eviewsr_text}_1.save {%eviewsr_text}-1
@@ -527,8 +529,8 @@ if(length(tables)!=0){
     }
   }
 
-    on.exit(unlink(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
-   on.exit(unlink(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
+    on.exit(file.remove(paste0(save_path1,"/",equations,"_equation_table.csv")),add = TRUE)
+   on.exit(file.remove(paste0(save_path1,"/",tables,"_eviewsr_table.csv")),add = TRUE)
 
   }
 

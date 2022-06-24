@@ -163,75 +163,101 @@
 
 \begin{figure}[h]
 
-{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap3} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap2} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap1} }\subfloat[Page 1 Figure 4\label{fig:mychunk-4}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-grap} }
+{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-mati-grap3} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page1-grap3} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page2-grap3} }\subfloat[Page 1 Figure 4\label{fig:mychunk-4}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page3-grap3} }
 
 }
 
 \caption{somefigure}\label{fig:mychunk}
 \end{figure}
 
-\begin{verbatim}
-##         date           x           y         z
-## 1 2020-01-01 -0.70671085 -0.06338071 0.7616228
-## 2 2021-01-01 -1.13216881 -1.74652995 1.2223769
-## 3 2022-01-01  0.03542993 -0.38073612 2.8858947
-## 4 2023-01-01  0.35843752  1.42858012 5.5240956
-## 5 2024-01-01 -0.48705582  1.24478048 4.9992580
-## 6 2025-01-01 -1.88313171  2.13127246 6.0317713
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{page3 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-##        aic df     coefs     dw        f    fprob       hq      logl  meandep
-## 1 4.028756  4  0.350672 0.9229 0.023047 0.886684 3.750889 -10.08627 0.435664
-## 2       NA NA -0.133664     NA       NA       NA       NA        NA       NA
-##   ncoef     pval       r2     rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 0.703604 0.005729 -0.242839      6 3.959343 1.427807 1.591758 10.13477
-## 2    NA 0.886684       NA        NA     NA       NA       NA       NA       NA
-##    stderrs    tstats
-## 1 0.857739  0.408833
-## 2 0.880456 -0.151812
+##         date           x          y         z
+## 1 2020-01-01 -1.19132007 -0.4918697 0.8868786
+## 2 2021-01-01 -0.04053925 -0.6866027 1.8100949
+## 3 2022-01-01 -1.36868932 -0.2182446 1.7172251
+## 4 2023-01-01 -0.92310213  0.6387243 1.8008642
+## 5 2024-01-01 -1.69983166  1.3582125 0.6660021
+## 6 2025-01-01 -2.07086042  1.1420513 0.9425985
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{mati\_ols }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        aic  df     coefs      dw        f   fprob       hq      logl   meandep
+## 1 4.509705 102 -4.026186 0.18379 36.61449 2.4e-08 4.530307 -232.5047 -5.665207
+## 2       NA  NA -0.255923      NA       NA      NA       NA        NA        NA
+##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep      se      ssr
+## 1     2 5.07e-20 0.264146 0.256932    104 4.560559 2.650839 2.28506 532.5929
+## 2    NA 2.40e-08       NA       NA     NA       NA       NA      NA       NA
+##    stderrs     tstats
+## 1 0.351534 -11.453190
+## 2 0.042294  -6.050991
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{mati\_tab}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ##           Dependent.Variable..Y           X                       X.1
 ## 1         Method: Least Squares                                      
-## 2  Date: 06/24/22   Time: 07:39                                      
-## 3             Sample: 2020 2025                                      
-## 4      Included observations: 6                                      
+## 2  Date: 06/24/22   Time: 08:36                                      
+## 3         Sample: 2000Q1 2025Q4                                      
+## 4    Included observations: 104                                      
 ## 5                                                                    
 ## 6                      Variable Coefficient                Std. Error
 ## 7                                                                    
-## 8                             C    0.350672                  0.857739
-## 9                             X   -0.133664                  0.880456
+## 8                             C   -4.026186                  0.351534
+## 9                             X   -0.255923                  0.042294
 ## 10                                                                   
-## 11                    R-squared    0.005729        Mean dependent var
-## 12           Adjusted R-squared   -0.242839        S.D. dependent var
-## 13           S.E. of regression    1.591758     Akaike info criterion
-## 14            Sum squared resid    10.13477         Schwarz criterion
-## 15               Log likelihood   -10.08627      Hannan-Quinn criter.
-## 16                  F-statistic    0.023047        Durbin-Watson stat
-## 17            Prob(F-statistic)    0.886684                          
+## 11                    R-squared    0.264146        Mean dependent var
+## 12           Adjusted R-squared    0.256932        S.D. dependent var
+## 13           S.E. of regression    2.285060     Akaike info criterion
+## 14            Sum squared resid    532.5929         Schwarz criterion
+## 15               Log likelihood   -232.5047      Hannan-Quinn criter.
+## 16                  F-statistic    36.61449        Durbin-Watson stat
+## 17            Prob(F-statistic)    0.000000                          
 ## 18                                                                   
-##            X.2      X.3
-## 1                      
-## 2                      
-## 3                      
-## 4                      
-## 5                      
-## 6  t-Statistic  Prob.  
-## 7                      
-## 8     0.408833   0.7036
-## 9    -0.151812   0.8867
-## 10                     
-## 11             0.435664
-## 12             1.427807
-## 13             4.028756
-## 14             3.959343
-## 15             3.750889
-## 16             0.922900
-## 17                     
+##            X.2       X.3
+## 1                       
+## 2                       
+## 3                       
+## 4                       
+## 5                       
+## 6  t-Statistic   Prob.  
+## 7                       
+## 8    -11.45319    0.0000
+## 9    -6.050991    0.0000
+## 10                      
+## 11             -5.665207
+## 12              2.650839
+## 13              4.509705
+## 14              4.560559
+## 15              4.530307
+## 16              0.183790
+## 17                      
 ## 18
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{series }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head }
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
 ## NULL
@@ -239,5 +265,34 @@
 
 \hypertarget{r-plots}{%
 \section{R plots}\label{r-plots}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"sagir"}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"fig.show"}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ y}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ x}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{plot}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ data}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{),}\AttributeTok{x=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(data,}\AttributeTok{save\_path =} \StringTok{""}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"m"}\NormalTok{,}\AttributeTok{start\_date =} \DecValTok{1990}\NormalTok{,}\AttributeTok{group =}\NormalTok{ F,}\AttributeTok{options =} \StringTok{"m"}\NormalTok{,}\AttributeTok{graph\_procs =} \StringTok{"template eviews5"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{rwalk}\NormalTok{(}\StringTok{"x y z"}\NormalTok{,}\AttributeTok{num\_observations =} \DecValTok{100}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"7"}\NormalTok{,}\AttributeTok{start\_date =} \StringTok{"1"}\NormalTok{)}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ eviews}\SpecialCharTok{$}\NormalTok{xyz }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(eviews}\SpecialCharTok{$}\NormalTok{xyz,}\AttributeTok{group =}\NormalTok{ T,}\AttributeTok{graph\_procs =} \StringTok{"template midnight"}\NormalTok{,}\AttributeTok{graph\_command =} \StringTok{"line"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 
 \end{document}

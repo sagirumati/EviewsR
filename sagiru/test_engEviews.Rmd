@@ -11,7 +11,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth")
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth")
 
 # set_eviews_path("eviews10")
 ```
@@ -24,8 +24,8 @@ knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| graph_procs: 
 #| - legend columns(auto) position(right)
 #| - template midnight
-#| page: false
-#| fig.keep: new
+#| page: true
+#| fig.keep: last
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
@@ -67,11 +67,11 @@ wfsave mychunk
 ```{r,eval=T}
 library(magrittr)
 
-mychunk$mychunk %>% head
+mychunk$page3 %>% head
 
-mychunk$ols 
+mychunk$mati_ols 
 
-mychunk$tab
+mychunk$mati_tab
 
 mychunk$series %>% head 
 ```
