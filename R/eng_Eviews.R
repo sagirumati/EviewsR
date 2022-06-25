@@ -32,7 +32,12 @@ eng_eviews <- function(options) {
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
 
-  graphicsDefault=r'(if %figKeep="first" then
+  graphicsDefault=r'(
+  %pagelist=@pagelist
+  for %page {%pagelist}
+  pageselect {%page}
+
+  if %figKeep="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
@@ -54,10 +59,7 @@ eng_eviews <- function(options) {
   %figKeep=@wlookup("*","graph")
   endif
 
-  %pagelist=@pagelist
-  for %page {%pagelist}
-  pageselect {%page}
-  %figKeep=%figKeep
+
   if @wcount(%figKeep)>0 then
   for %y {%figKeep}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
