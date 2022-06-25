@@ -37,6 +37,8 @@ eng_eviews <- function(options) {
   for %page {%pagelist}
   pageselect {%page}
 
+  %figkeep1=%figkeep
+
   if %figKeep="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
@@ -103,6 +105,7 @@ eng_eviews <- function(options) {
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
+  %figkeep=%figkeep1
   next
   endif
   next
