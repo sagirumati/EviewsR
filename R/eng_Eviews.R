@@ -117,8 +117,29 @@ eng_eviews <- function(options) {
 
 if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','if @wcount(%figKeep)>0 then','for %y {%figKeep}')
-                                        ,c(graph_procs,'next','next','endif'))
+  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','%figkeep1=%figkeep','if %figKeep="first" then
+                                          %figKeep=@wlookup("*","graph")
+                                          %figKeep=@wleft(%figKeep,1)
+                                        endif
+
+                                        if %figKeep="last" then
+                                        %figKeep=@wlookup("*","graph")
+                                        %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep="none" then
+  %figKeep=""
+  endif
+
+  if %figKeep="" then
+  %figKeep=@wlookup("*","graph")
+  endif'
+  ,'if @wcount(%figKeep)>0 then','for %y {%figKeep}')
+                                        ,c(graph_procs,'%figKeep=%figKeep1','next','next','endif'))
 
   }else graph_procs=""
 
