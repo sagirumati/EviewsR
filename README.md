@@ -1,7 +1,6 @@
 # EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="150" />
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/sagirumati/EviewsR/workflows/R-CMD-check/badge.svg)](https://github.com/sagirumati/EviewsR/actions?query=workflow%3AR-CMD-check)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
 [![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=49C31B)](https://cranlogs.r-pkg.org/badges/grand-total/DynareR?color=49C31B)
 [![](https://cranlogs.r-pkg.org/badges/DynareR?color=49C31B)](https://cranlogs.r-pkg.org/badges/DynareR?color=49C31B)
