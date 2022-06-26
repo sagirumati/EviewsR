@@ -37,27 +37,26 @@ eng_eviews <- function(options) {
   for %page {%pagelist}
   pageselect {%page}
 
-  %figkeep1=%figkeep
 
-  if %figKeep="first" then
+  if %figKeep1="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="last" then
+  if %figKeep1="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
 
-  if %figKeep="all" then
+  if %figKeep1="all" then
   %figKeep=@wlookup("*","graph")
   endif
 
-  if %figKeep="none" then
+  if %figKeep1="none" then
   %figKeep=""
   endif
 
-  if %figKeep="" then
+  if %figKeep1="" then
   %figKeep=@wlookup("*","graph")
   endif
 
@@ -105,7 +104,6 @@ eng_eviews <- function(options) {
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
-  %figkeep=%figkeep1
   next
   endif
   next
@@ -117,29 +115,29 @@ eng_eviews <- function(options) {
 
 if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','%figkeep1=%figkeep','if %figKeep="first" then
+  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','if %figKeep1="first" then
                                           %figKeep=@wlookup("*","graph")
                                           %figKeep=@wleft(%figKeep,1)
                                         endif
 
-                                        if %figKeep="last" then
+                                        if %figKeep1="last" then
                                         %figKeep=@wlookup("*","graph")
                                         %figKeep=@wright(%figKeep,1)
   endif
 
-  if %figKeep="all" then
+  if %figKeep1="all" then
   %figKeep=@wlookup("*","graph")
   endif
 
-  if %figKeep="none" then
+  if %figKeep1="none" then
   %figKeep=""
   endif
 
-  if %figKeep="" then
+  if %figKeep1="" then
   %figKeep=@wlookup("*","graph")
   endif'
   ,'if @wcount(%figKeep)>0 then','for %y {%figKeep}')
-                                        ,c(graph_procs,'%figKeep=%figKeep1','next','next','endif'))
+                                        ,c(graph_procs,'next','next','endif'))
 
   }else graph_procs=""
 
@@ -187,21 +185,21 @@ if(!options$page) figSave=r'(if %save_path<>"" then
   %save_path=%save_path+"\"
   endif
 
-  if %figKeep="first" then
+  if %figKeep1="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="last" then
+  if %figKeep1="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
 
-  if %figKeep="all" then
+  if %figKeep1="all" then
   %figKeep=@wlookup("*","graph")
   endif
 
-  if %figKeep="none" then
+  if %figKeep1="none" then
   %figKeep=""
   endif
 
@@ -263,21 +261,21 @@ if(any(options$fig.keep!="new") && options$page)  {
   pageselect {%page}
 
 
-  if %figKeep="first" then
+  if %figKeep1="first" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wleft(%figKeep,1)
   endif
 
-  if %figKeep="last" then
+  if %figKeep1="last" then
   %figKeep=@wlookup("*","graph")
   %figKeep=@wright(%figKeep,1)
   endif
 
-  if %figKeep="all" then
+  if %figKeep1="all" then
   %figKeep=@wlookup("*","graph")
   endif
 
-  if %figKeep="none" then
+  if %figKeep1="none" then
   %figKeep=""
   endif
 
@@ -304,10 +302,10 @@ next
 }
 
   if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
-  if(any(options$fig.keep=="first")) figKeep='%figKeep="first"'
-  if(any(options$fig.keep=="last")) figKeep='%figKeep="last"'
-   if(any(options$fig.keep=="new")) figKeep='%figKeep=""'
-  if(any(options$fig.keep=="none")) figKeep='%figKeep="none"'
+  if(any(options$fig.keep=="first")) figKeep='%figKeep1="first"'
+  if(any(options$fig.keep=="last")) figKeep='%figKeep1="last"'
+   if(any(options$fig.keep=="new")) figKeep='%figKeep1=""'
+  if(any(options$fig.keep=="none")) figKeep='%figKeep1="none"'
 
    # figSave=append(figKeep,figSave)
 
