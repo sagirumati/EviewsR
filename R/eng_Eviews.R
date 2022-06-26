@@ -137,7 +137,7 @@ if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%
   %figKeep=@wlookup("*","graph")
   endif'
   ,'if @wcount(%figKeep)>0 then','for %y {%figKeep}')
-                                        ,c(graph_procs,'next','next','endif'))
+                                        ,c(graph_procs,'next','endif','next'))
 
   }else graph_procs=""
 
@@ -301,7 +301,7 @@ next
   )'
 }
 
-  if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep="all"'
+  if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep1="all"'
   if(any(options$fig.keep=="first")) figKeep='%figKeep1="first"'
   if(any(options$fig.keep=="last")) figKeep='%figKeep1="last"'
    if(any(options$fig.keep=="new")) figKeep='%figKeep1=""'

@@ -144,7 +144,7 @@
 \NormalTok{+ pagecreate(page=\{\%y\}) a 2020 2025}
 \NormalTok{+ next}
 \NormalTok{+ \%pagelist=@pagelist}
-\NormalTok{+ for \%y \{\%pagelist\}}
+\NormalTok{+ for \%y page1 page2}
 \NormalTok{+ pageselect \{\%y\}}
 \NormalTok{+ delete(noerr) grap}
 \NormalTok{+ genr y=@cumsum(nrnd)}
@@ -158,13 +158,26 @@
 \NormalTok{+ equation ols.ls y c x}
 \NormalTok{+ freeze(mode=overwrite,tab) ols}
 \NormalTok{+ next}
+\NormalTok{+ }
+\NormalTok{+ pageselect page3}
+\NormalTok{+ delete(noerr) grap}
+\NormalTok{+ genr y=@cumsum(nrnd)}
+\NormalTok{+ genr x=@cumsum(nrnd)}
+\NormalTok{+ genr z=@cumsum(nrnd)}
+\NormalTok{+ genr date=@date}
+\NormalTok{+   graph grap3.line x   }
+\NormalTok{+               graph grap2.bar y }
+\NormalTok{+                           graph grap1.area x  }
+\NormalTok{+    freeze(grap,mode=overwrite) x.line}
+\NormalTok{+ equation ols.ls y c x}
+\NormalTok{+ freeze(mode=overwrite,tab) ols}
 \NormalTok{+ \textquotesingle{}wfsave mychunk}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[h]
 
-{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-mati-grap} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page1-grap} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page2-grap} }\subfloat[Page 1 Figure 4\label{fig:mychunk-4}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page3-grap} }
+{\centering \subfloat[Page 1 Figure 1\label{fig:mychunk-1}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page1-grap3} }\subfloat[Page 1 Figure 2\label{fig:mychunk-2}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page2-grap3} }\subfloat[Page 1 Figure 3\label{fig:mychunk-3}]{\includegraphics[width=0.25\textwidth]{test_engEviews_files/figure-latex//mychunk-page3-grap3} }
 
 }
 
@@ -230,7 +243,7 @@
 \NormalTok{+ genr x=@cumsum(nrnd)}
 \NormalTok{+ equation OLS\_EQUATION.ls y c x}
 \NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
-\NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
+\NormalTok{+ freeze(ZEviewsR\_GRAPH,mode=overwrite) y.line}
 \NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
 \NormalTok{+ graph GRAPH1.line x y}
 \end{Highlighting}

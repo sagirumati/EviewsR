@@ -1,0 +1,19 @@
+Dependent Variable: Y,,,,
+Method: Least Squares,,,,
+Date: 06/26/22   Time: 07:18,,,,
+Sample: 2020 2025,,,,
+Included observations: 6,,,,
+,,,,
+Variable,Coefficient,Std. Error,t-Statistic,Prob.  
+,,,,
+C,1.145592,0.345606,3.314735,0.0295
+X,1.267215,0.686944,1.844713,0.1388
+,,,,
+R-squared,0.459676,    Mean dependent var,,1.119144
+Adjusted R-squared,0.324595,    S.D. dependent var,,1.029202
+S.E. of regression,0.845829,    Akaike info criterion,,2.764203
+Sum squared resid,2.861708,    Schwarz criterion,,2.694789
+Log likelihood,-6.292608,    Hannan-Quinn criter.,,2.486335
+F-statistic,3.402967,    Durbin-Watson stat,,1.613197
+Prob(F-statistic),0.138838,,,
+,,,,
