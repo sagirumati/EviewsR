@@ -533,6 +533,8 @@ assign(envName,new.env(),envir=knit_global())
 if(file.exists(paste0(eviewsr_text1,"-equation.txt"))) equationPath=readLines(paste0(eviewsr_text1,"-equation.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
+
+
 for (i in equationPath){
   equationName=gsub("\\-.*","",i) %>% tolower
   assign(equationName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
@@ -581,9 +583,10 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     }
   }
 
-    on.exit(file.remove(paste0(save_path1,"/",equationPath,"_equation_table.csv")),add = TRUE)
-   on.exit(file.remove(paste0(save_path1,"/",tablePath,eviewsr_text1,".csv")),add = TRUE)
-
+    on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
+   on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
+   on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
+on.exit(unlink(paste0(rep(eviewsr_text1,4),c(".txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
   }
 
    on.exit(unlink_eviews(),add = TRUE)

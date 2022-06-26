@@ -1,4 +1,4 @@
-# EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="150" />
+# EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
