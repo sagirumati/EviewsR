@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| - legend columns(auto) position(right)
 #| - template midnight
 #| page: true
-#| fig.keep: last
+#| fig.keep: new
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
@@ -45,7 +45,7 @@ for %y page1 page2 page3
 pagecreate(page={%y}) a 2020 2025
 next
 %pagelist=@pagelist
-for %y page1 page2
+for %y {%pagelist}
 pageselect {%y}
 delete(noerr) grap
 genr y=@cumsum(nrnd)
@@ -59,19 +59,6 @@ genr date=@date
 equation ols.ls y c x
 freeze(mode=overwrite,tab) ols
 next
-
-pageselect page3
-delete(noerr) grap
-genr y=@cumsum(nrnd)
-genr x=@cumsum(nrnd)
-genr z=@cumsum(nrnd)
-genr date=@date
-  graph grap3.line x   
-              graph grap2.bar y 
-                          graph grap1.area x  
-   freeze(grap,mode=overwrite) x.line
-equation ols.ls y c x
-freeze(mode=overwrite,tab) ols
 'wfsave mychunk
 
 ```
