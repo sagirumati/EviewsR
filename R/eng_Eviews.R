@@ -483,7 +483,7 @@ if(any(options$fig.keep=="new") && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-,'%existing=@wlookup("*","graph")','%figKeep=%figKeep+" "+%newgraph','%figKeep=@wunique(%figKeep)')
+,'%existing=@wlookup("*","graph")','if @wcount(%newgraph)>0 then','%figKeep=%figKeep+" "+%newgraph','endif','%figKeep=@wunique(%figKeep)')
 
  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
@@ -496,7 +496,10 @@ if(any(options$fig.keep=="new") && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
     appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-                 ,'%existing=@wlookup("*","graph")','%figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph')
+                 ,'%existing=@wlookup("*","graph")','if @wcount(%newgraph)>0 then
+                 %figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
+                 endif'
+    )
 
     for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 

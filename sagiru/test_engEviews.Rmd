@@ -107,7 +107,7 @@ eviews_graph(eviews$xyz,group = T,graph_procs = "template midnight",graph_comman
 
 
 
-```{eviews sagirumati,eval=T,page=F,fig.show="hold",fig.cap="Dynamic figure",fig.keep='new',graph_procs="template midnight"}
+```{eviews sagirumati,eval=T,page=T,fig.show="hold",fig.cap="Dynamic figure",fig.keep='new',graph_procs="template midnight"}
 'This is some comment in EViews program, feel free to write anything
 
 wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -120,7 +120,7 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 equation OLS_EQUATION.ls y c x
 freeze(OLS_EQUATION_TABLE,mode=overwrite) OLS_EQUATION
-freeze(ZEviewsR_GRAPH,mode=overwrite) y.line
+freeze(EviewsR_GRAPH,mode=overwrite) y.line
 delete(noerr) EviewsR_GRAPH1
 graph GRAPH1.line x y
 ```
