@@ -34,7 +34,8 @@ eng_eviews <- function(options) {
 if(is.character(options$page)){
   pagelist=paste(options$page,collapse = " ") %>%
     shQuote_cmd %>% paste0('%pagelist1=',.)
-  options$page=TRUE
+  if(options$fig.keep=="new") options$fig.keep="all"
+   options$page=TRUE
   } else pagelist='%pagelist1=""'
 
   graphicsDefault=r'(
