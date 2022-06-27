@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files"){
+eviews_graph=function(graph="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files"){
 
 
 
@@ -57,40 +57,10 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
 
-if(datelabel==""){
-datelabel <- '%freq=@pagefreq
-  if %freq="m" or %freq="M" then
-  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-  endif
-  if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
-  {%y}.datelabel format("Mon YYYY") interval(auto, 1, 1)
-  endif
-if %freq="a" or %freq="A" then
-  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-  endif'
-}else{
-datelabel=paste('{%y}.datelabel',datelabel)
-}
-
 
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")\n','for %y {%allEviewsGraphs}\n')
 ,c(datelabel,graph_procs,'next'))
-
-  EviewsRGroup=paste0('%EviewsRGroup=',shQuote_cmd(EviewsRGroup))
-   wf=paste0('%wf=',shQuote_cmd(wf))
-    page=paste0("%page=",shQuote_cmd(page))
-    series=paste(series,collapse = " ")
-    series=paste0("%series=",shQuote_cmd(series))
-    graph_command=paste0("%graph_command=",shQuote_cmd(graph_command))
-    options=paste0("%options=",shQuote_cmd(options))
-    mode=paste0("%mode=",shQuote_cmd(mode))
-
-
-
-    # if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"_") %>%  gsub("[.,-]","_",.)
-    # if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
-    #   shQuote_cmd() %>% paste0('%chunk_name=',.)
 
     if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
         if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'-') %>%
@@ -99,25 +69,24 @@ datelabel=paste('{%y}.datelabel',datelabel)
 
     save_path=gsub("/","\\\\",save_path)
 
-    # if (save_path=="" & is.null(chunk_name)) save_path=paste("EViewsR_files")
-     # if (save_path=="" & !is.null(chunk_name)) save_path=paste0("EViewsR_files")
-     #
-     # if (save_path=="") save_path=paste("EViewsR_files")
     save_path=opts_current$get("fig.path") %n% save_path
-    # save_path=gsub("[.,-]","_",save_path)
+
     if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
-     # dir.create(paste0("EViewsR_files/",chunk_name))
     save_path1=ifelse(save_path=="",".",save_path)
-       # save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
+
+
+    wf=paste0('%wf=',shQuote_cmd(wf))
+    page=paste0("%page=",shQuote_cmd(page))
+    graph=paste(graph,collapse = " ")
+    graph=paste0("%graph=",shQuote_cmd(graph))
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote_cmd(save_options))
 
 
-    # eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
-    # file.remove(paste0(save_path1,eviews_graphics))
+
 
 
 eviews_code=r'(close @wf
@@ -135,10 +104,7 @@ if %mode<>"" then
 endif
 
 
-%allSeries=@wlookup(%series,"series")
-%allSeries=@wdrop(%allSeries,"DATE")
-%graph_command=@wreplace(%graph_command,"* ","*")
-%mode=@wreplace(%mode,"* ","*")
+%allGraphs=@wlookup(%graph,"graph")
 %save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
@@ -152,26 +118,7 @@ endif
 if %save_options<>"" then
 %save_options="("+%save_options+")"
 endif
-
-if %options<>"" then
-%options="("+%options+")"
-endif)'
-
-
-
-if (group!=T){
-
-  freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
-  group {%EviewsRGroup} {%allSeries}
-  !n={%EviewsRGroup}.@count
-
-  for !k=1 to {!n}
-  %x{!k}={%EviewsRGroup}.@seriesname({!k})
-
-
-  freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}
-  next)'
-
+)'
 
   save_code=r'(for !k=1 to {!n}
   {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%x{!k}}
