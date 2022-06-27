@@ -44,7 +44,7 @@ for %y page1 page2 page3
 
 pagecreate(page={%y}) a 2020 2025
 next
-%pagelist=@pagelist
+%pagelist="page1 page2 page3
 for %y {%pagelist}
 pageselect {%y}
 delete(noerr) grap

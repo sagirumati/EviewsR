@@ -31,9 +31,19 @@ eng_eviews <- function(options) {
 
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
+if(is.character(options$page)){
+  pagelist=paste(options$page,collapse = " ") %>%
+    shQuote_cmd %>% paste0('%pagelist1=',.)
+  options$page=TRUE
+  } else pagelist='%pagelist1=""'
 
   graphicsDefault=r'(
   %pagelist=@pagelist
+
+  if %pagelist1<>"" then
+  %pagelist=%pagelist1
+  endif
+
   for %page {%pagelist}
   pageselect {%page}
 
@@ -115,7 +125,7 @@ eng_eviews <- function(options) {
 
 if(!options$page)  graph_procs=append(c('if @wcount(%figKeep)>0 then','for %y {%figKeep}')
                      ,c(graph_procs,'next','endif'))
-  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','for %page {%pagelist}','pageselect {%page}','if %figKeep1="first" then
+  if(options$page)   graph_procs=append(c('%pagelist=@pagelist','if %pagelist1<>"" then','%pagelist=%pagelist1','endif','for %page {%pagelist}','pageselect {%page}','if %figKeep1="first" then
                                           %figKeep=@wlookup("*","graph")
                                           %figKeep=@wleft(%figKeep,1)
                                         endif
@@ -230,6 +240,10 @@ if(!options$page) figSave=r'(if %save_path<>"" then
 
     %pagelist=@pagelist
 
+  if %pagelist1<>"" then
+    %pagelist=%pagelist1
+    endif
+
     for %page {%pagelist}
     pageselect {%page}
 
@@ -256,6 +270,10 @@ if(any(options$fig.keep!="new") && options$page)  {
  %figPath=""
 
   %pagelist=@pagelist
+
+  if %pagelist1<>"" then
+  %pagelist=%pagelist1
+  endif
 
   for %page {%pagelist}
   pageselect {%page}
@@ -316,7 +334,9 @@ if(options$page){  saveCode=r'(
 
   %pagelist=@pagelist
 
-'%tablePath=""
+  if %pagelist1<>"" then
+  %pagelist=%pagelist1
+  endif
 
   for %page {%pagelist}
   pageselect {%page}
@@ -472,7 +492,7 @@ exit
 #   {%series}
 #   )'
 
-  eviewsCode=paste0(c(eviews_path(),figKeep,eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
+  eviewsCode=paste0(c(eviews_path(),pagelist,figKeep,eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
     strsplit(split="\n") %>% unlist()
 
   # writeLines(eviewsCode,fileName)
