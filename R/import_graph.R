@@ -26,50 +26,13 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files",frequency="m",start_date=""){
+eviews_graph=function(series="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files"){
 
-graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
 
-graph_procs=append(graphProcsDefault,graph_procs)
 
 if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
   chunk_name=opts_current$get("label")
-
-  # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpg", ".png", ".pdf", ".tex", ".md")
-
-  # extensions= c("emf", "wmf", "eps", "bmp", "gif", "jpg", "png", "pdf", "tex", "md")
-
-
-  if(is.data.frame(series)) series1=names(series) else series1=series
-  if(group) {
-    if(grepl("date",series1[1])) series1=series1[-1]
-    series1=paste0(series1,collapse = "")
-  }
-   if(group==T & length(series1)==1) series1=gsub(" ","",series1)
-
-  if(group!=T & length(series1)==1){
-    series1=trimws(series1)
-    series1=unlist(strsplit(series1,split=" "))
-  }
-
-  if(is.data.frame(series)) {
-    # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
-    # stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
-
-    wf=chunk_name %n% basename(tempfile("EViewsR"))
-    wf=gsub("[.-]","_",wf)
-    wf1=wf
-    page=wf
-    csvFile=paste0(wf,".csv")
-        write.csv(series,csvFile,row.names = F)
-        eviews_import(source_description = csvFile,frequency = frequency,start_date = start_date)
-
-        series = names(series)
-
-        on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
-}
-
 
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
@@ -77,18 +40,17 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
     save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
 
     if(length(intersect(save_options,save_options1)>0)){
-    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
+    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("\\s*d\\s*=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
     }
 
     save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
-    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpg", "t=png", "t=pdf", "t=tex", "md")
+    extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "t=jpg", "t=png", "t=pdf", "t=tex", "t=md")
 
     extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
 
     if(length(extension)==0) extension="emf"
 
-    #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 
     fileName=tempfile("EVIEWS", ".", ".prg")
   EviewsRGroup=basename(tempfile("EviewsRGroup"))

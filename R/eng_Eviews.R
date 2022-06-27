@@ -602,7 +602,7 @@ on.exit(unlink(paste0(rep(eviewsr_text1,4),c(".txt","-equation.txt","-series.txt
 
    save_options2=paste0(save_options2,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
-   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "jpg", "t=png", "t=pdf", "t=tex", "md")
+   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "t=jpg", "t=png", "t=pdf", "t=tex", "t=md")
 
    extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
 
