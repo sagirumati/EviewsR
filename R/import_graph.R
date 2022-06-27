@@ -53,13 +53,13 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
     fileName=tempfile("EVIEWS", ".", ".prg")
-  EviewsRGroup=basename(tempfile("EviewsRGroup"))
-
+graphPath=gsub("\\.prg$",'',fileName) %>% basename %>%
+  shQuote_cmd %>% paste0('%graphPath=',.)
 
 
 
   graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")\n','for %y {%allEviewsGraphs}\n')
+  graph_procs=append(c('%allGraphs=@wlookup("*","graph")','for %y {%allGraphs}')
 ,c(datelabel,graph_procs,'next'))
 
     if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
@@ -120,26 +120,17 @@ if %save_options<>"" then
 endif
 )'
 
-  save_code=r'(for !k=1 to {!n}
+
+
+
+
+  save_code=r'(!n={%allGraphs}.@count
+for !k=1 to {!n}
   {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%x{!k}}
   next
   delete {%EviewsrGroup}
   exit)'
-}
 
-if (group){
-
-      freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
-      group {%EviewsRGroup} {%allSeries}
-
-      %seriesNames=@replace(%allSeries," ","")
-      %seriesNames=%seriesNames
-      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
-
-      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%seriesNames}
-      delete {%EviewsrGroup}
-      exit)'
-      }
 
 writeLines(c(eviews_path(),chunk_name,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
 
@@ -152,7 +143,7 @@ on.exit(unlink_eviews(),add = TRUE)
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
