@@ -233,6 +233,7 @@
 \NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
 \NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
 \NormalTok{+ graph GRAPH1.line x y}
+\NormalTok{+ save mygraph}
 \end{Highlighting}
 \end{Shaded}
 
@@ -244,5 +245,13 @@
 
 \caption{Dynamic figure}\label{fig:sagirumati}
 \end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{import\_graph}\NormalTok{(}\StringTok{"*"}\NormalTok{,}\StringTok{"mygraph"}\NormalTok{,}\StringTok{"sam"}\NormalTok{,}\AttributeTok{graph\_procs =} \StringTok{"template eviews5"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-GRAPH1}
 
 \end{document}

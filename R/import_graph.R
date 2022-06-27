@@ -91,8 +91,7 @@ eviewsr_text %<>%
 
 
 
-eviews_code=r'(close @wf
-
+eviews_code=r'(
 if %wf<>"" then
 wfopen {%wf}
 endif
@@ -100,14 +99,9 @@ endif
 if %page<>"" then
 pageselect {%page}
 endif
+)'
 
-if %mode<>"" then
-%mode="mode="+%mode+","
-endif
-
-
-%selectedGraphs=@wlookup(%graph,"graph")
-%save_path=@wreplace(%save_path,"* ","*")
+saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
 
@@ -126,18 +120,18 @@ endif
 for %graph {%selectedGraphs}
 {%graph}.save{%save_options} {%save_path}{%chunk_name}{%graph}
 %graphPath=%graphPath+" "+%chunk_name+%graph
-  next
+next
 text {%eviewsr_text}_graph
 {%eviewsr_text}_graph.append {%graphPath}
-{%eviewsr_text}_graph.save  {%eviewsr_text}_graph
-exit)'
+{%eviewsr_text}_graph.save  {%eviewsr_text}-graph
+exit
+)'
 
-
-writeLines(c(eviews_path(),chunk_name,wf,page,graph,save_path,save_options,eviews_code,graph_procs), fileName)
+writeLines(c(eviews_path(),eviewsr_text,chunk_name,wf,page,graph,save_path,save_options,eviews_code,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
-
+on.exit(unlink(paste0(eviewsr_text1,'-graph.txt')),add = TRUE)
 
 
 
@@ -151,9 +145,7 @@ on.exit(unlink_eviews(),add = TRUE)
 if(file.exists(paste0(eviewsr_text1,"-graph.txt"))) graphPath=readLines(paste0(eviewsr_text1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
-for (i in graphPath){
-  eviewsGraphics=paste0(save_path1,'/',graphPath,'/.',extension)
+  eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
-}
 
 }

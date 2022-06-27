@@ -127,7 +127,7 @@ save mygraph
 ```
 
 
-```{r grap}
-import_graph("graph1","mygraph","sam")
+```{r grap,fig.cap="A nice figure",fig.show="hold"}
+import_graph("*","mygraph","sam",graph_procs = "template eviews5")
 
 ```
