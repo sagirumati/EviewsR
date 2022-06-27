@@ -123,4 +123,11 @@ freeze(OLS_EQUATION_TABLE,mode=overwrite) OLS_EQUATION
 freeze(EviewsR_GRAPH,mode=overwrite) y.line
 delete(noerr) EviewsR_GRAPH1
 graph GRAPH1.line x y
+save mygraph
+```
+
+
+```{r grap}
+import_graph("graph1","mygraph","sam")
+
 ```

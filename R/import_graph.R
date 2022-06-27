@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(graph="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files"){
+import_graph=function(graph="",wf="",page="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files"){
 
 
 
@@ -53,13 +53,15 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
     fileName=tempfile("EVIEWS", ".", ".prg")
-graphPath=gsub("\\.prg$",'',fileName) %>% basename %>%
-  shQuote_cmd %>% paste0('%graphPath=',.)
+eviewsr_text=gsub("\\.prg$",'',fileName) %>% basename
+eviewsr_text1=eviewsr_text
+eviewsr_text %<>%
+  shQuote_cmd %>% paste0('%eviewsr_text=',.)
 
 
 
   graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('%allGraphs=@wlookup("*","graph")','for %y {%allGraphs}')
+  graph_procs=append(c('%selectedGraphs=@wlookup(%graph,"graph")','for %y {%selectedGraphs}')
 ,c(datelabel,graph_procs,'next'))
 
     if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
@@ -104,7 +106,7 @@ if %mode<>"" then
 endif
 
 
-%allGraphs=@wlookup(%graph,"graph")
+%selectedGraphs=@wlookup(%graph,"graph")
 %save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
@@ -118,21 +120,20 @@ endif
 if %save_options<>"" then
 %save_options="("+%save_options+")"
 endif
-)'
 
+%graphPath=""
 
-
-
-
-  save_code=r'(!n={%allGraphs}.@count
-for !k=1 to {!n}
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%x{!k}}
+for %graph {%selectedGraphs}
+{%graph}.save{%save_options} {%save_path}{%chunk_name}{%graph}
+%graphPath=%graphPath+" "+%chunk_name+%graph
   next
-  delete {%EviewsrGroup}
-  exit)'
+text {%eviewsr_text}_graph
+{%eviewsr_text}_graph.append {%graphPath}
+{%eviewsr_text}_graph.save  {%eviewsr_text}_graph
+exit)'
 
 
-writeLines(c(eviews_path(),chunk_name,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),chunk_name,wf,page,graph,save_path,save_options,eviews_code,graph_procs), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -140,23 +141,19 @@ on.exit(unlink_eviews(),add = TRUE)
 
 
 
-eviews_graphics=c()
-# eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
+# eviews_graphics=c()
+# # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
+#
+# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+#
+# # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
-for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+if(file.exists(paste0(eviewsr_text1,"-graph.txt"))) graphPath=readLines(paste0(eviewsr_text1,"-graph.txt")) %>%
+  strsplit(split=" ") %>% unlist()
 
-# b=list.files(paste0("^",a[1],".png","$"),path = ".")
-
-if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
-eviews_graphics=paste0(save_path1,eviews_graphics)
-include_graphics(eviews_graphics)
+for (i in graphPath){
+  eviewsGraphics=paste0(save_path1,'/',graphPath,'/.',extension)
+  include_graphics(eviewsGraphics)
 }
 
-
-
-
-# DELETE CSV and WORKFILES
-
-# eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",options = "m")
-# @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-
+}
