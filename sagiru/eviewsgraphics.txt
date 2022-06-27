@@ -2,3 +2,7 @@ mychunk-page2-grap3.pdf
 mychunk-page2-grap2.pdf
 mychunk-page2-grap1.pdf
 mychunk-page2-grap.pdf
+mychunk-page3-grap3.pdf
+mychunk-page3-grap2.pdf
+mychunk-page3-grap1.pdf
+mychunk-page3-grap.pdf

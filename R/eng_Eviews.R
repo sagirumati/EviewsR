@@ -33,10 +33,13 @@ eng_eviews <- function(options) {
 
 if(is.character(options$page)){
 
-  pagelist=paste(options$page,collapse = " ") %>%
-    shQuote_cmd %>% paste0('%pagelist1=',.)
+  pagelist=paste(options$page,collapse = " ") %>% trimws
 
   pagelist1=pagelist %>%   strsplit(split=" ") %>% unlist()
+
+  pagelist %<>% shQuote_cmd %>% paste0('%pagelist1=',.)
+
+
   # if(options$fig.keep=="new") options$fig.keep="all"
    options$page=TRUE
   } else pagelist='%pagelist1=""'
@@ -651,10 +654,8 @@ on.exit(unlink(paste0(rep(eviewsr_text1,4),c(".txt","-equation.txt","-series.txt
 
    if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
 
-   if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pagelist1,collapse = "|"),eviews_graphics)]
+   if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pagelist1,collapse = "\\-|\\-"),eviews_graphics)]
 
-   writeLines(pagelist1,"pagelist1.txt")
-   writeLines(eviews_graphics,"eviewsgraphics.txt")
 
    if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
