@@ -66,7 +66,7 @@ Other important functions:
 \code{\link{eviews_wfcreate}()},
 \code{\link{eviews_wfsave}()},
 \code{\link{exec_commands}()},
-\code{\link{export}()},
+\code{\link{export_dataframe}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{rwalk}()},

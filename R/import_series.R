@@ -34,7 +34,6 @@ import_series=function(df_name="",wf="",page="",options="",keep_list="",drop_lis
   page=paste0('%page=',shQuote_cmd(page))
   options=paste0('%options=',shQuote_cmd(options))
   source_description=paste0('%source_description=',shQuote_cmd(source_description))
-  table_description=paste0('%table_description=',shQuote_cmd(table_description))
   keep_list=paste0('%keep_list=',shQuote_cmd(keep_list))
   drop_list=paste0('%drop_list=',shQuote_cmd(drop_list))
   keepmap_list=paste0('%keepmap_list=',shQuote_cmd(keepmap_list))
@@ -77,7 +76,7 @@ pagesave({%options}) {%source_description} {%keep_list} {%drop_list} {%keepmap_l
 
 exit
 )'
-writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
+writeLines(c(eviews_path(),wf,page,options,source_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviews_code),fileName)
 
 system_exec()

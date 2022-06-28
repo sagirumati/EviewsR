@@ -9,8 +9,6 @@ import_series(
   wf = "",
   page = "",
   options = "",
-  source_description = "",
-  table_description = "",
   keep_list = "",
   drop_list = "",
   keepmap_list = "",
@@ -26,10 +24,6 @@ import_series(
 \item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
 \item{options}{Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.}
-
-\item{source_description}{The path and name of the file to be saved.}
-
-\item{table_description}{Further description of the \code{source_description} such as specifying the \code{range=arg}, \code{byrow}.}
 
 \item{keep_list}{Optional. Specify the list of `EViews` object to be saved.}
 
@@ -70,7 +64,7 @@ Other important functions:
 \code{\link{eviews_wfcreate}()},
 \code{\link{eviews_wfsave}()},
 \code{\link{exec_commands}()},
-\code{\link{export}()},
+\code{\link{export_dataframe}()},
 \code{\link{import_graph}()},
 \code{\link{import_table}()},
 \code{\link{rwalk}()},

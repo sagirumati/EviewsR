@@ -16,7 +16,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-export=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){
+export_dataframe=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){
 
   eviews_import(wf=wf,source_description =source_description,start_date = start_date,frequency = frequency,save_path = save_path)
 }
