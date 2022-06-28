@@ -2,7 +2,7 @@ library(EviewsR)
 
 demo(exec_commands)
 
-import(object_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
+import_series(df_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
 
 eviews$importedDataFrame
 

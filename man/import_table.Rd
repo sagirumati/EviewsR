@@ -144,7 +144,7 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export}()},
 \code{\link{import_graph}()},
-\code{\link{import}()},
+\code{\link{import_series}()},
 \code{\link{rwalk}()},
 \code{\link{set_eviews_path}()}
 }

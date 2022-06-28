@@ -56,8 +56,8 @@ Other important functions:
 \code{\link{eviews_wfsave}()},
 \code{\link{export}()},
 \code{\link{import_graph}()},
+\code{\link{import_series}()},
 \code{\link{import_table}()},
-\code{\link{import}()},
 \code{\link{rwalk}()},
 \code{\link{set_eviews_path}()}
 }
