@@ -228,7 +228,7 @@ if(!options$page) figSave=r'(if %save_path<>"" then
   endif
 
   text {%eviewsr_text}
-    {%eviewsr_text}.append {%figkeep}
+    {%eviewsr_text}.append {%figpath}
   {%eviewsr_text}.save {%eviewsr_text}
   )'
 
@@ -241,9 +241,9 @@ if(!options$page) figSave=r'(if %save_path<>"" then
     %save_path=%save_path+"\"
     endif
 
-    text {%eviewsr_text}
-    {%eviewsr_text}.append {%figpath}
-    {%eviewsr_text}.save {%eviewsr_text}
+    text {%eviewsr_text}_graph
+    {%eviewsr_text}_graph.append {%figpath}
+    {%eviewsr_text}_graph.save {%eviewsr_text}-graph
 
     %pagelist=@pagelist
 
@@ -319,9 +319,9 @@ next
   %figPath=@wunique(%figPath)
 
 
-  text {%eviewsr_text}
-  {%eviewsr_text}.append {%figpath}
-  {%eviewsr_text}.save {%eviewsr_text}
+  text {%eviewsr_text}_graph
+  {%eviewsr_text}_graph.append {%figpath}
+  {%eviewsr_text}_graph.save {%eviewsr_text}-graph
 
   )'
 }
@@ -510,7 +510,7 @@ if(any(options$fig.keep=="new") && !options$page){
     eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
   appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
-,'%existing=@wlookup("*","graph")','if @wcount(%newgraph)>0 then','%figKeep=%figKeep+" "+%newgraph','endif','%figKeep=@wunique(%figKeep)')
+,'%existing=@wlookup("*","graph")','if @wcount(%newgraph)>0 then','%figKeep=%figKeep+" "+%newgraph','endif','%figpath=@wunique(%figKeep)')
 
  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
 
@@ -637,7 +637,7 @@ on.exit(unlink(paste0(rep(eviewsr_text1,4),c(".txt","-equation.txt","-series.txt
 
    eviews_graphics=c()
 
-   eviewsGraphics=readLines(paste0(eviewsr_text1,'.txt')) %>%
+   eviewsGraphics=readLines(paste0(eviewsr_text1,'-graph.txt')) %>%
      strsplit(split=" ") %>%
      unlist
 

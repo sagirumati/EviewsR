@@ -24,8 +24,8 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| graph_procs: 
 #| - legend columns(auto) position(right)
 #| - template midnight
-#| #page: true
-#| fig.keep: first
+#| page: mati
+#| fig.keep: new
 #| out.width: 0.25\textwidth
 #| fig.align: center
 #| fig.ncol : 4
