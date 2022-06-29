@@ -11,7 +11,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = F)
+knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = T)
 
 # set_eviews_path("eviews10")
 ```
@@ -20,11 +20,10 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 
 ```{eviews mychunk,page="mati page2 page1 page3" ,prompt=T,eval=T,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
 #| fig.show: hold
-#| echo: TRUE
 #| graph_procs: 
 #| - legend columns(auto) position(right)
 #| - template midnight
-#| page: page1
+#| page: page1 page2
 #| fig.keep: new
 #| out.width: 0.25\textwidth
 #| fig.align: center
@@ -140,7 +139,6 @@ import_graph("*","mygraph","sam",graph_procs = "template magazine")
 #| graph_procs: [template bokeh,legend position(right)]
 #| out.width: 0.48\textwidth
 #| out.height: 0.4\textwidth
-#| echo: FALSE
 
 'This is some comment in EViews program, feel free to write anything
 
