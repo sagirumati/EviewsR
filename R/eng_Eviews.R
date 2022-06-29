@@ -619,62 +619,64 @@ on.exit(unlink(paste0(seriesPath,".csv")))
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
 on.exit(unlink(paste0(rep(eviewsr_text1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
-  }
-
-   on.exit(unlink_eviews(),add = TRUE)
-    # on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
-
-   save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
-
-   if(length(intersect(save_options,save_options1)>0)){
-     if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
-   }
-
-   save_options2=paste0(save_options2,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
-
-   extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "t=jpg", "t=png", "t=pdf", "t=tex", "t=md")
-
-   extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
-
-   if(length(extension)==0) extension="emf"
-
-   eviews_graphics=c()
-
-   eviewsGraphics=readLines(paste0(eviewsr_text1,'-graph.txt')) %>%
-     strsplit(split=" ") %>%
-     unlist
+on.exit(unlink_eviews(),add = TRUE)
+# on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
 
 
-   # chunk_name2=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.)
 
-   chunk_name2=paste0(chunk_name,'-')
+save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
 
-  if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-   # if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-   if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+if(length(intersect(save_options,save_options1)>0)){
+  if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("d=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
+}
 
-   if(any(options$fig.keep=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
+save_options2=paste0(save_options2,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
 
-   if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
+extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "t=jpg", "t=png", "t=pdf", "t=tex", "t=md")
 
-   if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pagelist1,collapse = "\\-|\\-"),eviews_graphics)]
+extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
+
+if(length(extension)==0) extension="emf"
+
+eviews_graphics=c()
+
+eviewsGraphics=readLines(paste0(eviewsr_text1,'-graph.txt')) %>%
+  strsplit(split=" ") %>%
+  unlist
 
 
-   if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+# chunk_name2=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.)
 
-   eviews_graphics=paste0(save_path1,eviews_graphics)
+chunk_name2=paste0(chunk_name,'-')
+
+if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+# if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+
+if(any(options$fig.keep=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
+
+if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
+
+if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pagelist1,collapse = "\\-|\\-"),eviews_graphics)]
+
+
+if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+
+eviews_graphics=paste0(save_path1,eviews_graphics)
 
 # include_graphics(eviews_graphics)
 
- code=engine_output(options,code = options$code, out = "")
- if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+code=engine_output(options,code = options$code, out = "")
+if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
- if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,
-     out =output
-     )
+if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,
+                                                                             out =output
+)
 
+
+} #endif of if(options$eval)
 
 
      if(options$echo) return(c(code,out)) else return(c(out))

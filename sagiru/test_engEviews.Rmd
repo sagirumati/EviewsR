@@ -50,10 +50,10 @@ genr y=@cumsum(nrnd)
 genr x=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
 genr date=@date
-  graph grap3.line z   
-              graph grap2.bar y 
-                          graph grap1.area x  
-   freeze(grap,mode=overwrite) x.line
+'  graph grap3.line z   
+ '             graph grap2.bar y 
+  '                        graph grap1.area x  
+   ' freeze(grap,mode=overwrite) x.line
 equation ols.ls y c x
 freeze(mode=overwrite,tab) ols
 next
