@@ -88,7 +88,7 @@ if(is.character(options$page)){
   {%y}.options antialias(on)
   {%y}.options size(6,3)
   {%y}.options -background frameaxes(all) framewidth(0.5)
-  {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(5)
+  {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(1.5)
   {%y}.setelem(2) linecolor(@rgb(218,124,48)) linewidth(1.5)
   {%y}.setelem(3) linecolor(@rgb(62,150,81)) linewidth(1.5)
   {%y}.setelem(4) linecolor(@rgb(204,37,41)) linewidth(1.5)
