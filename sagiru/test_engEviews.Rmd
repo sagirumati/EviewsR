@@ -11,7 +11,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth")
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = F)
 
 # set_eviews_path("eviews10")
 ```
@@ -130,4 +130,32 @@ save mygraph
 ```{r grap,fig.cap="A nice figure",fig.show="hold"}
 import_graph("*","mygraph","sam",graph_procs = "template magazine")
 
+```
+
+
+
+```{eviews EviewsR1}
+#| page: TRUE
+#| fig.cap: Dynamic figure automatically imported by eviews chunk
+#| fig.subcap: [Sub-figure 1, Sub-figure 2]
+#| graph_procs: [template bokeh,legend position(right)]
+#| out.width: 0.48\textwidth
+#| out.height: 0.4\textwidth
+#| echo: FALSE
+
+'This is some comment in EViews program, feel free to write anything
+
+wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+for %y EviewsR package page1 page2
+pagecreate(page={%y}) EviewsR m 2000 2022
+next
+pageselect EviewsR
+rndseed 123456
+genr y=@cumsum(nrnd)
+genr x=@cumsum(nrnd)
+equation OLS_EQUATION.ls y c x
+freeze(OLS_EQUATION_TABLE,mode=overwrite) OLS_EQUATION
+freeze(EviewsR_GRAPH,mode=overwrite) y.line
+delete(noerr) EviewsR_GRAPH1
+graph EviewsR_GRAPH1.line x y
 ```

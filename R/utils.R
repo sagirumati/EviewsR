@@ -50,16 +50,18 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
   #  if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=2)
   # if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
   #
 
-  fig.cur = opts_chunk$get('fig.cur') %n% 2L
-  fig.num = opts_chunk$get('fig.num') %n% 2L
-  fig.ncol = opts_chunk$get('fig.ncol') %n% fig.num
-
-   if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=fig.ncol)
-  if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
+  # fig.cur = opts_chunk$get('fig.cur') %n% 2L
+  # fig.num = opts_chunk$get('fig.num') %n% 2L
+  # fig.ncol = opts_chunk$get('fig.ncol') %n% fig.num
+  #
+  #  if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=fig.ncol)
+  # if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
+  opts_chunk$set(opts_chunk$get())
 
   }
 

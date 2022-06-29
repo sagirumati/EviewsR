@@ -29,6 +29,9 @@
 #' @export
 eng_eviews <- function(options) {
 
+  # if (!is.null(options$eval)) options$eval=opts_chunk$get("eval")
+opts_chunk$append(opts_chunk$get(),opts_current$get())
+
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
 if(is.character(options$page)){
@@ -39,8 +42,6 @@ if(is.character(options$page)){
 
   pagelist %<>% shQuote_cmd %>% paste0('%pagelist1=',.)
 
-
-  # if(options$fig.keep=="new") options$fig.keep="all"
    options$page=TRUE
   } else pagelist='%pagelist1=""'
 
