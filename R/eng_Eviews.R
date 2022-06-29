@@ -30,7 +30,12 @@
 eng_eviews <- function(options) {
 
   # if (!is.null(options$eval)) options$eval=opts_chunk$get("eval")
-opts_chunk$append(opts_chunk$get(),opts_current$get())
+
+  options$eval=opts_current$get("eval")
+  options$echo=opts_current$get("echo")
+  options$fig.ncol=opts_current$get("fig.ncol")
+  options$template=opts_current$get("template")
+  options$opts_current$get("page")
 
   if (!is.null(options$template)) template=template %>% shQuote_cmd() %>%  paste0('%template=',.)
 
