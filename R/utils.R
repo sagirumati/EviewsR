@@ -61,7 +61,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   #
   #  if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=fig.ncol)
   # if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
-  opts_chunk$set(opts_chunk$get())
+  # opts_chunk$set(opts_chunk$get())
 
   }
 
