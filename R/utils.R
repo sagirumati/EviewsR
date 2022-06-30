@@ -47,7 +47,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 .onLoad<-function(libname,pkgname){
-  knitr::knit_engines$set(eviews=eng_eviews)
+  knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 

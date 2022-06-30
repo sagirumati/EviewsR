@@ -11,14 +11,14 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = F,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = T)
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = T)
 
 # set_eviews_path("eviews10")
 ```
 
 ## R Markdown
 
-```{eviews mychunk,page="mati page2 page1 page3" ,prompt=T,eval=T,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
+```{eviews mychunk,page="mati page2 page1 page3" ,prompt=T,fig.cap="somefigure",fig.subcap=paste("Page",rep(1:4,each=4),"Figure",1:4)}
 #| fig.show: hold
 #| graph_procs: 
 #| - legend columns(auto) position(right)
@@ -105,7 +105,7 @@ eviews_graph(eviews$xyz,group = T,graph_procs = "template midnight",graph_comman
 
 
 
-```{eviews sagirumati,eval=T,page=T,fig.show="hold",fig.cap="Dynamic figure",fig.keep='new',graph_procs="template midnight"}
+```{eviews sagirumati,page=T,fig.show="hold",fig.cap="Dynamic figure",fig.keep='new',graph_procs="template midnight"}
 'This is some comment in EViews program, feel free to write anything
 
 wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -156,3 +156,6 @@ freeze(EviewsR_GRAPH,mode=overwrite) y.line
 delete(noerr) EviewsR_GRAPH1
 graph EviewsR_GRAPH1.line x y
 ```
+
+
+The $R^2$ of the `ols` equation object is `r EviewsR1$eviewsr_ols_equation$r2[1]`

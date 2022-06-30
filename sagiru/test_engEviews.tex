@@ -41,6 +41,46 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -87,8 +127,106 @@
 \hypertarget{r-markdown}{%
 \subsection{R Markdown}\label{r-markdown}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews\textgreater{} wfcreate(wf=sagiru,page=mati) q 2000 2025}
+\NormalTok{+ \textquotesingle{}open mychunk}
+\NormalTok{+ }
+\NormalTok{+ for !i=1 to 100}
+\NormalTok{+ \%page="page"+@STR(!i)}
+\NormalTok{+ if @pageexist(\%page) then}
+\NormalTok{+ pagedelete page!i}
+\NormalTok{+ endif}
+\NormalTok{+ next}
+\NormalTok{+ }
+\NormalTok{+ for \%y page1 page2 page3  }
+\NormalTok{+ }
+\NormalTok{+ pagecreate(page=\{\%y\}) a 2020 2025}
+\NormalTok{+ next}
+\NormalTok{+ \%pagelist="page1 page2 page3"}
+\NormalTok{+ for \%y \{\%pagelist\}}
+\NormalTok{+ pageselect \{\%y\}}
+\NormalTok{+ delete(noerr) grap}
+\NormalTok{+ genr y=@cumsum(nrnd)}
+\NormalTok{+ genr x=@cumsum(nrnd)}
+\NormalTok{+ genr z=@cumsum(nrnd)}
+\NormalTok{+ genr date=@date}
+\NormalTok{+ \textquotesingle{}  graph grap3.line z   }
+\NormalTok{+  \textquotesingle{}             graph grap2.bar y }
+\NormalTok{+   \textquotesingle{}                        graph grap1.area x  }
+\NormalTok{+    \textquotesingle{} freeze(grap,mode=overwrite) x.line}
+\NormalTok{+ equation ols.ls y c x}
+\NormalTok{+ freeze(mode=overwrite,tab) ols}
+\NormalTok{+ next}
+\NormalTok{+ \textquotesingle{}wfsave mychunk}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{page3 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{ols }
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{tab}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{mati }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head }
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{r-plots}{%
 \section{R plots}\label{r-plots}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"sagir"}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"fig.show"}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ y}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ x}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{plot}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ data}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{y=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{),}\AttributeTok{x=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(data,}\AttributeTok{save\_path =} \StringTok{""}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"m"}\NormalTok{,}\AttributeTok{start\_date =} \DecValTok{1990}\NormalTok{,}\AttributeTok{group =}\NormalTok{ F,}\AttributeTok{options =} \StringTok{"m"}\NormalTok{,}\AttributeTok{graph\_procs =} \StringTok{"template eviews5"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{rwalk}\NormalTok{(}\StringTok{"x y z"}\NormalTok{,}\AttributeTok{num\_observations =} \DecValTok{100}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"7"}\NormalTok{,}\AttributeTok{start\_date =} \StringTok{"1"}\NormalTok{)}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ eviews}\SpecialCharTok{$}\NormalTok{xyz }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(eviews}\SpecialCharTok{$}\NormalTok{xyz,}\AttributeTok{group =}\NormalTok{ T,}\AttributeTok{graph\_procs =} \StringTok{"template midnight"}\NormalTok{,}\AttributeTok{graph\_command =} \StringTok{"line"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews\textgreater{} \textquotesingle{}This is some comment in EViews program, feel free to write anything}
+\NormalTok{+ }
+\NormalTok{+ wfcreate(page=EviewsR\_page,wf=EviewsR\_workfile) m 2000 2022}
+\NormalTok{+ for \%y sam package page1 page2}
+\NormalTok{+ pagecreate(page=\{\%y\}) sam m 2000 2022}
+\NormalTok{+ next}
+\NormalTok{+ pageselect sam}
+\NormalTok{+ rndseed 123456}
+\NormalTok{+ genr y=@cumsum(nrnd)}
+\NormalTok{+ genr x=@cumsum(nrnd)}
+\NormalTok{+ equation OLS\_EQUATION.ls y c x}
+\NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
+\NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
+\NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
+\NormalTok{+ graph GRAPH1.line x y}
+\NormalTok{+ save mygraph}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}[h]
 
@@ -99,7 +237,33 @@
 \caption{Dynamic figure}\label{fig:sagirumati}
 \end{figure}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{import\_graph}\NormalTok{(}\StringTok{"*"}\NormalTok{,}\StringTok{"mygraph"}\NormalTok{,}\StringTok{"sam"}\NormalTok{,}\AttributeTok{graph\_procs =} \StringTok{"template magazine"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-GRAPH1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews\textgreater{} \textquotesingle{}This is some comment in EViews program, feel free to write anything}
+\NormalTok{+ }
+\NormalTok{+ wfcreate(page=EviewsR\_page,wf=EviewsR\_workfile) m 2000 2022}
+\NormalTok{+ for \%y EviewsR package page1 page2}
+\NormalTok{+ pagecreate(page=\{\%y\}) EviewsR m 2000 2022}
+\NormalTok{+ next}
+\NormalTok{+ pageselect EviewsR}
+\NormalTok{+ rndseed 123456}
+\NormalTok{+ genr y=@cumsum(nrnd)}
+\NormalTok{+ genr x=@cumsum(nrnd)}
+\NormalTok{+ equation OLS\_EQUATION.ls y c x}
+\NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
+\NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
+\NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
+\NormalTok{+ graph EviewsR\_GRAPH1.line x y}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{figure}[h]
 
@@ -109,5 +273,7 @@
 
 \caption{Dynamic figure automatically imported by eviews chunk}\label{fig:EviewsR1}
 \end{figure}
+
+The \(R^2\) of the \texttt{ols} equation object is 0.044951
 
 \end{document}
