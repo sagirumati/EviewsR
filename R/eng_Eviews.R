@@ -380,28 +380,28 @@ eng_eviews <- function(options) {
 
    if @wcount(%equation)<>0 then
    for %y {%equation}
-   table {%y}_table
+   table {%y}_table_{%eviewsr_text}
 
    %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
 
    scalar n=@wcount(%equationMembers)
    for !j =1 to n
    %x{!j}=@word(%equationMembers,{!j})
-   {%y}_table(1,!j)=%x{!j}
+   {%y}_table_{%eviewsr_text}(1,!j)=%x{!j}
 
    %vectors="coefs pval stderrs tstats"
    if @wcount(@wintersect(%x{!j},%vectors))>0 then
    !eqCoef={%y}.@ncoef
    for !i= 2 to !eqCoef+1
-   {%y}_table(!i,!j)={%y}.@{%x{!j}}(!i-1)
+   {%y}_table_{%eviewsr_text}(!i,!j)={%y}.@{%x{!j}}(!i-1)
    next
    else
-   {%y}_table(2,!j)={%y}.@{%x{!j}}
+   {%y}_table_{%eviewsr_text}(2,!j)={%y}.@{%x{!j}}
    endif
    next
 
    %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsr_text
-   {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
+   {%y}_table_{%eviewsr_text}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
 
    next
 
@@ -456,28 +456,28 @@ eng_eviews <- function(options) {
 
      if @wcount(%equation)<>0 then
      for %y {%equation}
-     table {%y}_table
+     table {%y}_table_{%eviewsr_text}
 
      %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
 
      scalar n=@wcount(%equationMembers)
      for !j =1 to n
      %x{!j}=@word(%equationMembers,{!j})
-     {%y}_table(1,!j)=%x{!j}
+     {%y}_table_{%%eviewsr_text}(1,!j)=%x{!j}
 
      %vectors="coefs pval stderrs tstats"
      if @wcount(@wintersect(%x{!j},%vectors))>0 then
      !eqCoef={%y}.@ncoef
      for !i= 2 to !eqCoef+1
-     {%y}_table(!i,!j)={%y}.@{%x{!j}}(!i-1)
+     {%y}_table_{%eviewsr_text}(!i,!j)={%y}.@{%x{!j}}(!i-1)
      next
      else
-     {%y}_table(2,!j)={%y}.@{%x{!j}}
+     {%y}_table_{%eviewsr_text}(2,!j)={%y}.@{%x{!j}}
      endif
      next
 
      %equationPath=%y+"-"+%eviewsr_text
-     {%y}_table.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsr_text}
+     {%y}_table_{%eviewsr_text}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsr_text}
 
      next
 
