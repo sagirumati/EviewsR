@@ -38,6 +38,7 @@ eng_eviews <- function(options) {
 
   if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
 
+    eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 
  if (options$eval){
 
@@ -569,10 +570,19 @@ if(file.exists(paste0(eviewsr_text1,"-equation.txt"))) equationPath=readLines(pa
   strsplit(split=" ") %>% unlist()
 
 
+#
+# for (i in equationPath){
+#   equationName=gsub("\\-.*","",i) %>% tolower
+#   assign(equationName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
+# }
+
 
 for (i in equationPath){
+  equationDataframe=read.csv(paste0(save_path1,"/",i,".csv"))
+  equationVectors=equationDataframe[eviewsVectors]
+  equationScalars=equationDataframe[-eviewsVectors]
   equationName=gsub("\\-.*","",i) %>% tolower
-  assign(equationName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
+  assign(equationName,,envir = get(envName))
 }
 
 
