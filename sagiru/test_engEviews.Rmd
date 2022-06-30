@@ -11,7 +11,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 options(prompt = "EViews> ")
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = T)
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.width = "0.45\\textwidth",eval = F)
 
 # set_eviews_path("eviews10")
 ```
@@ -139,6 +139,7 @@ import_graph("*","mygraph","sam",graph_procs = "template magazine")
 #| graph_procs: [template bokeh,legend position(right)]
 #| out.width: 0.48\textwidth
 #| out.height: 0.4\textwidth
+#| eval: true
 
 'This is some comment in EViews program, feel free to write anything
 
@@ -159,3 +160,4 @@ graph EviewsR_GRAPH1.line x y
 
 
 The $R^2$ of the `ols` equation object is `r EviewsR1$eviewsr_ols_equation$r2[1]`
+

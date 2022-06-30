@@ -129,41 +129,6 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{EViews\textgreater{} wfcreate(wf=sagiru,page=mati) q 2000 2025}
-\NormalTok{+ \textquotesingle{}open mychunk}
-\NormalTok{+ }
-\NormalTok{+ for !i=1 to 100}
-\NormalTok{+ \%page="page"+@STR(!i)}
-\NormalTok{+ if @pageexist(\%page) then}
-\NormalTok{+ pagedelete page!i}
-\NormalTok{+ endif}
-\NormalTok{+ next}
-\NormalTok{+ }
-\NormalTok{+ for \%y page1 page2 page3  }
-\NormalTok{+ }
-\NormalTok{+ pagecreate(page=\{\%y\}) a 2020 2025}
-\NormalTok{+ next}
-\NormalTok{+ \%pagelist="page1 page2 page3"}
-\NormalTok{+ for \%y \{\%pagelist\}}
-\NormalTok{+ pageselect \{\%y\}}
-\NormalTok{+ delete(noerr) grap}
-\NormalTok{+ genr y=@cumsum(nrnd)}
-\NormalTok{+ genr x=@cumsum(nrnd)}
-\NormalTok{+ genr z=@cumsum(nrnd)}
-\NormalTok{+ genr date=@date}
-\NormalTok{+ \textquotesingle{}  graph grap3.line z   }
-\NormalTok{+  \textquotesingle{}             graph grap2.bar y }
-\NormalTok{+   \textquotesingle{}                        graph grap1.area x  }
-\NormalTok{+    \textquotesingle{} freeze(grap,mode=overwrite) x.line}
-\NormalTok{+ equation ols.ls y c x}
-\NormalTok{+ freeze(mode=overwrite,tab) ols}
-\NormalTok{+ next}
-\NormalTok{+ \textquotesingle{}wfsave mychunk}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{page3 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
@@ -209,41 +174,9 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{EViews\textgreater{} \textquotesingle{}This is some comment in EViews program, feel free to write anything}
-\NormalTok{+ }
-\NormalTok{+ wfcreate(page=EviewsR\_page,wf=EviewsR\_workfile) m 2000 2022}
-\NormalTok{+ for \%y sam package page1 page2}
-\NormalTok{+ pagecreate(page=\{\%y\}) sam m 2000 2022}
-\NormalTok{+ next}
-\NormalTok{+ pageselect sam}
-\NormalTok{+ rndseed 123456}
-\NormalTok{+ genr y=@cumsum(nrnd)}
-\NormalTok{+ genr x=@cumsum(nrnd)}
-\NormalTok{+ equation OLS\_EQUATION.ls y c x}
-\NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
-\NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
-\NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
-\NormalTok{+ graph GRAPH1.line x y}
-\NormalTok{+ save mygraph}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[h]
-
-{\centering \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-graph1} 
-
-}
-
-\caption{Dynamic figure}\label{fig:sagirumati}
-\end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{import\_graph}\NormalTok{(}\StringTok{"*"}\NormalTok{,}\StringTok{"mygraph"}\NormalTok{,}\StringTok{"sam"}\NormalTok{,}\AttributeTok{graph\_procs =} \StringTok{"template magazine"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-GRAPH1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
