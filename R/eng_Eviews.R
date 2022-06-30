@@ -580,9 +580,11 @@ if(file.exists(paste0(eviewsr_text1,"-equation.txt"))) equationPath=readLines(pa
 for (i in equationPath){
   equationDataframe=read.csv(paste0(save_path1,"/",i,".csv"))
   equationVectors=equationDataframe[eviewsVectors]
-  equationScalars=equationDataframe[-eviewsVectors]
-  equationName=gsub("\\-.*","",i) %>% tolower
-  assign(equationName,,envir = get(envName))
+  equationScalars=equationDataframe[!colnames(equationDataframe) %in% eviewsVectors] %>%
+   na.omit
+  equationList=c(equationScalars,equationVectors)
+    equationName=gsub("\\-.*","",i) %>% tolower
+  assign(equationName,equationList,envir = get(envName))
 }
 
 

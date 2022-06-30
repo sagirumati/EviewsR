@@ -285,7 +285,7 @@ The \(R^2\) of the \texttt{ols} equation object is 0.044951
 \begin{verbatim}
 ##           Dependent.Variable..Y           X                       X.1
 ## 1         Method: Least Squares                                      
-## 2  Date: 06/30/22   Time: 14:23                                      
+## 2  Date: 06/30/22   Time: 16:53                                      
 ## 3       Sample: 2000M01 2022M12                                      
 ## 4    Included observations: 276                                      
 ## 5                                                                    
@@ -330,15 +330,65 @@ The \(R^2\) of the \texttt{ols} equation object is 0.044951
 \end{Shaded}
 
 \begin{verbatim}
-##        aic  df     coefs       dw        f   fprob       hq      logl   meandep
-## 1 4.310163 274 -0.301413 0.200309 12.89627 0.00039 4.320691 -592.8025 -1.123598
-## 2       NA  NA -0.051410       NA       NA      NA       NA        NA        NA
-##   ncoef     pval       r2    rbar2 regobs  schwarz    sddep       se      ssr
-## 1     2 0.249083 0.044951 0.041465    276 4.336398 2.124864 2.080343 1185.825
-## 2    NA 0.000390       NA       NA     NA       NA       NA       NA       NA
-##    stderrs    tstats
-## 1 0.260956 -1.155033
-## 2 0.014316 -3.591137
+## $aic
+## [1] 4.310163
+## 
+## $df
+## [1] 274
+## 
+## $dw
+## [1] 0.200309
+## 
+## $f
+## [1] 12.89627
+## 
+## $fprob
+## [1] 0.00039
+## 
+## $hq
+## [1] 4.320691
+## 
+## $logl
+## [1] -592.8025
+## 
+## $meandep
+## [1] -1.123598
+## 
+## $ncoef
+## [1] 2
+## 
+## $r2
+## [1] 0.044951
+## 
+## $rbar2
+## [1] 0.041465
+## 
+## $regobs
+## [1] 276
+## 
+## $schwarz
+## [1] 4.336398
+## 
+## $sddep
+## [1] 2.124864
+## 
+## $se
+## [1] 2.080343
+## 
+## $ssr
+## [1] 1185.825
+## 
+## $coefs
+## [1] -0.301413 -0.051410
+## 
+## $pval
+## [1] 0.249083 0.000390
+## 
+## $stderrs
+## [1] 0.260956 0.014316
+## 
+## $tstats
+## [1] -1.155033 -3.591137
 \end{verbatim}
 
 \end{document}

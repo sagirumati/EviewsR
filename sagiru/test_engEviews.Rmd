@@ -159,7 +159,7 @@ graph EviewsR_GRAPH1.line x y
 ```
 
 
-The $R^2$ of the `ols` equation object is `r EviewsR1$eviewsr_ols_equation$r2[1]`
+The $R^2$ of the `ols` equation object is `r EviewsR1$eviewsr_ols_equation$r2`
 
 
 ```{r}
