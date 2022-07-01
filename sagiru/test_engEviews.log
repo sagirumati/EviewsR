@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  30 JUN 2022 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  1 JUL 2022 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -445,7 +445,8 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box63
-) (./test_engEviews.aux)
+)
+No file test_engEviews.aux.
 \openout1 = `test_engEviews.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
@@ -490,7 +491,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 120.
-(./test_engEviews.out) (./test_engEviews.out)
 \@outlinefile=\write4
 \openout4 = `test_engEviews.out'.
 
@@ -564,14 +564,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 122.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) (./test_engEviews.toc
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1.
 )
+No file test_engEviews.toc.
 \tf@toc=\write5
 \openout5 = `test_engEviews.toc'.
 
@@ -585,57 +579,88 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf, id=28, 378.81525pt x 275.44908pt>
+<test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf, id=19, 378.81525pt x 275.44908pt>
 File: test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf  used on input line 233.
 (pdftex.def)             Requested size: 211.38365pt x 153.70403pt.
-<test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf, id=29, 381.10379pt x 268.5232pt>
+<test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf, id=20, 381.10379pt x 268.5232pt>
 File: test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf>
 Package pdftex.def Info: test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf  used on input line 233.
 (pdftex.def)             Requested size: 211.39297pt x 148.94608pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png, id=30, 953.06062pt x 557.08125pt>
+<test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png, id=21, 953.06062pt x 557.08125pt>
 File: test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png  used on input line 246.
 (pdftex.def)             Requested size: 211.39pt x 123.5613pt.
-<test_engEviews_files/figure-latex//grap-GRAPH1.png, id=32, 957.07562pt x 558.58687pt>
+<test_engEviews_files/figure-latex//grap-GRAPH1.png, id=23, 957.07562pt x 558.58687pt>
 File: test_engEviews_files/figure-latex//grap-GRAPH1.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//grap-GRAPH1.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//grap-GRAPH1.png  used on input line 246.
 (pdftex.def)             Requested size: 211.3897pt x 123.37532pt.
-[2 <./test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png> <./test_engEviews_files/figure-latex//grap-GRAPH1.png>]
-<test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph.pdf, id=40, 458.61337pt x 281.43143pt>
-File: test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph.pdf  used on input line 270.
-(pdftex.def)             Requested size: 225.47829pt x 138.36638pt.
-<test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1.pdf, id=41, 513.4683pt x 250.56612pt>
-File: test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1.pdf  used on input line 270.
-(pdftex.def)             Requested size: 225.48016pt x 110.0315pt.
-[3 <./test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf> <./test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf> <./test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph.pdf> <./test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1.pdf>] [4] [5] (./test_engEviews.aux)
-Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
-(rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
- ) 
-Here is how much of TeX's memory you used:
- 15191 strings out of 479997
- 253490 string characters out of 5886778
- 585027 words of memory out of 5000000
- 33052 multiletter control sequences out of 15000+600000
- 520576 words of font info for 97 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 69i,10n,79p,1011b,631s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (5 pages, 565651 bytes).
-PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 500000)
- 28719 words of extra memory for PDF output out of 29859 (max. 10000000)
+<test_engEviews_files/figure-latex//eviewsr1-page1-graph1.pdf, id=24, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page1-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page1-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page1-graph1.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//eviewsr1-page1-graph2.pdf, id=25, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page1-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page1-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page1-graph2.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//eviewsr1-page1-graph3.pdf, id=26, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page1-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page1-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page1-graph3.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1.pdf, id=27, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2.pdf, id=28, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3.pdf, id=29, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//eviewsr1-page2-graph1.pdf, id=30, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page2-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page2-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page2-graph1.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//eviewsr1-page2-graph2.pdf, id=31, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page2-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page2-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page2-graph2.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//eviewsr1-page2-graph3.pdf, id=32, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//eviewsr1-page2-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//eviewsr1-page2-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//eviewsr1-page2-graph3.pdf  used on input line 250.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+[2 <./test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf> <./test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf>]
 
+! LaTeX Error: \subfloat outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \subfloat
+               [Figure 1 of EviewsR page\label{fig:sagiru-10}]{\includegraph... 
+Here is how much of TeX's memory you used:
+ 15163 strings out of 479997
+ 256139 string characters out of 5886778
+ 579612 words of memory out of 5000000
+ 33059 multiletter control sequences out of 15000+600000
+ 504912 words of font info for 73 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 69i,10n,79p,1714b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+!  ==> Fatal error occurred, no output PDF file produced!

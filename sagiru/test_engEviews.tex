@@ -245,150 +245,15 @@
 
 \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-GRAPH1}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{EViews\textgreater{} \textquotesingle{}This is some comment in EViews program, feel free to write anything}
-\NormalTok{+ }
-\NormalTok{+ wfcreate(page=EviewsR\_page,wf=EviewsR\_workfile) m 2000 2022}
-\NormalTok{+ for \%y EviewsR package page1 page2}
-\NormalTok{+ pagecreate(page=\{\%y\}) EviewsR m 2000 2022}
-\NormalTok{+ next}
-\NormalTok{+ pageselect EviewsR}
-\NormalTok{+ rndseed 123456}
-\NormalTok{+ genr y=@cumsum(nrnd)}
-\NormalTok{+ genr x=@cumsum(nrnd)}
-\NormalTok{+ equation OLS\_EQUATION.ls y c x}
-\NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
-\NormalTok{+ freeze(EviewsR\_GRAPH,mode=overwrite) y.line}
-\NormalTok{+ delete(noerr) EviewsR\_GRAPH1}
-\NormalTok{+ graph EviewsR\_GRAPH1.line x y}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}[h]
 
-{\centering \subfloat[Sub-figure 1\label{fig:EviewsR1-1}]{\includegraphics[width=0.48\textwidth,height=0.4\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph} }\subfloat[Sub-figure 2\label{fig:EviewsR1-2}]{\includegraphics[width=0.48\textwidth,height=0.4\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-eviewsr_graph1} }
+{\centering \subfloat[Figure 1 of EviewsR page\label{fig:EviewsR1-1}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph1} }\subfloat[Figure 2 of EviewsR page\label{fig:EviewsR1-2}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph2} }\subfloat[Figure 3 of EviewsR page\label{fig:EviewsR1-3}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph3} }\newline\subfloat[Figure 1 of Page1 page\label{fig:EviewsR1-4}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1} }\subfloat[Figure 2 of Page1 page\label{fig:EviewsR1-5}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2} }\subfloat[Figure 3 of Page1 page\label{fig:EviewsR1-6}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3} }\newline\subfloat[Figure 1 of Page2 page\label{fig:EviewsR1-7}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph1} }\subfloat[Figure 2 of Page2 page\label{fig:EviewsR1-8}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph2} }\subfloat[Figure 3 of Page2 page\label{fig:EviewsR1-9}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph3} }
 
 }
 
-\caption{Dynamic figure automatically imported by eviews chunk}\label{fig:EviewsR1}
+\caption{Figures automatically imported by eviews chunk (page=T, fig.keep="high")}\label{fig:EviewsR1}
 \end{figure}
 
-The \(R^2\) of the \texttt{ols} equation object is 0.044951
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ EviewsR1}\SpecialCharTok{$}\NormalTok{eviewsr\_ols\_equation\_table}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##           Dependent.Variable..Y           X                       X.1
-## 1         Method: Least Squares                                      
-## 2  Date: 06/30/22   Time: 16:53                                      
-## 3       Sample: 2000M01 2022M12                                      
-## 4    Included observations: 276                                      
-## 5                                                                    
-## 6                      Variable Coefficient                Std. Error
-## 7                                                                    
-## 8                             C   -0.301413                  0.260956
-## 9                             X   -0.051410                  0.014316
-## 10                                                                   
-## 11                    R-squared    0.044951        Mean dependent var
-## 12           Adjusted R-squared    0.041465        S.D. dependent var
-## 13           S.E. of regression    2.080343     Akaike info criterion
-## 14            Sum squared resid    1185.825         Schwarz criterion
-## 15               Log likelihood   -592.8025      Hannan-Quinn criter.
-## 16                  F-statistic    12.89627        Durbin-Watson stat
-## 17            Prob(F-statistic)    0.000390                          
-## 18                                                                   
-##            X.2       X.3
-## 1                       
-## 2                       
-## 3                       
-## 4                       
-## 5                       
-## 6  t-Statistic   Prob.  
-## 7                       
-## 8    -1.155033    0.2491
-## 9    -3.591137    0.0004
-## 10                      
-## 11             -1.123598
-## 12              2.124864
-## 13              4.310163
-## 14              4.336398
-## 15              4.320691
-## 16              0.200309
-## 17                      
-## 18
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ EviewsR1}\SpecialCharTok{$}\NormalTok{eviewsr\_ols\_equation}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## $aic
-## [1] 4.310163
-## 
-## $df
-## [1] 274
-## 
-## $dw
-## [1] 0.200309
-## 
-## $f
-## [1] 12.89627
-## 
-## $fprob
-## [1] 0.00039
-## 
-## $hq
-## [1] 4.320691
-## 
-## $logl
-## [1] -592.8025
-## 
-## $meandep
-## [1] -1.123598
-## 
-## $ncoef
-## [1] 2
-## 
-## $r2
-## [1] 0.044951
-## 
-## $rbar2
-## [1] 0.041465
-## 
-## $regobs
-## [1] 276
-## 
-## $schwarz
-## [1] 4.336398
-## 
-## $sddep
-## [1] 2.124864
-## 
-## $se
-## [1] 2.080343
-## 
-## $ssr
-## [1] 1185.825
-## 
-## $coefs
-## [1] -0.301413 -0.051410
-## 
-## $pval
-## [1] 0.249083 0.000390
-## 
-## $stderrs
-## [1] 0.260956 0.014316
-## 
-## $tstats
-## [1] -1.155033 -3.591137
-\end{verbatim}
+\subfloat[Figure 1 of EviewsR page\label{fig:sagiru-10}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page1-graph3} }\subfloat[Figure 2 of EviewsR page\label{fig:sagiru-11}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page1-graph2} }\subfloat[Figure 3 of EviewsR page\label{fig:sagiru-12}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page1-graph1} }\subfloat[Figure 1 of Page1 page\label{fig:sagiru-13}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page2-graph3} }\subfloat[Figure 2 of Page1 page\label{fig:sagiru-14}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page2-graph2} }\subfloat[Figure 3 of Page1 page\label{fig:sagiru-15}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-page2-graph1} }\subfloat[Figure 1 of Page2 page\label{fig:sagiru-16}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-eviewsr-graph3} }\subfloat[Figure 2 of Page2 page\label{fig:sagiru-17}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-eviewsr-graph2} }\subfloat[Figure 3 of Page2 page\label{fig:sagiru-18}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//sagiru-eviewsr-graph1} }
 
 \end{document}
