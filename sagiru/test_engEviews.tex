@@ -109,6 +109,7 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{subfig}
+\usepackage{float}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -165,13 +166,13 @@
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{page3 }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{ols }
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{tab}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ mychunk}\SpecialCharTok{$}\NormalTok{mati }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head }
 \end{Highlighting}
 \end{Shaded}
@@ -185,7 +186,7 @@
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{print}\NormalTok{(knitr}\SpecialCharTok{::}\NormalTok{opts\_current}\SpecialCharTok{$}\FunctionTok{get}\NormalTok{(}\StringTok{"fig.show"}\NormalTok{))}
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ y}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ x}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{plot}\NormalTok{(x,y)}
 \end{Highlighting}
 \end{Shaded}
@@ -200,9 +201,9 @@
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{rwalk}\NormalTok{(}\StringTok{"x y z"}\NormalTok{,}\AttributeTok{num\_observations =} \DecValTok{100}\NormalTok{,}\AttributeTok{frequency =} \StringTok{"7"}\NormalTok{,}\AttributeTok{start\_date =} \StringTok{"1"}\NormalTok{)}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ eviews}\SpecialCharTok{$}\NormalTok{xyz }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ head}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(eviews}\SpecialCharTok{$}\NormalTok{xyz,}\AttributeTok{group =}\NormalTok{ T,}\AttributeTok{graph\_procs =} \StringTok{"template midnight"}\NormalTok{,}\AttributeTok{graph\_command =} \StringTok{"line"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -230,11 +231,11 @@
 
 \begin{figure}[h]
 
-{\centering \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-graph1}
+{\centering \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//sagirumati-sam-graph1} 
 
 }
 
-\caption{Dynamic figure}\label{fig:sagirumati}
+\caption{sagiru mati gabasawa}\label{fig:sagirumati}
 \end{figure}
 
 \begin{Shaded}
@@ -245,41 +246,16 @@
 
 \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH} \includegraphics[width=0.45\textwidth]{test_engEviews_files/figure-latex//grap-GRAPH1}
 
-\begin{figure}[h]
+\setcounter{subfigure}{0}
 
-{\centering \subfloat[Figure 1 of EviewsR page\label{fig:EviewsR1-1}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph1} }\subfloat[Figure 2 of EviewsR page\label{fig:EviewsR1-2}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph2} }\subfloat[Figure 3 of EviewsR page\label{fig:EviewsR1-3}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page1-graph3} }\newline\subfloat[Figure 1 of Page1 page\label{fig:EviewsR1-4}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph1} }\subfloat[Figure 2 of Page1 page\label{fig:EviewsR1-5}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph2} }\subfloat[Figure 3 of Page1 page\label{fig:EviewsR1-6}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-eviewsr-graph3} }\newline\subfloat[Figure 1 of Page2 page\label{fig:EviewsR1-7}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph1} }\subfloat[Figure 2 of Page2 page\label{fig:EviewsR1-8}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph2} }\subfloat[Figure 3 of Page2 page\label{fig:EviewsR1-9}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr1-page2-graph3} }
+\setcounter{subfigure}{0}
 
-}
-
-\caption{Figures automatically imported by eviews chunk (page=T, fig.keep="high")}\label{fig:EviewsR1}
-\end{figure}
-
-\begin{figure}[h]
-
-\subfloat[Figure 1 of EviewsR page\label{fig:EviewsR2-1}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small-sag1} }\subfloat[Figure 2 of EviewsR page\label{fig:EviewsR2-2}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small-sag2} }\subfloat[Figure 3 of EviewsR page\label{fig:EviewsR2-3}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small-sag3} }\subfloat[Figure 1 of Page1 page\label{fig:EviewsR2-4}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small2-sag1} }\subfloat[Figure 2 of Page1 page\label{fig:EviewsR2-5}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small2-sag2} }\subfloat[Figure 3 of Page1 page\label{fig:EviewsR2-6}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small2-sag3} }\subfloat[Figure 1 of Page2 page\label{fig:EviewsR2-7}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small3-sag1} }\subfloat[Figure 2 of Page2 page\label{fig:EviewsR2-8}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small3-sag2} }\subfloat[Figure 3 of Page2 page\label{fig:EviewsR2-9}]{\includegraphics[width=0.3\textwidth,height=0.25\textwidth]{test_engEviews_files/figure-latex//eviewsr2-small3-sag3} }
-
-\end{figure}
+\setcounter{subfigure}{0}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
-\NormalTok{EViews}\SpecialCharTok{\textgreater{}}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
 \NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
@@ -294,11 +270,38 @@
 
 \begin{figure}[h]
 
-{\centering \subfloat[1\label{fig:unnamed-chunk-3-1}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-1} }\subfloat[2\label{fig:unnamed-chunk-3-2}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-2} }\subfloat[3\label{fig:unnamed-chunk-3-3}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-3} }\newline\subfloat[4\label{fig:unnamed-chunk-3-4}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-4} }\subfloat[5\label{fig:unnamed-chunk-3-5}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-5} }\subfloat[6\label{fig:unnamed-chunk-3-6}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-6} }\newline\subfloat[7\label{fig:unnamed-chunk-3-7}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-7} }\subfloat[8\label{fig:unnamed-chunk-3-8}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-8} }\subfloat[9\label{fig:unnamed-chunk-3-9}]{\includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-9} }
+{\centering \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-1} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-2} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-3} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-4} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-5} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-6} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-7} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-8} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-2-9} 
 
 }
 
-\caption{some plot}\label{fig:unnamed-chunk-3}
+\caption{some plot}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\setcounter{subfigure}{0}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} \FunctionTok{library}\NormalTok{(magrittr)}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}} 
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\NormalTok{EViews}\SpecialCharTok{\textgreater{}}\NormalTok{ a}\OtherTok{=}\FunctionTok{runif}\NormalTok{(}\DecValTok{100}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ plot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[h]
+
+{\centering \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-1} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-2} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-3} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-4} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-5} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-6} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-7} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-8} \includegraphics[width=0.3\textwidth]{test_engEviews_files/figure-latex/unnamed-chunk-3-9} 
+
+}
+
+\caption{some plot again}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 \end{document}
