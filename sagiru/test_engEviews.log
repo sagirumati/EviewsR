@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  1 JUL 2022 20:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  1 JUL 2022 23:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,120 +616,232 @@ File: test_engEviews_files/figure-latex//grap-GRAPH1.png Graphic file (type png)
 <use test_engEviews_files/figure-latex//grap-GRAPH1.png>
 Package pdftex.def Info: test_engEviews_files/figure-latex//grap-GRAPH1.png  used on input line 247.
 (pdftex.def)             Requested size: 211.3897pt x 123.37532pt.
-[2 <./test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png> <./test_engEviews_files/figure-latex//grap-GRAPH1.png>]
-<test_engEviews_files/figure-latex/unnamed-chunk-2-1.pdf, id=40, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-1.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-2.pdf, id=41, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-2.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-2.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-3.pdf, id=42, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-3.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-3.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-3.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-4.pdf, id=43, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-4.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-4.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-4.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-5.pdf, id=44, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-5.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-5.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-5.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-6.pdf, id=45, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-6.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-6.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-6.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-7.pdf, id=46, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-7.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-7.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-7.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-8.pdf, id=47, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-8.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-8.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-8.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-2-9.pdf, id=48, 469.755pt x 325.215pt>
-File: test_engEviews_files/figure-latex/unnamed-chunk-2-9.pdf Graphic file (type pdf)
-<use test_engEviews_files/figure-latex/unnamed-chunk-2-9.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-9.pdf  used on input line 273.
-(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex//biscuit-page1-graph1.pdf, id=33, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page1-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page1-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page1-graph1.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//biscuit-page1-graph2.pdf, id=34, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page1-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page1-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page1-graph2.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//biscuit-page1-graph3.pdf, id=35, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page1-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page1-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page1-graph3.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//biscuit-eviewsr-graph1.pdf, id=36, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-eviewsr-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-eviewsr-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-eviewsr-graph1.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//biscuit-eviewsr-graph2.pdf, id=37, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-eviewsr-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-eviewsr-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-eviewsr-graph2.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//biscuit-eviewsr-graph3.pdf, id=38, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-eviewsr-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-eviewsr-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-eviewsr-graph3.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//biscuit-page2-graph1.pdf, id=39, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page2-graph1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page2-graph1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page2-graph1.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//biscuit-page2-graph2.pdf, id=40, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page2-graph2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page2-graph2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page2-graph2.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//biscuit-page2-graph3.pdf, id=41, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//biscuit-page2-graph3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//biscuit-page2-graph3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//biscuit-page2-graph3.pdf  used on input line 251.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf, id=49, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex//saniya-small-sag1.pdf, id=42, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small-sag1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small-sag1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small-sag1.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//saniya-small-sag2.pdf, id=43, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small-sag2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small-sag2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small-sag2.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//saniya-small-sag3.pdf, id=44, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small-sag3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small-sag3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small-sag3.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//saniya-small2-sag1.pdf, id=45, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small2-sag1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small2-sag1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small2-sag1.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//saniya-small2-sag2.pdf, id=46, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small2-sag2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small2-sag2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small2-sag2.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//saniya-small2-sag3.pdf, id=47, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small2-sag3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small2-sag3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small2-sag3.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+<test_engEviews_files/figure-latex//saniya-small3-sag1.pdf, id=48, 458.57321pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small3-sag1.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small3-sag1.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small3-sag1.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
+<test_engEviews_files/figure-latex//saniya-small3-sag2.pdf, id=49, 455.833pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small3-sag2.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small3-sag2.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small3-sag2.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
+<test_engEviews_files/figure-latex//saniya-small3-sag3.pdf, id=50, 458.1115pt x 272.9096pt>
+File: test_engEviews_files/figure-latex//saniya-small3-sag3.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex//saniya-small3-sag3.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex//saniya-small3-sag3.pdf  used on input line 258.
+(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+[][] [] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+[] [] []
+ []
+
+[2 <./test_engEviews_files/figure-latex//grap-EVIEWSR_GRAPH.png> <./test_engEviews_files/figure-latex//grap-GRAPH1.png>]
+<test_engEviews_files/figure-latex/unnamed-chunk-2-19.pdf, id=58, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-19.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-19.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-19.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-20.pdf, id=59, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-20.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-20.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-20.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-21.pdf, id=60, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-21.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-21.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-21.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-22.pdf, id=61, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-22.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-22.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-22.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-23.pdf, id=62, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-23.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-23.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-23.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-24.pdf, id=63, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-24.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-24.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-24.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-25.pdf, id=64, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-25.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-25.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-25.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-26.pdf, id=65, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-26.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-26.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-26.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+<test_engEviews_files/figure-latex/unnamed-chunk-2-27.pdf, id=66, 469.755pt x 325.215pt>
+File: test_engEviews_files/figure-latex/unnamed-chunk-2-27.pdf Graphic file (type pdf)
+<use test_engEviews_files/figure-latex/unnamed-chunk-2-27.pdf>
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-2-27.pdf  used on input line 276.
+(pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+[][] [] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+[] [] []
+ []
+
+[3 <./test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf> <./test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf> <./test_engEviews_files/figure-latex//saniya-small-sag1.pdf> <./test_engEviews_files/figure-latex//saniya-small-sag2.pdf> <./test_engEviews_files/figure-latex//saniya-small-sag3.pdf> <./test_engEviews_files/figure-latex//saniya-small2-sag1.pdf> <./test_engEviews_files/figure-latex//saniya-small2-sag2.pdf> <./test_engEviews_files/figure-latex//saniya-small2-sag3.pdf> <./test_engEviews_files/figure-latex//saniya-small3-sag1.pdf> <./test_engEviews_files/figure-latex//saniya-small3-sag2.pdf> <./test_engEviews_files/figure-latex//saniya-small3-sag3.pdf>]
+Underfull \vbox (badness 10000) detected at line 292
+ []
+
+[4 <./test_engEviews_files/figure-latex//biscuit-page1-graph1.pdf> <./test_engEviews_files/figure-latex//biscuit-page1-graph2.pdf> <./test_engEviews_files/figure-latex//biscuit-page1-graph3.pdf> <./test_engEviews_files/figure-latex//biscuit-eviewsr-graph1.pdf> <./test_engEviews_files/figure-latex//biscuit-eviewsr-graph2.pdf> <./test_engEviews_files/figure-latex//biscuit-eviewsr-graph3.pdf> <./test_engEviews_files/figure-latex//biscuit-page2-graph1.pdf> <./test_engEviews_files/figure-latex//biscuit-page2-graph2.pdf> <./test_engEviews_files/figure-latex//biscuit-page2-graph3.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-19.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-20.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-21.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-22.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-23.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-24.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-25.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-26.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-27.pdf>]
+<test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf, id=316, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf, id=50, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf, id=317, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf, id=51, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf, id=318, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf, id=52, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf, id=319, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf, id=53, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf, id=320, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf, id=54, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf, id=321, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf, id=55, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf, id=322, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf, id=56, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf, id=323, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-<test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf, id=57, 469.755pt x 325.215pt>
+<test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf, id=324, 469.755pt x 325.215pt>
 File: test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf Graphic file (type pdf)
 <use test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf>
-Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf  used on input line 300.
+Package pdftex.def Info: test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf  used on input line 296.
 (pdftex.def)             Requested size: 140.92758pt x 97.56525pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3 <./test_engEviews_files/figure-latex//sagirumati-sam-eviewsr_graph.pdf> <./test_engEviews_files/figure-latex//sagirumati-sam-graph1.pdf>] [4 <./test_engEviews_files/figure-latex/unnamed-chunk-2-1.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-2.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-3.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-4.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-5.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-6.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-7.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-8.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-2-9.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf>] (./test_engEviews.aux)
+[5 <./test_engEviews_files/figure-latex/unnamed-chunk-3-1.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-2.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-3.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-4.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-5.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-6.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-7.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-8.pdf> <./test_engEviews_files/figure-latex/unnamed-chunk-3-9.pdf>] (./test_engEviews.aux)
 Package rerunfilecheck Info: File `test_engEviews.out' has not changed.
 (rerunfilecheck)             Checksum: B1DC48D5B9353D8A94FBAE6FB2354754;182.
  ) 
 Here is how much of TeX's memory you used:
- 15386 strings out of 479997
- 262539 string characters out of 5886778
- 580219 words of memory out of 5000000
- 33233 multiletter control sequences out of 15000+600000
+ 15549 strings out of 479997
+ 272473 string characters out of 5886778
+ 580230 words of memory out of 5000000
+ 33377 multiletter control sequences out of 15000+600000
  517416 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,79p,1011b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,6n,79p,1168b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on test_engEviews.pdf (4 pages, 571131 bytes).
+Output written on test_engEviews.pdf (5 pages, 1282145 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
- 13 named destinations out of 1000 (max. 500000)
- 26751 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 14 named destinations out of 1000 (max. 500000)
+ 26841 words of extra memory for PDF output out of 29859 (max. 10000000)
 

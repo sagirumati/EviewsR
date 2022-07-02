@@ -688,9 +688,7 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 code=engine_output(options,code = options$code, out = "")
 if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
 
-if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,
-                                                                             out =output
-)
+if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
 
 if(options$echo) return(c(code,out)) else return(c(out))
 } # end of if(options$eval)
