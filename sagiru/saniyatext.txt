@@ -1,1 +1,1 @@
-saniya figure center
+saniya figure center Figures automatically imported by eviews chunk (page=T, fig.keep="new")

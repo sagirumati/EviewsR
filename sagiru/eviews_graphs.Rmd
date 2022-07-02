@@ -21,6 +21,48 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 # R plots
 
 
+```{r}
+#| fig.cap: some plot again
+#| fig.subcap: !expr 1:9
+#| out.width: 0.3\textwidth
+#| fig.ncol: 3
+#| fig.show: hold
+
+library(magrittr)
+
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+```
+
+
+
+```{r}
+#| fig.cap: some plot
+#| fig.subcap: !expr 1:9
+#| out.width: 0.3\textwidth
+#| fig.ncol: 3
+#| fig.show: hold
+
+library(magrittr)
+
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+a=runif(100) %>% plot
+```
+
 
 
 ```{eviews biscuit,eval=F,fig.env="figure",fig.cap= 'Figures automatically imported by eviews chunk (page=T, fig.keep="high")',fig.cur=9, fig.num=9}
@@ -58,26 +100,6 @@ next
 
 
 
-```{r}
-#| fig.cap: some plot
-#| fig.subcap: !expr 1:9
-#| out.width: 0.3\textwidth
-#| fig.ncol: 3
-#| fig.show: hold
-
-library(magrittr)
-
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-```
-
 
 ```{eviews saniya,eval=F,fig.env="figure",fig.cap= 'Figures automatically imported by eviews chunk (page=T, fig.keep="new")', fig.cur=9, fig.num=9}
 #| #fig.cap: Figures automatically imported by eviews chunk (page=T, fig.keep="new")
@@ -113,27 +135,3 @@ sag1.addtext(ar) %y
 next
 ```
 
-
-
-
-
-
-```{r}
-#| fig.cap: some plot again
-#| fig.subcap: !expr 1:9
-#| out.width: 0.3\textwidth
-#| fig.ncol: 3
-#| fig.show: hold
-
-library(magrittr)
-
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-a=runif(100) %>% plot
-```
