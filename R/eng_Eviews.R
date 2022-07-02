@@ -39,7 +39,8 @@ eng_eviews <- function(options) {
 
        if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
-    # if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
+    if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
+
     # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
     # if (!is.null(options$eval))options$template=opts_current$get("template")
 
