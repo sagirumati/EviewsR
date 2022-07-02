@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  2 JUL 2022 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.27)  2 JUL 2022 15:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -407,8 +407,6 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@width=\dimen185
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-(c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@tempdima=\dimen186
@@ -421,36 +419,29 @@ Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
 \caption@hangindent=\dimen193
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count303
-\c@continuedfloat=\count304
-Package caption Info: hyperref package is loaded.
-Package caption Info: longtable package is loaded.
-(c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-))
-\c@KVtest=\count305
+\c@KVtest=\count303
 \sf@farskip=\skip64
 \sf@captopadj=\dimen194
 \sf@capskip=\skip65
 \sf@nearskip=\skip66
-\c@subfigure=\count306
-\c@subfigure@save=\count307
-\c@lofdepth=\count308
-\c@subtable=\count309
-\c@subtable@save=\count310
-\c@lotdepth=\count311
+\c@subfigure=\count304
+\c@subfigure@save=\count305
+\c@lofdepth=\count306
+\c@subtable=\count307
+\c@subtable@save=\count308
+\c@lotdepth=\count309
 \sf@top=\skip67
 \sf@bottom=\skip68
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count312
+\c@float@type=\count310
 \float@exts=\toks28
 \float@box=\box63
 \@float@everytoks=\toks29
 \@floatcapt=\box64
 ) (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count313
+\l__color_backend_stack_int=\count311
 \l__pdf_internal_box=\box65
 )
 No file eviews_graphs.aux.
@@ -537,7 +528,6 @@ Package hyperref Info: Link coloring OFF on input line 121.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 123.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -585,49 +575,37 @@ Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page1-graph1.
 <eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf, id=5, 455.833pt x 272.9096pt>
 File: eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf Graphic file (type pdf)
 <use eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf  used on input line 133.
+Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf  used on input line 141.
 (pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
 <eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf, id=6, 458.1115pt x 272.9096pt>
 File: eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf Graphic file (type pdf)
 <use eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf  used on input line 133.
+Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf  used on input line 149.
 (pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
-<eviews_graphs_files/figure-latex//biscuit-eviewsr-graph1.pdf, id=7, 458.57321pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph1.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-eviewsr-graph1.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph1.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
-<eviews_graphs_files/figure-latex//biscuit-eviewsr-graph2.pdf, id=8, 455.833pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph2.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-eviewsr-graph2.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph2.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
-<eviews_graphs_files/figure-latex//biscuit-eviewsr-graph3.pdf, id=9, 458.1115pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph3.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-eviewsr-graph3.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-eviewsr-graph3.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
-<eviews_graphs_files/figure-latex//biscuit-page2-graph1.pdf, id=10, 458.57321pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-page2-graph1.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-page2-graph1.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page2-graph1.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.9247pt x 83.86818pt.
-<eviews_graphs_files/figure-latex//biscuit-page2-graph2.pdf, id=11, 455.833pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-page2-graph2.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-page2-graph2.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page2-graph2.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.92421pt x 84.37206pt.
-<eviews_graphs_files/figure-latex//biscuit-page2-graph3.pdf, id=12, 458.1115pt x 272.9096pt>
-File: eviews_graphs_files/figure-latex//biscuit-page2-graph3.pdf Graphic file (type pdf)
-<use eviews_graphs_files/figure-latex//biscuit-page2-graph3.pdf>
-Package pdftex.def Info: eviews_graphs_files/figure-latex//biscuit-page2-graph3.pdf  used on input line 133.
-(pdftex.def)             Requested size: 140.9226pt x 83.95148pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 145.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 157.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 148.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 160.
+[1
+
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.170 \end{Shaded}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.170 \end{Shaded}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.170 \end{Shaded}
+                   <./eviews_graphs_files/figure-latex//biscuit-page1-graph1.pdf> <./eviews_graphs_files/figure-latex//biscuit-page1-graph2.pdf> <./eviews_graphs_files/figure-latex//biscuit-page1-graph3.pdf>]
 
 ! LaTeX Error: \subfloat outside float.
 
@@ -635,15 +613,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.160 \subfloat
-               [1\label{fig:unnamed-chunk-1-10}]{\includegraphics[width=0.3\... 
+l.172 \subfloat
+               [4\label{fig:unnamed-chunk-1-4}]{\includegraphics[width=0.3\t... 
 Here is how much of TeX's memory you used:
- 15127 strings out of 479997
- 253780 string characters out of 5886778
- 571957 words of memory out of 5000000
- 33046 multiletter control sequences out of 15000+600000
+ 14574 strings out of 479997
+ 241037 string characters out of 5886778
+ 567886 words of memory out of 5000000
+ 32495 multiletter control sequences out of 15000+600000
  498573 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,79p,1244b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,6n,67p,1010b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

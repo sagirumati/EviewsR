@@ -4,7 +4,7 @@ output:
   bookdown::pdf_document2:
    keep_tex: true
 header-includes:
-  - \usepackage{subfig}
+  - \usepackage[caption=false]{subfig}
   - \usepackage{float}
 date: '2022-06-11'
 ---
@@ -29,8 +29,9 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",out.w
 #| out.width: 0.3\textwidth
 #| out.height: 0.25\textwidth
 #| fig.ncol: 3
-#| fig.show: hold
+#| #fig.show: hold
 #| echo: FALSE
+#| page: page1
 
 'This is some comment in EViews program, feel free to write anything
 
@@ -81,13 +82,14 @@ a=runif(100) %>% plot
 ```{eviews saniya,eval=F,fig.env="figure",fig.cap= 'Figures automatically imported by eviews chunk (page=T, fig.keep="new")', fig.cur=9, fig.num=9}
 #| #fig.cap: Figures automatically imported by eviews chunk (page=T, fig.keep="new")
 #| #fig.subcap: !expr paste(rep("Figure",9),1:3,"of",rep(c("EviewsR","Page1","Page2"),each=3),"page")
-#| fig.show: hold
+#| #fig.show: hold
 #| graph_procs: [template magazine,legend position(right)]
 #| out.width: 0.3\textwidth
 #| fig.pos: H
 #| out.height: 0.25\textwidth
 #| fig.ncol: 3
 #| echo: FALSE
+#| page: small
 
 'This is some comment in EViews program, feel free to write anything
 

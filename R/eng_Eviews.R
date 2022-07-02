@@ -33,9 +33,11 @@ eng_eviews <- function(options) {
   options$fig.cur=9
   options$fig.num=9
    # options$fig.cap='sagiru mati gabasawa'
-   options$fig.env="figure"
+   # options$fig.env=opts_chunk$get('fig.env')
 
-    if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
+   writeLines(paste(options$label,options$fig.env,options$fig.align),paste0(options$label,'text.txt'))
+
+       if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
     if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
     # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
@@ -694,10 +696,11 @@ if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_
 
 if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
 
-# if(options$echo) return(c(code,out)) else return(c(out))
-options$fig.show='asis'
+if(options$echo) return(c(code,out)) else return(c(out))
 
-evaluate::evaluate(out)
+opts_chunk$restore()
+
+# evaluate::evaluate(out)
 
 # } # end of if(options$eval)
 
