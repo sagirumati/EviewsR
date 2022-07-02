@@ -48,7 +48,7 @@ eng_eviews <- function(options) {
 
     eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 
- # if (options$eval){
+  if (options$eval){
 
    if(is.character(options$page)){
 
@@ -702,7 +702,7 @@ opts_chunk$restore()
 
 # evaluate::evaluate(out)
 
-# } # end of if(options$eval)
+ } # end of if(options$eval)
 
 }
 
