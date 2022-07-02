@@ -29,7 +29,11 @@
 #' @export
 eng_eviews <- function(options) {
 
-   options$fig.cap='sagiru mati gabasawa'
+
+  options$fig.cur=9
+  options$fig.num=9
+   # options$fig.cap='sagiru mati gabasawa'
+   options$fig.env="figure"
 
     if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
@@ -42,7 +46,7 @@ eng_eviews <- function(options) {
 
     eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 
- if (options$eval){
+ # if (options$eval){
 
    if(is.character(options$page)){
 
@@ -690,9 +694,12 @@ if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_
 
 if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
 
-if(options$echo) return(c(code,out)) else return(c(out))
-} # end of if(options$eval)
+# if(options$echo) return(c(code,out)) else return(c(out))
+options$fig.show='asis'
+
+evaluate::evaluate(out)
+
+# } # end of if(options$eval)
 
 }
-
 
