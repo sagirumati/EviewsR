@@ -30,7 +30,7 @@
 eng_eviews <- function(options) {
 
 #
-#   options$fig.cur=9
+  options$fig.cur=3
 #   options$fig.num=9
    # options$fig.cap='sagiru mati gabasawa'
    # options$fig.env=opts_chunk$get('fig.env')
@@ -694,8 +694,11 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 
 options$fig.env='figure'
 options$fig.pos='H'
-options$fig.num =1; options$fig.cur = 1
-  extra = knitr:::run_hook_plot(eviews_graphics, options)
+cap = options$fig.cap
+scap = options$fig.scap
+res=eviews_graphics
+options$fig.num =1L; options$fig.cur = 2L
+  extra = knitr:::run_hook_plot(res, options)
 engine_output(options, options$code, '', extra)
 
 # extra = list(include_graphics(eviews_graphics))
