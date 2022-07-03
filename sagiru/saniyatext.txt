@@ -1,1 +1,9 @@
-saniya figure center Figures automatically imported by eviews chunk (page=T, fig.keep="new")
+saniya Figure 1 of EviewsR page center Figures automatically imported 2
+saniya Figure 2 of EviewsR page center Figures automatically imported 2
+saniya Figure 3 of EviewsR page center Figures automatically imported 2
+saniya Figure 1 of Page1 page center Figures automatically imported 2
+saniya Figure 2 of Page1 page center Figures automatically imported 2
+saniya Figure 3 of Page1 page center Figures automatically imported 2
+saniya Figure 1 of Page2 page center Figures automatically imported 2
+saniya Figure 2 of Page2 page center Figures automatically imported 2
+saniya Figure 3 of Page2 page center Figures automatically imported 2

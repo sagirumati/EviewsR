@@ -35,7 +35,7 @@ eng_eviews <- function(options) {
    # options$fig.cap='sagiru mati gabasawa'
    # options$fig.env=opts_chunk$get('fig.env')
 
-   writeLines(paste(options$label,options$fig.env,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
+   writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
 
        if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
@@ -692,14 +692,23 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 
 # include_graphics(eviews_graphics)
 
-code=engine_output(options,code = options$code, out = "")
-if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+options$fig.num = 1L; options$fig.cur = 1L
+  extra = knitr:::hook_plot_tex(eviews_graphics, options)
+engine_output(options, options$code, '', extra)
 
-if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
+# extra = list(include_graphics(eviews_graphics))
+# engine_output(options, options$code, extra,'')
+#
+# # begining of comment
+# code=engine_output(options,code = options$code, out = "")
+# if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+#
+# if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
+#
+# if(options$echo) return(c(code,out)) else return(c(out))
 
-if(options$echo) return(c(code,out)) else return(c(out))
-
-opts_chunk$restore()
+#end of comment
+# opts_chunk$restore()
 
 # evaluate::evaluate(out)
 

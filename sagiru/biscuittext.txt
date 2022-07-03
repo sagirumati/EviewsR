@@ -1,1 +1,9 @@
-biscuit figure center Figures automatically imported by eviews chunk (page=T, fig.keep="high")
+biscuit Figure 1 of EviewsR page center Figures automatically imported by eviews 2
+biscuit Figure 2 of EviewsR page center Figures automatically imported by eviews 2
+biscuit Figure 3 of EviewsR page center Figures automatically imported by eviews 2
+biscuit Figure 1 of Page1 page center Figures automatically imported by eviews 2
+biscuit Figure 2 of Page1 page center Figures automatically imported by eviews 2
+biscuit Figure 3 of Page1 page center Figures automatically imported by eviews 2
+biscuit Figure 1 of Page2 page center Figures automatically imported by eviews 2
+biscuit Figure 2 of Page2 page center Figures automatically imported by eviews 2
+biscuit Figure 3 of Page2 page center Figures automatically imported by eviews 2
