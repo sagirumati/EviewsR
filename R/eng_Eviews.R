@@ -704,10 +704,14 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 #   extra = knitr:::run_hook_plot(res, options)
 # engine_output(options, options$code, '', extra)
 
+# reticulate:::defer(plot_counter(reset = TRUE), envir = knit_global())
+
 on.exit({
-  knitr:::plot_counter(reset = TRUE)
-  knitr:::shot_counter(reset = TRUE)
-  knitr:::opts_knit$delete('plot_files')
+  getFromNamespace('plot_counter','knitr')(TRUE)
+  # plot_counter(reset = TRUE)
+  # reticulate:::defer(plot_counter(reset=T))
+   # shot_counter(reset = TRUE)
+   # opts_knit$delete('plot_files')
 }, add = TRUE) # restore plot number on.exit({
 
 # extra = list(include_graphics(eviews_graphics))

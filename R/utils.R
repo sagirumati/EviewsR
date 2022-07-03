@@ -1,5 +1,5 @@
 #' @import knitr magrittr
-#' @importFrom utils write.csv read.csv
+#' @importFrom utils write.csv read.csv assignInMyNamespace getFromNamespace
 
 globalVariables(".")
 
@@ -47,7 +47,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 .onLoad<-function(libname,pkgname){
-  knit_engines$set(eviews=eng_eviews)
+  knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
@@ -79,6 +79,25 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 # }
 # which(!nzchar(a))
 # if (Sys.info()["sysname"]=="Windows") shell(fileName) else system2("EViews",paste0("exec ",shQuote_cmd(paste0(path,"/",fileName))))
+
+
+#
+# knit_counter = function(init = 0L) {
+#   n = init
+#   function(reset = FALSE) {
+#     if (reset) return(n <<- init)
+#     n <<- n + 1L
+#     n - 1L
+#   }
+# }
+
+# getFromNamespace('knit_counter','knitr',envir = knit_global())
+# plot_counter=knit_counter(1L)
+#
+# plot_counter <- getFromNamespace('plot_counter','knitr')
+# utils::assignInMyNamespace("plot_counter", plot_counter)
+
+# plot_counter=do.call(":::",list("knitr",'plot_counter'))
 
 
 

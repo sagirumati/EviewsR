@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
 output: 
-  bookdown::word_document2:
+  bookdown::pdf_document2:
    keep_tex: true
 header-includes:
   - \usepackage[caption=false]{subfig}
@@ -12,7 +12,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 library(EviewsR)
 knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T)
-options(par)
+
 # set_eviews_path("eviews10")
 ```
 
@@ -24,13 +24,13 @@ options(par)
 
 
 ```{eviews saniya,fig.cap= 'Figures automatically imported by eviews'}
-#| fig.cap: Figures importd 
+#| fig.cap: Figures import 
 #| fig.subcap: !expr paste(rep("Figure",9),1:3,"of",rep(c("EviewsR","Page1","Page2"),each=3),"page")
 #| fig.show: asis
 #| graph_procs: [template magazine,legend position(right)]
-#| out.width: #0.3\textwidth
+#| out.width: 0.3\textwidth
 #| fig.pos: H
-#| out.height: #0.25\textwidth
+#| out.height: 0.25\textwidth
 #| fig.ncol: 3
 #| echo: FALSE
 #| page: small
@@ -62,7 +62,7 @@ next
 ```{r}
 #| fig.cap: some plot again
 #| fig.subcap: !expr 1:9
-#| out.width: #0.3\textwidth
+#| out.width: 0.3\textwidth
 #| fig.ncol: 3
 #| fig.show: hold
 
@@ -84,7 +84,7 @@ a=runif(100) %>% plot
 ```{r}
 #| fig.cap: some plot
 #| fig.subcap: !expr 1:9
-#| out.width: #0.3\textwidth
+#| out.width: 0.3\textwidth
 #| fig.ncol: 3
 #| fig.show: hold
 
@@ -106,8 +106,8 @@ a=runif(100) %>% plot
 ```{eviews biscuit,fig.cap= 'Figures automatically imported by eviews 2'}
 #| fig.subcap: !expr paste(rep("Figure",9),1:3,"of",rep(c("EviewsR","Page1","Page2"),each=3),"page")
 #| graph_procs: [template magazine,legend position(right)]
-#| out.width: #0.3\textwidth
-#| #out.height: 0.25\textwidth
+#| out.width: 0.3\textwidth
+#| out.height: 0.25\textwidth
 #| fig.ncol: 3
 #| fig.show: asis
 #| echo: FALSE
