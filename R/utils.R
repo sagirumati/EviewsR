@@ -105,4 +105,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 shQuote_cmd= \(x) shQuote(x,type="cmd")
 
+y=function(x){
+  x<<-paste0('%',x,'=',shQuote(x))
+}
+
+
 `%n%`=function(x,y) if(is.null(x)) y else x
