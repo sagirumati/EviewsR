@@ -707,8 +707,9 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 # reticulate:::defer(plot_counter(reset = TRUE), envir = knit_global())
 
 on.exit({
-  getFromNamespace('plot_counter','knitr')(TRUE)
-  # plot_counter(reset = TRUE)
+  # getFromNamespace('plot_counter','knitr')(TRUE)
+  do.call(':::',list('knitr','plot_counter'))(TRUE)
+    # plot_counter(reset = TRUE)
   # reticulate:::defer(plot_counter(reset=T))
    # shot_counter(reset = TRUE)
    # opts_knit$delete('plot_files')

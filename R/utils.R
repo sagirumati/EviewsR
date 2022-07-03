@@ -94,7 +94,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 # getFromNamespace('knit_counter','knitr',envir = knit_global())
 # plot_counter=knit_counter(1L)
 #
-# plot_counter <- getFromNamespace('plot_counter','knitr')
+ # plot_counter <- getFromNamespace('plot_counter','knitr')
 # utils::assignInMyNamespace("plot_counter", plot_counter)
 
 # plot_counter=do.call(":::",list("knitr",'plot_counter'))
