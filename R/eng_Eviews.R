@@ -692,8 +692,10 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 
 # include_graphics(eviews_graphics)
 
-options$fig.num = 1L; options$fig.cur = 1L
-  extra = knitr:::hook_plot_tex(eviews_graphics, options)
+options$fig.env='figure'
+options$fig.pos='H'
+options$fig.num =1; options$fig.cur = 1
+  extra = knitr:::run_hook_plot(eviews_graphics, options)
 engine_output(options, options$code, '', extra)
 
 # extra = list(include_graphics(eviews_graphics))
