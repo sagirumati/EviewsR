@@ -33,7 +33,7 @@ eng_eviews <- function(options) {
   options$fig.cur=3
 #   options$fig.num=9
    # options$fig.cap='sagiru mati gabasawa'
-   # options$fig.env=opts_chunk$get('fig.env')
+   options$fig.env=opts_chunk$get('fig.env')
 
    writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
 
@@ -694,26 +694,32 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 
 # figs = knitr:::find_recordedplot(res)
 
-options$fig.env='figure'
-options$fig.pos='H'
-cap = options$fig.cap
-scap = options$fig.scap
-res=eviews_graphics
-fig2=tail(res,1)
-options$fig.num =1L; options$fig.cur = 2L
-  extra = knitr:::run_hook_plot(res, options)
-engine_output(options, options$code, '', extra)
+# options$fig.env='figure'
+# options$fig.pos='H'
+# cap = options$fig.cap
+# scap = options$fig.scap
+# res=eviews_graphics
+# fig2=tail(res,1)
+# options$fig.num =length(res); options$fig.cur = length(res)
+#   extra = knitr:::run_hook_plot(res, options)
+# engine_output(options, options$code, '', extra)
+
+on.exit({
+  knitr:::plot_counter(reset = TRUE)
+  knitr:::shot_counter(reset = TRUE)
+  knitr:::opts_knit$delete('plot_files')
+}, add = TRUE) # restore plot number on.exit({
 
 # extra = list(include_graphics(eviews_graphics))
 # engine_output(options, options$code, extra,'')
 #
 # # begining of comment
-# code=engine_output(options,code = options$code, out = "")
-# if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
-#
-# if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
-#
-# if(options$echo) return(c(code,out)) else return(c(out))
+code=engine_output(options,code = options$code, out = "")
+if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+
+if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
+
+if(options$echo) return(c(code,out)) else return(c(out))
 
 #end of comment
 # opts_chunk$restore()
