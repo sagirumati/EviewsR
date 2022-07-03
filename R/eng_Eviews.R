@@ -35,7 +35,7 @@ eng_eviews <- function(options) {
    # options$fig.cap='sagiru mati gabasawa'
    options$fig.env=opts_chunk$get('fig.env')
 
-   writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
+   # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
 
        if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
