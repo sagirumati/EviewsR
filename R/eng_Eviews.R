@@ -692,11 +692,14 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 
 # include_graphics(eviews_graphics)
 
+# figs = knitr:::find_recordedplot(res)
+
 options$fig.env='figure'
 options$fig.pos='H'
 cap = options$fig.cap
 scap = options$fig.scap
 res=eviews_graphics
+fig2=tail(res,1)
 options$fig.num =1L; options$fig.cur = 2L
   extra = knitr:::run_hook_plot(res, options)
 engine_output(options, options$code, '', extra)
