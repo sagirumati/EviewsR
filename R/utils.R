@@ -20,6 +20,11 @@ eviews_path=function(){
 }
 
 
+# eviews_string
+
+eviews_string= \(x)  shQuote(x,type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.)
+
+
 # kable_format
 
 kable_format <- function(){
@@ -119,7 +124,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 # shQuote_cmd
 
-shQuote_cmd= \(x) x %<>% shQuote(type="cmd") %>% paste0('%',x,'=',.)
+shQuote_cmd= \(x)  shQuote(x,type="cmd")
+
+
 
 # y=function(x){
 #   x<<-paste0('%',x,'=',shQuote(x))
