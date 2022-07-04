@@ -27,9 +27,13 @@ eviews_path=function(){
 # eviews_string=function(x) {for (i in x) assign(i,paste0('%',i,'=',shQuote_cmd(get(i))),envir = globalenv())}
 #
 eviews_string=function(x) {
-  for (i in x)  i2=i %>% get %>%  shQuote_cmd %>% assign(paste0('%',i,'=',.),envir = globalenv())
-  }
+  for (i in x){
 
+    i %>% get %>%  shQuote_cmd %>%
+      paste0('%',i,'=',.) %>%
+      assign(i,.,envir =parent.frame())
+  }
+}
 # kable_format
 
 kable_format <- function(){
