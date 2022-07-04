@@ -53,14 +53,14 @@ eng_eviews <- function(options) {
 
    if(is.character(options$page)){
 
-     pagelist=paste(options$page,collapse = " ") %>% trimws
+     pageList=paste(options$page,collapse = " ") %>% trimws
 
-     pagelist1=pagelist %>%   strsplit(split=" ") %>% unlist()
+     pageList1=pageList %>%   strsplit(split=" ") %>% unlist()
 
-     pagelist %<>% shQuote_cmd %>% paste0('%pagelist1=',.)
+     pageList %<>% shQuote_cmd %>% paste0('%pagelist1=',.)
 
      options$page=TRUE
-   } else pagelist='%pagelist1=""'
+   } else pageList='%pagelist1=""'
 
    graphicsDefault=r'(
    %pagelist=@pagelist
@@ -178,20 +178,20 @@ eng_eviews <- function(options) {
 
 
 
-   chunk_name=options$label
-   # chunk_name1=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
-   #   shQuote_cmd() %>% paste0('%chunk_name=',.)
+   chunkName=options$label
+   # chunkName1=paste0(chunkName,'_') %>% gsub("[.,-]","_",.) %>%
+   #   shQuote_cmd() %>% paste0('%chunkName=',.)
 
-   chunk_name1=paste0(chunk_name,'-') %>%
-     shQuote_cmd() %>% paste0('%chunk_name=',.)
+   chunkName1=paste0(chunkName,'-') %>%
+     shQuote_cmd() %>% paste0('%chunkName=',.)
 
 
-   eviewsr_text=tempfile("eviewsr_text",".") %>%
+   eviewsrText=tempfile("eviewsrText",".") %>%
      basename
-   eviewsr_text1=eviewsr_text
+   eviewsrText1=eviewsrText
 
-   eviewsr_text %<>%   shQuote_cmd %>%
-     paste0("%eviewsr_text=",.)
+   eviewsrText %<>%   shQuote_cmd %>%
+     paste0("%eviewsrText=",.)
 
    if(options$dev=="png" && is.null(options$save_options)) save_options="t=png,d=300"
    if(options$dev=="pdf" && is.null(options$save_options)) save_options="t=pdf"
@@ -241,13 +241,13 @@ eng_eviews <- function(options) {
 
    if @wcount(%figKeep)<>0 then
    for %y {%figKeep}
-   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%y}
+   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%y}
    next
    endif
 
-   text {%eviewsr_text}
-   {%eviewsr_text}.append {%figpath}
-   {%eviewsr_text}.save {%eviewsr_text}
+   text {%eviewsrText}
+   {%eviewsrText}.append {%figpath}
+   {%eviewsrText}.save {%eviewsrText}
    )'
 
 
@@ -259,9 +259,9 @@ eng_eviews <- function(options) {
      %save_path=%save_path+"\"
      endif
 
-     text {%eviewsr_text}_graph
-     {%eviewsr_text}_graph.append {%figpath}
-     {%eviewsr_text}_graph.save {%eviewsr_text}-graph
+     text {%eviewsrText}_graph
+     {%eviewsrText}_graph.append {%figpath}
+     {%eviewsrText}_graph.save {%eviewsrText}-graph
 
      %pagelist=@pagelist
 
@@ -277,8 +277,8 @@ eng_eviews <- function(options) {
 
      if @wcount(%figKeep)<>0 then
      for %y {%figKeep}
-     '%figPath=%figPath+" "+%chunk_name+%page+"-"+%y
-     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
+     '%figPath=%figPath+" "+%chunkName+%page+"-"+%y
+     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%page}-{%y}
      next
      endif
 
@@ -327,8 +327,8 @@ eng_eviews <- function(options) {
 
      if @wcount(%figKeep)<>0 then
      for %y {%figKeep}
-     %figPath=%figPath+" "+%chunk_name+%page+"-"+%y
-     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunk_name}{%page}-{%y}
+     %figPath=%figPath+" "+%chunkName+%page+"-"+%y
+     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%page}-{%y}
      next
      endif
 
@@ -337,9 +337,9 @@ eng_eviews <- function(options) {
      %figPath=@wunique(%figPath)
 
 
-     text {%eviewsr_text}_graph
-     {%eviewsr_text}_graph.append {%figpath}
-     {%eviewsr_text}_graph.save {%eviewsr_text}-graph
+     text {%eviewsrText}_graph
+     {%eviewsrText}_graph.append {%figpath}
+     {%eviewsrText}_graph.save {%eviewsrText}-graph
 
      )'
    }
@@ -370,14 +370,14 @@ eng_eviews <- function(options) {
    if @wcount(%tables)<>0 then
    for %y {%tables}
    'table {%page}_{%y}
-   %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsr_text
-   {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
+   %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
+   {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
    next
    endif
 
-   text {%eviewsr_text}_table
-   {%eviewsr_text}_table.append {%tablePath}
-   {%eviewsr_text}_table.save {%eviewsr_text}-table
+   text {%eviewsrText}_table
+   {%eviewsrText}_table.append {%tablePath}
+   {%eviewsrText}_table.save {%eviewsrText}-table
 
    next
 
@@ -390,49 +390,49 @@ eng_eviews <- function(options) {
 
    if @wcount(%equation)<>0 then
    for %y {%equation}
-   table {%y}_table_{%eviewsr_text}
+   table {%y}_table_{%eviewsrText}
 
    %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
 
    scalar n=@wcount(%equationMembers)
    for !j =1 to n
    %x{!j}=@word(%equationMembers,{!j})
-   {%y}_table_{%eviewsr_text}(1,!j)=%x{!j}
+   {%y}_table_{%eviewsrText}(1,!j)=%x{!j}
 
    %vectors="coefs pval stderrs tstats"
    if @wcount(@wintersect(%x{!j},%vectors))>0 then
    !eqCoef={%y}.@ncoef
    for !i= 2 to !eqCoef+1
-   {%y}_table_{%eviewsr_text}(!i,!j)={%y}.@{%x{!j}}(!i-1)
+   {%y}_table_{%eviewsrText}(!i,!j)={%y}.@{%x{!j}}(!i-1)
    next
    else
-   {%y}_table_{%eviewsr_text}(2,!j)={%y}.@{%x{!j}}
+   {%y}_table_{%eviewsrText}(2,!j)={%y}.@{%x{!j}}
    endif
    next
 
-   %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsr_text
-   {%y}_table_{%eviewsr_text}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsr_text}
+   %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsrText
+   {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
 
    next
 
    endif
    next
 
-   text {%eviewsr_text}_equation
-   {%eviewsr_text}_equation.append {%equationPath}
-   {%eviewsr_text}_equation.save {%eviewsr_text}-equation
+   text {%eviewsrText}_equation
+   {%eviewsrText}_equation.append {%equationPath}
+   {%eviewsrText}_equation.save {%eviewsrText}-equation
 
 
    %seriesPath=""
    for %page {%pagelist}
    pageselect {%page}
-   pagesave {%page}-{%chunk_name}{%eviewsr_text}.csv @drop date
-   %seriesPath=%seriesPath+" "+%page+"-"+%chunk_name+%eviewsr_text
+   pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
+   %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
    next
 
-   text {%eviewsr_text}_series
-   {%eviewsr_text}_series.append {%seriesPath}
-   {%eviewsr_text}_series.save {%eviewsr_text}-series
+   text {%eviewsrText}_series
+   {%eviewsrText}_series.append {%seriesPath}
+   {%eviewsrText}_series.save {%eviewsrText}-series
    exit
    )'
    }
@@ -450,14 +450,14 @@ eng_eviews <- function(options) {
      if @wcount(%tables)<>0 then
      for %y {%tables}
      'table {%y}
-     %tablePath=%tablePath+" "+%y+"-"+%eviewsr_text
-     {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsr_text}
+     %tablePath=%tablePath+" "+%y+"-"+%eviewsrText
+     {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
      next
      endif
 
-     text {%eviewsr_text}_table
-     {%eviewsr_text}_table.append {%tablePath}
-     {%eviewsr_text}_table.save {%eviewsr_text}-table
+     text {%eviewsrText}_table
+     {%eviewsrText}_table.append {%tablePath}
+     {%eviewsrText}_table.save {%eviewsrText}-table
 
 
 
@@ -466,45 +466,45 @@ eng_eviews <- function(options) {
 
      if @wcount(%equation)<>0 then
      for %y {%equation}
-     table {%y}_table_{%eviewsr_text}
+     table {%y}_table_{%eviewsrText}
 
      %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
 
      scalar n=@wcount(%equationMembers)
      for !j =1 to n
      %x{!j}=@word(%equationMembers,{!j})
-     {%y}_table_{%%eviewsr_text}(1,!j)=%x{!j}
+     {%y}_table_{%%eviewsrText}(1,!j)=%x{!j}
 
      %vectors="coefs pval stderrs tstats"
      if @wcount(@wintersect(%x{!j},%vectors))>0 then
      !eqCoef={%y}.@ncoef
      for !i= 2 to !eqCoef+1
-     {%y}_table_{%eviewsr_text}(!i,!j)={%y}.@{%x{!j}}(!i-1)
+     {%y}_table_{%eviewsrText}(!i,!j)={%y}.@{%x{!j}}(!i-1)
      next
      else
-     {%y}_table_{%eviewsr_text}(2,!j)={%y}.@{%x{!j}}
+     {%y}_table_{%eviewsrText}(2,!j)={%y}.@{%x{!j}}
      endif
      next
 
-     %equationPath=%y+"-"+%eviewsr_text
-     {%y}_table_{%eviewsr_text}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsr_text}
+     %equationPath=%y+"-"+%eviewsrText
+     {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
 
      next
 
      endif
 
-     text {%eviewsr_text}_equation
-     {%eviewsr_text}_equation.append {%equationPath}
-     {%eviewsr_text}_equation.save {%eviewsr_text}-equation
+     text {%eviewsrText}_equation
+     {%eviewsrText}_equation.append {%equationPath}
+     {%eviewsrText}_equation.save {%eviewsrText}-equation
 
 
      %currentPage=@pagename
-     pagesave {%currentPage}-{%chunk_name}{%eviewsr_text}.csv @drop date
+     pagesave {%currentPage}-{%chunkName}{%eviewsrText}.csv @drop date
 
-     %seriesPath=%currentPage+"-"+%chunk_name+%eviewsr_text
-     text {%eviewsr_text}_series
-     {%eviewsr_text}_series.append {%seriesPath}
-     {%eviewsr_text}_series.save {%eviewsr_text}-series
+     %seriesPath=%currentPage+"-"+%chunkName+%eviewsrText
+     text {%eviewsrText}_series
+     {%eviewsrText}_series.append {%seriesPath}
+     {%eviewsrText}_series.save {%eviewsrText}-series
 
      exit
      )'
@@ -517,7 +517,7 @@ eng_eviews <- function(options) {
    #   {%series}
    #   )'
 
-   eviewsCode=paste0(c(eviews_path(),pagelist,figKeep,eviewsr_text,chunk_name1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
+   eviewsCode=paste0(c(eviews_path(),pageList,figKeep,eviewsrText,chunkName1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
      strsplit(split="\n") %>% unlist()
 
    # writeLines(eviewsCode,fileName)
@@ -542,7 +542,7 @@ eng_eviews <- function(options) {
 
      appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
                   ,'%existing=@wlookup("*","graph")','if @wcount(%newgraph)>0 then
-                 %figPath=%figPath+" "+%chunk_name+%currentpage+"-"+%newgraph
+                 %figPath=%figPath+" "+%chunkName+%currentpage+"-"+%newgraph
                  endif'
      )
 
@@ -562,7 +562,7 @@ eng_eviews <- function(options) {
 
   # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
-envName=chunk_name %>% gsub("[._-]","",.)
+envName=chunkName %>% gsub("[._-]","",.)
 assign(envName,new.env(),envir=knit_global())
 
 # if(length(equations)!=0){
@@ -575,7 +575,7 @@ assign(envName,new.env(),envir=knit_global())
 
 
 
-if(file.exists(paste0(eviewsr_text1,"-equation.txt"))) equationPath=readLines(paste0(eviewsr_text1,"-equation.txt")) %>%
+if(file.exists(paste0(eviewsrText1,"-equation.txt"))) equationPath=readLines(paste0(eviewsrText1,"-equation.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
 
@@ -597,12 +597,12 @@ for (i in equationPath){
 }
 
 
-if(file.exists(paste0(eviewsr_text1,"-table.txt"))) tablePath=readLines(paste0(eviewsr_text1,"-table.txt")) %>%
+if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(eviewsrText1,"-table.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
-  # tables=list.files(save_path1,paste0(eviewsr_text1,"\\.csv$"))
+  # tables=list.files(save_path1,paste0(eviewsrText1,"\\.csv$"))
 
-  # tables=gsub(paste0(eviewsr_text1,"\\.csv"),"",tables)
+  # tables=gsub(paste0(eviewsrText1,"\\.csv"),"",tables)
 
 
 # if(length(tables)!=0){
@@ -625,8 +625,8 @@ tableName=gsub("\\-.*","",i) %>% tolower
 
 
 
-  if(file.exists(paste0(eviewsr_text1,'-series.txt'))){
-    seriesPath=readLines(paste0(eviewsr_text1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
+  if(file.exists(paste0(eviewsrText1,'-series.txt'))){
+    seriesPath=readLines(paste0(eviewsrText1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
 on.exit(unlink(paste0(seriesPath,".csv")))
     for (i in seriesPath){
       pageName=gsub("\\-.*","",i)
@@ -642,11 +642,11 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
-on.exit(unlink(paste0(rep(eviewsr_text1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 on.exit(unlink_eviews(),add = TRUE)
-# on.exit(unlink(paste0(eviewsr_text1,".txt")),add = TRUE)
+# on.exit(unlink(paste0(eviewsrText1,".txt")),add = TRUE)
 
 
 
@@ -666,16 +666,16 @@ if(length(extension)==0) extension="emf"
 
 eviews_graphics=c()
 
-eviewsGraphics=readLines(paste0(eviewsr_text1,'-graph.txt')) %>%
+eviewsGraphics=readLines(paste0(eviewsrText1,'-graph.txt')) %>%
   strsplit(split=" ") %>%
   unlist
 
 
-# chunk_name2=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.)
+# chunkName2=paste0(chunkName,'_') %>% gsub("[.,-]","_",.)
 
-chunk_name2=paste0(chunk_name,'-')
+chunkName2=paste0(chunkName,'-')
 
-if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName2,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 # if(!options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 if(options$page) for (i in eviewsGraphics) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
@@ -683,7 +683,7 @@ if(any(options$fig.keep=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
 
 if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
 
-if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pagelist1,collapse = "\\-|\\-"),eviews_graphics)]
+if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pageList1,collapse = "\\-|\\-"),eviews_graphics)]
 
 
 if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")

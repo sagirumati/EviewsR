@@ -53,7 +53,7 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
 
 
 
-  eviews_code=r'(wfopen {%wf}
+  eviewsCode=r'(wfopen {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -93,7 +93,7 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
   wfsave {%wf}
   exit
   )'
-writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,object_type,options,expression,eviews_code),fileName)
+writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,object_type,options,expression,eviewsCode),fileName)
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)

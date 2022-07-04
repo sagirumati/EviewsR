@@ -34,7 +34,7 @@ graph_procs=append(graphProcsDefault,graph_procs)
 
 if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
-  chunk_name=opts_current$get("label")
+  chunkName=opts_current$get("label")
 
   # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpg", ".png", ".pdf", ".tex", ".md")
 
@@ -57,7 +57,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
     # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
     # stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
-    wf=chunk_name %n% basename(tempfile("EViewsR"))
+    wf=chunkName %n% basename(tempfile("EViewsR"))
     wf=gsub("[.-]","_",wf)
     wf1=wf
     page=wf
@@ -126,26 +126,26 @@ datelabel=paste('{%y}.datelabel',datelabel)
 
 
 
-    # if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"_") %>%  gsub("[.,-]","_",.)
-    # if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'_') %>% gsub("[.,-]","_",.) %>%
-    #   shQuote_cmd() %>% paste0('%chunk_name=',.)
+    # if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"_") %>%  gsub("[.,-]","_",.)
+    # if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'_') %>% gsub("[.,-]","_",.) %>%
+    #   shQuote_cmd() %>% paste0('%chunkName=',.)
 
-    if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
-        if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'-') %>%
-      shQuote_cmd() %>% paste0('%chunk_name=',.)
+    if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
+        if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
+      shQuote_cmd() %>% paste0('%chunkName=',.)
 
 
     save_path=gsub("/","\\\\",save_path)
 
-    # if (save_path=="" & is.null(chunk_name)) save_path=paste("EViewsR_files")
-     # if (save_path=="" & !is.null(chunk_name)) save_path=paste0("EViewsR_files")
+    # if (save_path=="" & is.null(chunkName)) save_path=paste("EViewsR_files")
+     # if (save_path=="" & !is.null(chunkName)) save_path=paste0("EViewsR_files")
      #
      # if (save_path=="") save_path=paste("EViewsR_files")
     save_path=opts_current$get("fig.path") %n% save_path
     # save_path=gsub("[.,-]","_",save_path)
     if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
-     # dir.create(paste0("EViewsR_files/",chunk_name))
+     # dir.create(paste0("EViewsR_files/",chunkName))
     save_path1=ifelse(save_path=="",".",save_path)
        # save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
@@ -158,7 +158,7 @@ datelabel=paste('{%y}.datelabel',datelabel)
     # file.remove(paste0(save_path1,eviews_graphics))
 
 
-eviews_code=r'(close @wf
+eviewsCode=r'(close @wf
 
 if %wf<>"" then
 wfopen {%wf}
@@ -199,7 +199,7 @@ endif)'
 
 if (group!=T){
 
-  freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
+  freezeCode=r'(%allSeries=@wdrop(%allSeries,"DATE")
   group {%EviewsRGroup} {%allSeries}
   !n={%EviewsRGroup}.@count
 
@@ -211,8 +211,8 @@ if (group!=T){
   next)'
 
 
-  save_code=r'(for !k=1 to {!n}
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%x{!k}}
+  saveCode=r'(for !k=1 to {!n}
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%x{!k}}
   next
   delete {%EviewsrGroup}
   exit)'
@@ -220,19 +220,19 @@ if (group!=T){
 
 if (group){
 
-      freeze_code=r'(%allSeries=@wdrop(%allSeries,"DATE")
+      freezeCode=r'(%allSeries=@wdrop(%allSeries,"DATE")
       group {%EviewsRGroup} {%allSeries}
 
       %seriesNames=@replace(%allSeries," ","")
       %seriesNames=%seriesNames
       freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
 
-      save_code=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunk_name}{%seriesNames}
+      saveCode=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%seriesNames}
       delete {%EviewsrGroup}
       exit)'
       }
 
-writeLines(c(eviews_path(),chunk_name,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviews_code,freeze_code,graph_procs,save_code), fileName)
+writeLines(c(eviews_path(),chunkName,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -243,7 +243,7 @@ on.exit(unlink_eviews(),add = TRUE)
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 
 # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
