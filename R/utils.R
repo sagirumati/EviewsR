@@ -24,6 +24,11 @@ eviews_path=function(){
 
 # eviews_string= \(x) x %>%  shQuote(type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.,parent.frame())
 
+# eviews_string=function(x) {for (i in x) assign(i,paste0('%',i,'=',shQuote_cmd(get(i))),envir = globalenv())}
+#
+eviews_string=function(x) {
+  for (i in x)  i2=i %>% get %>%  shQuote_cmd %>% assign(paste0('%',i,'=',.),envir = globalenv())
+  }
 
 # kable_format
 
