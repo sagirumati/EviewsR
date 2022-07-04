@@ -22,7 +22,7 @@ eviews_path=function(){
 
 # eviews_string
 
-eviews_string= \(x)  shQuote(x,type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.)
+eviews_string= \(x) x %>%  shQuote(type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.,parent.frame())
 
 
 # kable_format
