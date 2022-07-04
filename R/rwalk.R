@@ -47,7 +47,7 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
   series1=gsub(" ","",series1)
   series=paste0("%series=",shQuote_cmd(paste(series,collapse = " ")))
 
-    eviews_code=r'(
+    eviewsCode=r'(
     if %wf<>"" then
     open {%wf}
     endif
@@ -110,7 +110,7 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
 '    delete(noerr) wn* randomwalk_group*
     exit)'
 
-  writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviews_code),fileName)
+  writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviewsCode),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
     on.exit(unlink(c("randomwalk_group.csv",fileName,wf1)),add = TRUE)

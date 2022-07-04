@@ -66,7 +66,7 @@ wfSuffix=opts_current$get('label') %n% "EViewsR"
   save_path1=save_path
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
-  eviews_code=r'(
+  eviewsCode=r'(
 %wf1=%wf+".wf1"
   if @fileexist(%wf1) then
 open {%wf}
@@ -142,7 +142,7 @@ open {%wf}
 exit
   )'
 
-writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviews_code),fileName)
+writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
 
 
   if(save_path1!=""){

@@ -39,14 +39,14 @@ exec_commands=function(commands="",wf="",page=""){
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
-  eviews_code=r'(if %wf<>"" then
+  eviewsCode=r'(if %wf<>"" then
   wfopen {%wf}
   endif
   if %page<>"" then
   pageselect {%page}
   endif)'
 
-writeLines(c(eviews_path(),wf,page,eviews_code,commands,"%wf=@wfname","save {%wf}","exit"),fileName)
+writeLines(c(eviews_path(),wf,page,eviewsCode,commands,"%wf=@wfname","save {%wf}","exit"),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
 }

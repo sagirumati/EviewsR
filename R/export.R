@@ -1,0 +1,22 @@
+#' Export R dataframe as an `EViews` workfile
+#'
+#' Use this function to export R dataframe as an `EViews` workfile
+#'
+#' @usage export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
+#' @inheritParams eviews_wfcreate
+#' @inheritParams eviews_pagesave
+#' @return An EViews workfile.
+#'
+#' @examples library(EviewsR)
+#' \dontrun{
+#' x=runif(100); y=runif(100); data=data.frame(x,y)
+#'
+#' export(wf="EviewR_export",source_description=data,start_date = '1990',frequency = "m")
+#'}
+#' @family important functions
+#' @keywords documentation
+#' @export
+export=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){
+
+  eviews_import(wf=wf,source_description =source_description,start_date = start_date,frequency = frequency,save_path = save_path)
+}

@@ -49,7 +49,7 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   table_name=paste0('%table_name=',shQuote_cmd(table_name))
 
 
-  eviews_code=r'(open {%wf}
+  eviewsCode=r'(open {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -61,7 +61,7 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
 
   {%table_name}.save(t=csv{%table_range}) {%table_name})'
 
-  writeLines(c(eviews_path(),wf,page,table_name,table_range,eviews_code,"exit"),fileName)
+  writeLines(c(eviews_path(),wf,page,table_name,table_range,eviewsCode,"exit"),fileName)
 
   system_exec()
   #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))

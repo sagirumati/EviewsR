@@ -32,7 +32,7 @@ import_graph=function(graph="",wf="",page="",graph_procs="",datelabel="",save_op
 
 if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
-  chunk_name=opts_current$get("label")
+  chunkName=opts_current$get("label")
 
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
@@ -53,10 +53,10 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
     fileName=tempfile("EVIEWS", ".", ".prg")
-eviewsr_text=gsub("\\.prg$",'',fileName) %>% basename
-eviewsr_text1=eviewsr_text
-eviewsr_text %<>%
-  shQuote_cmd %>% paste0('%eviewsr_text=',.)
+eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
+eviewsrText1=eviewsrText
+eviewsrText %<>%
+  shQuote_cmd %>% paste0('%eviewsrText=',.)
 
 
 
@@ -64,9 +64,9 @@ eviewsr_text %<>%
   graph_procs=append(c('%selectedGraphs=@wlookup(%graph,"graph")','for %y {%selectedGraphs}')
 ,c(datelabel,graph_procs,'next'))
 
-    if(is.null(chunk_name)) chunk_name1="" else chunk_name1=paste0(chunk_name,"-")
-        if(is.null(chunk_name)) chunk_name="" else chunk_name=paste0(chunk_name,'-') %>%
-      shQuote_cmd() %>% paste0('%chunk_name=',.)
+    if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
+        if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
+      shQuote_cmd() %>% paste0('%chunkName=',.)
 
 
     save_path=gsub("/","\\\\",save_path)
@@ -91,7 +91,7 @@ eviewsr_text %<>%
 
 
 
-eviews_code=r'(
+eviewsCode=r'(
 if %wf<>"" then
 wfopen {%wf}
 endif
@@ -118,31 +118,31 @@ endif
 %graphPath=""
 
 for %graph {%selectedGraphs}
-{%graph}.save{%save_options} {%save_path}{%chunk_name}{%graph}
-%graphPath=%graphPath+" "+%chunk_name+%graph
+{%graph}.save{%save_options} {%save_path}{%chunkName}{%graph}
+%graphPath=%graphPath+" "+%chunkName+%graph
 next
-text {%eviewsr_text}_graph
-{%eviewsr_text}_graph.append {%graphPath}
-{%eviewsr_text}_graph.save  {%eviewsr_text}-graph
+text {%eviewsrText}_graph
+{%eviewsrText}_graph.append {%graphPath}
+{%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
 
-writeLines(c(eviews_path(),eviewsr_text,chunk_name,wf,page,graph,save_path,save_options,eviews_code,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
-on.exit(unlink(paste0(eviewsr_text1,'-graph.txt')),add = TRUE)
+on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 
 
 
 # eviews_graphics=c()
 # # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 #
-# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunk_name1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 #
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
-if(file.exists(paste0(eviewsr_text1,"-graph.txt"))) graphPath=readLines(paste0(eviewsr_text1,"-graph.txt")) %>%
+if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)

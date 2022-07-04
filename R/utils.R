@@ -1,7 +1,26 @@
+#####################
+#     IMPORTS
+#####################
+
 #' @import knitr magrittr
 #' @importFrom utils write.csv read.csv assignInMyNamespace getFromNamespace
 
 globalVariables(".")
+
+###############################
+# FUNCTIONS IN ASCENDING ORDER
+###############################
+
+# eviews_path
+
+eviews_path=function(){
+  getwd() %>% normalizePath() %>%
+    shQuote_cmd() %>%
+    paste0("%eviews_path=",.,"\ncd %eviews_path")
+}
+
+
+# kable_format
 
 kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="docx") format="pandoc"
@@ -11,13 +30,7 @@ kable_format <- function(){
 }
 
 
-eviews_path=function(){
-  getwd() %>% normalizePath() %>%
-    shQuote_cmd() %>%
-  paste0("%eviews_path=",.,"\ncd %eviews_path")
-}
-
-
+# system_exec
 
 system_exec=function(){
 
@@ -30,6 +43,9 @@ getwd() %>% paste0(.,"/",fileName) %>% shQuote_cmd() %>%
   paste("exec",.) %>%
 system2(set_eviews_path(engine_path),.)
 }
+
+
+# unlink_eviews
 
 unlink_eviews=function(){
 

@@ -43,7 +43,7 @@ eviews_wfsave=function(wf="",page="",options="",source_description="",table_desc
 
   smpl_spec=paste0('%smpl_spec=',shQuote_cmd(smpl_spec))
 
-  eviews_code=r'(open {%wf}
+  eviewsCode=r'(open {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -76,7 +76,7 @@ eviews_wfsave=function(wf="",page="",options="",source_description="",table_desc
   exit
   )'
   writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
-               ,eviews_code),fileName)
+               ,eviewsCode),fileName)
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)

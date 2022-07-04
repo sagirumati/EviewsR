@@ -78,8 +78,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
 
     ```{eviews EviewsR,eval=T} `r ''`
         'This program is created in R Markdown with the help of EviewsR package
-      %path=@runpath
-      cd %path
+      
       wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
       for %y EviewsR package page1 page2
       pagecreate(page={%y}) EviewsR m 2000 2022
@@ -96,8 +95,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
 
 ```{eviews EviewsR,eval=T}
     'This program is created in R Markdown with the help of EviewsR package
-  %path=@runpath
-  cd %path
+  
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
   for %y EviewsR package page1 page2
   pagecreate(page={%y}) EviewsR m 2000 2022
@@ -124,8 +122,7 @@ The `eviews` chunk automatically returns the outputs of each equation object as 
 A set of Eviews commands can be executed with the help of `exec_commands` function in R. The above Eviews chunk can be translated using this function.
 
 ```{r execCommands} 
-exec_commands(c('%path=@runpath','cd %path',
-  'wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
+exec_commands(c('wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
   'for %y EviewsR package page1 page2',
   'pagecreate(page={%y}) EviewsR m 2000 2022',
   'next',

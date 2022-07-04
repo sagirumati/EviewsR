@@ -78,7 +78,7 @@ page=paste0("page=",page)
   num_observations=paste0("!num_observations=",num_observations)
 
 
-  eviews_code=r'(%wf=@wreplace(%wf,"* ","*")
+  eviewsCode=r'(%wf=@wreplace(%wf,"* ","*")
   '%page=@wreplace(%page,"* ","*")
   %subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
 
@@ -110,7 +110,7 @@ page=paste0("page=",page)
   exit
   )'
 
-writeLines(c(eviews_path(),options,save_path,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,eviews_code),fileName)
+writeLines(c(eviews_path(),options,save_path,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,eviewsCode),fileName)
 
 
   system_exec()
