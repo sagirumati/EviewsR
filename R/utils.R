@@ -119,7 +119,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 # shQuote_cmd
 
-shQuote_cmd= \(x) x %<>% shQuote(type="cmd") %>% paste0('%',x,'=',.) %>% print
+shQuote_cmd= \(x) x %<>% shQuote(type="cmd") %>% paste0('%',x,'=',.)
 
 # y=function(x){
 #   x<<-paste0('%',x,'=',shQuote(x))
