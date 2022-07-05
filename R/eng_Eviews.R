@@ -200,9 +200,9 @@ eng_eviews <- function(options) {
    save_options=paste0('%save_options=',shQuote_cmd(save_options))
 
 
-   # save_path=paste0("EviewsR_files")
+   save_path=paste0("EviewsR_files")
    # if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
-   save_path=opts_current$get("fig.path")
+   save_path=opts_current$get("fig.path") %n% save_path
    # save_path=gsub("[.,-]","_",save_path)
    save_path1=ifelse(save_path=="",".",save_path)
    if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
