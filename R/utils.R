@@ -34,6 +34,12 @@ eviews_string=function(x) {
       assign(i,.,envir =parent.frame())
   }
 }
+
+
+# eviews_string=\(x) assign(x,paste0('%',x,'=',get(x)))
+
+eviews_string=\(x) x %>% get %>% paste0('%',x,'=',.) %>% assign(x,.)
+
 # kable_format
 
 kable_format <- function(){
