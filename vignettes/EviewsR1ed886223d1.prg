@@ -2,9 +2,9 @@
 cd %eviews_path
 %pagelist1=""
 %figKeep1="all"
-%eviewsrText="eviewsrText14bc20c33298"
+%eviewsrText="eviewsrText1ed82ed01494"
 %chunkName="EviewsR-"
-%save_path="C:/Users/SMATI/AppData/Local/Temp/RtmpgbqpZ3/preview-2cdc508ad8d.dir/EviewsR_files/figure-latex/"
+%save_path="C:/Users/SMATI/AppData/Local/Temp/Rtmpsdnhvc/preview-1ad83752ce2.dir/EviewsR_files/figure-html/"
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -21,7 +21,7 @@ cd %eviews_path
   freeze(xx,mode=overwrite) x.line
   wfsave EviewsR_workfile
 
-%save_options="t=pdf"
+%save_options="t=png,d=300"
 
    %pagelist=@pagelist
 
