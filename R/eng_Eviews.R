@@ -43,8 +43,7 @@ eng_eviews <- function(options) {
     # if (!is.null(options$eval))options$template=opts_current$get("template")
 
 
-  # if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
-  if (!is.null(options$template)) template %<>% eviews_string
+  if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
 
     eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 
@@ -189,10 +188,8 @@ eng_eviews <- function(options) {
      basename
    eviewsrText1=eviewsrText
 
-   # eviewsrText %<>%   shQuote_cmd %>%
-   #   paste0("%eviewsrText=",.)
-   #
-   eviewsrText %<>% eviews_string
+   eviewsrText %<>%   shQuote_cmd %>%
+     paste0("%eviewsrText=",.)
 
    if(options$dev=="png" && is.null(options$save_options)) save_options="t=png,d=300"
    if(options$dev=="pdf" && is.null(options$save_options)) save_options="t=pdf"
@@ -209,10 +206,7 @@ eng_eviews <- function(options) {
    # save_path=gsub("[.,-]","_",save_path)
    save_path1=ifelse(save_path=="",".",save_path)
    if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
-
-   # save_path=paste0("%save_path=",shQuote_cmd(save_path))
-   save_path %<>% eviews_string
-
+   save_path=paste0("%save_path=",shQuote_cmd(save_path))
    # dir.create(save_path)
    # dir.create(options$label)
    # create a temporary file
