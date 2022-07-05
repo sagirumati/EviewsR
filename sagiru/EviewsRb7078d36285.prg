@@ -1,27 +1,31 @@
-%eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\vignettes"
+%eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
-%pagelist1=""
+%pagelist1="small"
 %figKeep1="all"
-%eviewsrText="eviewsrText1ed82ed01494"
-%chunkName="EviewsR-"
-%save_path="C:/Users/SMATI/AppData/Local/Temp/Rtmpsdnhvc/preview-1ad83752ce2.dir/EviewsR_files/figure-html/"
-    'This program is created in R Markdown with the help of EviewsR package
-  
-  wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
-  for %y EviewsR package page1 page2
-  pagecreate(page={%y}) EviewsR m 2000 2022
-  next
-  pageselect EviewsR_page
-  rndseed 123456
-  genr y=rnd
-  genr x=rnd
-  equation ols.ls y c x
-  freeze(EviewsROLS,mode=overwrite) ols
-  freeze(yy,mode=overwrite) y.line
-  freeze(xx,mode=overwrite) x.line
-  wfsave EviewsR_workfile
+%eviewsrText="eviewsrTextb70185b1457"
+%chunkName="saniya-"
+%save_path="eviews_graphs_files/figure-latex/"
+'This is some comment in EViews program, feel free to write anything
 
-%save_options="t=png,d=300"
+wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+for %y small small2  small3 
+pagecreate(page={%y}) EviewsR q 2000 2022
+pageselect {%y}
+rndseed 123
+genr x=@cumsum(nrnd)
+genr y=@cumsum(nrnd)
+genr z=@cumsum(nrnd)
+equation OLS_EQUATION.ls y c x z
+freeze(OLS_EQUATION_TABLE,mode=overwrite) OLS_EQUATION
+delete(noerr) GRAPH*
+freeze(sag3,mode=overwrite) z.line
+graph sag2.dot y
+graph sag1.area x
+sag3.addtext(ar) %y
+sag2.addtext(ar) %y
+sag1.addtext(ar) %y
+next
+%save_options="t=pdf"
 
    %pagelist=@pagelist
 
@@ -103,7 +107,40 @@ cd %eviews_path
    endif
    next
    
+%pagelist=@pagelist
+if %pagelist1<>"" then
+%pagelist=%pagelist1
+endif
+for %page {%pagelist}
+pageselect {%page}
+if %figKeep1="first" then
+                                          %figKeep=@wlookup("*","graph")
+                                          %figKeep=@wleft(%figKeep,1)
+                                        endif
 
+                                        if %figKeep1="last" then
+                                        %figKeep=@wlookup("*","graph")
+                                        %figKeep=@wright(%figKeep,1)
+  endif
+
+  if %figKeep1="all" then
+  %figKeep=@wlookup("*","graph")
+  endif
+
+  if %figKeep1="none" then
+  %figKeep=""
+  endif
+
+  if %figKeep1="" then
+  %figKeep=@wlookup("*","graph")
+  endif
+if @wcount(%figKeep)>0 then
+for %y {%figKeep}
+{%y}.template magazine
+{%y}.legend position(right)
+next
+endif
+next
 if %save_path<>"" then
      %save_path=%save_path+"\"
      endif

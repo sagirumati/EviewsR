@@ -28,13 +28,70 @@
 #' @export
 eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path="EViewsR_files",frequency="m",start_date="",save_copy=F){
 
+  graphicsDefault=r'(
+  if %page="*" then
+  %pagelist=@pagelist
+  endif
 
+  if %page<>"*" then
+  %pagelist=%page
+  endif
+
+
+  for %page {%pagelist}
+  pageselect {%page}
+  %selectedGraphs=@wlookup(%graph,"graph")
+  if @wcount(%selectedGraphs)>0 then
+  for %y {%selectedGraphs}
+  {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
+  {%y}.axis(r) font(Calibri,14,-b,-i,-u,-s)
+  {%y}.axis(b) font(Calibri,14,-b,-i,-u,-s)
+  {%y}.axis(t) font(Calibri,14,-b,-i,-u,-s)
+  {%y}.legend columns(5) inbox position(BOTCENTER) font(Calibri,12,-b,-i,-u,-s)
+  {%y}.options antialias(on)
+  {%y}.options size(6,3)
+  {%y}.options -background frameaxes(all) framewidth(0.5)
+  {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(1.5)
+  {%y}.setelem(2) linecolor(@rgb(218,124,48)) linewidth(1.5)
+  {%y}.setelem(3) linecolor(@rgb(62,150,81)) linewidth(1.5)
+  {%y}.setelem(4) linecolor(@rgb(204,37,41)) linewidth(1.5)
+  {%y}.setelem(5) linecolor(@rgb(83,81,84)) linewidth(1.5)
+  {%y}.setelem(6) linecolor(@rgb(107,76,154)) linewidth(1.5)
+  {%y}.setelem(7) linecolor(@rgb(146,36,40)) linewidth(1.5)
+  {%y}.setelem(8) linecolor(@rgb(148,139,61)) linewidth(1.5)
+  {%y}.setelem(9) linecolor(@rgb(255,0,255)) linewidth(1.5)
+  {%y}.setelem(10) linewidth(1.5)
+  {%y}.setelem(11) linecolor(@rgb(192,192,192)) linewidth(1.5)
+  {%y}.setelem(12) linecolor(@rgb(0,255,255)) linewidth(1.5)
+  {%y}.setelem(13) linecolor(@rgb(255,255,0)) linewidth(1.5)
+  {%y}.setelem(14) linecolor(@rgb(0,0,255)) linewidth(1.5)
+  {%y}.setelem(15) linecolor(@rgb(255,0,0)) linewidth(1.5)
+  {%y}.setelem(16) linecolor(@rgb(0,127,0)) linewidth(1.5)
+  {%y}.setelem(17) linecolor(@rgb(0,0,0)) linewidth(1.5)
+  {%y}.setelem(18) linecolor(@rgb(0,127,127)) linewidth(1.5)
+  {%y}.setelem(19) linecolor(@rgb(127,0,127)) linewidth(1.5)
+  {%y}.setelem(20) linecolor(@rgb(127,127,0)) linewidth(1.5)
+  {%y}.setelem(21) linecolor(@rgb(0,0,127)) linewidth(1.5)
+  {%y}.setelem(22) linecolor(@rgb(255,0,255)) linewidth(1.5)
+  {%y}.setelem(23) linecolor(@rgb(127,127,127)) linewidth(1.5)
+  {%y}.setelem(24) linecolor(@rgb(192,192,192)) linewidth(1.5)
+  {%y}.setelem(25) linecolor(@rgb(0,255,255)) linewidth(1.5)
+  {%y}.setelem(26) linecolor(@rgb(255,255,0)) linewidth(1.5)
+  {%y}.setelem(27) linecolor(@rgb(0,0,255)) linewidth(1.5)
+  {%y}.setelem(28) linecolor(@rgb(255,0,0)) linewidth(1.5)
+  {%y}.setelem(29) linecolor(@rgb(0,127,0)) linewidth(1.5)
+  {%y}.setelem(30) linecolor(@rgb(0,0,0)) linewidth(1.5)
+  {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
+  {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
+  {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
+  next
+  endif
+  next
+  )'
 
 # graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
 
-graph_procs=append(graphProcsDefault,graph_procs)
-
-if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
+# graph_procs=append(graphProcsDefault,graph_procs)
 
   chunkName=opts_current$get("label")
 
@@ -72,7 +129,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
 }
 
-
+  options$dev=opts_current$get('dev')
 
   if(options$dev=="png" && save_options=='') save_options="t=png,d=300"
   if(options$dev=="pdf" && save_options=='') save_options="t=pdf"
@@ -100,25 +157,33 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 
 
 
-if(datelabel==""){
-datelabel <- '%freq=@pagefreq
-  if %freq="m" or %freq="M" then
-  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-  endif
-  if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
-  {%y}.datelabel format("Mon YYYY") interval(auto, 1, 1)
-  endif
-if %freq="a" or %freq="A" then
-  {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-  endif'
-}else{
-datelabel=paste('{%y}.datelabel',datelabel)
+# if(datelabel==""){
+# datelabel <- '%freq=@pagefreq
+#   if %freq="m" or %freq="M" then
+#   {%y}.datelabel format("YYYY") interval(auto, 1, 1)
+#   endif
+#   if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
+#   {%y}.datelabel format("Mon YYYY") interval(auto, 1, 1)
+#   endif
+# if %freq="a" or %freq="A" then
+#   {%y}.datelabel format("YYYY") interval(auto, 1, 1)
+#   endif'
+# }else{
+# datelabel=paste('{%y}.datelabel',datelabel)
+# }
+
+if(graph_procs!=""){
+  graph_procs=paste0("{%y}.",graph_procs)
+  graph_procs=append(c('for %page {%pagelist}
+pageselect {%page}
+%selectedGraphs=@wlookup("*","graph")
+if @wcount(%selectedGraphs)>0 then
+for %y {%selectedGraphs}')
+,c(graph_procs,'next','endif','next'))
 }
 
+  if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
-  graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('%allEviewsGraphs=@wlookup("*","graph")\n','for %y {%allEviewsGraphs}\n')
-,c(datelabel,graph_procs,'next'))
 
   EviewsRGroup=paste0('%EviewsRGroup=',shQuote_cmd(EviewsRGroup))
    wf=paste0('%wf=',shQuote_cmd(wf))
@@ -303,7 +368,7 @@ if (group){
       exit)'
       }
 
-writeLines(c(eviews_path(),chunkName,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),chunkName,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)

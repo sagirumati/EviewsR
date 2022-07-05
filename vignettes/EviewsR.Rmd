@@ -93,7 +93,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR,eval=T}
+```{eviews EviewsR,eval=T,fig.path='sagiru'}
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -144,7 +144,7 @@ A set of random walk series can be simulated in R using EViews engine, thanks to
 
 
 ```{r rwalk}
-rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
+# rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
 
 ```
 
@@ -226,7 +226,7 @@ y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",merge_graphs =T)
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",group =T)
  
   # eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  
