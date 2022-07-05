@@ -20,25 +20,25 @@ eviews_path=function(){
 }
 
 
-# eviews_string
+## eviews_string
 
 # eviews_string= \(x) x %>%  shQuote(type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.,parent.frame())
 
 # eviews_string=function(x) {for (i in x) assign(i,paste0('%',i,'=',shQuote_cmd(get(i))),envir = globalenv())}
 #
-eviews_string=function(x) {
-  for (i in x){
-
-    i %>% get %>%  shQuote_cmd %>%
-      paste0('%',i,'=',.) %>%
-      assign(i,.,envir =parent.frame())
-  }
-}
+# eviews_string=function(x) {
+#   for (i in x){
+#
+#     i %>% get %>%  shQuote_cmd %>%
+#       paste0('%',i,'=',.) %>%
+#       assign(i,.,envir =parent.frame())
+#   }
+# }
 
 
 # eviews_string=\(x) assign(x,paste0('%',x,'=',get(x)))
 
-eviews_string=\(x) x %>% get %>% paste0('%',x,'=',.) %>% assign(x,.)
+eviews_string=\(x) x %>% get %>% shQuote_cmd %>% paste0('%',x,'=',.) %>% assign(x,.)
 
 # kable_format
 
