@@ -144,7 +144,7 @@ A set of random walk series can be simulated in R using EViews engine, thanks to
 
 
 ```{r rwalk}
-# rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
+rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
 
 ```
 

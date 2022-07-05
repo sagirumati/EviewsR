@@ -28,6 +28,9 @@
 rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="",end_date="",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
+  wf2=wf
+
+
   if(wf=="") save="" else save="save"
   if(wf=="") {
    wf=basename(gsub(".prg","",fileName));if(page=="") page=wf
@@ -113,7 +116,9 @@ rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_d
   writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviewsCode),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
-    on.exit(unlink(c("randomwalk_group.csv",fileName,wf1)),add = TRUE)
+    on.exit(unlink(c("randomwalk_group.csv",fileName)),add = TRUE)
+
+    if(wf2=="") on.exit(unlink(wf1),add = TRUE)
 
       if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
