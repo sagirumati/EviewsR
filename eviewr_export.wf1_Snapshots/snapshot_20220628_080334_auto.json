@@ -1,0 +1,52 @@
+
+{
+	"commands" : "",
+	"description" : "Generated when this file was opened on 2022/07/05 10:23:04.",
+	"label" : "auto base",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\smati\\google drive\\github\\repos\\sagirumati\\eviewsr\\eviewr_export.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 738333.3357986112, "06/28/2022 08:03" ],
+				"_name" : "Eviewr_export",
+				"_obj_count" : 4,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 729479.0, "04/01/1998" ],
+						"_obs_min" : [ 726467.0, "01/01/1990" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "X",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "Y",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 100
+			}
+		]
+	}
+}

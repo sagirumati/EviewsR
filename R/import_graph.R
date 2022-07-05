@@ -62,7 +62,7 @@ eviewsrText %<>%
 
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('%selectedGraphs=@wlookup(%graph,"graph")','for %y {%selectedGraphs}')
-,c(datelabel,graph_procs,'next'))
+,c(graph_procs,'next'))
 
     if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
         if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
