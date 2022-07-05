@@ -26,9 +26,11 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="",group=FALSE,wf="",page="",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options=c("t=png","d=300"),save_path="EViewsR_files",frequency="m",start_date=""){
+eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path="EViewsR_files",frequency="m",start_date="",save_copy=F){
 
-graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
+
+
+# graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
 
 graph_procs=append(graphProcsDefault,graph_procs)
 
@@ -48,7 +50,7 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
   }
    if(group==T & length(series1)==1) series1=gsub(" ","",series1)
 
-  if(group!=T & length(series1)==1){
+  if(!group & length(series1)==1){
     series1=trimws(series1)
     series1=unlist(strsplit(series1,split=" "))
   }
@@ -71,6 +73,9 @@ if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",gra
 }
 
 
+
+  if(options$dev=="png" && save_options=='') save_options="t=png,d=300"
+  if(options$dev=="pdf" && save_options=='') save_options="t=pdf"
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
@@ -197,9 +202,21 @@ endif)'
 
 
 
-if (group!=T){
+if (!group){
 
-  freezeCode=r'(%allSeries=@wdrop(%allSeries,"DATE")
+  freezeCode=r'(if %page="*" then
+  %pagelist=@pagelist
+  endif
+
+  if %page<>"*" then
+  %pagelist=%page
+  endif
+
+for %page {%pagelist}
+pageselect {%page}
+  %allSeries=@wlookup(%series,"series")
+  %allSeries=@wdrop(%allSeries,"DATE")
+  if @wcount(%allSeries)>0 then
   group {%EviewsRGroup} {%allSeries}
   !n={%EviewsRGroup}.@count
 
@@ -208,7 +225,10 @@ if (group!=T){
 
 
   freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}
-  next)'
+  next
+  endif
+  next
+  )'
 
 
   saveCode=r'(for !k=1 to {!n}
