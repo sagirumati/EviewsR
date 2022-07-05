@@ -231,24 +231,75 @@ pageselect {%page}
   )'
 
 
-  saveCode=r'(for !k=1 to {!n}
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%x{!k}}
+  saveCode=r'(%graphPath=""
+  for %page {%pagelist}
+  pageselect {%page}
+  %allSeries=@wlookup(%series,"series")
+  %allSeries=@wdrop(%allSeries,"DATE")
+  if @wcount(%allSeries)>0 then
+  group {%EviewsRGroup} {%allSeries}
+  !n={%EviewsRGroup}.@count
+
+  for !k=1 to {!n}
+  %x{!k}={%EviewsRGroup}.@seriesname({!k})
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%page}-{%x{!k}}
+  %graphPath=%graphPath+" "+%chunkName+%page+"-"+%x{!k}
   next
   delete {%EviewsrGroup}
+  endif
+  next
   exit)'
 }
 
 if (group){
 
-      freezeCode=r'(%allSeries=@wdrop(%allSeries,"DATE")
+      freezeCode=r'(if %page="*" then
+      %pagelist=@pagelist
+      endif
+
+      if %page<>"*" then
+      %pagelist=%page
+      endif
+
+      for %page {%pagelist}
+      pageselect {%page}
+      %allSeries=@wlookup(%series,"series")
+      %allSeries=@wdrop(%allSeries,"DATE")
+      if @wcount(%allSeries)>0 then
       group {%EviewsRGroup} {%allSeries}
 
       %seriesNames=@replace(%allSeries," ","")
-      %seriesNames=%seriesNames
-      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options})'
+     ' %seriesNames=%seriesNames
+      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options}
+      endif
+      next
+      )'
 
-      saveCode=r'({%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%seriesNames}
+      saveCode=r'(if %page="*" then
+      %pagelist=@pagelist
+      endif
+
+      if %page<>"*" then
+      %pagelist=%page
+      endif
+
+      %graphPath=""
+
+      for %page {%pagelist}
+      pageselect {%page}
+      %allSeries=@wlookup(%series,"series")
+      %allSeries=@wdrop(%allSeries,"DATE")
+      if @wcount(%allSeries)>0 then
+      {%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%page}-{%seriesNames}
+      %graphPath=%graphPath+" "+%chunkName+%page+"-"+%seriesNames
+      endif
       delete {%EviewsrGroup}
+      next
+
+
+      text {%eviewsrText}_graph
+      {%eviewsrText}_graph.append {%graphPath}
+      {%eviewsrText}_graph.save  {%eviewsrText}-graph
       exit)'
       }
 
