@@ -238,14 +238,16 @@ eng_eviews <- function(options) {
    %figKeep=""
    endif
 
+   %figpath=""
 
    if @wcount(%figKeep)<>0 then
    for %y {%figKeep}
    {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%y}
+   %figpath=%figpath+" "+%chunkName+%y
    next
    endif
 
-   %figpath=%figkeep
+
 
    text {%eviewsrText}_graph
    {%eviewsrText}_graph.append {%figpath}
