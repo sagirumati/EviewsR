@@ -52,6 +52,9 @@ The `eviews` chunk automatically returns the outputs of each equation object as 
 EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
 EviewsR$eviewsrols
-EviewsR$eviewsr_page
+EviewsR$eviewsr_page_eviewsrols
+EviewsR$eviewsr_page |> head()
 EviewsR$series
 ```
+
+

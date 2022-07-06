@@ -715,25 +715,26 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
   strsplit(split=" ") %>% unlist()
 
 
-if(any(options$fig.keep=="desc")) eviewsGraphics %<>% sort(decreasing = TRUE)
+if(any(options$fig.keep=="desc")) graphPath %<>% sort(decreasing = TRUE)
 
-if(any(options$fig.keep=="asc")) eviews_graphics %<>% sort
+if(any(options$fig.keep=="asc")) graphPath %<>% sort
 
-if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
+if(is.numeric(options$fig.keep)) graphPath=graphPath[options$fig.keep]
 
-if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pageList1,collapse = "\\-|\\-"),eviews_graphics)]
+if(exists("pagelist1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath)]
 
 
-if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+# if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
 
-eviews_graphics=paste0(save_path1,eviews_graphics)
+# eviewsGraphics=paste0(save_path1,graphPath)
 
 
 
 
 eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+
 include_graphics(eviewsGraphics)
-  }
+
 
 
 # include_graphics(eviews_graphics)
@@ -763,13 +764,15 @@ on.exit({
 #
 # # begining of comment
 code=engine_output(options,code = options$code, out = "")
-# if(all(save_path1!=eviews_graphics)) output=list(knitr::include_graphics(eviews_graphics)) else output=list()
+
+
+if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGraphics)) else output=list()
 #
-output=list(knitr::include_graphics(eviews_graphics))
+# output=list(knitr::include_graphics(eviews_graphics))
 
 if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
 
-if(options$echo) return(c(code,out)) else return(c(out))
+if(options$echo) return(c(code,out)) else return(out)
 
 #end of comment
 # opts_chunk$restore()
