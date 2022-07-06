@@ -28,7 +28,7 @@
 rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="",end_date="",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
-
+wf2=wf
 
   if(wf=="") save="" else save="save"
   if(wf=="") {

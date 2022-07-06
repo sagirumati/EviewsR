@@ -2,7 +2,7 @@
 title: "EviewsR: Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
-output: bookdown::pdf_document2
+output: rmarkdown::html_vignette
 ---
 
 ```{r setup, include = FALSE}
@@ -222,7 +222,7 @@ y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",merge_graphs =T)
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",group =T)
  
   # eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  

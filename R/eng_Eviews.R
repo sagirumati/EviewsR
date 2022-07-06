@@ -200,7 +200,8 @@ eng_eviews <- function(options) {
    save_options=paste0('%save_options=',shQuote_cmd(save_options))
 
 
-   save_path=paste0("EviewsR_files")
+   # save_path=paste0("EviewsR_files")
+   save_path=''
    # if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
    # save_path=opts_current$get("fig.path") %n% save_path
    # if(grepl('AppData/Local/Temp',save_path)) save_path="EviewsR_files"
@@ -708,9 +709,6 @@ eviews_graphics=paste0(save_path1,eviews_graphics)
 on.exit({
   # getFromNamespace('plot_counter','knitr')(TRUE)
   do.call(':::',list('knitr','plot_counter'))(TRUE)
-    # plot_counter(reset = TRUE)
-  # reticulate:::defer(plot_counter(reset=T))
-   # shot_counter(reset = TRUE)
    # opts_knit$delete('plot_files')
 }, add = TRUE) # restore plot number on.exit({
 
