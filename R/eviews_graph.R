@@ -390,6 +390,7 @@ writeLines(c(eviews_path(),chunkName,eviewsrText,EviewsRGroup,wf,page,series,gra
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 
+on.exit(unlink(paste0(eviewsrText1,"-graph.txt")),add = TRUE)
 
 
 

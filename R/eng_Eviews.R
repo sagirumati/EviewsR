@@ -209,6 +209,11 @@ eng_eviews <- function(options) {
 
    # save_path=paste0("EviewsR_files")
    save_path=''
+   save_path=opts_current$get("fig.path")
+   if(identical(getwd() %>% basename,'vignettes')) {
+     save_path=tempDir=tempfile('EviewsR',".") %>% basename
+     on.exit(unlink(tempDir,recursive = TRUE),add = TRUE)
+   }
    # if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
    # save_path=opts_current$get("fig.path") %n% save_path
    # if(grepl('AppData/Local/Temp',save_path)) save_path="EviewsR_files"
@@ -658,7 +663,7 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
-# on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 on.exit(unlink_eviews(),add = TRUE)
