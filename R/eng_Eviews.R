@@ -62,6 +62,8 @@ eng_eviews <- function(options) {
 
    graphicsDefault=r'(
 
+   %pagelist=@pagelist
+
 %activePage=@pagename
 
    if %pagelist1<>"" then

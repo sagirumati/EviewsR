@@ -25,7 +25,7 @@ library(knitr)
 # Eviews chunk
 
 
-```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=T}
+```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=F}
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -52,5 +52,6 @@ The `eviews` chunk automatically returns the outputs of each equation object as 
 EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
 EviewsR$eviewsrols
-EviewsR$eviewsr_page |> head() 
+EviewsR$EviewsR_page
+EviewsR$series
 ```
