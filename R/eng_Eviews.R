@@ -245,9 +245,15 @@ eng_eviews <- function(options) {
    next
    endif
 
-   text {%eviewsrText}
-   {%eviewsrText}.append {%figpath}
-   {%eviewsrText}.save {%eviewsrText}
+   %figpath=%figkeep
+
+   text {%eviewsrText}_graph
+   {%eviewsrText}_graph.append {%figpath}
+   {%eviewsrText}_graph.save {%eviewsrText}-graph
+
+  ' text {%eviewsrText}
+   '{%eviewsrText}.append {%figpath}
+  ' {%eviewsrText}.save {%eviewsrText}
    )'
 
 

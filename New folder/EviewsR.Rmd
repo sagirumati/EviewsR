@@ -93,7 +93,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR,eval=F}
+```{eviews EviewsR,eval=T,page=F}
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022

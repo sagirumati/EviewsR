@@ -93,7 +93,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure"}
+```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=F}
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -115,7 +115,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `eviews$equationName`. For example, The $R^2$ of the `ols` equation object is `r eviews$ols$r2[1]`, which can be accessed using `` `r knitr::inline_expr('eviews$ols$r2[1]')` ``.
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkName$equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$ols$r2[1]')` ``.
 
 # Executing EViews commands in R
 
