@@ -467,6 +467,7 @@ eng_eviews <- function(options) {
 
 
 
+     %equationPath=""
 
      %equation=@wlookup("*","equation")
 
@@ -492,7 +493,7 @@ eng_eviews <- function(options) {
      endif
      next
 
-     %equationPath=%y+"-"+%eviewsrText
+     %equationPath=%equationPath+%y+"-"+%eviewsrText
      {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
 
      next
@@ -648,7 +649,7 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
-on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+# on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 on.exit(unlink_eviews(),add = TRUE)
