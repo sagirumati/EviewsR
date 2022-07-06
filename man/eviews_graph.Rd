@@ -5,19 +5,20 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 eviews_graph(
-  series = "",
+  series = "*",
   group = FALSE,
   wf = "",
-  page = "",
+  page = "*",
   mode = "overwrite",
   graph_command = "line",
   options = "",
   graph_procs = "",
   datelabel = "",
-  save_options = c("t=png", "d=300"),
+  save_options = "",
   save_path = "EViewsR_files",
   frequency = "m",
-  start_date = ""
+  start_date = "",
+  save_copy = F
 )
 }
 \arguments{

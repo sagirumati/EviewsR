@@ -5,13 +5,14 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 import_graph(
-  graph = "",
+  graph = "*",
   wf = "",
-  page = "",
+  page = "*",
   graph_procs = "",
   datelabel = "",
-  save_options = c("t=png", "d=300"),
-  save_path = "EViewsR_files"
+  save_options = "",
+  save_path = "EViewsR_files",
+  save_copy = F
 )
 }
 \arguments{

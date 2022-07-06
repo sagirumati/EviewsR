@@ -3,7 +3,10 @@
 #####################
 
 #' @import knitr magrittr
-#' @importFrom utils write.csv read.csv assignInMyNamespace getFromNamespace
+#' @importFrom utils write.csv read.csv  getFromNamespace tail
+#' @importFrom stats na.omit
+
+
 
 globalVariables(".")
 

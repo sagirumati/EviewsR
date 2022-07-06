@@ -43,7 +43,7 @@ eng_eviews <- function(options) {
     # if (!is.null(options$eval))options$template=opts_current$get("template")
 
 
-  if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
+  # if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
 
     eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 

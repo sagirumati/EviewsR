@@ -158,5 +158,5 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
 
-  if(isFalse(save_copy)) on.exit(unlink(eviewsGraphics))
+  if(!save_copy) on.exit(unlink(eviewsGraphics))
 }
