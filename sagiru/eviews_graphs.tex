@@ -129,7 +129,7 @@
 \section{R plots}\label{r-plots}}
 
 \begin{figure}[H]
-\subfloat[Figure 1 of EviewsR page\label{fig:saniya-1}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//saniya-small-sag1} }\subfloat[Figure 2 of EviewsR page\label{fig:saniya-2}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//saniya-small-sag2} }\subfloat[Figure 3 of EviewsR page\label{fig:saniya-3}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//saniya-small-sag3} }\caption{Figures import}\label{fig:saniya}
+\subfloat[Figure 1 of EviewsR page\label{fig:saniya-1}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{saniya-small-sag1} }\subfloat[Figure 2 of EviewsR page\label{fig:saniya-2}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{saniya-small-sag2} }\subfloat[Figure 3 of EviewsR page\label{fig:saniya-3}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{saniya-small-sag3} }\caption{Figures import}\label{fig:saniya}
 \end{figure}
 
 \begin{Shaded}
@@ -173,7 +173,7 @@
 \end{figure}
 
 \begin{figure}[h]
-\subfloat[Figure 1 of EviewsR page\label{fig:biscuit-1}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page1-graph1} }\subfloat[Figure 2 of EviewsR page\label{fig:biscuit-2}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page1-graph2} }\subfloat[Figure 3 of EviewsR page\label{fig:biscuit-3}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page1-graph3} }\newline\subfloat[Figure 1 of Page1 page\label{fig:biscuit-4}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page2-graph1} }\subfloat[Figure 2 of Page1 page\label{fig:biscuit-5}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page2-graph2} }\subfloat[Figure 3 of Page1 page\label{fig:biscuit-6}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{eviews_graphs_files/figure-latex//biscuit-page2-graph3} }\caption{Figures automatically imported by eviews 2}\label{fig:biscuit}
+\subfloat[Figure 1 of EviewsR page\label{fig:biscuit-1}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page1-graph1} }\subfloat[Figure 2 of EviewsR page\label{fig:biscuit-2}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page1-graph2} }\subfloat[Figure 3 of EviewsR page\label{fig:biscuit-3}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page1-graph3} }\newline\subfloat[Figure 1 of Page1 page\label{fig:biscuit-4}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page2-graph1} }\subfloat[Figure 2 of Page1 page\label{fig:biscuit-5}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page2-graph2} }\subfloat[Figure 3 of Page1 page\label{fig:biscuit-6}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{biscuit-page2-graph3} }\caption{Figures automatically imported by eviews 2}\label{fig:biscuit}
 \end{figure}
 
 \begin{Shaded}
@@ -190,5 +190,20 @@
 \end{Highlighting}
 \end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\SpecialCharTok{\textgreater{}}\NormalTok{ x}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\SpecialCharTok{\textgreater{}}\NormalTok{ y}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\SpecialCharTok{\textgreater{}}\NormalTok{ z}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{))}
+\SpecialCharTok{\textgreater{}}\NormalTok{ data}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(x,y,z)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_graph}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in options$dev <- opts_current$get("dev"): Coercing LHS to a list
+\end{verbatim}
+
+\includegraphics{eviews_graphs_files/figure-latex//graphp-graphp-X.pdf} \includegraphics{eviews_graphs_files/figure-latex//graphp-graphp-Y.pdf} \includegraphics{eviews_graphs_files/figure-latex//graphp-graphp-Z.pdf}
 
 \end{document}

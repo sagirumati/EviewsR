@@ -155,6 +155,11 @@ eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",gra
     fileName=tempfile("EVIEWS", ".", ".prg")
   EviewsRGroup=basename(tempfile("EviewsRGroup"))
 
+  eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
+  eviewsrText1=eviewsrText
+  eviewsrText %<>%
+    shQuote_cmd %>% paste0('%eviewsrText=',.)
+
 
 
 # if(datelabel==""){
@@ -313,6 +318,11 @@ pageselect {%page}
   delete {%EviewsrGroup}
   endif
   next
+
+
+  text {%eviewsrText}_graph
+  {%eviewsrText}_graph.append {%graphPath}
+  {%eviewsrText}_graph.save  {%eviewsrText}-graph
   exit)'
 }
 
@@ -368,7 +378,7 @@ if (group){
       exit)'
       }
 
-writeLines(c(eviews_path(),chunkName,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),chunkName,eviewsrText,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -379,13 +389,20 @@ on.exit(unlink_eviews(),add = TRUE)
 eviews_graphics=c()
 # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 
-for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+# for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+#
+# # b=list.files(paste0("^",a[1],".png","$"),path = ".")
+#
+# if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
+# eviews_graphics=paste0(save_path1,eviews_graphics)
+# include_graphics(eviews_graphics)
 
-# b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
-if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
-eviews_graphics=paste0(save_path1,eviews_graphics)
-include_graphics(eviews_graphics)
+if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
+  strsplit(split=" ") %>% unlist()
+
+eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+include_graphics(eviewsGraphics)
 }
 
 
