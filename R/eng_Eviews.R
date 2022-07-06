@@ -61,11 +61,16 @@ eng_eviews <- function(options) {
    } else pageList='%pagelist1=""'
 
    graphicsDefault=r'(
-   %pagelist=@pagelist
+
+%activePage=@pagename
 
    if %pagelist1<>"" then
    %pagelist=%pagelist1
    endif
+
+   'if %pagelist1="" then
+   '%pagelist=%activePage
+   'endif
 
    for %page {%pagelist}
    pageselect {%page}
@@ -482,7 +487,7 @@ eng_eviews <- function(options) {
      scalar n=@wcount(%equationMembers)
      for !j =1 to n
      %x{!j}=@word(%equationMembers,{!j})
-     {%y}_table_{%%eviewsrText}(1,!j)=%x{!j}
+     {%y}_table_{%eviewsrText}(1,!j)=%x{!j}
 
      %vectors="coefs pval stderrs tstats"
      if @wcount(@wintersect(%x{!j},%vectors))>0 then

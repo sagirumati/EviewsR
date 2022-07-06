@@ -1,0 +1,56 @@
+---
+title: "EviewsR: Seamless Integration of Eviews and R"
+author: "Sagiru Mati"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{EviewsR: Seamless Integration of Eviews and R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  echo = T,
+  eval=T
+)
+library(EviewsR)
+# set_eviews_path('EViews12_X64')
+library(knitr)
+```
+
+
+# Eviews chunk
+
+
+```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=T}
+    'This program is created in R Markdown with the help of EviewsR package
+  
+  wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+  'for %y EviewsR package page1 page2
+  'pagecreate(page={%y}) EviewsR m 2000 2022
+  'next
+  pageselect EviewsR_page
+  rndseed 123456
+  genr y=rnd
+  genr x=rnd
+  equation ols.ls y c x
+
+  freeze(EviewsROLS,mode=overwrite) ols
+  freeze(yy,mode=overwrite) y.line
+  freeze(xx,mode=overwrite) x.line
+  wfsave EviewsR_workfile
+
+```
+
+
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkName$equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$ols$r2[1]')` ``. `r EviewsR$ols$r2`
+
+```{r}
+EviewsR$ols$r2
+EviewsR$eviewsr_page_ols$r2
+EviewsR$eviewsrols
+EviewsR$eviewsr_page |> head() 
+```

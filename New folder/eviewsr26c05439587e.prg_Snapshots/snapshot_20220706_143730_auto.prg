@@ -2,20 +2,21 @@
 cd %eviews_path
 %pagelist1=""
 %figKeep1="all"
-%eviewsrText="eviewsrText9c076906844"
+%eviewsrText="eviewsrText26c064fe7971"
 %chunkName="EviewsR-"
-%save_path="/EviewsR_files/figure-html/"
+%save_path=""
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
-  for %y EviewsR package page1 page2
-  pagecreate(page={%y}) EviewsR m 2000 2022
-  next
+  'for %y EviewsR package page1 page2
+  'pagecreate(page={%y}) EviewsR m 2000 2022
+  'next
   pageselect EviewsR_page
   rndseed 123456
   genr y=rnd
   genr x=rnd
   equation ols.ls y c x
+
   freeze(EviewsROLS,mode=overwrite) ols
   freeze(yy,mode=overwrite) y.line
   freeze(xx,mode=overwrite) x.line
@@ -23,11 +24,16 @@ cd %eviews_path
 
 %save_options="t=png,d=300"
 
-   %pagelist=@pagelist
+
+%activePage=@pagename
 
    if %pagelist1<>"" then
    %pagelist=%pagelist1
    endif
+
+   'if %pagelist1="" then
+   '%pagelist=%activePage
+   'endif
 
    for %page {%pagelist}
    pageselect {%page}
