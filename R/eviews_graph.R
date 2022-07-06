@@ -28,6 +28,10 @@
 #' @export
 eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path="EViewsR_files",frequency="m",start_date="",save_copy=F){
 
+
+   # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
+
+
   graphicsDefault=r'(
   if %page="*" then
   %pagelist=@pagelist
@@ -129,10 +133,11 @@ eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",gra
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
 }
 
-  options$dev=opts_current$get('dev')
+  dev=opts_current$get('dev')
 
-  if(options$dev=="png" && save_options=='') save_options="t=png,d=300"
-  if(options$dev=="pdf" && save_options=='') save_options="t=pdf"
+  if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
+  if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
+  if(is.null(dev) && save_options=='') save_options="t=png,d=300"
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
@@ -176,6 +181,8 @@ eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",gra
 # }else{
 # datelabel=paste('{%y}.datelabel',datelabel)
 # }
+
+if(group && options=='m' && graph_procs=='') graph_procs='align(2,1,1)'
 
 if(graph_procs!=""){
   graph_procs=paste0("{%y}.",graph_procs)

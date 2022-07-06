@@ -28,16 +28,15 @@
 #' @export
 import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_options="",save_path="EViewsR_files",save_copy=F){
 
+   # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
 
-
-if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
   chunkName=opts_current$get("label")
 
 
-  if(options$dev=="png" && save_options=='') save_options="t=png,d=300"
-  if(options$dev=="pdf" && save_options=='') save_options="t=pdf"
+  if(!is.null(options$dev) && options$dev=="png" && save_options=='') save_options="t=png,d=300"
+  if(!is.null(options$dev) && options$dev=="pdf" && save_options=='') save_options="t=pdf"
 
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
@@ -66,6 +65,8 @@ eviewsrText %<>%
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('for %page {%pagelist}','pageselect {%page}','%selectedGraphs=@wlookup(%graph,"graph")','if @wcount(%selectedGraphs)>0 then','for %y {%selectedGraphs}')
 ,c(graph_procs,'next','endif','next'))
+
+  if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 
     if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
         if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%

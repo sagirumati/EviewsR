@@ -151,11 +151,11 @@ next
 ```
 
 
-```{r graphp,fig.cap="Nice graph"}
+```{r graphp,fig.cap="Nice graph",out.width="\\textwidth",fig.show='hold'}
 x=cumsum(rnorm(100))
 y=cumsum(rnorm(100))
 z=cumsum(rnorm(100))
 data=data.frame(x,y,z)
-eviews_graph(data)
+eviews_graph(data,group = T,options = 'm')
 
 ```
