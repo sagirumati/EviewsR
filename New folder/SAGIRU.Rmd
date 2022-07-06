@@ -25,13 +25,13 @@ library(knitr)
 # Eviews chunk
 
 
-```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=F}
+```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=T,graph_procs='template midnight'}
     'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
-  'for %y EviewsR package page1 page2
-  'pagecreate(page={%y}) EviewsR m 2000 2022
-  'next
+  for %y EviewsR package page1 page2
+  pagecreate(page={%y}) EviewsR m 2000 2022
+  next
   pageselect EviewsR_page
   rndseed 123456
   genr y=rnd

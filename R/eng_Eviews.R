@@ -70,9 +70,9 @@ eng_eviews <- function(options) {
    %pagelist=%pagelist1
    endif
 
-   'if %pagelist1="" then
-   '%pagelist=%activePage
-   'endif
+   if %pagelist1="" then
+   %pagelist=%activePage
+   endif
 
    for %page {%pagelist}
    pageselect {%page}
@@ -211,7 +211,8 @@ eng_eviews <- function(options) {
    save_path=''
    save_path=opts_current$get("fig.path")
    if(identical(getwd() %>% basename,'vignettes')) {
-     save_path=tempDir=tempfile('EviewsR',".") %>% basename
+     save_path=tempfile('EviewsR',".") %>% basename
+     tempDir=save_path
      on.exit(unlink(tempDir,recursive = TRUE),add = TRUE)
    }
    # if(opts_current$get("fig.path")=="") save_path="" else save_path=paste0(save_path,'/',options$fig.path)
