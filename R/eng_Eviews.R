@@ -664,7 +664,7 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
-on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+# on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 on.exit(unlink_eviews(),add = TRUE)
@@ -727,7 +727,7 @@ if(any(options$fig.keep=="asc")) graphPath %<>% sort
 
 if(is.numeric(options$fig.keep)) graphPath=graphPath[options$fig.keep]
 
-if(exists("pagelist1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath)]
+if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath)]
 
 
 # if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
@@ -737,7 +737,7 @@ if(exists("pagelist1") && options$fig.keep=="new") graphPath=graphPath[grep(past
 
 
 
-eviewsGraphics=paste0(save_path1,'/',graphPath)
+eviewsGraphics=paste0(save_path1,graphPath)
 eviewsGraphics1=paste0(save_path1,'/',graphPath,'.',extension)
 
 # include_graphics(eviewsGraphics)
