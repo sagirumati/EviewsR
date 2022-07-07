@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_options="",save_path="EViewsR_files",save_copy=T){
+import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 

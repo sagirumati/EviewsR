@@ -26,7 +26,9 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_pagesave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
+eviews_pagesave=function(wf="",page="",options="",source_description="",table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec="",save_path=dirname(source_description)){
+
+  if(!dir.exists(save_path)) dir.create(save_path,recursive = T)
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   wf=paste0('%wf=',shQuote_cmd(wf))

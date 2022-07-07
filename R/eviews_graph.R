@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path="EViewsR_files",frequency="m",start_date="",save_copy=F){
+eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path=dirname(wf),frequency="m",start_date="",save_copy=F){
 
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2

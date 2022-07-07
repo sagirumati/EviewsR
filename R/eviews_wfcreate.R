@@ -30,7 +30,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){
+eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=dirname(wf)){
 
   if(toupper(frequency)=="U" & is.na(num_observations)) stop("If 'frequency=\"u\"' (undated workfile),'num_observations' cannot be NA or blank")
   if(toupper(frequency)!="U" & (start_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile),'start_date' and 'num_observations' cannot be blank or NA")
@@ -42,11 +42,13 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency=
 
   save_path=gsub("/","\\\\",save_path)
   save_path1=save_path
-  save_path=paste0("%save_path=",shQuote_cmd(save_path))
+  if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
 
-   if(save_path1!=""){
-     if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-  }
+  save_path=paste0("%save_path=",shQuote_cmd(save_path))
+#
+#    if(save_path1!=""){
+#      if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
+#   }
 
 if(is.data.frame(source_description)){
 
