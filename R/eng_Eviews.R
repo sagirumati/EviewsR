@@ -53,7 +53,9 @@ eng_eviews <- function(options) {
 
      pageList=paste(options$page,collapse = " ") %>% trimws
 
-     pageList1=pageList %>%   strsplit(split=" ") %>% unlist()
+     pageList1=pageList %>%   strsplit(split=" ") %>%
+       unlist() %>% paste0(collapse='|') %>% paste0('-(',.,')-')
+
 
      pageList %<>% shQuote_cmd %>% paste0('%pagelist1=',.)
 
@@ -727,7 +729,10 @@ if(any(options$fig.keep=="asc")) graphPath %<>% sort
 
 if(is.numeric(options$fig.keep)) graphPath=graphPath[options$fig.keep]
 
-if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath,ignore.case = TRUE)]
+# if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath,ignore.case = TRUE)]
+if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(pageList1,graphPath,ignore.case = TRUE)]
+#
+#
 
 
 # if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")

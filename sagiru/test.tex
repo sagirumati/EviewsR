@@ -41,46 +41,6 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -125,31 +85,13 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\begin{center}\includegraphics{test_files/figure-latex//EviewsR-EviewsR-X_GRAPH} \end{center}
-
-\begin{center}\includegraphics{test_files/figure-latex//EviewsR-EviewsR-Y_GRAPH} \end{center}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\SpecialCharTok{\textgreater{}} \FunctionTok{import\_graph}\NormalTok{(}\AttributeTok{wf=}\StringTok{"eviewsr"}\NormalTok{,}\AttributeTok{graph=}\StringTok{"*\_graph"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}[h]
 
-{\centering \includegraphics{test_files/figure-latex//importGraph-EviewsR-X_GRAPH} 
+{\centering \subfloat[Graph3 of EviewsR page\label{fig:EviewsR3-1}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-EviewsR3-GRAPH3} }\subfloat[Graph2 of EviewsR page\label{fig:EviewsR3-2}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-EviewsR3-GRAPH2} }\subfloat[Graph1 of EviewsR page\label{fig:EviewsR3-3}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-EviewsR3-GRAPH1} }\newline\subfloat[Graph3 of Page1 page\label{fig:EviewsR3-4}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-page1-GRAPH3} }\subfloat[Graph2 of Page1 page\label{fig:EviewsR3-5}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-page1-GRAPH2} }\subfloat[Graph1 of Page1 page\label{fig:EviewsR3-6}]{\includegraphics[width=0.33\textwidth,height=0.25\textwidth]{test_files/figure-latex//EviewsR3-page1-GRAPH1} }
 
 }
 
-\caption{Graph imported using import\_graph() function}\label{fig:importGraph-1}
-\end{figure}
-\begin{figure}[h]
-
-{\centering \includegraphics{test_files/figure-latex//importGraph-EviewsR-Y_GRAPH} 
-
-}
-
-\caption{Graph imported using import\_graph() function}\label{fig:importGraph-2}
+\caption{Figures automatically imported by eviews chunk (page="eviewsr page1", fig.keep="new")}\label{fig:EviewsR3}
 \end{figure}
 
 \end{document}

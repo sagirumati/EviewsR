@@ -17,40 +17,35 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 ```
 
 
+```{eviews EviewsR3}
+#| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", fig.keep="new")
+#| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
+#| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
+#| out.width: 0.33\textwidth
+#| out.height: 0.25\textwidth
+#| fig.ncol: 3
+#| fig.keep: new
+#| page: eviewsr3 page1
+#| echo: FALSE
 
-```{eviews EviewsR,eval=T,page=T,echo=F}      
-  'This is some comment in EViews program, feel free to write anything
-  
-  wfcreate(wf=EviewsR,page=EviewsR) m 2000 2022
-  for %y Created By a voluntary author
-  pagecreate(page={%y}) EviewsR m 2000 2022
-  next
-  pageselect EviewsR
-  
-  table EviewsRTable
-  for !j=1 to 7
-  EviewsRTable(1,{!j})="Header"+" "+@str({!j})
-  next
-  for !i=1 to 10
-  for !j=1 to 7
-  EviewsRTable({!i}+1,{!j})=@str({!i})+","+@str({!j})
-  EviewsRTable.save(t=csv) EviewsRTable
-  next
-  next 
-  
-  rndseed 123456
-  genr x=@cumsum(nrnd)
-  genr y=@cumsum(nrnd)
-  graph x_graph.line x
-  graph y_graph.line y
-  equation ols.ls y c x
-  freeze(EviewsROLS,mode=overwrite) ols
-  wfsave EviewsR
-```  
+'This is some comment in EViews program, feel free to write anything
 
-
-
-```{r importGraph,fig.cap="Graph imported using import\\_graph() function"}
-import_graph(wf="eviewsr",graph="*_graph")
+wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+for %y  page2 EviewsR3 page1 
+pagecreate(page={%y}) EviewsR q 2000 2022
+pageselect {%y}
+rndseed 123
+genr x=@cumsum(nrnd)
+genr y=@cumsum(nrnd)
+genr z=@cumsum(nrnd)
+equation OLS_EQUATION.ls y c x z
+freeze(OLS_EQUATION_TABLE,mode=overwrite) OLS_EQUATION
+delete(noerr) GRAPH*
+freeze(GRAPH3,mode=overwrite) z.line
+graph GRAPH2.dot y
+graph GRAPH1.area x
+graph3.addtext(ar) %y
+graph2.addtext(ar) %y
+graph1.addtext(ar) %y
+next
 ```
-  
