@@ -162,11 +162,14 @@ on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 #
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
+if(!save_copy) on.exit(unlink(eviewsGraphics))
+
+
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
 
-  if(!save_copy) on.exit(unlink(eviewsGraphics))
+
 }
