@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| out.height: 0.25\textwidth
 #| fig.ncol: 3
 #| fig.keep: new
-#| page: EviewsR page1
+#| page: eviewsr PaGe1
 #| echo: FALSE
 
 'This is some comment in EViews program, feel free to write anything

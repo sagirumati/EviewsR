@@ -182,9 +182,12 @@ eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",gra
 # datelabel=paste('{%y}.datelabel',datelabel)
 # }
 
-if(group && options=='m' && graph_procs=='') graph_procs='align(2,1,1)'
+if(group && options=='m') {
+  align='align(2,0.5,1)'
+graph_procs=append(align,graph_procs)
+}
 
-if(graph_procs!=""){
+if(!identical(graph_procs,"")){
   graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('for %page {%pagelist}
 pageselect {%page}
