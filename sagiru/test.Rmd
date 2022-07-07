@@ -27,6 +27,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.keep: new
 #| page: eviewsr3 page1
 #| echo: FALSE
+#| eval: false
 
 'This is some comment in EViews program, feel free to write anything
 
@@ -49,3 +50,27 @@ graph2.addtext(ar) %y
 graph1.addtext(ar) %y
 next
 ```
+
+
+
+```{r,echo=FALSE}
+x=runif(100)
+y=runif(100)
+EviewsRDataFrame=data.frame(x,y)
+dir.create('EviewsR_files/')
+write.csv(EviewsRDataFrame,"EviewsR_Files/EviewsR_eviews_import.csv",row.names = FALSE)
+```
+
+
+```{r eviewsImport}
+eviews_import(source_description = "EviewsR_Files/EviewsR_eviews_import.csv",frequency = "m",start_date = "1990",save_path ='EviewsR_Files' )
+```
+
+
+```{r eviewsImport1}
+
+eviews_import(source_description = "EviewsR_files/EviewsR_eviews_import.csv",wf="EviewsR_files/EviewsR_eviews_import",smpl_string = "1990m10 1992m11",
+rename_string = "x x2")
+
+```
+

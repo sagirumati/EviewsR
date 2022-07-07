@@ -62,9 +62,10 @@ wfSuffix=opts_current$get('label') %n% "EViewsR"
   id=paste0("%id=",shQuote_cmd(id))
   destid=paste0("%destid=",shQuote_cmd(destid))
   append=paste0("%append=",shQuote_cmd(append))
-  wf=paste0("%wf=",shQuote_cmd(wf))
   save_path1=save_path
+  if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
+  wf=paste0("%wf=",shQuote_cmd(wf))
 
   eviewsCode=r'(
 %wf1=%wf+".wf1"
@@ -144,10 +145,10 @@ exit
 
 writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
 
-
-  if(save_path1!=""){
-    if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-  }
+#
+#   if(save_path1!=""){
+#     if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
+#   }
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
