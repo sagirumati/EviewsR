@@ -737,9 +737,10 @@ if(exists("pagelist1") && options$fig.keep=="new") graphPath=graphPath[grep(past
 
 
 
-eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+eviewsGraphics=paste0(save_path1,'/',graphPath)
+eviewsGraphics1=paste0(save_path1,'/',graphPath,'.',extension)
 
-include_graphics(eviewsGraphics)
+# include_graphics(eviewsGraphics)
 
 
 
@@ -772,7 +773,7 @@ on.exit({
 code=engine_output(options,code = options$code, out = "")
 
 
-if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGraphics)) else output=list()
+if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGraphics1)) else output=list()
 #
 # output=list(knitr::include_graphics(eviews_graphics))
 

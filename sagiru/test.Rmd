@@ -1,0 +1,48 @@
+---
+title: "Untitled"
+output: 
+  bookdown::pdf_document2:
+   keep_tex: true
+header-includes:
+  - \usepackage[caption=false]{subfig}
+  - \usepackage{float}
+date: '2022-06-11'
+---
+
+```{r setup, include=FALSE}
+library(EviewsR)
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T)
+
+# set_eviews_path("eviews10")
+```
+
+
+
+
+```{eviews EviewsR,eval=T,page=T,echo=F}      
+  'This is some comment in EViews program, feel free to write anything
+  
+  wfcreate(wf=EviewsR,page=EviewsR) m 2000 2022
+  for %y Created By a voluntary author
+  pagecreate(page={%y}) EviewsR m 2000 2022
+  next
+  pageselect EviewsR
+  
+  table EviewsRTable
+  for !j=1 to 7
+  EviewsRTable(1,{!j})="Header"+" "+@str({!j})
+  next
+  for !i=1 to 10
+  for !j=1 to 7
+  EviewsRTable({!i}+1,{!j})=@str({!i})+","+@str({!j})
+  EviewsRTable.save(t=csv) EviewsRTable
+  next
+  next 
+  
+  rndseed 123456
+  genr x=@cumsum(nrnd)
+  genr y=@cumsum(nrnd)
+  equation ols.ls y c x
+  freeze(EviewsROLS,mode=overwrite) ols
+  wfsave EviewsR
+```  
