@@ -26,7 +26,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_options="",save_path="EViewsR_files",save_copy=F){
+import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_options="",save_path="EViewsR_files",save_copy=T){
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
@@ -34,10 +34,11 @@ import_graph=function(graph="*",wf="",page="*",graph_procs="",datelabel="",save_
 
   chunkName=opts_current$get("label")
 
+  dev=opts_current$get('dev')
 
-  if(!is.null(options$dev) && options$dev=="png" && save_options=='') save_options="t=png,d=300"
-  if(!is.null(options$dev) && options$dev=="pdf" && save_options=='') save_options="t=pdf"
-
+  if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
+  if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
+  if(is.null(dev) && save_options=='') save_options="t=png,d=300"
 # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
     save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
@@ -62,12 +63,13 @@ eviewsrText %<>%
   shQuote_cmd %>% paste0('%eviewsrText=',.)
 
 
-  graph_procs=paste0("{%y}.",graph_procs)
+  if(!identical(graph_procs,'')){
+    graph_procs=paste0("{%y}.",graph_procs)
   graph_procs=append(c('for %page {%pagelist}','pageselect {%page}','%selectedGraphs=@wlookup(%graph,"graph")','if @wcount(%selectedGraphs)>0 then','for %y {%selectedGraphs}')
 ,c(graph_procs,'next','endif','next'))
 
   if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
-
+}
     if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
         if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
       shQuote_cmd() %>% paste0('%chunkName=',.)
@@ -100,8 +102,16 @@ if %wf<>"" then
 wfopen {%wf}
 endif
 
+'if %page<>"" then
+'pageselect {%page}
+'endif
+
 if %page<>"" then
-pageselect {%page}
+%pagelist=%page
+endif
+
+if %page="*" then
+%pagelist=@pagelist
 endif
 )'
 

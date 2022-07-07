@@ -664,7 +664,7 @@ on.exit(unlink(paste0(seriesPath,".csv")))
     on.exit(unlink(paste0(save_path1,"/",equationPath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",tablePath,".csv")),add = TRUE)
    on.exit(unlink(paste0(save_path1,"/",seriesPath,".csv")),add = TRUE)
-# on.exit(unlink(paste0(rep(eviewsrText1,4),c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+on.exit(unlink(paste0(eviewsrText1,c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 on.exit(unlink_eviews(),add = TRUE)
