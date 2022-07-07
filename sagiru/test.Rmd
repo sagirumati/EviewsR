@@ -51,6 +51,6 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 
 
 ```{r importGraph,fig.cap="Graph imported using import\\_graph() function"}
-import_graph(wf="eviewsr")
+import_graph(wf="eviewsr",graph="*_graph")
 ```
   
