@@ -137,10 +137,39 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_import}\NormalTok{(}\AttributeTok{source\_description =} \StringTok{"EviewsR\_files/EviewsR\_eviews\_import.csv"}\NormalTok{,}\AttributeTok{wf=}\StringTok{"EviewsR\_files/EviewsR\_eviews\_import"}\NormalTok{,}\AttributeTok{smpl\_string =} \StringTok{"1990m10 1992m11"}\NormalTok{,}
-\SpecialCharTok{+} \AttributeTok{rename\_string =} \StringTok{"x x2"}\NormalTok{,}\AttributeTok{save\_path =} \StringTok{\textquotesingle{}EviewsR\_Files\textquotesingle{}}\NormalTok{)}
+\SpecialCharTok{\textgreater{}} \FunctionTok{eviews\_import}\NormalTok{(}\AttributeTok{source\_description =} \StringTok{"EviewsR\_files/EviewsR\_eviews\_import.csv"}\NormalTok{,}\AttributeTok{smpl\_string =} \StringTok{"1990m10 1992m11"}\NormalTok{,}
+\SpecialCharTok{+} \AttributeTok{rename\_string =} \StringTok{"x x2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} }\FunctionTok{\textbackslash{}usetikzlibrary}\NormalTok{\{calc\}}
+\NormalTok{+ }\FunctionTok{\textbackslash{}usetikzlibrary}\NormalTok{\{positioning\}}
+\NormalTok{+ }\FunctionTok{\textbackslash{}usetikzlibrary}\NormalTok{\{arrows\}}
+\NormalTok{+   }\KeywordTok{\textbackslash{}begin}\NormalTok{\{}\ExtensionTok{tikzpicture}\NormalTok{\}[}
+\NormalTok{+     sharp corners=2pt,}
+\NormalTok{+     inner sep=7pt,}
+\NormalTok{+     node distance=3cm,}
+\NormalTok{+     \textgreater{}=latex]}
+\NormalTok{+ }\FunctionTok{\textbackslash{}tikzstyle}\NormalTok{\{my node\}=[draw,minimum height=1cm,minimum width=2cm]}
+\NormalTok{+ }\FunctionTok{\textbackslash{}node}\NormalTok{[my node] (A)\{A\};}
+\NormalTok{+ }\FunctionTok{\textbackslash{}node}\NormalTok{[my node,right of=A](C)\{C\};}
+\NormalTok{+ }\FunctionTok{\textbackslash{}node}\NormalTok{[my node] at (}\SpecialStringTok{$(A)!0.5!(C){-}(0pt,1.5cm)$}\NormalTok{) (B) \{B\};}
+\NormalTok{+ }\FunctionTok{\textbackslash{}draw}\NormalTok{[{-}\textgreater{}] (A) {-}{-} (B);}
+\NormalTok{+ }\FunctionTok{\textbackslash{}draw}\NormalTok{[{-}\textgreater{}] (A) {-}{-} (C);}
+\NormalTok{+ }\FunctionTok{\textbackslash{}draw}\NormalTok{[{-}\textgreater{}] (B) {-}{-} (C);}
+\NormalTok{+ }\KeywordTok{\textbackslash{}end}\NormalTok{\{}\ExtensionTok{tikzpicture}\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[h]
+
+{\centering \includegraphics{test_files/figure-latex/ThreeStateDiagram-1} 
+
+}
+
+\caption{Layout of the MSM used in the motivating model}\label{fig:ThreeStateDiagram}
+\end{figure}
 
 \end{document}
