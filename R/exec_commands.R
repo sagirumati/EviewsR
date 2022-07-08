@@ -34,9 +34,10 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-exec_commands=function(commands="",wf="",page=""){
+exec_commands=function(commands="",wf="",page="",save_path=dirname(wf)){
 
   fileName=tempfile("EVIEWS", ".", ".prg")
+  save_path %<>% shQuote_cmd %>% paste0('%save_path=',.)
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
   eviewsCode=r'(if %wf<>"" then
@@ -46,7 +47,11 @@ exec_commands=function(commands="",wf="",page=""){
   pageselect {%page}
   endif)'
 
-writeLines(c(eviews_path(),wf,page,eviewsCode,commands,"%wf=@wfname","save {%wf}","exit"),fileName)
+  saveCode=r"(%wf=@wfname
+  save {%eviews_path}\{%save_path}\{%wf}
+  exit)"
+
+writeLines(c(eviews_path(),save_path,wf,page,eviewsCode,commands,saveCode),fileName)
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
 }

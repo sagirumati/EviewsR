@@ -37,6 +37,8 @@
 #' @export
 eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=dirname(wf)){
 
+  if(!is.data.frame(source_description) && wf=='') save_path=dirname(source_description)
+
   if(is.data.frame(source_description)){
 
 wfSuffix=opts_current$get('label') %n% "EViewsR"
