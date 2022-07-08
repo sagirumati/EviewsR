@@ -81,7 +81,7 @@ if %smpl_spec<>"" then
 %smpl_spec="@smpl "+%smpl_spec
 endif
 
-pagesave(%options) {%source_description} {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
+pagesave(%options) %source_description {%table_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
 exit
 )'
 writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
