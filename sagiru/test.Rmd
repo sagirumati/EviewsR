@@ -53,7 +53,7 @@ next
 
 
 
-```{r,echo=FALSE}
+```{r,echo=FALSE,eval=FALSE}
 x=runif(100)
 y=runif(100)
 EviewsRDataFrame=data.frame(x,y)
@@ -62,12 +62,12 @@ write.csv(EviewsRDataFrame,"EviewsR_Files/EviewsR_eviews_import.csv",row.names =
 ```
 
 
-```{r eviewsImport}
+```{r eviewsImport,eval=FALSE}
 eviews_import(source_description = "EviewsR_Files/EviewsR_eviews_import.csv",frequency = "m",start_date = "1990",save_path ='EviewsR_Files' )
 ```
 
 
-```{r eviewsImport1}
+```{r eviewsImport1,eval=FALSE}
 
 eviews_import(source_description = "EviewsR_files/EviewsR_eviews_import.csv",smpl_string = "1990m10 1992m11",
 rename_string = "x x2")
@@ -75,23 +75,34 @@ rename_string = "x x2")
 ```
 
 
-```{asy, fig.cap='some nice flowchart'}
-import graph3;
-import grid3;
-import palette;
-settings.prc = false;
+```{asy abc, fig.cap='some nice flowchart',settings.prc = F}
+settings.prc = false
+size(0,300);
 
-currentprojection=orthographic(0.8,1,2);
-size(500,400,IgnoreAspect);
+import flowchart;
 
-real f(pair z) {return cos(2*pi*z.x)*sin(2*pi*z.y);}
+block block1=rectangle(Label("Example",magenta),
+                       pack(Label("Start:",heavygreen),"",Label("$A:=0$",blue),
+                            "$B:=1$"),(-0.5,3),palegreen,paleblue,red);
+block block2=diamond(Label("Choice?",blue),(0,2),palegreen,red);
+block block3=roundrectangle("Do something",(-1,1));
+block block4=bevel("Don't do something",(1,1));
+block block5=circle("End",(0,0));
 
-surface s=surface(f,(-1/2,-1/2),(1/2,1/2),50,Spline);
+draw(block1);
+draw(block2);
+draw(block3);
+draw(block4);
+draw(block5);
 
-surface S=planeproject(unitsquare3)*s;
-S.colors(palette(s.map(zpart),Rainbow()));
-draw(S,nolight);
-draw(s,lightgray+opacity(0.7));
+add(new void(picture pic, transform t) {
+    blockconnector operator --=blockconnector(pic,t);
+    //    draw(pic,block1.right(t)--block2.top(t));
+    block1--Right--Down--Arrow--block2;
+    block2--Label("Yes",0.5,NW)--Left--Down--Arrow--block3;
+    block2--Right--Label("No",0.5,NE)--Down--Arrow--block4;
+    block4--Down--Left--Arrow--block5;
+    block3--Down--Right--Arrow--block5;
+  });
 
-grid3(XYZgrid);
 ```
