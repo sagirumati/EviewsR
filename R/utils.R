@@ -142,7 +142,9 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 # shQuote_cmd
 
-shQuote_cmd= \(x)  shQuote(x,type="cmd")
+# shQuote_cmd= \(x)  shQuote(x,type="cmd")
+
+shQuote_cmd= \(x)  paste0('"',x,shQuote_cmd= \(x)  shQuote(x,type="cmd"type="cmd")
 
 
 
