@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.keep: new
 #| page: eviewsr3 page1
 #| echo: FALSE
-#| eval: false
+#| eval: true
 
 'This is some comment in EViews program, feel free to write anything
 
@@ -53,7 +53,7 @@ next
 
 
 
-```{r,echo=FALSE,eval=FALSE}
+```{r,echo=FALSE,eval=TRUE}
 x=runif(100)
 y=runif(100)
 EviewsRDataFrame=data.frame(x,y)
@@ -62,47 +62,15 @@ write.csv(EviewsRDataFrame,"EviewsR_Files/EviewsR_eviews_import.csv",row.names =
 ```
 
 
-```{r eviewsImport,eval=FALSE}
+```{r eviewsImport,eval=TRUE}
 eviews_import(source_description = "EviewsR_Files/EviewsR_eviews_import.csv",frequency = "m",start_date = "1990",save_path ='EviewsR_Files' )
 ```
 
 
-```{r eviewsImport1,eval=FALSE}
+```{r eviewsImport1,eval=TRUE}
 
 eviews_import(source_description = "EviewsR_files/EviewsR_eviews_import.csv",smpl_string = "1990m10 1992m11",
 rename_string = "x x2")
 
 ```
 
-
-```{asy abc, fig.cap='some nice flowchart',settings.prc = F}
-settings.prc = false
-size(0,300);
-
-import flowchart;
-
-block block1=rectangle(Label("Example",magenta),
-                       pack(Label("Start:",heavygreen),"",Label("$A:=0$",blue),
-                            "$B:=1$"),(-0.5,3),palegreen,paleblue,red);
-block block2=diamond(Label("Choice?",blue),(0,2),palegreen,red);
-block block3=roundrectangle("Do something",(-1,1));
-block block4=bevel("Don't do something",(1,1));
-block block5=circle("End",(0,0));
-
-draw(block1);
-draw(block2);
-draw(block3);
-draw(block4);
-draw(block5);
-
-add(new void(picture pic, transform t) {
-    blockconnector operator --=blockconnector(pic,t);
-    //    draw(pic,block1.right(t)--block2.top(t));
-    block1--Right--Down--Arrow--block2;
-    block2--Label("Yes",0.5,NW)--Left--Down--Arrow--block3;
-    block2--Right--Label("No",0.5,NE)--Down--Arrow--block4;
-    block4--Down--Left--Arrow--block5;
-    block3--Down--Right--Arrow--block5;
-  });
-
-```
