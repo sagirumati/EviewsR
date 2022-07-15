@@ -47,8 +47,13 @@ exec_commands=function(commands="",wf="",page="",save_path=dirname(wf)){
   pageselect {%page}
   endif)'
 
+
   saveCode=r"(%wf=@wfname
-  save {%eviews_path}\{%save_path}\{%wf}
+  if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
+  wfsave {%save_path}{%wf}
   exit)"
 
 writeLines(c(eviews_path(),save_path,wf,page,eviewsCode,commands,saveCode),fileName)

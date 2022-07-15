@@ -29,7 +29,7 @@ eviews_wfsave=function(wf="",page="",options="",source_description="",table_desc
   options=paste(options,collapse = ",")
   options=paste0('%options=',shQuote_cmd(options))
   source_description=paste0('%source_description=',shQuote_cmd(source_description))
-  table_description=paste0('%table_description=',shQuote_cmd1(table_description))
+  table_description=paste0('%table_description=',shQuote_cmd(table_description))
 
   keep_list=paste(keep_list,collapse = " ")
   keep_list=paste0('%keep_list=',shQuote_cmd(keep_list))
