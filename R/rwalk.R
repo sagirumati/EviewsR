@@ -25,7 +25,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="m",start_date="",end_date="",num_cross_sections=NA,num_observations=NA){
+rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA){
   fileName=tempfile("EviewsR", ".", ".prg")
 
 wf2=wf
