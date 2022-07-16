@@ -730,7 +730,7 @@ if(any(options$fig.keep=="asc")) graphPath %<>% sort
 if(is.numeric(options$fig.keep)) graphPath=graphPath[options$fig.keep]
 
 # if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath,ignore.case = TRUE)]
-if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(pageList1,graphPath,ignore.case = TRUE)]
+if(exists("pageList1") && identical(options$fig.keep,"new")) graphPath=graphPath[grep(pageList1,graphPath,ignore.case = TRUE)]
 #
 #
 

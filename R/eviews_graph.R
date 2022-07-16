@@ -8,7 +8,7 @@
 #' @param page Object or a character string representing the name of an `EViews` workfile page.
 #' @param mode Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.
 #' @param graph_command Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.
-#' @param options Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.
+#' @param graph_options Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.
 #' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
 #' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 #' @param graph_procs A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}
@@ -20,13 +20,13 @@
 #' @examples library(EviewsR)
 #' \dontrun{
 #' demo(exec_commands)
-#' eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",options = "m")
+#' eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",graph_options = "m")
 #'
 #'}
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",graph_command="line",options="",graph_procs="",datelabel="",save_options='',save_path=dirname(wf),frequency="m",start_date="",save_copy=F){
+eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path=dirname(wf),frequency="m",start_date="",save_copy=F){
 
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
@@ -182,7 +182,7 @@ eviews_graph=function(series="*",group=FALSE,wf="",page="*",mode="overwrite",gra
 # datelabel=paste('{%y}.datelabel',datelabel)
 # }
 
-if(group && options=='m') {
+if(group && graph_options=='m') {
   align='align(2,0.5,1)'
 graph_procs=append(align,graph_procs)
 }
@@ -206,7 +206,7 @@ for %y {%selectedGraphs}')
     series=paste(series,collapse = " ")
     series=paste0("%series=",shQuote_cmd(series))
     graph_command=paste0("%graph_command=",shQuote_cmd(graph_command))
-    options=paste0("%options=",shQuote_cmd(options))
+    graph_options=paste0("%graph_options=",shQuote_cmd(graph_options))
     mode=paste0("%mode=",shQuote_cmd(mode))
 
 
@@ -276,8 +276,8 @@ if %save_options<>"" then
 %save_options="("+%save_options+")"
 endif
 
-if %options<>"" then
-%options="("+%options+")"
+if %graph_options<>"" then
+%graph_options="("+%graph_options+")"
 endif)'
 
 
@@ -304,7 +304,7 @@ pageselect {%page}
   %x{!k}={%EviewsRGroup}.@seriesname({!k})
 
 
-  freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%options}
+  freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%graph_options}
   next
   endif
   next
@@ -355,7 +355,7 @@ if (group){
 
       %seriesNames=@replace(%allSeries," ","")
      ' %seriesNames=%seriesNames
-      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%options}
+      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%graph_options}
       endif
       next
       )'
@@ -388,7 +388,7 @@ if (group){
       exit)'
       }
 
-writeLines(c(eviews_path(),chunkName,eviewsrText,EviewsRGroup,wf,page,series,graph_command,options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),chunkName,eviewsrText,EviewsRGroup,wf,page,series,graph_command,graph_options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -421,6 +421,6 @@ include_graphics(eviewsGraphics)
 
 # DELETE CSV and WORKFILES
 
-# eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",options = "m")
+# eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",graph_options = "m")
 # @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 
