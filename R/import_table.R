@@ -76,6 +76,14 @@ import_table=function(wf="",page="",table_name="",table_range="",format=kable_fo
   table=read.csv(text=table,allowEscapes = T,header = T,check.names = FALSE)
 
 
-  kable(table, format = format, digits = digits,row.names = row.names, col.names = col.names, align = align, caption = caption, label = label, format.args = format.args, escape = escape, ...)
+  kable(x = table, format = format, digits = digits,
+        row.names = row.names, col.names = col.names,
+        align = align, caption = caption, label = label,
+        format.args = format.args, escape = escape,
+        booktabs = booktabs, longtable = longtable,
+        valign = valign, position = position, centering = centering,
+        vline = vline, toprule = toprule, bottomrule = bottomrule,
+        midrule = midrule, linesep = linesep, caption.short = caption.short,
+        table.envir = table.envir, ...)
 
   }
