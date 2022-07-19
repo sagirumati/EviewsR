@@ -367,7 +367,7 @@ eng_eviews <- function(options) {
      )'
    }
 
-   if(any(options$fig.keep %in% c("high","all","*","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep1="all"'
+   if(any(options$fig.keep %in% c("high","all","*","asc","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep1="all"'
    if(any(options$fig.keep=="first")) figKeep='%figKeep1="first"'
    if(any(options$fig.keep=="last")) figKeep='%figKeep1="last"'
    if(any(options$fig.keep=="new")) figKeep='%figKeep1=""'
