@@ -37,6 +37,11 @@ import_table=function(wf="",page=""){
   chunkName1=paste0(chunkName,'-') %>%
     shQuote_cmd() %>% paste0('%chunkName=',.)
 
+  envName=chunkName %>% gsub("[._-]","",.)
+  if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
+  if(identical(envName,"eviews")){
+    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+  }
 
   eviewsrText=tempfile("eviewsrText",".") %>%
     basename
@@ -92,23 +97,12 @@ import_table=function(wf="",page=""){
   #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))
   on.exit(unlink_eviews(),add = TRUE)
 
-  table= readLines(table_name.csv)
 
-
-
-   if(any(grepl("^,.*,$", table))) table=table[-grep("^,.*,$", table)]
-
-  table=read.csv(text=table,allowEscapes = T,header = T,check.names = FALSE)
-
-
-  kable(x = table, format = format, digits = digits,
-        row.names = row.names, col.names = col.names,
-        align = align, caption = caption, label = label,
-        format.args = format.args, escape = escape,
-        booktabs = booktabs, longtable = longtable,
-        valign = valign, position = position, centering = centering,
-        vline = vline, toprule = toprule, bottomrule = bottomrule,
-        midrule = midrule, linesep = linesep, caption.short = caption.short,
-        table.envir = table.envir, ...)
-
+  for (i in tablePath){
+    tableName=gsub("\\-.*","",i) %>% tolower
+    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
   }
+
+  if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(eviewsrText1,"-table.txt")) %>%
+    strsplit(split=" ") %>% unlist()
+    }
