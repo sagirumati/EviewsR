@@ -33,27 +33,58 @@
 #' @export
 import_table=function(wf="",page=""){
 
+
+  chunkName1=paste0(chunkName,'-') %>%
+    shQuote_cmd() %>% paste0('%chunkName=',.)
+
+
+  eviewsrText=tempfile("eviewsrText",".") %>%
+    basename
+  eviewsrText1=eviewsrText
+
+  eviewsrText %<>%   shQuote_cmd %>%
+    paste0("%eviewsrText=",.)
+
+
   fileName=basename(tempfile("EVIEWS", ".", ".prg"))
   # file_name=table_name
 
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
-  table_name.csv=paste0(table_name,".csv")
-  table_range=paste0('%table_range=',shQuote_cmd(table_range))
-  table_name=paste0('%table_name=',shQuote_cmd(table_name))
 
 
-  eviewsCode=r'(open {%wf}
 
-  if %page<>"" then
+  saveCode=r'(
+
+  %tablePath=""
+
+  %pagelist=@pagelist
+
+  if %pagelist1<>"" then
+   %pagelist=%pagelist1
+  endif
+
+  for %page {%pagelist}
   pageselect {%page}
-  endif
+  %tables=@wlookup("*" ,"table")
 
-  if %table_range<>"" then
-  %table_range=",r="+%table_range
+  if @wcount(%tables)<>0 then
+  for %y {%tables}
+  'table {%page}_{%y}
+  %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
+  {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
+  next
   endif
+  next
 
-  {%table_name}.save(t=csv{%table_range}) {%table_name})'
+  text {%eviewsrText}_table
+  {%eviewsrText}_table.append {%tablePath}
+  {%eviewsrText}_table.save {%eviewsrText}-table
+
+  exit
+  )'
+
+
 
   writeLines(c(eviews_path(),wf,page,table_name,table_range,eviewsCode,"exit"),fileName)
 
