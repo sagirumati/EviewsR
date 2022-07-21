@@ -5,36 +5,36 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 eviews_graph(
-  series = "*",
-  group = FALSE,
   wf = "",
   page = "*",
-  mode = "overwrite",
+  series = "*",
+  group = FALSE,
   graph_command = "line",
-  options = "",
+  graph_options = "",
+  mode = "overwrite",
   graph_procs = "",
   datelabel = "",
   save_options = "",
-  save_path = "EViewsR_files",
+  save_path = dirname(wf),
   frequency = "m",
   start_date = "",
   save_copy = F
 )
 }
 \arguments{
-\item{series}{A vector of series names contained in an `EViews` workfile, or an R dataframe.}
-
-\item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.}
-
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
 \item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{mode}{Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.}
+\item{series}{A vector of series names contained in an `EViews` workfile, or an R dataframe.}
+
+\item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.}
 
 \item{graph_command}{Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.}
 
-\item{options}{Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.}
+\item{graph_options}{Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.}
+
+\item{mode}{Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.}
 
 \item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
 
@@ -58,7 +58,7 @@ Use this function to create an `EViews` graph in R and R Markdown
 library(EviewsR)
 \dontrun{
 demo(exec_commands)
-eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",options = "m")
+eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",graph_options = "m")
 
 }
 }
@@ -75,6 +75,7 @@ Other important functions:
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
 \code{\link{import_graph}()},
+\code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import}()},

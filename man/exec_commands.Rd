@@ -12,6 +12,8 @@ exec_commands(commands="",wf="",page="")
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
+
+\item{save_path}{Specify where to save the `EViews` workfile.}
 }
 \value{
 An EViews workfile
@@ -57,6 +59,7 @@ Other important functions:
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
 \code{\link{import_graph}()},
+\code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import}()},

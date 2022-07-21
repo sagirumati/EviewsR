@@ -28,6 +28,8 @@ smpl_spec="")
 \item{dropmap_list}{Optional. Specify the list of patterns of `EViews` object to be dropped.}
 
 \item{smpl_spec}{Optional. Specify the `EViews` sample string}
+
+\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
 }
 \value{
 An EViews workfile.
@@ -57,6 +59,7 @@ Other important functions:
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
 \code{\link{import_graph}()},
+\code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import}()},

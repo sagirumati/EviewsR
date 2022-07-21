@@ -5,14 +5,14 @@
 \title{Create an `EViews` graph in R and R Markdown}
 \usage{
 import_graph(
-  graph = "*",
   wf = "",
   page = "*",
+  graph = "*",
   graph_procs = "",
   datelabel = "",
   save_options = "",
-  save_path = "EViewsR_files",
-  save_copy = F
+  save_path = dirname(wf),
+  save_copy = T
 )
 }
 \arguments{
@@ -69,6 +69,7 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
+\code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import}()},
