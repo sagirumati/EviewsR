@@ -105,7 +105,7 @@ chunkName=opts_current$get('label')
   next
 
   %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsrText
-  {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
+  {%y}_table_{%eviewsrText}.save(t=csv) {%page}_{%y}-{%eviewsrText}
 
   next
 

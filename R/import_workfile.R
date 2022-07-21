@@ -102,8 +102,19 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
     wf=paste0('%wf=',shQuote_cmd(wf))
     page=paste0("%page=",shQuote_cmd(page))
-    graph=paste(graph,collapse = " ")
-    graph=paste0("%graph=",shQuote_cmd(graph))
+
+    equation %<>% paste(collapse = " ") %>%
+      shQuote_cmd %>% paste0("%equation=",.)
+
+    graph %<>% paste(collapse = " ") %>%
+      shQuote_cmd %>% paste0("%graph=",.)
+
+    series %<>% paste(collapse = " ") %>%
+      shQuote_cmd %>% paste0("%series=",.)
+
+    table %<>% paste(collapse = " ") %>%
+      shQuote_cmd %>% paste0("%table=",.)
+
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote_cmd(save_options))
@@ -212,7 +223,7 @@ endif
 next
 
 %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsrText
-{%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
+{%y}_table_{%eviewsrText}.save(t=csv) {%page}_{%y}-{%eviewsrText}
 
 next
 
@@ -247,7 +258,8 @@ writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,equation,graph,series,t
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
-on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
+
+# on.exit(unlink(paste0(eviewsrText1,c('-equation.txt','-graph.txt','-series.txt','-table.txt'))))
 
 
 
@@ -314,6 +326,13 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
     tableName=gsub("\\-.*","",i) %>% tolower
     assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
   }
+
+
+
+  on.exit(unlink(paste0(equationPath,".csv")),add = TRUE)
+  on.exit(unlink(paste0(tablePath,".csv")),add = TRUE)
+  on.exit(unlink(paste0(seriesPath,".csv")),add = TRUE)
+  on.exit(unlink(paste0(eviewsrText1,c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
 
 
 }
