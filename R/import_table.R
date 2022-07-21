@@ -114,6 +114,4 @@ system_exec()
     assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
   }
 
-  if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(eviewsrText1,"-table.txt")) %>%
-    strsplit(split=" ") %>% unlist()
     }

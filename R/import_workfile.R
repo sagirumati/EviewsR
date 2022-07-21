@@ -26,13 +26,32 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_workfile=function(wf="",page="*",series="*",graph="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
+import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
-
-
   chunkName=opts_current$get("label")
+
+  envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
+
+
+  # chunkName1=paste0(chunkName,'-') %>%
+  # shQuote_cmd() %>% paste0('%chunkName=',.)
+
+  if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
+  if(identical(envName,"eviews")){
+    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+  }
+
+
+  fileName=tempfile("EVIEWS", ".", ".prg")
+  eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
+  eviewsrText1=eviewsrText
+  eviewsrText %<>%
+    shQuote_cmd %>% paste0('%eviewsrText=',.)
+
+
+
 
   dev=opts_current$get('dev')
 
@@ -56,11 +75,7 @@ import_workfile=function(wf="",page="*",series="*",graph="*",graph_procs="",date
     if(length(extension)==0) extension="emf"
 
 
-    fileName=tempfile("EVIEWS", ".", ".prg")
-eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
-eviewsrText1=eviewsrText
-eviewsrText %<>%
-  shQuote_cmd %>% paste0('%eviewsrText=',.)
+
 
 
   if(!identical(graph_procs,'')){
@@ -102,17 +117,13 @@ if %wf<>"" then
 wfopen {%wf}
 endif
 
-'if %page<>"" then
-'pageselect {%page}
-'endif
 
-if %page<>"" then
+%pagelist=@pagelist
+
+if %page<>"*" then
 %pagelist=%page
 endif
 
-if %page="*" then
-%pagelist=@pagelist
-endif
 )'
 
 saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
@@ -129,6 +140,8 @@ if %save_options<>"" then
 %save_options="("+%save_options+")"
 endif
 
+'####################### GRAPHS #################
+
 %graphPath=""
 for %page {%pagelist}
 pageselect {%page}
@@ -144,14 +157,98 @@ next
 text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
+
+
+
+'####################### TABLES #################
+
+%tablePath=""
+
+for %page {%pagelist}
+pageselect {%page}
+%tables=@wlookup(%table ,"table")
+
+if @wcount(%tables)<>0 then
+for %y {%tables}
+%tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
+{%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
+next
+endif
+next
+
+text {%eviewsrText}_table
+{%eviewsrText}_table.append {%tablePath}
+{%eviewsrText}_table.save {%eviewsrText}-table
+
+
+'####################### EQUATIONS #################
+
+%equationPath=""
+
+for %page {%pagelist}
+pageselect {%page}
+%equation=@wlookup(%equation,"equation")
+
+if @wcount(%equation)<>0 then
+for %y {%equation}
+table {%y}_table_{%eviewsrText}
+
+%equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
+
+scalar n=@wcount(%equationMembers)
+for !j =1 to n
+%x{!j}=@word(%equationMembers,{!j})
+{%y}_table_{%eviewsrText}(1,!j)=%x{!j}
+
+%vectors="coefs pval stderrs tstats"
+if @wcount(@wintersect(%x{!j},%vectors))>0 then
+!eqCoef={%y}.@ncoef
+for !i= 2 to !eqCoef+1
+{%y}_table_{%eviewsrText}(!i,!j)={%y}.@{%x{!j}}(!i-1)
+next
+else
+{%y}_table_{%eviewsrText}(2,!j)={%y}.@{%x{!j}}
+endif
+next
+
+%equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsrText
+{%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
+
+next
+
+endif
+next
+
+text {%eviewsrText}_equation
+{%eviewsrText}_equation.append {%equationPath}
+{%eviewsrText}_equation.save {%eviewsrText}-equation
+
+'####################### SERIES #################
+
+%seriesPath=""
+for %page {%pagelist}
+pageselect {%page}
+%series=@wlookup(%series,"series")
+if @wcount(%series)>0 then
+pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series} @drop date
+%seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+endif
+next
+
+text {%eviewsrText}_series
+{%eviewsrText}_series.append {%seriesPath}
+{%eviewsrText}_series.save {%eviewsrText}-series
+
+
 exit
 )'
 
-writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
 on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
+
 
 
 
@@ -170,6 +267,53 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
+
+##### EQUATION ##########
+
+  if(file.exists(paste0(eviewsrText1,"-equation.txt"))) equationPath=readLines(paste0(eviewsrText1,"-equation.txt")) %>%
+    strsplit(split=" ") %>% unlist()
+
+  for (i in equationPath){
+    eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
+    equationDataframe=read.csv(paste0(i,".csv"))
+    equationVectors=equationDataframe[eviewsVectors]
+    equationScalars=equationDataframe[!colnames(equationDataframe) %in% eviewsVectors] %>%
+      na.omit
+    equationList=c(equationScalars,equationVectors)
+    equationName=gsub("\\-.*","",i) %>% tolower
+    assign(equationName,equationList,envir = get(envName))
+  }
+
+
+##### SERIES #####
+
+
+
+  if(file.exists(paste0(eviewsrText1,'-series.txt'))){
+    seriesPath=readLines(paste0(eviewsrText1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
+    on.exit(unlink(paste0(seriesPath,".csv")))
+    for (i in seriesPath){
+      pageName=gsub("\\-.*","",i) %>% tolower
+      dataFrame=read.csv(paste0(i,".csv"))
+      if(grepl('date',colnames(dataFrame)[1])){
+        colnames(dataFrame)[1]="date"
+        dataFrame$date=as.POSIXct(dataFrame$date)
+      }
+      assign(pageName,dataFrame,envir =get(envName))
+    }
+  }
+
+
+  ###### TABLES #####
+
+
+  if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(eviewsrText1,"-table.txt")) %>%
+    strsplit(split=" ") %>% unlist()
+
+  for (i in tablePath){
+    tableName=gsub("\\-.*","",i) %>% tolower
+    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
+  }
 
 
 }

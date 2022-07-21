@@ -449,8 +449,11 @@ eng_eviews <- function(options) {
    %seriesPath=""
    for %page {%pagelist}
    pageselect {%page}
+   %series=@wlookup(%series,"series")
+   if @wcount(%series)>0 then
    pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
    %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+   endif
    next
 
    text {%eviewsrText}_series

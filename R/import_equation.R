@@ -46,15 +46,18 @@ chunkName=opts_current$get('label')
     if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
   }
 
-  eviewsrText=tempfile("eviewsrText",".") %>%
-    basename
-  eviewsrText1=eviewsrText
-
-  eviewsrText %<>%   shQuote_cmd %>%
-    paste0("%eviewsrText=",.)
 
 
-  fileName=basename(tempfile("EVIEWS", ".", ".prg"))
+    fileName=basename(tempfile("EVIEWS", ".", ".prg"))
+
+    fileName=tempfile("EVIEWS", ".", ".prg")
+    eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
+    eviewsrText1=eviewsrText
+    eviewsrText %<>%
+      shQuote_cmd %>% paste0('%eviewsrText=',.)
+
+
+
   # file_name=equation_name
 
   wf=paste0('%wf=',shQuote_cmd(wf))
@@ -143,6 +146,4 @@ for (i in equationPath){
 }
 
 
-  if(file.exists(paste0(eviewsrText1,"-equation.txt"))) equationPath=readLines(paste0(eviewsrText1,"-equation.txt")) %>%
-    strsplit(split=" ") %>% unlist()
     }
