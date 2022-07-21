@@ -31,13 +31,16 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_table=function(wf="",page=""){
+import_table=function(wf="",page="*",table="*"){
+
+chunkName=opts_current$get('label')
+
+    envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
 
 
-  chunkName1=paste0(chunkName,'-') %>%
-    shQuote_cmd() %>% paste0('%chunkName=',.)
+    # chunkName1=paste0(chunkName,'-') %>%
+    # shQuote_cmd() %>% paste0('%chunkName=',.)
 
-  envName=chunkName %>% gsub("[._-]","",.)
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
   if(identical(envName,"eviews")){
     if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
@@ -56,26 +59,29 @@ import_table=function(wf="",page=""){
 
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
+  table=paste0('%table=',shQuote_cmd(table))
+
+eviewsCode=paste0(wf,page,table,collapse = '\n')
+
+  saveCode=r'(open {%wf}
 
 
-
-  saveCode=r'(
-
-  %tablePath=""
 
   %pagelist=@pagelist
 
-  if %pagelist1<>"" then
-   %pagelist=%pagelist1
+  if %page<>"*" then
+   %pagelist=%page
   endif
+
+
+  %tablePath=""
 
   for %page {%pagelist}
   pageselect {%page}
-  %tables=@wlookup("*" ,"table")
+  %tables=@wlookup(%table ,"table")
 
   if @wcount(%tables)<>0 then
   for %y {%tables}
-  'table {%page}_{%y}
   %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
   {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
   next
@@ -97,6 +103,10 @@ import_table=function(wf="",page=""){
   #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table_name.csv))))
   on.exit(unlink_eviews(),add = TRUE)
 
+writeLines(c(eviewsCode,saveCode),fileName)
+
+  if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(eviewsrText1,"-table.txt")) %>%
+    strsplit(split=" ") %>% unlist()
 
   for (i in tablePath){
     tableName=gsub("\\-.*","",i) %>% tolower
