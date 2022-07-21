@@ -257,7 +257,6 @@ exit
 writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
-on.exit(unlink_eviews(),add = TRUE)
 
 # on.exit(unlink(paste0(eviewsrText1,c('-equation.txt','-graph.txt','-series.txt','-table.txt'))))
 
@@ -271,14 +270,14 @@ on.exit(unlink_eviews(),add = TRUE)
 #
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
-if(!save_copy) on.exit(unlink(eviewsGraphics))
-
 
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
+
+  if(!save_copy) on.exit(unlink(eviewsGraphics))
 
 ##### EQUATION ##########
 
@@ -333,6 +332,7 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
   on.exit(unlink(paste0(tablePath,".csv")),add = TRUE)
   on.exit(unlink(paste0(seriesPath,".csv")),add = TRUE)
   on.exit(unlink(paste0(eviewsrText1,c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
+  on.exit(unlink_eviews(),add = TRUE)
 
 
 }
