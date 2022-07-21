@@ -40,6 +40,7 @@ Other important functions:
 \code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
+\code{\link{import_workfile}()},
 \code{\link{import}()},
 \code{\link{rwalk}()}
 }

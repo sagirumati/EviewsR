@@ -76,8 +76,11 @@ import_series=function(wf="",page="*",series="*"){
   %seriesPath=""
   for %page {%pagelist}
   pageselect {%page}
-  pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
+  %series=@wlookup(%series,"series")
+  if @wcount(%series)>0 then
+  pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series} @drop date
   %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+  endif
   next
 
   text {%eviewsrText}_series
