@@ -37,6 +37,7 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
   dev=opts_current$get('dev')
 
 
+graph1=graph
 
   if(any(graph %in% c("all","*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
   if(any(graph=="first")) figKeep='%figKeep1="first"'
@@ -192,6 +193,11 @@ if(!save_copy) on.exit(unlink(eviewsGraphics))
 
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
+
+
+if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
+if(any(graph1=="asc")) graphPath %<>% sort
+if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)

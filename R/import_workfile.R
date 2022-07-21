@@ -36,7 +36,11 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
 
+  graph1=graph
 
+  if(any(graph %in% c("all","*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
+  if(any(graph=="first")) figKeep='%figKeep1="first"'
+  if(any(graph=="last")) figKeep='%figKeep1="last"'
 
   # chunkName1=paste0(chunkName,'-') %>%
   # shQuote_cmd() %>% paste0('%chunkName=',.)
@@ -159,7 +163,26 @@ endif
 %graphPath=""
 for %page {%pagelist}
 pageselect {%page}
-%selectedGraphs=@wlookup(%graph,"graph")
+
+
+
+if %figKeep1="first" then
+%graph=@wlookup("*","graph")
+%graph=@wleft(%graph,1)
+endif
+
+if %figKeep1="last" then
+%graph=@wlookup("*","graph")
+%graph=@wright(%graph,1)
+endif
+
+if %figKeep1="all" then
+%graph=@wlookup("*","graph")
+endif
+
+
+%selectedGraphs=%graph
+
 if @wcount(%selectedGraphs)>0 then
 for %graph {%selectedGraphs}
 {%graph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%graph}
@@ -257,7 +280,7 @@ text {%eviewsrText}_series
 exit
 )'
 
-writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),figKeep,eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 
@@ -274,13 +297,6 @@ system_exec()
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 
-if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
-  strsplit(split=" ") %>% unlist()
-
-  eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
-  include_graphics(eviewsGraphics)
-
-  if(!save_copy) on.exit(unlink(eviewsGraphics))
 
 ##### EQUATION ##########
 
@@ -337,5 +353,16 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
   on.exit(unlink(paste0(eviewsrText1,c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
   on.exit(unlink_eviews(),add = TRUE)
 
+
+  if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
+    strsplit(split=" ") %>% unlist()
+
+  if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
+  if(any(graph1=="asc")) graphPath %<>% sort
+  if(is.numeric(graph1)) graphPath=graphPath[graph1]
+
+  eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+  if(!save_copy) on.exit(unlink(eviewsGraphics))
+  include_graphics(eviewsGraphics)
 
 }
