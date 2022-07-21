@@ -35,6 +35,9 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
   envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
 
 
+
+
+
   # chunkName1=paste0(chunkName,'-') %>%
   # shQuote_cmd() %>% paste0('%chunkName=',.)
 

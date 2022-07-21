@@ -36,6 +36,15 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
 
   dev=opts_current$get('dev')
 
+
+
+  if(any(graph %in% c("high","all","*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
+  if(any(graph=="first")) figKeep='%figKeep1="first"'
+  if(any(graph=="last")) figKeep='%figKeep1="last"'
+  if(any(graph=="asis")) figKeep='%figKeep1=""'
+  if(any(graph=="none")) figKeep='%figKeep1="none"'
+
+
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
   if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
   if(is.null(dev) && save_options=='') save_options="t=png,d=300"
@@ -147,7 +156,7 @@ text {%eviewsrText}_graph
 exit
 )'
 
-writeLines(c(eviews_path(),eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),eviewsrText,chunkName,figKeep,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)

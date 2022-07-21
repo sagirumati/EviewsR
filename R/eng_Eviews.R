@@ -36,11 +36,14 @@ eng_eviews <- function(options) {
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
    #
 
-
+   options$equation=opts_current$get("equation") %n% "*"
    options$graph=opts_current$get("graph") %n% "*"
-      if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
-    if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
-    if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
+   options$series=opts_current$get("series") %n% "*"
+   options$table=opts_current$get("table") %n% "*"
+   options$page=opts_current$get("page") %n% TRUE
+
+  if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
+  if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
     # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
     # if (!is.null(options$eval))options$template=opts_current$get("template")
@@ -391,7 +394,7 @@ eng_eviews <- function(options) {
 
    for %page {%pagelist}
    pageselect {%page}
-   %tables=@wlookup("*" ,"table")
+   %tables=@wlookup(%table ,"table")
 
    if @wcount(%tables)<>0 then
    for %y {%tables}
@@ -412,7 +415,7 @@ eng_eviews <- function(options) {
 
    for %page {%pagelist}
    pageselect {%page}
-   %equation=@wlookup("*","equation")
+   %equation=@wlookup(%equation,"equation")
 
    if @wcount(%equation)<>0 then
    for %y {%equation}
@@ -474,7 +477,7 @@ eng_eviews <- function(options) {
 
      %tablePath=""
 
-     %tables=@wlookup("*" ,"table")
+     %tables=@wlookup(%table,"table")
 
      if @wcount(%tables)<>0 then
      for %y {%tables}
@@ -492,7 +495,7 @@ eng_eviews <- function(options) {
 
      %equationPath=""
 
-     %equation=@wlookup("*","equation")
+     %equation=@wlookup(%equation,"equation")
 
      if @wcount(%equation)<>0 then
      for %y {%equation}
