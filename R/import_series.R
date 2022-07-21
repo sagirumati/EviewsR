@@ -1,99 +1,116 @@
-#' Import `EViews` series to R as dataframe
+#' Import `EViews` series object as `kable`
 #'
-#' Use this function to import `EViews` series to R as dataframe
+#' Use this function to import `EViews` series object as `kable`
 #'
-#'
-#' @param df_name Dataframe name to be used to store the imported `EViews` series.
-#' @inheritParams eviews_pagesave
+#' @usage import_series(wf="",page="",series_name="",series_range="",format=kable_format(),
+#'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
+#'   label = NULL, format.args = list(),escape = FALSE, series.attr = "", booktabs = TRUE,
+#'    longseries = FALSE, valign = "t",position = "h", centering = TRUE,
+#'    vline = getOption("knitr.series.vline",if (booktabs) "" else "|"),
+#' toprule = getOption("knitr.series.toprule",
+#' if (booktabs) "\\\\toprule" else "\\\\hline"),
+#' bottomrule = getOption("knitr.series.bottomrule",
+#' if (booktabs) "\\\\bottomrule" else "\\\\hline"),
+#' midrule = getOption("knitr.series.midrule",
+#' if (booktabs) "\\\\midrule" else "\\\\hline"),
+#' linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
+#'  caption.short = "",series.envir = if (!is.null(caption)) "series",...)
+#' @inheritParams knitr::kable
+#' @inheritParams kableExtra::kbl
+#' @inheritParams eviews_wfcreate
+#' @param series_range A vector of characters specifying the series range of rows and columns
+#' @param series_name Name of an `EViews` series object in an `EViews` workfile
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
 #' demo(exec_commands)
 #'
-#' import_series(df_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
-#'
-#' eviews$importedDataFrame
-#'
-#' knitr::kable(head(eviews$importedDataFrame),format="pandoc",caption="Table from EviewsR")
+#' import_series(wf="EviewsR_exec_commands",page="page",series_name="EviewsROLS",format="pandoc")
 #'}
 #' @family important functions
 #' @keywords documentation
 #' @export
-#' @md
-import_series=function(df_name="",wf="",page="",options="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",smpl_spec=""){
+import_series=function(wf="",page="*",series="*"){
 
-  keep_list=paste0(keep_list,collapse = " ")
-  drop_list=paste0(drop_list,collapse = " ")
-  keepmap_list=paste0(keepmap_list,collapse = " ")
-  dropmap_list=paste0(dropmap_list,collapse = " ")
-  fileName=tempfile("EVIEWS", ".", ".prg")
-  source_description=tempfile("EviewsR", ".", ".csv")
-  source_description_file=source_description
+  chunkName=opts_current$get('label')
+
+  envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
+
+
+  # chunkName1=paste0(chunkName,'-') %>%
+  # shQuote_cmd() %>% paste0('%chunkName=',.)
+
+  if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
+  if(identical(envName,"eviews")){
+    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+  }
+
+  eviewsrText=tempfile("eviewsrText",".") %>%
+    basename
+  eviewsrText1=eviewsrText
+
+  eviewsrText %<>%   shQuote_cmd %>%
+    paste0("%eviewsrText=",.)
+
+
+  fileName=basename(tempfile("EVIEWS", ".", ".prg"))
+  # file_name=series_name
+
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
-  options=paste0('%options=',shQuote_cmd(options))
-  source_description=paste0('%source_description=',shQuote_cmd(source_description))
-  keep_list=paste0('%keep_list=',shQuote_cmd(keep_list))
-  drop_list=paste0('%drop_list=',shQuote_cmd(drop_list))
-  keepmap_list=paste0('%keepmap_list=',shQuote_cmd(keepmap_list))
-  dropmap_list=paste0('%dropmap_list=',shQuote_cmd(dropmap_list))
-  smpl_spec=paste0('%smpl_spec=',shQuote_cmd(smpl_spec))
+  series=paste0('%series=',shQuote_cmd(series))
 
 
-eviewsCode=r'(open {%wf}
-
-if %page<>"" then
-pageselect {%page}
-endif
-if %path<>"" then
-%source_description=%path+"\"+%source_description
-endif
-
-if %keep_list<>"" then
-%keep_list="@keep "+%keep_list
-endif
+  saveCode=r'(open {%wf}
 
 
-if %drop_list<>"" then
-%drop_list="@drop "+%drop_list
-endif
 
-if %keepmap_list<>"" then
-%keepmap_list="@keepmap "+%keepmap_list
-endif
+  %pagelist=@pagelist
 
-if %dropmap_list<>"" then
-%dropmap_list="@dropmap "+%dropmap_list
-endif
+  if %page<>"*" then
+  %pagelist=%page
+  endif
 
 
-if %smpl_spec<>"" then
-%smpl_spec="@smpl "+%smpl_spec
-endif
+  %seriesPath=""
+  for %page {%pagelist}
+  pageselect {%page}
+  pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
+  %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+  next
 
-pagesave({%options}) {%source_description} {%keep_list} {%drop_list} {%keepmap_list} {%dropmap_list} {%smpl_spec}
-
-exit
-)'
-writeLines(c(eviews_path(),wf,page,options,source_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
-,eviewsCode),fileName)
-
-system_exec()
+  text {%eviewsrText}_series
+  {%eviewsrText}_series.append {%seriesPath}
+  {%eviewsrText}_series.save {%eviewsrText}-series
+  exit
+  )'
 
 
-  if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
-dataFrame=read.csv(source_description_file)
+  on.exit(unlink_eviews(),add = TRUE)
 
-if(grepl('date',colnames(dataFrame)[1])){
-  colnames(dataFrame)[1]="date"
-  dataFrame$date=as.POSIXct(dataFrame$date)
+
+  eviewsCode=paste0(c(eviews_path(),eviewsrText,wf,page,series,saveCode),collapse = '\n')
+
+
+  writeLines(c(eviewsCode,saveCode),fileName)
+
+  system_exec()
+
+
+  if(file.exists(paste0(eviewsrText1,'-series.txt'))){
+    seriesPath=readLines(paste0(eviewsrText1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
+    on.exit(unlink(paste0(seriesPath,".csv")))
+    for (i in seriesPath){
+      pageName=gsub("\\-.*","",i) %>% tolower
+      dataFrame=read.csv(paste0(i,".csv"))
+      if(grepl('date',colnames(dataFrame)[1])){
+        colnames(dataFrame)[1]="date"
+        dataFrame$date=as.POSIXct(dataFrame$date)
+      }
+      assign(pageName,dataFrame,envir =get(envName))
+    }
+  }
+
 }
-
-assign(df_name,dataFrame,envir =eviews)
-
- on.exit(unlink(c(fileName,source_description_file)))
- }
-
-
