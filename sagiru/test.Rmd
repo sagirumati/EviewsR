@@ -49,6 +49,7 @@ graph3.addtext(ar) %y
 graph2.addtext(ar) %y
 graph1.addtext(ar) %y
 next
+wfsave eviewsr1
 ```
 
 
@@ -74,3 +75,8 @@ rename_string = "x x2")
 
 ```
 
+
+```{r eviews12}
+import_workfile('eviewsr1')
+
+```
