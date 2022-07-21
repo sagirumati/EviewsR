@@ -34,10 +34,7 @@ eng_eviews <- function(options) {
    # options$fig.cap='sagiru mati gabasawa'
 
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
-   #
 
-
-   options$graph=opts_current$get("graph") %n% "*"
       if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
     if (is.null(options$page)) options$page=opts_chunk$get("page") %n% TRUE
     if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
@@ -280,7 +277,7 @@ eng_eviews <- function(options) {
    # PAGE
 
 
-   if(any(options$graph=="asis") && options$page)  {
+   if(any(options$fig.keep=="new") && options$page)  {
      figSave=r'(if %save_path<>"" then
      %save_path=%save_path+"\"
      endif
@@ -313,7 +310,7 @@ eng_eviews <- function(options) {
    }
 
 
-   if(any(options$graph!="asis") && options$page)  {
+   if(any(options$fig.keep!="new") && options$page)  {
      figSave=r'(if %save_path<>"" then
      %save_path=%save_path+"\"
      endif
@@ -370,11 +367,11 @@ eng_eviews <- function(options) {
      )'
    }
 
-   if(any(options$graph %in% c("high","all","*","asc","desc")) || is.numeric(options$graph)) figKeep='%figKeep1="all"'
-   if(any(options$graph=="first")) figKeep='%figKeep1="first"'
-   if(any(options$graph=="last")) figKeep='%figKeep1="last"'
-   if(any(options$graph=="asis")) figKeep='%figKeep1=""'
-   if(any(options$graph=="none")) figKeep='%figKeep1="none"'
+   if(any(options$fig.keep %in% c("high","all","*","asc","desc")) || is.numeric(options$fig.keep)) figKeep='%figKeep1="all"'
+   if(any(options$fig.keep=="first")) figKeep='%figKeep1="first"'
+   if(any(options$fig.keep=="last")) figKeep='%figKeep1="last"'
+   if(any(options$fig.keep=="new")) figKeep='%figKeep1=""'
+   if(any(options$fig.keep=="none")) figKeep='%figKeep1="none"'
 
    # figSave=append(figKeep,figSave)
 
@@ -554,7 +551,7 @@ eng_eviews <- function(options) {
 
    # eviewsCode=readLines(fileName)
 
-   if(any(options$graph=="asis") && !options$page){
+   if(any(options$fig.keep=="new") && !options$page){
      eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
      appendCode=c('%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -567,7 +564,7 @@ eng_eviews <- function(options) {
 
 
 
-   if(any(options$graph=="asis") && options$page){
+   if(any(options$fig.keep=="new") && options$page){
      eviewsCode1=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
 
      appendCode=c('%currentpage=@pagename','%newgraph=@wlookup("*","graph")','%newgraph=@wdrop(%newgraph,%existing)'
@@ -711,13 +708,13 @@ if(length(extension)==0) extension="emf"
 
 
 
-# if(any(options$graph=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
+# if(any(options$fig.keep=="desc")) eviews_graphics %<>% sort(decreasing = TRUE)
 #
-# if(any(options$graph=="asc")) eviews_graphics %<>% sort
+# if(any(options$fig.keep=="asc")) eviews_graphics %<>% sort
 #
-# if(is.numeric(options$graph)) eviews_graphics=eviews_graphics[options$graph]
+# if(is.numeric(options$fig.keep)) eviews_graphics=eviews_graphics[options$fig.keep]
 #
-# if(exists("pagelist1") && options$graph=="asis") eviews_graphics=eviews_graphics[grep(paste(pageList1,collapse = "\\-|\\-"),eviews_graphics)]
+# if(exists("pagelist1") && options$fig.keep=="new") eviews_graphics=eviews_graphics[grep(paste(pageList1,collapse = "\\-|\\-"),eviews_graphics)]
 #
 #
 # if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
@@ -729,14 +726,14 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
   strsplit(split=" ") %>% unlist()
 
 
-if(any(options$graph=="desc")) graphPath %<>% sort(decreasing = TRUE)
+if(any(options$fig.keep=="desc")) graphPath %<>% sort(decreasing = TRUE)
 
-if(any(options$graph=="asc")) graphPath %<>% sort
+if(any(options$fig.keep=="asc")) graphPath %<>% sort
 
-if(is.numeric(options$graph)) graphPath=graphPath[options$graph]
+if(is.numeric(options$fig.keep)) graphPath=graphPath[options$fig.keep]
 
-# if(exists("pageList1") && options$graph=="asis") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath,ignore.case = TRUE)]
-if(exists("pageList1") && identical(options$graph,"asis")) graphPath=graphPath[grep(pageList1,graphPath,ignore.case = TRUE)]
+# if(exists("pageList1") && options$fig.keep=="new") graphPath=graphPath[grep(paste(pageList1,collapse = "\\-|\\-"),graphPath,ignore.case = TRUE)]
+if(exists("pageList1") && identical(options$fig.keep,"new")) graphPath=graphPath[grep(pageList1,graphPath,ignore.case = TRUE)]
 #
 #
 
@@ -788,7 +785,7 @@ if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGr
 #
 # output=list(knitr::include_graphics(eviews_graphics))
 
-if(any(opts_current$get('graph')=='none')) out="" else  out=engine_output(options,out =output)
+if(any(opts_current$get('fig.keep')=='none')) out="" else  out=engine_output(options,out =output)
 
 if(options$echo) return(c(code,out)) else return(out)
 
