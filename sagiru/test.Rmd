@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 
 wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
 for %y  page2 EviewsR3 page1 
-pagecreate(page={%y}) EviewsR q 2000 2022
+pagecreate(page={%y}) q 2000 2022
 pageselect {%y}
 rndseed 123
 genr x=@cumsum(nrnd)
@@ -76,7 +76,19 @@ rename_string = "x x2")
 ```
 
 
-```{r eviews12}
-import_workfile('eviewsr1')
+```{r eviews12,out.width="0.44\\textwidth",fig.ncol=2}
+import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
+
+```
+
+
+
+```{r eviews13,out.width="0.44\\textwidth",fig.ncol=2}
+import_graph('eviewsr1',graph ="*",graph_procs = 'template midnight')
+
+```
+
+```{r}
+eviews12$page2
 
 ```
