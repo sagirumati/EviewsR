@@ -36,10 +36,10 @@ eng_eviews <- function(options) {
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
    #
 
-   options$equation=opts_current$get("equation") %n% "*"
-   options$graph=opts_current$get("graph") %n% "*"
-   options$series=opts_current$get("series") %n% "*"
-   options$table=opts_current$get("table") %n% "*"
+   equation=opts_current$get("equation") %n% "*"
+   graph=opts_current$get("graph") %n% "*"
+   series=opts_current$get("series") %n% "*"
+   table=opts_current$get("table") %n% "*"
    options$page=opts_current$get("page") %n% TRUE
 
   if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
@@ -263,7 +263,7 @@ eng_eviews <- function(options) {
 
    if @wcount(%figKeep)<>0 then
    for %y {%figKeep}
-   {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%y}
+   {%y}.save({%save_options}) {%save_path}{%chunkName}{%y}
    %figpath=%figpath+" "+%chunkName+%y
    next
    endif
@@ -307,7 +307,7 @@ eng_eviews <- function(options) {
      if @wcount(%figKeep)<>0 then
      for %y {%figKeep}
      '%figPath=%figPath+" "+%chunkName+%page+"-"+%y
-     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%page}-{%y}
+     {%y}.save({%save_options}) {%save_path}{%chunkName}{%page}-{%y}
      next
      endif
 
@@ -357,7 +357,7 @@ eng_eviews <- function(options) {
      if @wcount(%figKeep)<>0 then
      for %y {%figKeep}
      %figPath=%figPath+" "+%chunkName+%page+"-"+%y
-     {%y}.save({%save_options}) {%eviews_path}\{%save_path}{%chunkName}{%page}-{%y}
+     {%y}.save({%save_options}) {%save_path}{%chunkName}{%page}-{%y}
      next
      endif
 
@@ -400,7 +400,7 @@ eng_eviews <- function(options) {
    for %y {%tables1}
    'table {%page}_{%y}
    %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
-   {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
+   {%y}.save(t=csv) {%save_path}{%page}_{%y}-{%eviewsrText}
    next
    endif
 
@@ -440,7 +440,7 @@ eng_eviews <- function(options) {
    next
 
    %equationPath=%equationPath+" "+%page+"_"+%y+"-"+%eviewsrText
-   {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
+   {%y}_table_{%eviewsrText}.save(t=csv) {%save_path}{%page}_{%y}-{%eviewsrText}
 
    next
 
@@ -483,7 +483,7 @@ eng_eviews <- function(options) {
      for %y {%tables1}
      'table {%y}
      %tablePath=%tablePath+" "+%y+"-"+%eviewsrText
-     {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
+     {%y}.save(t=csv) {%save_path}{%y}-{%eviewsrText}
      next
      endif
 
@@ -520,7 +520,7 @@ eng_eviews <- function(options) {
      next
 
      %equationPath=%equationPath+%y+"-"+%eviewsrText
-     {%y}_table_{%eviewsrText}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
+     {%y}_table_{%eviewsrText}.save(t=csv) {%save_path}{%y}-{%eviewsrText}
 
      next
 
@@ -550,7 +550,7 @@ eng_eviews <- function(options) {
    #   {%series}
    #   )'
 
-   eviewsCode=paste0(c(eviews_path(),pageList,figKeep,eviewsrText,chunkName1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
+   eviewsCode=paste0(c(eviews_path(),pageList,equation,table,series,figKeep,eviewsrText,chunkName1,save_path,options$code,save_options,graphicsDefault,graph_procs,figSave,saveCode), collapse = "\n") %>%
      strsplit(split="\n") %>% unlist()
 
    # writeLines(eviewsCode,fileName)
@@ -595,7 +595,7 @@ eng_eviews <- function(options) {
 
   # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
-envName=chunkName %>% gsub("[._-]","",.)
+envName="ev"
 assign(envName,new.env(),envir=knit_global())
 
 # if(length(equations)!=0){
@@ -626,7 +626,7 @@ for (i in equationPath){
    na.omit
   equationList=c(equationScalars,equationVectors)
     equationName=gsub("\\-.*","",i) %>% tolower
-  assign(equationName,equationList,envir = get(envName))
+  assign(equationName,equationList,envir = get(envName,envir =parent.frame()))
 }
 
 
@@ -641,7 +641,7 @@ if(file.exists(paste0(eviewsrText1,"-table.txt"))) tablePath=readLines(paste0(ev
 # if(length(tables)!=0){
   for (i in tablePath){
 tableName=gsub("\\-.*","",i) %>% tolower
-    assign(tableName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName))
+   assign(tableName,read.csv(paste0(save_path1,"/",i,".csv")),envir = get(envName,envir = parent.frame()))
   }
 # }
 
@@ -668,7 +668,7 @@ on.exit(unlink(paste0(seriesPath,".csv")))
       colnames(dataFrame)[1]="date"
       dataFrame$date=as.POSIXct(dataFrame$date)
     }
-    assign(pageName,dataFrame,envir =get(envName))
+    assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
   }
 
@@ -793,7 +793,7 @@ if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGr
 
 if(any(opts_current$get('graph')=='none')) out="" else  out=engine_output(options,out =output)
 
-if(options$echo) return(c(code,out)) else return(out)
+if(options$echo) return(c(code,out,k,k1)) else return(c(out,k1))
 
 #end of comment
 # opts_chunk$restore()

@@ -143,7 +143,7 @@ for (i in equationPath){
   equationList=c(equationScalars,equationVectors)
   equationName=gsub("\\-.*","",i) %>% tolower
   assign(equationName,equationList,envir = get(envName,envir = parent.frame()))
-}
+  }
 
 
     }

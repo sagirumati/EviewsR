@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| out.width: 0.33\textwidth
 #| out.height: 0.25\textwidth
 #| fig.ncol: 3
-#| graph: asis
+#| graph: all
 #| echo: FALSE
 #| eval: true
 
@@ -56,10 +56,10 @@ wfsave eviewsr1
 ```{r import,eval=TRUE}
 import_table('eviewsr1')
 
-import$page1_ols_equation
-import$page1
-import$eviewsr3_ols_equation_table
-
+ev$page1_ols_equation
+ev$page1
+ev$eviewsr3_ols_equation_table
+ls()
 ```
 
 ```{r,echo=FALSE,eval=TRUE}
