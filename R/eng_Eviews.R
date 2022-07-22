@@ -756,7 +756,7 @@ eviewsGraphics=paste0(save_path1,graphPath)
 eviewsGraphics1=paste0(save_path1,'/',graphPath,'.',extension)
 
 
-# options$fig.sep=c("","","\\newline")
+ fig.sep=opts_chunk$get('fig.sep')
 
 
 
