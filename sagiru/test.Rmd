@@ -11,21 +11,21 @@ date: '2022-06-11'
 
 ```{r setup, include=FALSE}
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="0.4\\textwidth")
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="0.2\\textwidth")
 
 # set_eviews_path("eviews10")
 ```
 
 
-```{eviews ev,eval=TRUE}
+```{eviews ev,eval=TRUE,out.width="0.2\\textwidth"}
 #| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", graph="asis")
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
 #| out.width: 0.33\textwidth
 #| out.height: 0.25\textwidth
-#| fig.ncol: 3
 #| graph: asis
 #| echo: FALSE
+#| fig.align: left
 #| page: page2 eviewsr3
 #| eval: true
 

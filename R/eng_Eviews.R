@@ -754,6 +754,13 @@ if(exists("pageList1") && identical(options$graph,"asis")) graphPath=graphPath[g
 
 eviewsGraphics=paste0(save_path1,graphPath)
 eviewsGraphics1=paste0(save_path1,'/',graphPath,'.',extension)
+fig.ncol=3
+fig.num=length(eviewsGraphics1)
+if (is.null(fig.sep <- options$fig.sep)) {
+  fig.sep = character(fig.num)
+  if (fig.ncol < fig.num) fig.sep[seq(fig.ncol, fig.num - 1L, fig.ncol)] = '\\newline'
+}
+
 
 # include_graphics(eviewsGraphics)
 
