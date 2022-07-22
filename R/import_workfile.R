@@ -311,7 +311,7 @@ system_exec()
       na.omit
     equationList=c(equationScalars,equationVectors)
     equationName=gsub("\\-.*","",i) %>% tolower
-    assign(equationName,equationList,envir = get(envName))
+    assign(equationName,equationList,envir = get(envName,envir = parent.frame()))
   }
 
 
@@ -329,7 +329,7 @@ system_exec()
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
       }
-      assign(pageName,dataFrame,envir =get(envName))
+      assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
   }
 
@@ -342,7 +342,7 @@ system_exec()
 
   for (i in tablePath){
     tableName=gsub("\\-.*","",i) %>% tolower
-    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
+    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName,envir = parent.frame()))
   }
 
 

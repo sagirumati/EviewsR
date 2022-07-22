@@ -89,6 +89,21 @@ import_graph('eviewsr1',graph ="*",graph_procs = 'template midnight')
 ```
 
 ```{r}
-eviews12$page2
+EviewsR3$page1
+EviewsR3$page1_ols_equation
+eviews12$eviewsr3
+
+```
+
+
+
+```{r import}
+
+import_workfile(wf="EviewsR1",page = "EviewsR3")
+import$eviewsr3
+# eviews$importedDataFrame %>% head
+
+# kable(head(eviews$importedDataFrame),
+# caption="Imported series converted to table",booktabs=T,linesep="") %>%  kable_styling(latex_options = "HOLD_position")
 
 ```
