@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.22)  22 JUL 2022 18:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.22)  22 JUL 2022 19:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,37 +570,47 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 File: test_files/figure-latex//ev-page2-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-page2-GRAPH3.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-page2-GRAPH3.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.25052pt x 54.60191pt.
+(pdftex.def)             Requested size: 93.94644pt x 57.47481pt.
+
+Underfull \hbox (badness 1478) in paragraph at lines 129--129
+[]\T1/lmr/m/n/8 (+20) (a) |Graph3 of EviewsR
+ []
+
 <test_files/figure-latex//ev-page2-GRAPH2.pdf, id=5, 456.73636pt x 281.43143pt>
 File: test_files/figure-latex//ev-page2-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-page2-GRAPH2.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-page2-GRAPH2.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.24791pt x 54.9927pt.
+(pdftex.def)             Requested size: 93.94516pt x 57.88705pt.
+
+Underfull \hbox (badness 1281) in paragraph at lines 129--129
+[]\T1/lmr/m/n/8 (+20) (b) |Graph2 of EviewsR
+ []
+
 <test_files/figure-latex//ev-page2-GRAPH1.pdf, id=6, 459.54684pt x 281.43143pt>
 File: test_files/figure-latex//ev-page2-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-page2-GRAPH1.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-page2-GRAPH1.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.25015pt x 54.65775pt.
+(pdftex.def)             Requested size: 93.94826pt x 57.53493pt.
+
+Underfull \hbox (badness 1688) in paragraph at lines 129--129
+[]\T1/lmr/m/n/8 (+20) (c) |Graph1 of EviewsR
+ []
+
 <test_files/figure-latex//ev-EviewsR3-GRAPH3.pdf, id=7, 460.01862pt x 281.43143pt>
 File: test_files/figure-latex//ev-EviewsR3-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-EviewsR3-GRAPH3.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-EviewsR3-GRAPH3.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.25052pt x 54.60191pt.
+(pdftex.def)             Requested size: 93.94644pt x 57.47481pt.
 <test_files/figure-latex//ev-EviewsR3-GRAPH2.pdf, id=8, 456.73636pt x 281.43143pt>
 File: test_files/figure-latex//ev-EviewsR3-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-EviewsR3-GRAPH2.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-EviewsR3-GRAPH2.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.24791pt x 54.9927pt.
+(pdftex.def)             Requested size: 93.94516pt x 57.88705pt.
 <test_files/figure-latex//ev-EviewsR3-GRAPH1.pdf, id=9, 459.54684pt x 281.43143pt>
 File: test_files/figure-latex//ev-EviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//ev-EviewsR3-GRAPH1.pdf>
 Package pdftex.def Info: test_files/figure-latex//ev-EviewsR3-GRAPH1.pdf  used on input line 129.
-(pdftex.def)             Requested size: 89.25015pt x 54.65775pt.
-
-Overfull \hbox (56.08449pt too wide) in paragraph at lines 129--129
-[][][][][][][][][][] 
- []
-
+(pdftex.def)             Requested size: 93.94826pt x 57.53493pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 133.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -707,7 +717,7 @@ File: test_files/figure-latex//eviews13-page1-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page1-GRAPH3.pdf>
 Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH3.pdf  used on input line 253.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-[2 <./test_files/figure-latex//eviews13-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf>] [3 <./test_files/figure-latex//eviews12-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH3.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH3.pdf>] [4] [5] [6] [7]
+[2 <./test_files/figure-latex//eviews13-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH2.pdf>] [3 <./test_files/figure-latex//eviews12-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH3.pdf>] [4] [5] [6] [7]
 <test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf, id=244, 383.28194pt x 269.8582pt>
 File: test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf>
@@ -728,15 +738,15 @@ Package rerunfilecheck Info: File `test.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14872 strings out of 479983
- 253376 string characters out of 5886392
- 580712 words of memory out of 5000000
- 32750 multiletter control sequences out of 15000+600000
- 502525 words of font info for 74 fonts, out of 8000000 for 9000
+ 14866 strings out of 479983
+ 253326 string characters out of 5886392
+ 584712 words of memory out of 5000000
+ 32748 multiletter control sequences out of 15000+600000
+ 502357 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,10n,67p,1170b,761s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,10n,67p,1001b,771s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on test.pdf (8 pages, 1236902 bytes).
+Output written on test.pdf (8 pages, 1236896 bytes).
 PDF statistics:
  315 PDF objects out of 1000 (max. 8388607)
  225 compressed objects within 3 object streams
