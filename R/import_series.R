@@ -91,9 +91,6 @@ import_series=function(wf="",page="*",series="*"){
 
 
 
-  on.exit(unlink_eviews(),add = TRUE)
-
-
   eviewsCode=paste0(c(eviews_path(),eviewsrText,wf,page,series,saveCode),collapse = '\n')
 
 
@@ -104,7 +101,6 @@ import_series=function(wf="",page="*",series="*"){
 
   if(file.exists(paste0(eviewsrText1,'-series.txt'))){
     seriesPath=readLines(paste0(eviewsrText1,'-series.txt')) %>% strsplit(split=" ") %>% unlist()
-    on.exit(unlink(paste0(seriesPath,".csv")))
     for (i in seriesPath){
       pageName=gsub("\\-.*","",i) %>% tolower
       dataFrame=read.csv(paste0(i,".csv"))
@@ -115,5 +111,10 @@ import_series=function(wf="",page="*",series="*"){
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
   }
+
+
+  on.exit(unlink_eviews(),add = TRUE)
+  on.exit(unlink(paste0(seriesPath,".csv")),add = TRUE)
+  on.exit(unlink(paste0(eviewsrText1,"-series.txt")),add = TRUE)
 
 }
