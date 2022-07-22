@@ -44,7 +44,7 @@ eng_eviews <- function(options) {
    options$page=opts_current$get("page") %n% TRUE
 
   options$eval=options$eval %n% opts_chunk$get("eval")
-   options$fig.ncol=opts_chunk$get("fig.ncol")
+
 
     # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
     # if (!is.null(options$eval))options$template=opts_current$get("template")
@@ -754,10 +754,6 @@ if(exists("pageList1") && identical(options$graph,"asis")) graphPath=graphPath[g
 
 eviewsGraphics=paste0(save_path1,graphPath)
 eviewsGraphics1=paste0(save_path1,'/',graphPath,'.',extension)
-
-
- fig.sep=opts_chunk$get('fig.sep')
-
 
 
 # include_graphics(eviewsGraphics)
