@@ -9,7 +9,7 @@ header-includes:
 date: '2022-06-11'
 ---
 
-```{r setup, include=FALSE,out.extra = 'angle=90'}
+```{r setup, include=FALSE}
 library(EviewsR)
 knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="20%")
 
@@ -17,15 +17,15 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 ```
 
 
-```{eviews ev,eval=TRUE,out.width="0.2\\textwidth"}
+```{eviews ev,eval=TRUE,out.extra = 'angle=45',out.width="0.2\\textwidth"}
 #| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", graph="asis")
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
-#| out.width: 0.33\textwidth
+#| out.width: 0.19\textwidth
 #| out.height: 0.25\textwidth
 #| graph: asis
 #| echo: FALSE
-#| fig.align: left
+#| fig.align: default
 #| page: page2 eviewsr3
 #| eval: true
 
@@ -85,7 +85,7 @@ rename_string = "x x2")
 ```
 
 
-```{r eviews12,out.width="0.2\\textwidth",fig.ncol=2}
+```{r eviews12,out.width="0.2\\textwidth",out.extra = 'angle=90',fig.cap='rotated'}
 import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 ```

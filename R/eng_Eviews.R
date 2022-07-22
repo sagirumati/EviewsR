@@ -29,9 +29,13 @@
 #' @export
 eng_eviews <- function(options) {
 
-#
-  options$fig.ncol=options$out.width
-   # options$fig.cap='sagiru mati gabasawa'
+
+  if(grepl('textwidth',options$out.width) && is.null(options$fig.ncol)){
+    options$fig.ncol=gsub('\\\\textwidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
+  }
+  options$fig.ncol=options$fig.ncol %n% 1
+
+  # out.extra=options$out.extra
 
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
    #
