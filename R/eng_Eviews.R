@@ -30,7 +30,7 @@
 eng_eviews <- function(options) {
 
 #
-#   options$fig.num=9
+  options$fig.ncol=options$out.width
    # options$fig.cap='sagiru mati gabasawa'
 
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))

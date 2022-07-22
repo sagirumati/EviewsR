@@ -106,7 +106,7 @@ eviews12$eviewsr3
 
 
 
-```{r import1,out.extra = 'angle=90'}
+```{r import1}
 
 import_workfile(wf="EviewsR1",page = "EviewsR3")
 import$eviewsr3
