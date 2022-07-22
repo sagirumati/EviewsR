@@ -9,9 +9,9 @@ header-includes:
 date: '2022-06-11'
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE,out.extra = 'angle=90'}
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="0.2\\textwidth")
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="20%")
 
 # set_eviews_path("eviews10")
 ```
@@ -106,7 +106,7 @@ eviews12$eviewsr3
 
 
 
-```{r import1}
+```{r import1,out.extra = 'angle=90'}
 
 import_workfile(wf="EviewsR1",page = "EviewsR3")
 import$eviewsr3
