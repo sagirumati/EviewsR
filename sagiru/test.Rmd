@@ -11,7 +11,7 @@ date: '2022-06-11'
 
 ```{r setup, include=FALSE}
 library(EviewsR)
-knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = F)
+knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="0.4\\textwidth")
 
 # set_eviews_path("eviews10")
 ```
@@ -24,8 +24,9 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| out.width: 0.33\textwidth
 #| out.height: 0.25\textwidth
 #| fig.ncol: 3
-#| graph: all
+#| graph: asis
 #| echo: FALSE
+#| page: page2 eviewsr3
 #| eval: true
 
 'This is some comment in EViews program, feel free to write anything
@@ -59,7 +60,7 @@ import_table('eviewsr1')
 ev$page1_ols_equation
 ev$page1
 ev$eviewsr3_ols_equation_table
-ls()
+ls(envir = ev)
 ```
 
 ```{r,echo=FALSE,eval=TRUE}
@@ -84,7 +85,7 @@ rename_string = "x x2")
 ```
 
 
-```{r eviews12,out.width="0.44\\textwidth",fig.ncol=2}
+```{r eviews12,out.width="0.2\\textwidth",fig.ncol=2}
 import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 ```
@@ -97,8 +98,8 @@ import_graph('eviewsr1',graph ="*",graph_procs = 'template midnight')
 ```
 
 ```{r}
-EviewsR3$page1
-EviewsR3$ols_equation
+eviews12$page1
+eviews12$page2_ols_equation
 eviews12$eviewsr3
 
 ```

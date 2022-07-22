@@ -36,14 +36,15 @@ eng_eviews <- function(options) {
    # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
    #
 
-   equation=opts_current$get("equation") %n% "*"
-   graph=opts_current$get("graph") %n% "*"
-   series=opts_current$get("series") %n% "*"
-   table=opts_current$get("table") %n% "*"
+   equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
+   graph=opts_current$get("graph") %n% "*" %>% shQuote_cmd %>% paste0('%graph=',.)
+   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
+   table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
+
    options$page=opts_current$get("page") %n% TRUE
 
-  if (is.null(options$eval)) options$eval=opts_chunk$get("eval")
-  if (is.null(options$fig.ncol)) options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
+  options$eval=options$eval %n% opts_chunk$get("eval")
+   options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
     # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
     # if (!is.null(options$eval))options$template=opts_current$get("template")
@@ -228,7 +229,7 @@ eng_eviews <- function(options) {
    # if(grepl('AppData/Local/Temp',save_path)) save_path="EviewsR_files"
    # save_path=gsub("[.,-]","_",save_path)
    save_path1=ifelse(save_path=="",".",save_path)
-   if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = T)
+   if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
    save_path=paste0("%save_path=",shQuote_cmd(save_path))
    # dir.create(save_path)
    # dir.create(options$label)
@@ -595,7 +596,7 @@ eng_eviews <- function(options) {
 
   # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
-envName="ev"
+envName=options$label %>% gsub('[._-]','',.)
 assign(envName,new.env(),envir=knit_global())
 
 # if(length(equations)!=0){
@@ -793,7 +794,7 @@ if(all(save_path1!=eviewsGraphics)) output=list(knitr::include_graphics(eviewsGr
 
 if(any(opts_current$get('graph')=='none')) out="" else  out=engine_output(options,out =output)
 
-if(options$echo) return(c(code,out,k,k1)) else return(c(out,k1))
+if(options$echo) return(c(code,out)) else return(c(out))
 
 #end of comment
 # opts_chunk$restore()
