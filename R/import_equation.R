@@ -145,5 +145,7 @@ for (i in equationPath){
   assign(equationName,equationList,envir = get(envName,envir = parent.frame()))
   }
 
+on.exit(unlink(paste0(equationPath,".csv")),add = TRUE)
+on.exit(unlink(paste0(eviewsrText1,"-equation.txt")),add = TRUE)
 
     }

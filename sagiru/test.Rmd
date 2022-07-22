@@ -12,7 +12,7 @@ date: '2022-06-11'
 ```{r setup, include=FALSE}
 library(EviewsR)
 knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval = T,fig.show = 'hold',out.width="20%")
-
+# out.extra = 'style="border:5px solid orange;"'
 # set_eviews_path("eviews10")
 ```
 
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", graph="asis")
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
-#| out.width: '20%'
+#| out.width: '30%'
 #| graph: asis
 #| echo: FALSE
 #| fig.align: default
@@ -84,14 +84,14 @@ rename_string = "x x2")
 ```
 
 
-```{r eviews12,out.width="0.2\\textwidth",out.extra = 'angle=90',fig.cap='rotated'}
+```{r eviews12,fig.cap='rotated'}
 import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 ```
 
 
 
-```{r eviews13}
+```{r eviews13,fig.cap='imported'}
 import_graph('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 ```
@@ -105,7 +105,7 @@ eviews12$eviewsr3
 
 
 
-```{r import1}
+```{r import1,fig.cap='dd'}
 
 import_workfile(wf="EviewsR1",page = "EviewsR3")
 import$eviewsr3

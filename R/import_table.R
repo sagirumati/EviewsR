@@ -114,4 +114,8 @@ system_exec()
     assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName,envir = parent.frame()))
   }
 
+on.exit(unlink(paste0(tablePath,".csv")),add = TRUE)
+on.exit(unlink(paste0(eviewsrText1,"-table.txt")),add = TRUE)
+
+
     }
