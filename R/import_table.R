@@ -111,7 +111,7 @@ system_exec()
 
   for (i in tablePath){
     tableName=gsub("\\-.*","",i) %>% tolower
-    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName))
+    assign(tableName,read.csv(paste0(i,".csv")),envir = get(envName,envir = parent.frame()))
   }
 
     }

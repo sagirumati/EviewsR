@@ -112,7 +112,7 @@ import_series=function(wf="",page="*",series="*"){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
       }
-      assign(pageName,dataFrame,envir =get(envName))
+      assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
   }
 
