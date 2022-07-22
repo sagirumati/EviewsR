@@ -142,22 +142,22 @@ pageselect {%page}
 
 
 if %figKeep1="first" then
-%graph=@wlookup("*","graph")
-%graph=@wleft(%graph,1)
+%graph1=@wlookup("*","graph")
+%graph1=@wleft(%graph,1)
 endif
 
 if %figKeep1="last" then
-%graph=@wlookup("*","graph")
-%graph=@wright(%graph,1)
+%graph1=@wlookup("*","graph")
+%graph1=@wright(%graph,1)
 endif
 
 if %figKeep1="all" then
-%graph=@wlookup("*","graph")
+%graph1=@wlookup("*","graph")
 endif
 
 
 
-%selectedGraphs=%graph
+%selectedGraphs=%graph1
 
 if @wcount(%selectedGraphs)>0 then
 for %graph {%selectedGraphs}

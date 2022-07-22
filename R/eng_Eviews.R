@@ -394,9 +394,9 @@ eng_eviews <- function(options) {
 
    for %page {%pagelist}
    pageselect {%page}
-   %tables=@wlookup(%table ,"table")
+   %tables1=@wlookup(%table ,"table")
 
-   if @wcount(%tables)<>0 then
+   if @wcount(%tables1)<>0 then
    for %y {%tables}
    'table {%page}_{%y}
    %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
@@ -415,9 +415,9 @@ eng_eviews <- function(options) {
 
    for %page {%pagelist}
    pageselect {%page}
-   %equation=@wlookup(%equation,"equation")
+   %equation1=@wlookup(%equation,"equation")
 
-   if @wcount(%equation)<>0 then
+   if @wcount(%equation1)<>0 then
    for %y {%equation}
    table {%y}_table_{%eviewsrText}
 
@@ -455,8 +455,8 @@ eng_eviews <- function(options) {
    %seriesPath=""
    for %page {%pagelist}
    pageselect {%page}
-   %series=@wlookup(%series,"series")
-   if @wcount(%series)>0 then
+   %series1=@wlookup(%series,"series")
+   if @wcount(%series1)>0 then
    pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
    %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
    endif
@@ -477,9 +477,9 @@ eng_eviews <- function(options) {
 
      %tablePath=""
 
-     %tables=@wlookup(%table,"table")
+     %tables1=@wlookup(%table,"table")
 
-     if @wcount(%tables)<>0 then
+     if @wcount(%tables1)<>0 then
      for %y {%tables}
      'table {%y}
      %tablePath=%tablePath+" "+%y+"-"+%eviewsrText

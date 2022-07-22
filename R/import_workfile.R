@@ -203,9 +203,9 @@ text {%eviewsrText}_graph
 
 for %page {%pagelist}
 pageselect {%page}
-%tables=@wlookup(%table ,"table")
+%tables1=@wlookup(%table ,"table")
 
-if @wcount(%tables)<>0 then
+if @wcount(%tables1)<>0 then
 for %y {%tables}
 %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
 {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
@@ -265,8 +265,8 @@ text {%eviewsrText}_equation
 %seriesPath=""
 for %page {%pagelist}
 pageselect {%page}
-%series=@wlookup(%series,"series")
-if @wcount(%series)>0 then
+%series1=@wlookup(%series,"series")
+if @wcount(%series1)>0 then
 pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series} @drop date
 %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
 endif

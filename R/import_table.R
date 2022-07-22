@@ -77,9 +77,9 @@ chunkName=opts_current$get('label')
 
   for %page {%pagelist}
   pageselect {%page}
-  %tables=@wlookup(%table ,"table")
+  %tables1=@wlookup(%table ,"table")
 
-  if @wcount(%tables)<>0 then
+  if @wcount(%tables1)<>0 then
   for %y {%tables}
   %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
   {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}

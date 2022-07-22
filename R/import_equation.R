@@ -80,9 +80,9 @@ chunkName=opts_current$get('label')
 
   for %page {%pagelist}
   pageselect {%page}
-  %equation=@wlookup(%equation,"equation")
+  %equation1=@wlookup(%equation,"equation")
 
-  if @wcount(%equation)<>0 then
+  if @wcount(%equation1)<>0 then
   for %y {%equation}
   table {%y}_table_{%eviewsrText}
 

@@ -54,10 +54,11 @@ wfsave eviewsr1
 `r ev$page1_ols_equation$r2`
 
 ```{r import,eval=TRUE}
-import_workfile('eviewsr1')
+import_series('eviewsr1')
 
 import$page1_ols_equation
 import$page1
+import$page1_ols_equation_table
 
 ```
 
