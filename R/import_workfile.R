@@ -206,7 +206,7 @@ pageselect {%page}
 %tables1=@wlookup(%table ,"table")
 
 if @wcount(%tables1)<>0 then
-for %y {%tables}
+for %y {%tables1}
 %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
 {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
 next
@@ -224,10 +224,10 @@ text {%eviewsrText}_table
 
 for %page {%pagelist}
 pageselect {%page}
-%equation=@wlookup(%equation,"equation")
+%equation1=@wlookup(%equation,"equation")
 
-if @wcount(%equation)<>0 then
-for %y {%equation}
+if @wcount(%equation1)<>0 then
+for %y {%equation1}
 table {%y}_table_{%eviewsrText}
 
 %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
@@ -267,7 +267,7 @@ for %page {%pagelist}
 pageselect {%page}
 %series1=@wlookup(%series,"series")
 if @wcount(%series1)>0 then
-pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series} @drop date
+pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series1} @drop date
 %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
 endif
 next

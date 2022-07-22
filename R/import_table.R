@@ -80,7 +80,7 @@ chunkName=opts_current$get('label')
   %tables1=@wlookup(%table ,"table")
 
   if @wcount(%tables1)<>0 then
-  for %y {%tables}
+  for %y {%tables1}
   %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
   {%y}.save(t=csv) {%page}_{%y}-{%eviewsrText}
   next

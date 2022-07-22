@@ -83,7 +83,7 @@ chunkName=opts_current$get('label')
   %equation1=@wlookup(%equation,"equation")
 
   if @wcount(%equation1)<>0 then
-  for %y {%equation}
+  for %y {%equation1}
   table {%y}_table_{%eviewsrText}
 
   %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
@@ -142,7 +142,7 @@ for (i in equationPath){
     na.omit
   equationList=c(equationScalars,equationVectors)
   equationName=gsub("\\-.*","",i) %>% tolower
-  assign(equationName,equationList,envir = get(envName))
+  assign(equationName,equationList,envir = get(envName,envir = parent.frame()))
 }
 
 

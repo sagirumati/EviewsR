@@ -397,7 +397,7 @@ eng_eviews <- function(options) {
    %tables1=@wlookup(%table ,"table")
 
    if @wcount(%tables1)<>0 then
-   for %y {%tables}
+   for %y {%tables1}
    'table {%page}_{%y}
    %tablePath=%tablePath+" "+%page+"_"+%y+"-"+%eviewsrText
    {%y}.save(t=csv) {%eviews_path}\{%save_path}{%page}_{%y}-{%eviewsrText}
@@ -418,7 +418,7 @@ eng_eviews <- function(options) {
    %equation1=@wlookup(%equation,"equation")
 
    if @wcount(%equation1)<>0 then
-   for %y {%equation}
+   for %y {%equation1}
    table {%y}_table_{%eviewsrText}
 
    %equationMembers="aic df coefs  dw f fprob hq logl meandep ncoef pval r2 rbar2 regobs schwarz sddep se ssr stderrs tstats"
@@ -457,7 +457,7 @@ eng_eviews <- function(options) {
    pageselect {%page}
    %series1=@wlookup(%series,"series")
    if @wcount(%series1)>0 then
-   pagesave {%page}-{%chunkName}{%eviewsrText}.csv @drop date
+   pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series1} @drop date
    %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
    endif
    next
@@ -480,7 +480,7 @@ eng_eviews <- function(options) {
      %tables1=@wlookup(%table,"table")
 
      if @wcount(%tables1)<>0 then
-     for %y {%tables}
+     for %y {%tables1}
      'table {%y}
      %tablePath=%tablePath+" "+%y+"-"+%eviewsrText
      {%y}.save(t=csv) {%eviews_path}\{%save_path}{%y}-{%eviewsrText}
