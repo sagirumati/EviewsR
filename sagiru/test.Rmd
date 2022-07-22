@@ -92,7 +92,7 @@ import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 
 
-```{r eviews13,out.width="0.44\\textwidth",fig.ncol=2}
+```{r eviews13}
 import_graph('eviewsr1',graph ="*",graph_procs = 'template midnight')
 
 ```
