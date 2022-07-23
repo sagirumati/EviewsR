@@ -41,10 +41,12 @@ eng_eviews <- function(options) {
   options$eval=options$eval %n% opts_chunk$get("eval")
 
 
-  chunkName=opts_current$get("label")
+  chunkName=options$label
 
-  envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
+  envName=chunkName %>% gsub("[._-]","",.)
+  assign(envName,new.env(),envir=knit_global())
 
+  chunkName %<>% shQuote_cmd %>% paste0('%chunkName=',.)
 
   save_path=options$save_path %n% opts_current$get("fig.path")
 
@@ -65,7 +67,7 @@ eng_eviews <- function(options) {
 
 
   equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
-   graph=opts_current$get("graph") %n% "*"
+   graph=options$graph %n% "*"
    if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
    graph1=graph
    graph %<>% shQuote_cmd %>% paste0('%graph=',.)
@@ -73,7 +75,7 @@ eng_eviews <- function(options) {
 
   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
    table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
-  page=opts_current$get("page") %n% "*"
+  page=opts_current$get("page") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
 
 
   dev=opts_chunk$get('dev')
@@ -128,8 +130,6 @@ eng_eviews <- function(options) {
   endif
   endif
 
-  if @wcount(%selectedGraphs)>0 then
-  for %y {%selectedGraphs}
   if @wcount(%selectedGraphs)>0 then
   for %y {%selectedGraphs}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
@@ -387,7 +387,7 @@ eng_eviews <- function(options) {
     shQuote_cmd %>% paste0('%eviewsrText=',.)
 
 
-  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,save_path,save_options,graph_procs,saveCode), fileName)
+  writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
 
   system_exec()
 
@@ -470,9 +470,9 @@ eng_eviews <- function(options) {
   code=engine_output(options,code = options$code, out = "")
 
 
-  if(all(save_path1!=eviewsGraphics)) grahicsOutput=list(knitr::include_graphics(eviewsGraphics1)) else grahicsOutput=list()
+  if(all(save_path1!=eviewsGraphics)) grahicsOutput=list(knitr::include_graphics(eviewsGraphics)) else grahicsOutput=list()
 
-    if(any(graph1=='')) grahicsOutput="" else  grahicsOutput=engine_output(options,out =output)
+    if(any(graph1=='')) grahicsOutput="" else  grahicsOutput=engine_output(options,out =grahicsOutput)
 
   if(options$echo) return(c(code,grahicsOutput)) else return(grahicsOutput)
 

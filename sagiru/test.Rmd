@@ -17,11 +17,11 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 ```
 
 
-```{eviews ev,eval=TRUE}
+```{eviews ev,eval=TRUE,graph=1}
 #| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", graph="asis")
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
-#| out.width: '30%'
+#| out.width: '90%'
 #| graph: asis
 #| echo: FALSE
 #| fig.align: default
@@ -70,6 +70,14 @@ dir.create('EviewsR_files/')
 write.csv(EviewsRDataFrame,"EviewsR_Files/EviewsR_eviews_import.csv",row.names = FALSE)
 ```
 
+```{r}
+ev$page1 |> head()
+
+ev$page2 |> head()
+
+ev$eviewsr3 |> head()
+
+```
 
 ```{r eviewsImport,eval=TRUE}
 eviews_import(source_description = "EviewsR_Files/EviewsR_eviews_import.csv",frequency = "m",start_date = "1990",save_path ='EviewsR_Files' )
