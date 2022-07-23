@@ -102,6 +102,8 @@ eviewsrText %<>%
     save_path1=ifelse(save_path=="",".",save_path)
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
+  tempDir=tempDir1=tempdir()
+  tempDir %<>% shQuote_cmd %>% paste0('%tempDir=',.)
 
     wf=paste0('%wf=',shQuote_cmd(wf))
     page=paste0("%page=",shQuote_cmd(page))
@@ -126,13 +128,19 @@ endif
 
 )'
 
-saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
+saveCode=r'(
+if %figKeep1="numeric" then
+%save_path=%tempDir
+endif
+
+%save_path=@wreplace(%save_path,"* ","*")
 %save_path=@wreplace(%save_path,"/","\")
 
 
 if %save_path<>"" then
 %save_path=%save_path+"\"
 endif
+
 
 %save_options=@wreplace(%save_options,"* ","*")
 
@@ -197,13 +205,14 @@ else
 %graphPath1=%graphPath
 endif
 
+
 text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath1}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
 
-writeLines(c(eviews_path(),figKeep,eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
@@ -229,6 +238,7 @@ if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
 if(any(graph1=="asc")) graphPath %<>% sort
 # if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
+if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
 
