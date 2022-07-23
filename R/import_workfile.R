@@ -421,6 +421,7 @@ system_exec()
   on.exit(unlink(paste0(eviewsrText1,c("-graph.txt","-equation.txt","-series.txt","-table.txt"))),add = TRUE)
   on.exit(unlink_eviews(),add = TRUE)
 
+  ###### GRAPHS #################
 
   if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist()

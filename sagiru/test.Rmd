@@ -17,14 +17,14 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 ```
 
 
-```{eviews ev,eval=TRUE,graph=1}
+```{eviews ev,eval=TRUE,graph=''}
 #| fig.cap: Figures automatically imported by eviews chunk (page="eviewsr page1", graph="asis")
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
-#| out.width: '90%'
-#| graph: asis
+#| out.width: '30%'
+#| graph: gra*
 #| echo: FALSE
-#| fig.align: default
+#| fig.align: center
 #| page: page2 eviewsr3
 #| eval: true
 

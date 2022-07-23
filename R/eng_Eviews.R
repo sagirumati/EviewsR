@@ -470,7 +470,7 @@ eng_eviews <- function(options) {
   code=engine_output(options,code = options$code, out = "")
 
 
-  if(all(save_path1!=eviewsGraphics)) grahicsOutput=list(knitr::include_graphics(eviewsGraphics)) else grahicsOutput=list()
+  if(!identical(graph1,'')) grahicsOutput=list(include_graphics(eviewsGraphics)) else grahicsOutput=list()
 
     if(any(graph1=='')) grahicsOutput="" else  grahicsOutput=engine_output(options,out =grahicsOutput)
 

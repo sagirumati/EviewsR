@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.22)  23 JUL 2022 22:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.22)  23 JUL 2022 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -569,196 +569,187 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 <test_files/figure-latex//evpage2-GRAPH1.pdf, id=4, 459.54684pt x 281.43143pt>
 File: test_files/figure-latex//evpage2-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage2-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH1.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78824pt x 258.92006pt.
+Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH1.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92941pt x 86.30669pt.
 <test_files/figure-latex//evpage2-GRAPH2.pdf, id=5, 456.73636pt x 281.43143pt>
 File: test_files/figure-latex//evpage2-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage2-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH2.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78812pt x 260.51323pt.
+Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH2.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92473pt x 86.83488pt.
 <test_files/figure-latex//evpage2-GRAPH3.pdf, id=6, 460.01862pt x 281.43143pt>
 File: test_files/figure-latex//evpage2-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage2-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH3.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78706pt x 258.65381pt.
+Package pdftex.def Info: test_files/figure-latex//evpage2-GRAPH3.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92668pt x 86.21649pt.
 <test_files/figure-latex//evEviewsR3-GRAPH1.pdf, id=7, 459.54684pt x 281.43143pt>
 File: test_files/figure-latex//evEviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evEviewsR3-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH1.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78824pt x 258.92006pt.
+Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH1.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92941pt x 86.30669pt.
 <test_files/figure-latex//evEviewsR3-GRAPH2.pdf, id=8, 456.73636pt x 281.43143pt>
 File: test_files/figure-latex//evEviewsR3-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evEviewsR3-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH2.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78812pt x 260.51323pt.
+Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH2.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92473pt x 86.83488pt.
 <test_files/figure-latex//evEviewsR3-GRAPH3.pdf, id=9, 460.01862pt x 281.43143pt>
 File: test_files/figure-latex//evEviewsR3-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evEviewsR3-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH3.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78706pt x 258.65381pt.
+Package pdftex.def Info: test_files/figure-latex//evEviewsR3-GRAPH3.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92668pt x 86.21649pt.
 <test_files/figure-latex//evpage1-GRAPH1.pdf, id=10, 459.54684pt x 281.43143pt>
 File: test_files/figure-latex//evpage1-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage1-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH1.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78824pt x 258.92006pt.
+Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH1.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92941pt x 86.30669pt.
 <test_files/figure-latex//evpage1-GRAPH2.pdf, id=11, 456.73636pt x 281.43143pt>
 File: test_files/figure-latex//evpage1-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage1-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH2.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78812pt x 260.51323pt.
+Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH2.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92473pt x 86.83488pt.
 <test_files/figure-latex//evpage1-GRAPH3.pdf, id=12, 460.01862pt x 281.43143pt>
 File: test_files/figure-latex//evpage1-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//evpage1-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH3.pdf  used on input line 129.
-(pdftex.def)             Requested size: 422.78706pt x 258.65381pt.
-
-LaTeX Warning: Float too large for page by 1914.33115pt on input line 130.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 135.
+Package pdftex.def Info: test_files/figure-latex//evpage1-GRAPH3.pdf  used on input line 130.
+(pdftex.def)             Requested size: 140.92668pt x 86.21649pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 140.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 136.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 141.
 (c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 138.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 143.
 [1
 
-{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-<test_files/figure-latex//eviews12-page2-GRAPH1.pdf, id=38, 378.81525pt x 270.10913pt>
+{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./test_files/figure-latex//evpage2-GRAPH1.pdf> <./test_files/figure-latex//evpage2-GRAPH2.pdf> <./test_files/figure-latex//evpage2-GRAPH3.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH1.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH2.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH3.pdf> <./test_files/figure-latex//evpage1-GRAPH1.pdf> <./test_files/figure-latex//evpage1-GRAPH2.pdf> <./test_files/figure-latex//evpage1-GRAPH3.pdf>] [2] [3] [4] [5]
+<test_files/figure-latex//eviews12-page2-GRAPH1.pdf, id=143, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page2-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page2-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH1.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH1.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-page2-GRAPH2.pdf, id=39, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews12-page2-GRAPH2.pdf, id=144, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page2-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page2-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH2.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH2.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-page2-GRAPH3.pdf, id=40, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews12-page2-GRAPH3.pdf, id=145, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page2-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page2-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH3.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page2-GRAPH3.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-<test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf, id=41, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf, id=146, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf, id=42, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf, id=147, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf, id=43, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf, id=148, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-<test_files/figure-latex//eviews12-page1-GRAPH1.pdf, id=44, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews12-page1-GRAPH1.pdf, id=149, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page1-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page1-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH1.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH1.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-page1-GRAPH2.pdf, id=45, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews12-page1-GRAPH2.pdf, id=150, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page1-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page1-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH2.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH2.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews12-page1-GRAPH3.pdf, id=46, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews12-page1-GRAPH3.pdf, id=151, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews12-page1-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews12-page1-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH3.pdf  used on input line 442.
+Package pdftex.def Info: test_files/figure-latex//eviews12-page1-GRAPH3.pdf  used on input line 447.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<test_files/figure-latex//eviews13-page2-GRAPH1.pdf, id=47, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page2-GRAPH1.pdf, id=152, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page2-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page2-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH1.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH1.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-page2-GRAPH2.pdf, id=48, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page2-GRAPH2.pdf, id=153, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page2-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page2-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH2.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH2.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-page2-GRAPH3.pdf, id=49, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page2-GRAPH3.pdf, id=154, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page2-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page2-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH3.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page2-GRAPH3.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-<test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf, id=50, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf, id=155, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf, id=51, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf, id=156, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf, id=52, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf, id=157, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
-<test_files/figure-latex//eviews13-page1-GRAPH1.pdf, id=53, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page1-GRAPH1.pdf, id=158, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page1-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page1-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH1.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH1.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-page1-GRAPH2.pdf, id=54, 378.81525pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page1-GRAPH2.pdf, id=159, 378.81525pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page1-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page1-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH2.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH2.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94637pt x 66.98718pt.
-<test_files/figure-latex//eviews13-page1-GRAPH3.pdf, id=55, 381.10379pt x 270.10913pt>
+<test_files/figure-latex//eviews13-page1-GRAPH3.pdf, id=160, 381.10379pt x 270.10913pt>
 File: test_files/figure-latex//eviews13-page1-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//eviews13-page1-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH3.pdf  used on input line 457.
+Package pdftex.def Info: test_files/figure-latex//eviews13-page1-GRAPH3.pdf  used on input line 462.
 (pdftex.def)             Requested size: 93.94984pt x 66.5874pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6] [7] [8] [9]
-<test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf, id=77, 383.28194pt x 269.8582pt>
+[6 <./test_files/figure-latex//eviews12-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH3.pdf>] [7 <./test_files/figure-latex//eviews13-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH3.pdf>] [8] [9] [10]
+<test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf, id=294, 383.28194pt x 269.8582pt>
 File: test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf Graphic file (type pdf)
 <use test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf>
-Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf  used on input line 758.
+Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf  used on input line 763.
 (pdftex.def)             Requested size: 93.94875pt x 66.14671pt.
-<test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf, id=78, 381.00342pt x 269.8582pt>
+<test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf, id=295, 381.00342pt x 269.8582pt>
 File: test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf Graphic file (type pdf)
 <use test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf>
-Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf  used on input line 758.
+Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf  used on input line 763.
 (pdftex.def)             Requested size: 93.94836pt x 66.542pt.
-<test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf, id=79, 383.74367pt x 269.8582pt>
+<test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf, id=296, 383.74367pt x 269.8582pt>
 File: test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf Graphic file (type pdf)
 <use test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf>
-Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf  used on input line 758.
+Package pdftex.def Info: test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf  used on input line 763.
 (pdftex.def)             Requested size: 93.94482pt x 66.06436pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11 <./test_files/figure-latex//evpage2-GRAPH1.pdf> <./test_files/figure-latex//evpage2-GRAPH2.pdf> <./test_files/figure-latex//evpage2-GRAPH3.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH1.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH2.pdf> <./test_files/figure-latex//evEviewsR3-GRAPH3.pdf> <./test_files/figure-latex//evpage1-GRAPH1.pdf> <./test_files/figure-latex//evpage1-GRAPH2.pdf> <./test_files/figure-latex//evpage1-GRAPH3.pdf>] [12 <./test_files/figure-latex//eviews12-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews12-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews12-page1-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page2-GRAPH3.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//eviews13-EviewsR3-GRAPH3.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH1.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH2.pdf> <./test_files/figure-latex//eviews13-page1-GRAPH3.pdf> <./test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf>] (./test.aux)
+[11] [12 <./test_files/figure-latex//import1-EviewsR3-GRAPH1.pdf> <./test_files/figure-latex//import1-EviewsR3-GRAPH2.pdf> <./test_files/figure-latex//import1-EviewsR3-GRAPH3.pdf>] (./test.aux)
 Package rerunfilecheck Info: File `test.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  14910 strings out of 479983
  254716 string characters out of 5886392
- 585027 words of memory out of 5000000
+ 579015 words of memory out of 5000000
  32780 multiletter control sequences out of 15000+600000
  502357 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,10n,67p,1417b,767s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,10n,67p,1274b,715s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/SMATI/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on test.pdf (12 pages, 1422456 bytes).
+Output written on test.pdf (12 pages, 1423060 bytes).
 PDF statistics:
  371 PDF objects out of 1000 (max. 8388607)
  268 compressed objects within 3 object streams
