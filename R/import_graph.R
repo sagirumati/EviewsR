@@ -144,6 +144,8 @@ pageselect {%page}
 if %figKeep1="first" then
 %graph1=@wlookup("*","graph")
 %graph1=@wleft(%graph,1)
+else
+%graph1=
 endif
 
 if %figKeep1="last" then
