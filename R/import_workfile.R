@@ -38,12 +38,17 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
   graph1=graph
 
-  if(any(graph %in% c("all","*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
-  if(any(graph=="first")) figKeep='%figKeep1="first"'
-  if(any(graph=="last")) figKeep='%figKeep1="last"'
 
-  # chunkName1=paste0(chunkName,'-') %>%
-  # shQuote_cmd() %>% paste0('%chunkName=',.)
+  chunkName=opts_current$get("label")
+
+  dev=opts_current$get('dev')
+
+
+  if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
+
+  graph %<>% paste(collapse = ' ') %>%
+    shQuote_cmd %>% paste0('%graph=',.)
+
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
   if(identical(envName,"eviews")){
@@ -113,8 +118,8 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
     equation %<>% paste(collapse = " ") %>%
       shQuote_cmd %>% paste0("%equation=",.)
 
-    graph %<>% paste(collapse = " ") %>%
-      shQuote_cmd %>% paste0("%graph=",.)
+    # graph %<>% paste(collapse = " ") %>%
+      # shQuote_cmd %>% paste0("%graph=",.)
 
     series %<>% paste(collapse = " ") %>%
       shQuote_cmd %>% paste0("%series=",.)

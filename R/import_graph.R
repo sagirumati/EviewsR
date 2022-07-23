@@ -193,21 +193,21 @@ next
 endif
 next
 
-%graphPath1=""
-if %figKeep1="numeric" then
-for %number {%graph}
-!number=@val(%number)
+'%graphPath1=""
+'if %figKeep1="numeric" then
+'for %number {%graph}
+'!number=@val(%number)
 '!number=@val(@word(%graph,!number))
-%graphN=@word(%graphPath,!number)
-%graphPath1=%graphPath1+" "+%graphN
-next
-else
-%graphPath1=%graphPath
-endif
+'%graphN=@word(%graphPath,!number)
+'%graphPath1=%graphPath1+" "+%graphN
+'next
+'else
+'%graphPath1=%graphPath
+'endif
 
 
 text {%eviewsrText}_graph
-{%eviewsrText}_graph.append {%graphPath1}
+{%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
@@ -236,7 +236,7 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
 
 if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
 if(any(graph1=="asc")) graphPath %<>% sort
-# if(is.numeric(graph1)) graphPath=graphPath[graph1]
+ if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
 if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
