@@ -89,20 +89,19 @@ eviewsrText %<>%
     pageselect {%page}
 
     if %graph="first" then
-    %graph1=@wlookup("*","graph")
-    %graph1=@wleft(%graph1,1)
+    %selectedGraphs=@wlookup("*","graph")
+    %selectedGraphs=@wleft(%selectedGraphs,1)
     else if %graph="last" then
-    %graph1=@wlookup("*","graph")
-    %graph1=@wright(%graph1,1)
+    %selectedGraphs=@wlookup("*","graph")
+    %selectedGraphs=@wright(%selectedGraphs,1)
     else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
-    %graph1=@wlookup("*","graph")
+    %selectedGraphs=@wlookup("*","graph")
     else
-    %graph1=@wlookup(%graph,"graph")
+    %selectedGraphs=@wlookup(%graph,"graph")
     endif
     endif
     endif
 
-    %selectedGraphs=%graph1
     if @wcount(%selectedGraphs)>0 then
     for %y {%selectedGraphs}
     )'
@@ -182,36 +181,35 @@ pageselect {%page}
 
 
 'if %figKeep1="first" then
-'%graph1=@wlookup("*","graph")
-'%graph1=@wleft(%graph1,1)
+'%selectedGraphs=@wlookup("*","graph")
+'%selectedGraphs=@wleft(%selectedGraphs,1)
 'else if %figKeep1="last" then
-'%graph1=@wlookup("*","graph")
-'%graph1=@wright(%graph1,1)
+'%selectedGraphs=@wlookup("*","graph")
+'%selectedGraphs=@wright(%selectedGraphs,1)
 'else if %figKeep1="asc" or %figKeep1="desc" or %figKeep1="numeric"  then
-'%graph1=@wlookup("*","graph")
+'%selectedGraphs=@wlookup("*","graph")
 'else
-'%graph1=@wlookup(%graph,"graph")
+'%selectedGraphs=@wlookup(%graph,"graph")
 'endif
 'endif
 'endif
 
 
 if %graph="first" then
-%graph1=@wlookup("*","graph")
-%graph1=@wleft(%graph1,1)
+%selectedGraphs=@wlookup("*","graph")
+%selectedGraphs=@wleft(%selectedGraphs,1)
 else if %graph="last" then
-%graph1=@wlookup("*","graph")
-%graph1=@wright(%graph1,1)
+%selectedGraphs=@wlookup("*","graph")
+%selectedGraphs=@wright(%selectedGraphs,1)
 else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
-%graph1=@wlookup("*","graph")
+%selectedGraphs=@wlookup("*","graph")
 else
-%graph1=@wlookup(%graph,"graph")
+%selectedGraphs=@wlookup(%graph,"graph")
 endif
 endif
 endif
 
 
-%selectedGraphs=%graph1
 
 if @wcount(%selectedGraphs)>0 then
 for %selectedGraph {%selectedGraphs}
@@ -255,8 +253,6 @@ on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 #
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
-if(!save_copy) on.exit(unlink(eviewsGraphics))
-
 
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
@@ -268,6 +264,9 @@ if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
 if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+
+  if(!save_copy) on.exit(unlink(eviewsGraphics))
+
   include_graphics(eviewsGraphics)
 
 

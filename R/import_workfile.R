@@ -111,6 +111,9 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
     save_path1=ifelse(save_path=="",".",save_path)
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
+    tempDir=tempDir1=tempdir()
+    tempDir %<>% shQuote_cmd %>% paste0('%tempDir=',.)
+
 
     wf=paste0('%wf=',shQuote_cmd(wf))
     page=paste0("%page=",shQuote_cmd(page))
@@ -157,44 +160,70 @@ if %save_path<>"" then
 %save_path=%save_path+"\"
 endif
 
+
+'####################### GRAPHS #################
+
+
+if %figKeep1="numeric" then
+%save_path=%tempDir
+endif
+
+%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\")
+
+
+if %save_path<>"" then
+%save_path=%save_path+"\"
+endif
+
+
 %save_options=@wreplace(%save_options,"* ","*")
 
 if %save_options<>"" then
 %save_options="("+%save_options+")"
 endif
 
-'####################### GRAPHS #################
-
 %graphPath=""
 for %page {%pagelist}
 pageselect {%page}
 
 
-
-if %figKeep1="first" then
-%graph=@wlookup("*","graph")
-%graph=@wleft(%graph,1)
+if %graph="first" then
+%selectedGraphs=@wlookup("*","graph")
+%selectedGraphs=@wleft(%selectedGraphs,1)
+else if %graph="last" then
+%selectedGraphs=@wlookup("*","graph")
+%selectedGraphs=@wright(%selectedGraphs,1)
+else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+%selectedGraphs=@wlookup("*","graph")
+else
+%selectedGraphs=@wlookup(%graph,"graph")
+endif
+endif
 endif
 
-if %figKeep1="last" then
-%graph=@wlookup("*","graph")
-%graph=@wright(%graph,1)
-endif
 
-if %figKeep1="all" then
-%graph=@wlookup("*","graph")
-endif
-
-
-%selectedGraphs=%graph
 
 if @wcount(%selectedGraphs)>0 then
-for %graph {%selectedGraphs}
-{%graph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%graph}
-%graphPath=%graphPath+" "+%chunkName+%page+"-"+%graph
+for %selectedGraph {%selectedGraphs}
+{%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
+%graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
 next
 endif
 next
+
+'%graphPath1=""
+'if %figKeep1="numeric" then
+'for %number {%graph}
+'!number=@val(%number)
+'!number=@val(@word(%graph,!number))
+'%graphN=@word(%graphPath,!number)
+'%graphPath1=%graphPath1+" "+%graphN
+'next
+'else
+'%graphPath1=%graphPath
+'endif
+
 
 text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath}
@@ -203,6 +232,7 @@ text {%eviewsrText}_graph
 
 
 '####################### TABLES #################
+
 
 %tablePath=""
 
@@ -285,7 +315,7 @@ text {%eviewsrText}_series
 exit
 )'
 
-writeLines(c(eviews_path(),figKeep,eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 
@@ -366,8 +396,13 @@ system_exec()
   if(any(graph1=="asc")) graphPath %<>% sort
   if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
+
+  if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
+
   if(!save_copy) on.exit(unlink(eviewsGraphics))
+
   include_graphics(eviewsGraphics)
+
 
 }
