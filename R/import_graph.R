@@ -143,21 +143,17 @@ pageselect {%page}
 
 if %figKeep1="first" then
 %graph1=@wlookup("*","graph")
-%graph1=@wleft(%graph,1)
+%graph1=@wleft(%graph1,1)
+else if %figKeep1="last" then
+%graph1=@wlookup("*","graph")
+%graph1=@wright(%graph1,1)
+else if %figKeep1="asc" or %figKeep1="desc" or %figKeep1="numeric"  then
+%graph1=@wlookup("*","graph")
 else
-%graph1=
+%graph1=@wlookup(%graph,"graph")
 endif
-
-if %figKeep1="last" then
-%graph1=@wlookup("*","graph")
-%graph1=@wright(%graph,1)
 endif
-
-if %figKeep1="all" then
-%graph1=@wlookup("*","graph")
 endif
-
-
 
 %selectedGraphs=%graph1
 
@@ -169,8 +165,20 @@ next
 endif
 next
 
+
+if %figKeep1="numeric" then
+%grapPath1=""
+for %number {%graph}
+!number=@val(@word(%graph,!number))
+%graphN=@word(%graphPath,!number)
+%graphPath1=%graphPath1+" "+%graphN
+next
+else
+%grapPath1=%grapPath
+endif
+
 text {%eviewsrText}_graph
-{%eviewsrText}_graph.append {%graphPath}
+{%eviewsrText}_graph.append {%graphPath1}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
