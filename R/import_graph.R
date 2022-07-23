@@ -39,7 +39,7 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
 
 graph1=graph
 
-  if(any(graph %in% c("all","*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
+  if(any(graph %in% c("*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
   if(any(graph=="first")) figKeep='%figKeep1="first"'
   if(any(graph=="last")) figKeep='%figKeep1="last"'
 
