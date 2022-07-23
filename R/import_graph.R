@@ -83,8 +83,36 @@ eviewsrText %<>%
 
   if(!identical(graph_procs,'')){
     graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('for %page {%pagelist}','pageselect {%page}','%selectedGraphs=@wlookup(%graph,"graph")','if @wcount(%selectedGraphs)>0 then','for %y {%selectedGraphs}')
-,c(graph_procs,'next','endif','next'))
+
+    prefixGraphProcs=r'(
+    for %page {%pagelist}
+    pageselect {%page}
+
+    if %graph="first" then
+    %graph1=@wlookup("*","graph")
+    %graph1=@wleft(%graph1,1)
+    else if %graph="last" then
+    %graph1=@wlookup("*","graph")
+    %graph1=@wright(%graph1,1)
+    else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+    %graph1=@wlookup("*","graph")
+    else
+    %graph1=@wlookup(%graph,"graph")
+    endif
+    endif
+    endif
+
+    %selectedGraphs=%graph1
+    if @wcount(%selectedGraphs)>0 then
+    for %y {%selectedGraphs}
+    )'
+
+    suffixGraphProcs=r'(
+    next
+    endif
+    next
+    )'
+  graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
 
   if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 }
@@ -236,7 +264,7 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
 
 if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
 if(any(graph1=="asc")) graphPath %<>% sort
- if(is.numeric(graph1)) graphPath=graphPath[graph1]
+if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
 if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
