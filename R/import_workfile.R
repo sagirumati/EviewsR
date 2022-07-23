@@ -89,14 +89,44 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
 
+    if(!identical(graph_procs,'')){
+      graph_procs=paste0("{%y}.",graph_procs)
 
-  if(!identical(graph_procs,'')){
-    graph_procs=paste0("{%y}.",graph_procs)
-  graph_procs=append(c('for %page {%pagelist}','pageselect {%page}','%selectedGraphs=@wlookup(%graph,"graph")','if @wcount(%selectedGraphs)>0 then','for %y {%selectedGraphs}')
-,c(graph_procs,'next','endif','next'))
+      prefixGraphProcs=r'(
+      for %page {%pagelist}
+      pageselect {%page}
 
-  if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
-}
+      if %graph="first" then
+      %selectedGraphs=@wlookup("*","graph")
+      %selectedGraphs=@wleft(%selectedGraphs,1)
+      else if %graph="last" then
+      %selectedGraphs=@wlookup("*","graph")
+      %selectedGraphs=@wright(%selectedGraphs,1)
+      else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+      %selectedGraphs=@wlookup("*","graph")
+      else
+      %selectedGraphs=@wlookup(%graph,"graph")
+      endif
+      endif
+      endif
+
+      if @wcount(%selectedGraphs)>0 then
+      for %y {%selectedGraphs}
+      )'
+
+      suffixGraphProcs=r'(
+      next
+      endif
+      next
+      )'
+
+  graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
+
+      if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
+    }
+
+
+
     if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
         if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
       shQuote_cmd() %>% paste0('%chunkName=',.)
