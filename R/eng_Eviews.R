@@ -41,9 +41,14 @@ eng_eviews <- function(options) {
    #
 
    equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
-   graph=opts_current$get("graph") %n% "*" %>% shQuote_cmd %>% paste0('%graph=',.)
+
+   graph=opts_current$get("graph") %n% "*"
+
+   if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")) graph %<>% shQuote_cmd %>% paste0('%graph=',.)
+
    series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
    table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
+
 
    options$page=opts_current$get("page") %n% TRUE
 
@@ -382,7 +387,7 @@ eng_eviews <- function(options) {
    if(any(options$graph=="first")) figKeep='%figKeep1="first"'
    if(any(options$graph=="last")) figKeep='%figKeep1="last"'
    if(any(options$graph=="asis")) figKeep='%figKeep1=""'
-   if(any(options$graph=="none")) figKeep='%figKeep1="none"'
+   if(any(options$graph=="")) figKeep='%figKeep1="none"'
 
    # figSave=append(figKeep,figSave)
 
