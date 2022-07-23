@@ -65,6 +65,9 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
 
+
+
+
   dev=opts_current$get('dev')
 
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
