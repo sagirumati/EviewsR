@@ -44,8 +44,11 @@ graph1=graph
   if(any(graph=="first")) figKeep='%figKeep1="first"'
   if(any(graph=="last")) figKeep='%figKeep1="last"'
 
-  if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")) graph %<>%
-  shQuote_cmd %>% paste0('%graph=',.) -> figKeep
+  if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")){
+    graph %<>% paste(collapse = ' ') %>%
+  shQuote_cmd %>% paste0('%graph=',.)
+    figKeep='%figKeep="graph"'
+  }
 
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
   if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
@@ -98,8 +101,6 @@ eviewsrText %<>%
 
     wf=paste0('%wf=',shQuote_cmd(wf))
     page=paste0("%page=",shQuote_cmd(page))
-    graph=paste(graph,collapse = " ")
-    graph=paste0("%graph=",shQuote_cmd(graph))
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote_cmd(save_options))
@@ -157,9 +158,9 @@ endif
 %selectedGraphs=%graph1
 
 if @wcount(%selectedGraphs)>0 then
-for %graph {%selectedGraphs}
-{%graph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%graph}
-%graphPath=%graphPath+" "+%chunkName+%page+"-"+%graph
+for %selectedGraph {%selectedGraphs}
+{%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
+%graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
 next
 endif
 next
