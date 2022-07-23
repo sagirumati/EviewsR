@@ -39,9 +39,13 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
 
 graph1=graph
 
-  if(any(graph %in% c("*","asc","desc")) || is.numeric(graph)) figKeep='%figKeep1="all"'
+  if(is.numeric(graph)) figKeep='%figKeep1="numeric"'
+  if(any(graph %in% c("*","asc","desc"))) figKeep='%figKeep1="all"'
   if(any(graph=="first")) figKeep='%figKeep1="first"'
   if(any(graph=="last")) figKeep='%figKeep1="last"'
+
+  if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")) graph %<>%
+  shQuote_cmd %>% paste0('%graph=',.) -> figKeep
 
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
   if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
@@ -109,17 +113,12 @@ if %wf<>"" then
 wfopen {%wf}
 endif
 
-'if %page<>"" then
-'pageselect {%page}
-'endif
+%pagelist=@pagelist
 
-if %page<>"" then
+if %page<>"*" then
 %pagelist=%page
 endif
 
-if %page="*" then
-%pagelist=@pagelist
-endif
 )'
 
 saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
@@ -165,20 +164,20 @@ next
 endif
 next
 
-
+%graphPath1=""
 if %figKeep1="numeric" then
-%grapPath1=""
 for %number {%graph}
-!number=@val(@word(%graph,!number))
+!number=@val(%number)
+'!number=@val(@word(%graph,!number))
 %graphN=@word(%graphPath,!number)
 %graphPath1=%graphPath1+" "+%graphN
 next
 else
-%grapPath1=%grapPath
+%graphPath1=%graphPath
 endif
 
 text {%eviewsrText}_graph
-{%eviewsrText}_graph.append {%graphPath1}
+{%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
@@ -207,7 +206,7 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
 
 if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
 if(any(graph1=="asc")) graphPath %<>% sort
-if(is.numeric(graph1)) graphPath=graphPath[graph1]
+# if(is.numeric(graph1)) graphPath=graphPath[graph1]
 
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
   include_graphics(eviewsGraphics)
