@@ -39,16 +39,20 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
 
 graph1=graph
 
-  if(is.numeric(graph)) figKeep='%figKeep1="numeric"'
-  if(any(graph %in% c("*","asc","desc"))) figKeep='%figKeep1="all"'
-  if(any(graph=="first")) figKeep='%figKeep1="first"'
-  if(any(graph=="last")) figKeep='%figKeep1="last"'
+  if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
 
-  if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")){
-    graph %<>% paste(collapse = ' ') %>%
+  # if(any(graph %in% c("*","asc","desc"))) figKeep='%figKeep1="all"'
+  # if(any(graph=="first")) figKeep='%figKeep1="first"'
+  # if(any(graph=="last")) figKeep='%figKeep1="last"'
+
+  # if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")){
+  #   graph %<>% paste(collapse = ' ') %>%
+  # shQuote_cmd %>% paste0('%graph=',.)
+  #   figKeep='%figKeep="graph"'
+  # }else graph=""
+
+graph %<>% paste(collapse = ' ') %>%
   shQuote_cmd %>% paste0('%graph=',.)
-    figKeep='%figKeep="graph"'
-  }
 
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
   if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
@@ -141,19 +145,35 @@ for %page {%pagelist}
 pageselect {%page}
 
 
-if %figKeep1="first" then
+'if %figKeep1="first" then
+'%graph1=@wlookup("*","graph")
+'%graph1=@wleft(%graph1,1)
+'else if %figKeep1="last" then
+'%graph1=@wlookup("*","graph")
+'%graph1=@wright(%graph1,1)
+'else if %figKeep1="asc" or %figKeep1="desc" or %figKeep1="numeric"  then
+'%graph1=@wlookup("*","graph")
+'else
+'%graph1=@wlookup(%graph,"graph")
+'endif
+'endif
+'endif
+
+
+if %graph="first" then
 %graph1=@wlookup("*","graph")
 %graph1=@wleft(%graph1,1)
-else if %figKeep1="last" then
+else if %graph="last" then
 %graph1=@wlookup("*","graph")
 %graph1=@wright(%graph1,1)
-else if %figKeep1="asc" or %figKeep1="desc" or %figKeep1="numeric"  then
+else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
 %graph1=@wlookup("*","graph")
 else
 %graph1=@wlookup(%graph,"graph")
 endif
 endif
 endif
+
 
 %selectedGraphs=%graph1
 
@@ -178,7 +198,7 @@ else
 endif
 
 text {%eviewsrText}_graph
-{%eviewsrText}_graph.append {%graphPath}
+{%eviewsrText}_graph.append {%graphPath1}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 exit
 )'
