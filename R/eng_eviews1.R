@@ -3,19 +3,19 @@
 #' The \code{EViews} engine can be activated via
 #'
 #' ```
-#' knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
+#' knitr::knit_engines$set(eviews = EviewsR::eng_eviews1)
 #' ```
 #'
 #' This will be set within an R Markdown document's setup chunk.
 #'
 #' @description This package runs on top of knitr to facilitate communication with EViews. Run EViews scripts from R Markdown document.
-#' @usage eng_eviews(options)
+#' @usage eng_eviews1(options)
 #' @param options Chunk options, as provided by \code{knitr} during chunk execution. Chunk option for this is \code{eviews}
 #' @return Set of \code{EViews} codes
 #' @author Sagiru Mati, ORCID: 0000-0003-1413-3974, https://smati.com.ng
 #' * Yusuf Maitama Sule (Northwest) University Kano, Nigeria
 #' * SMATI Academy
-#' @examples knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
+#' @examples knitr::knit_engines$set(eviews = EviewsR::eng_eviews1)
 #' library(EviewsR)
 #' @references Bob Rudis (2015).Running Go language chunks in R Markdown (Rmd) files. Available at:  https://gist.github.com/hrbrmstr/9accf90e63d852337cb7
 #'
@@ -27,7 +27,7 @@
 #'
 #' @family important functions
 #' @export
-eng_eviews <- function(options) {
+eng_eviews1 <- function(options) {
 
 
   if(grepl('width',options$out.width) && is.null(options$fig.ncol)){
@@ -35,66 +35,31 @@ eng_eviews <- function(options) {
   }
   options$fig.ncol=options$fig.ncol %n% 2
 
+  # out.extra=options$out.extra
+
+   # writeLines(paste(options$label,options$fig.subcap,options$fig.align,options$fig.cap),paste0(options$label,'text.txt'))
+   #
+
+   equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
+
+   graph=opts_current$get("graph") %n% "*"
+
+   if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")) graph %<>% shQuote_cmd %>% paste0('%graph=',.)
+
+   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
+   table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
+
+
+   options$page=opts_current$get("page") %n% TRUE
 
   options$eval=options$eval %n% opts_chunk$get("eval")
 
 
-  chunkName=opts_current$get("label")
-
-  envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
-
+    # if (is.null(options$echo)) options$echo=opts_chunk$get("echo")
+    # if (!is.null(options$eval))options$template=opts_current$get("template")
 
 
-  equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
-   graph=opts_current$get("graph") %n% "*"
-   graph1=graph
-  series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
-   table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
-  page=opts_current$get("page") %n% "*"
-
-
-  dev=opts_current$get('dev')
-
-  if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
-  if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
-  if(is.null(dev) && save_options=='') save_options="t=png,d=300"
-  # Append "d=300" if "d=" (dpi) is not defined in "save_options"
-
-  save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
-
-  if(length(intersect(save_options,save_options1)>0)){
-    if(intersect(save_options,save_options1) %in% save_options1 & sum(grepl("\\s*d\\s*=",save_options, ignore.case = T))==0) save_options=append(save_options,"d=300")
-  }
-
-  save_options2=paste0(save_options,collapse=",") %>% trimws() %>%  gsub('[[:blank:]]','',.) %>% strsplit(split=",") %>% unlist()
-
-  extensions= c("t=emf", "t=wmf", "t=eps", "t=bmp", "t=gif", "t=jpg", "t=png", "t=pdf", "t=tex", "t=md")
-
-  extension=intersect(extensions,save_options2) %>% gsub('t=','',.)
-
-  if(length(extension)==0) extension="emf"
-
-  if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
-
-  graph %<>% paste(collapse = ' ') %>%
-    shQuote_cmd %>% paste0('%graph=',.)
-
-
-  fileName=tempfile("EVIEWS", ".", ".prg")
-  eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
-  eviewsrText1=eviewsrText
-  eviewsrText %<>%
-    shQuote_cmd %>% paste0('%eviewsrText=',.)
-
-
-
-
-
-
-
-
-
-
+  # if (!is.null(options$template)) template %<>% shQuote_cmd %>%  paste0('%template=',.)
 
     eviewsVectors=c('coefs', 'pval', 'stderrs', 'tstats')
 
