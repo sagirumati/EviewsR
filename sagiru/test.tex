@@ -125,97 +125,6 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textgreater{} \textquotesingle{}This is some comment in EViews program, feel free to write anything}
-\NormalTok{+ wfcreate(page=EviewsR\_page,wf=EviewsR\_workfile) m 2000 2022}
-\NormalTok{+ !n=1}
-\NormalTok{+ for \%y  page2 EviewsR3 page1 }
-\NormalTok{+ pagecreate(page=\{\%y\}) q 2000 2022}
-\NormalTok{+ pageselect \{\%y\}}
-\NormalTok{+ rndseed !n+100}
-\NormalTok{+ !n=!n+100}
-\NormalTok{+ genr x=@cumsum(nrnd)}
-\NormalTok{+ genr y=@cumsum(nrnd)}
-\NormalTok{+ genr z=@cumsum(nrnd)}
-\NormalTok{+ equation OLS\_EQUATION.ls y c x z}
-\NormalTok{+ \%existing=@wlookup("*","graph")}
-\NormalTok{+ freeze(OLS\_EQUATION\_TABLE,mode=overwrite) OLS\_EQUATION}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ delete(noerr) GRAPH*}
-\NormalTok{+ freeze(GRAPH3,mode=overwrite) z.line}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ graph GRAPH2.dot y}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ graph GRAPH1.area x}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ graph3.addtext(ar) \%y}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ graph2.addtext(ar) \%y}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ graph1.addtext(ar) \%y}
-\NormalTok{+ }
-\NormalTok{+   \%currentpage=@pagename}
-\NormalTok{+   \%newgraph=@wlookup("*","graph")}
-\NormalTok{+   \%newgraph=@wdrop(\%newgraph,\%existing)}
-\NormalTok{+   \%existing=@wlookup("*","graph")}
-\NormalTok{+   if @wcount(\%newgraph)\textgreater{}0 then}
-\NormalTok{+   \%graphPath=\%graphPath+" "+\%chunkName+"{-}"+\%currentpage+"{-}"+\%newgraph}
-\NormalTok{+   endif}
-\NormalTok{+  }
-\NormalTok{+ next}
-\NormalTok{+ wfsave eviewsr1}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}[h]
 
 {\centering \subfloat[Graph3 of EviewsR page\label{fig:ev-1}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page2-GRAPH3} }\subfloat[Graph2 of EviewsR page\label{fig:ev-2}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page2-GRAPH2} }\subfloat[Graph1 of EviewsR page\label{fig:ev-3}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page2-GRAPH1} }\newline\subfloat[Graph3 of Page1 page\label{fig:ev-4}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-EviewsR3-GRAPH3} }\subfloat[Graph2 of Page1 page\label{fig:ev-5}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-EviewsR3-GRAPH2} }\subfloat[Graph1 of Page1 page\label{fig:ev-6}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-EviewsR3-GRAPH1} }\newline\subfloat[Graph3 of EviewsR page\label{fig:ev-7}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page1-GRAPH3} }\subfloat[Graph2 of EviewsR page\label{fig:ev-8}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page1-GRAPH2} }\subfloat[Graph1 of EviewsR page\label{fig:ev-9}]{\includegraphics[width=0.3\linewidth]{test_files/figure-latex//ev-page1-GRAPH1} }
@@ -406,7 +315,46 @@
 \end{Shaded}
 
 \begin{verbatim}
-## NULL
+##           Dependent.Variable..Y           X                       X.1
+## 1         Method: Least Squares                                      
+## 2  Date: 07/24/22   Time: 17:06                                      
+## 3         Sample: 2000Q1 2022Q4                                      
+## 4     Included observations: 92                                      
+## 5                                                                    
+## 6                      Variable Coefficient                Std. Error
+## 7                                                                    
+## 8                             C    4.755039                  0.745227
+## 9                             X   -0.879833                  0.143481
+## 10                            Z    0.106860                  0.088772
+## 11                                                                   
+## 12                    R-squared    0.491940        Mean dependent var
+## 13           Adjusted R-squared    0.480523        S.D. dependent var
+## 14           S.E. of regression    2.813666     Akaike info criterion
+## 15            Sum squared resid    704.5880         Schwarz criterion
+## 16               Log likelihood   -224.1903      Hannan-Quinn criter.
+## 17                  F-statistic    43.08810        Durbin-Watson stat
+## 18            Prob(F-statistic)    0.000000                          
+## 19                                                                   
+##            X.2      X.3
+## 1                      
+## 2                      
+## 3                      
+## 4                      
+## 5                      
+## 6  t-Statistic  Prob.  
+## 7                      
+## 8     6.380655   0.0000
+## 9    -6.132063   0.0000
+## 10    1.203761   0.2319
+## 11                     
+## 12             0.541680
+## 13             3.903817
+## 14             4.938919
+## 15             5.021151
+## 16             4.972109
+## 17             0.242413
+## 18                     
+## 19
 \end{verbatim}
 
 \begin{Shaded}
@@ -416,8 +364,11 @@
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "page1"                    "page1_ols_equation"      
-## [3] "page1_ols_equation_table"
+## [1] "eviewsr3"                    "eviewsr3_ols_equation"      
+## [3] "eviewsr3_ols_equation_table" "page1"                      
+## [5] "page1_ols_equation"          "page1_ols_equation_table"   
+## [7] "page2"                       "page2_ols_equation"         
+## [9] "page2_ols_equation_table"
 \end{verbatim}
 
 \begin{verbatim}
@@ -447,7 +398,13 @@
 \end{Shaded}
 
 \begin{verbatim}
-## NULL
+##         date          x          y           z
+## 1 2000-01-01 -1.3649297 -0.3483416 -0.71694074
+## 2 2000-04-01 -0.8208519 -0.7404609 -0.96235049
+## 3 2000-07-01 -1.3143717  0.7368425 -0.04892887
+## 4 2000-10-01 -3.2611997  0.2489698 -0.65618607
+## 5 2001-01-01 -3.4054834 -0.6838027 -0.43123541
+## 6 2001-04-01 -3.5175394 -1.8107602 -0.24779820
 \end{verbatim}
 
 \begin{Shaded}
@@ -457,7 +414,13 @@
 \end{Shaded}
 
 \begin{verbatim}
-## NULL
+##         date          x           y         z
+## 1 2000-01-01  1.4715488 -0.01507448 -1.958391
+## 2 2000-04-01  0.6663254  0.92435251 -1.767156
+## 3 2000-07-01 -0.1165642 -0.31041710 -2.809193
+## 4 2000-10-01  1.1831861 -1.13518718 -2.070197
+## 5 2001-01-01  1.4543057  0.84137151 -3.288139
+## 6 2001-04-01  2.8350066  0.87414362 -4.006499
 \end{verbatim}
 
 \begin{Shaded}

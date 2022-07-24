@@ -81,10 +81,11 @@ eng_eviews <- function(options) {
 
   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
    table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
-  page=opts_current$get("page") %n% "*" %>% shQuote_cmd %>% paste0('%page=',.)
-  page1=page %>%   strsplit(split=" ") %>%
-    unlist() %>% paste0(collapse='|') %>% paste0('-(',.,')-')
+  page=page1=opts_current$get("page") %n% "*"
 
+  pagePattern=page %>%   strsplit(split=" ") %>%
+    unlist() %>% paste0(collapse='|') %>% paste0('-(',.,')-')
+  page %<>% shQuote_cmd %>% paste0('%page=',.)
 
   dev=opts_chunk$get('dev')
   save_options=options$save_options %n% ''
@@ -532,7 +533,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
   if(any(graph1=="asc")) graphPath %<>% sort
   if(is.numeric(graph1)) graphPath=graphPath[graph1]
-  # if(identical(graph1,"asis")) graphPath=graphPath[grep(page1,graphPath,ignore.case = TRUE)]
+  if(identical(graph1,"asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
 
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
