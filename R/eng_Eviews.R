@@ -82,6 +82,8 @@ eng_eviews <- function(options) {
   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
    table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
   page=opts_current$get("page") %n% "*" %>% shQuote_cmd %>% paste0('%page=',.)
+  page1=page %>%   strsplit(split=" ") %>%
+    unlist() %>% paste0(collapse='|') %>% paste0('-(',.,')-')
 
 
   dev=opts_chunk$get('dev')
@@ -429,6 +431,25 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
     %save_path=%save_path+"\"
     endif
 
+    %save_options=@wreplace(%save_options,"* ","*")
+
+    if %save_options<>"" then
+    %save_options="("+%save_options+")"
+    endif
+
+    for %page {%pagelist}
+    pageselect {%page}
+
+    %selectedGraphs=@wlookup("*","graph")
+
+    if @wcount(%selectedGraphs)>0 then
+    for %selectedGraph {%selectedGraphs}
+    {%selectedGraph}.save{%save_options} {%save_path}{%chunkName}-{%page}-{%selectedGraph}
+    next
+    endif
+    next
+
+
     if @wcount(%graphPath)>0 then
     text {%eviewsrText}_graph
     {%eviewsrText}_graph.append {%graphPath}
@@ -511,7 +532,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
   if(any(graph1=="asc")) graphPath %<>% sort
   if(is.numeric(graph1)) graphPath=graphPath[graph1]
-
+  # if(identical(graph1,"asis")) graphPath=graphPath[grep(page1,graphPath,ignore.case = TRUE)]
 
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
