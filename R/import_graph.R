@@ -231,10 +231,11 @@ next
 '%graphPath1=%graphPath
 'endif
 
-
+if @wcount(%graphPath)>0 then
 text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
+endif
 exit
 )'
 
@@ -254,7 +255,8 @@ on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 
-if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
+if(file.exists(paste0(eviewsrText1,"-graph.txt"))){
+  graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
 
@@ -268,6 +270,6 @@ if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),pa
   if(!save_copy) on.exit(unlink(eviewsGraphics))
 
   include_graphics(eviewsGraphics)
-
+}
 
 }

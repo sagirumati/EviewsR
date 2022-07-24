@@ -75,7 +75,7 @@ eng_eviews <- function(options) {
 
   series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
    table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
-  page=opts_current$get("page") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
+  page=opts_current$get("page") %n% "*" %>% shQuote_cmd %>% paste0('%page=',.)
 
 
   dev=opts_chunk$get('dev')
@@ -290,9 +290,11 @@ eng_eviews <- function(options) {
   'endif
 
 
+  if @wcount(%graphPath)>0 then
   text {%eviewsrText}_graph
   {%eviewsrText}_graph.append {%graphPath}
   {%eviewsrText}_graph.save  {%eviewsrText}-graph
+  endif
 
 
 
@@ -451,7 +453,7 @@ eng_eviews <- function(options) {
   on.exit(unlink_eviews(),add = TRUE)
 
 
-  if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
+  if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist()
 
   if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
@@ -462,19 +464,19 @@ eng_eviews <- function(options) {
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
 
-
+}
 
   on.exit(do.call(':::',list('knitr','plot_counter'))(TRUE),
           add = TRUE) # restore plot number on.exit
 
-  code=engine_output(options,code = options$code, out = "")
+  echoCode=engine_output(options,code = options$code, out = "")
 
 
-  if(!identical(graph1,'')) grahicsOutput=list(include_graphics(eviewsGraphics)) else grahicsOutput=list()
+  if(!file.exists(paste0(eviewsrText1,"-graph.txt")))  grahicsOutput=list() else grahicsOutput=list(include_graphics(eviewsGraphics))
 
-    if(any(graph1=='')) grahicsOutput="" else  grahicsOutput=engine_output(options,out =grahicsOutput)
+  if(!file.exists(paste0(eviewsrText1,"-graph.txt"))) grahicsOutput="" else  grahicsOutput=engine_output(options,out =grahicsOutput)
 
-  if(options$echo) return(c(code,grahicsOutput)) else return(grahicsOutput)
+  if(options$echo) return(c(echoCode,grahicsOutput)) else return(grahicsOutput)
 
 }
 

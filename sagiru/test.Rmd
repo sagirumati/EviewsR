@@ -22,20 +22,21 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
 #| out.width: '30%'
-#| graph: gra*
-#| echo: FALSE
+#| graph: desc
 #| fig.align: center
-#| page: page2 eviewsr3
+#| page: EviewsR_page
 #| eval: true
 #| 
 
 'This is some comment in EViews program, feel free to write anything
 
 wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+!n=1
 for %y  page2 EviewsR3 page1 
 pagecreate(page={%y}) q 2000 2022
 pageselect {%y}
-rndseed 123
+rndseed !n+100
+!n=!n+100
 genr x=@cumsum(nrnd)
 genr y=@cumsum(nrnd)
 genr z=@cumsum(nrnd)
@@ -49,6 +50,7 @@ graph3.addtext(ar) %y
 graph2.addtext(ar) %y
 graph1.addtext(ar) %y
 next
+
 wfsave eviewsr1
 ```
 
@@ -95,7 +97,7 @@ rename_string = "x x2")
 
 
 ```{r eviews12,fig.cap='rotated'}
-import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight')
+import_workfile('eviewsr1',graph ="*",graph_procs = 'template midnight',page='eviewsr3')
 
 ```
 

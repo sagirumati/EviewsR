@@ -257,11 +257,11 @@ next
 '%graphPath1=%graphPath
 'endif
 
-
+if @wcount(%graphPath)>0 then
 text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
-
+endif
 
 
 '####################### TABLES #################
@@ -423,7 +423,7 @@ system_exec()
 
   ###### GRAPHS #################
 
-  if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
+  if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist()
 
   if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
@@ -437,6 +437,6 @@ system_exec()
   if(!save_copy) on.exit(unlink(eviewsGraphics))
 
   include_graphics(eviewsGraphics)
-
+}
 
 }
