@@ -38,6 +38,12 @@ eng_eviews <- function(options) {
 
 
 
+  fileName=tempfile("EVIEWS", ".", ".prg")
+  eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
+  eviewsrText1=eviewsrText
+  eviewsrText %<>%
+    shQuote_cmd %>% paste0('%eviewsrText=',.)
+
   options$eval=options$eval %n% opts_chunk$get("eval")
 
 
@@ -178,6 +184,8 @@ eng_eviews <- function(options) {
   next
   )'
 
+
+
   graph_procs=opts_current$get('graph_procs')
 
   if(!is.null(graph_procs)){
@@ -217,87 +225,7 @@ eng_eviews <- function(options) {
   }
 
 
-  saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
-  %save_path=@wreplace(%save_path,"/","\")
-
-
-  if %save_path<>"" then
-  %save_path=%save_path+"\"
-  endif
-
-
-  '####################### GRAPHS #################
-
-
-  if %figKeep1="numeric" then
-  %save_path=%tempDir
-  endif
-
-  %save_path=@wreplace(%save_path,"* ","*")
-  %save_path=@wreplace(%save_path,"/","\")
-
-
-  if %save_path<>"" then
-  %save_path=%save_path+"\"
-  endif
-
-
-  %save_options=@wreplace(%save_options,"* ","*")
-
-  if %save_options<>"" then
-  %save_options="("+%save_options+")"
-  endif
-
-  %graphPath=""
-  for %page {%pagelist}
-  pageselect {%page}
-
-
-  if %graph="first" then
-  %selectedGraphs=@wlookup("*","graph")
-  %selectedGraphs=@wleft(%selectedGraphs,1)
-  else if %graph="last" then
-  %selectedGraphs=@wlookup("*","graph")
-  %selectedGraphs=@wright(%selectedGraphs,1)
-  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
-  %selectedGraphs=@wlookup("*","graph")
-  else
-  %selectedGraphs=@wlookup(%graph,"graph")
-  endif
-  endif
-  endif
-
-
-
-  if @wcount(%selectedGraphs)>0 then
-  for %selectedGraph {%selectedGraphs}
-  {%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
-  %graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
-  next
-  endif
-  next
-
-  '%graphPath1=""
-  'if %figKeep1="numeric" then
-  'for %number {%graph}
-  '!number=@val(%number)
-  '!number=@val(@word(%graph,!number))
-  '%graphN=@word(%graphPath,!number)
-  '%graphPath1=%graphPath1+" "+%graphN
-  'next
-  'else
-  '%graphPath1=%graphPath
-  'endif
-
-
-  if @wcount(%graphPath)>0 then
-  text {%eviewsrText}_graph
-  {%eviewsrText}_graph.append {%graphPath}
-  {%eviewsrText}_graph.save  {%eviewsrText}-graph
-  endif
-
-
-
+  equationSeriesTablePath=r'(
   '####################### TABLES #################
 
 
@@ -382,12 +310,87 @@ eng_eviews <- function(options) {
   exit
   )'
 
-  fileName=tempfile("EVIEWS", ".", ".prg")
-  eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
-  eviewsrText1=eviewsrText
-  eviewsrText %<>%
-    shQuote_cmd %>% paste0('%eviewsrText=',.)
 
+  if(!identical(graph1,'asis')){
+  graphPath=r'(%save_path=@wreplace(%save_path,"* ","*")
+  %save_path=@wreplace(%save_path,"/","\")
+
+
+  if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
+
+  '####################### GRAPHS #################
+
+
+  if %figKeep1="numeric" then
+  %save_path=%tempDir
+  endif
+
+  %save_path=@wreplace(%save_path,"* ","*")
+  %save_path=@wreplace(%save_path,"/","\")
+
+
+  if %save_path<>"" then
+  %save_path=%save_path+"\"
+  endif
+
+
+  %save_options=@wreplace(%save_options,"* ","*")
+
+  if %save_options<>"" then
+  %save_options="("+%save_options+")"
+  endif
+
+  %graphPath=""
+  for %page {%pagelist}
+  pageselect {%page}
+
+
+  if %graph="first" then
+  %selectedGraphs=@wlookup("*","graph")
+  %selectedGraphs=@wleft(%selectedGraphs,1)
+  else if %graph="last" then
+  %selectedGraphs=@wlookup("*","graph")
+  %selectedGraphs=@wright(%selectedGraphs,1)
+  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+  %selectedGraphs=@wlookup("*","graph")
+  else
+  %selectedGraphs=@wlookup(%graph,"graph")
+  endif
+  endif
+  endif
+
+
+
+  if @wcount(%selectedGraphs)>0 then
+  for %selectedGraph {%selectedGraphs}
+  {%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
+  %graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
+  next
+  endif
+  next
+
+  '%graphPath1=""
+  'if %figKeep1="numeric" then
+  'for %number {%graph}
+  '!number=@val(%number)
+  '!number=@val(@word(%graph,!number))
+  '%graphN=@word(%graphPath,!number)
+  '%graphPath1=%graphPath1+" "+%graphN
+  'next
+  'else
+  '%graphPath1=%graphPath
+  'endif
+
+
+  if @wcount(%graphPath)>0 then
+  text {%eviewsrText}_graph
+  {%eviewsrText}_graph.append {%graphPath}
+  {%eviewsrText}_graph.save  {%eviewsrText}-graph
+  endif)'
+}
 
 
 
@@ -397,7 +400,32 @@ eng_eviews <- function(options) {
 
 
   if(identical(graph1,"asis"))  {
-    saveCode=r'(if %save_path<>"" then
+
+#### Generate graphPath from the options$code
+
+appendCode=r'(
+  %currentpage=@pagename
+  %newgraph=@wlookup("*","graph")
+  %newgraph=@wdrop(%newgraph,%existing)
+  %existing=@wlookup("*","graph")
+  if @wcount(%newgraph)>0 then
+  %graphPath=%graphPath+" "+%chunkName+"-"+%currentpage+"-"+%newgraph
+  endif
+ )'
+
+
+    eviewsCode=options$code %>% strsplit(split="\n") %>%
+      unlist()
+
+graphIndex=grep("^(\\s*freeze|\\s*graph)",eviewsCode) %>% rev()
+
+for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
+
+    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(graphIndex,1)-1)
+    options$code=eviewsCode
+
+
+    graphPath=r'(if %save_path<>"" then
     %save_path=%save_path+"\"
     endif
 
@@ -407,53 +435,13 @@ eng_eviews <- function(options) {
     {%eviewsrText}_graph.save  {%eviewsrText}-graph
     endif
 
-    %pagelist=@pagelist
 
-    if %pagelist1<>"" then
-    %pagelist=%pagelist1
-    endif
-
-    for %page {%pagelist}
-    pageselect {%page}
-
-
-    %figKeep=@wlookup("*","graph")
-
-    if @wcount(%figKeep)<>0 then
-    for %y {%figKeep}
-    '%figPath=%figPath+" "+%chunkName+%page+"-"+%y
-    {%y}.save({%save_options}) {%save_path}{%chunkName}{%page}-{%y}
-    next
-    endif
-
-    next
     )'
+}
 
 
 
-    appendCode='%currentpage=@pagename
-  %newgraph=@wlookup("*","graph")
-  %newgraph=@wdrop(%newgraph,%existing)
-  %existing=@wlookup("*","graph")
-  if @wcount(%newgraph)>0 then
-  %graphPath=%graphPath+" "+%chunkName+%currentpage+"-"+%newgraph
-  endif'
-
-    graphIndex=grep("^(\\s*freeze|\\s*graph)",options$code) %>% rev()
-
-    eviewsCode=options$code
-
-    for (i in graphIndex) eviewsCode=append(options$code,appendCode,i)
-
-    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(graphIndex,1)-1)
-    options$code=eviewsCode
-    # writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
-
-  }
-
-
-
-  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,options$code,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
+  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,options$code,graphicsDefault,save_path,save_options,graph_procs,graphPath,equationSeriesTablePath), fileName)
 
   system_exec()
 

@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| out.width: '30%'
 #| graph: asis
 #| fig.align: center
-#| page: "page1" 
+#| page: "*" 
 #| eval: true
 #| 
 
