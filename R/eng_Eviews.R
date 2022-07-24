@@ -389,6 +389,68 @@ eng_eviews <- function(options) {
     shQuote_cmd %>% paste0('%eviewsrText=',.)
 
 
+
+
+
+  ####### GRAPH="ASIS" #####################
+
+
+
+  if(identical(graph1,"asis"))  {
+    saveCocde=r'(if %save_path<>"" then
+    %save_path=%save_path+"\"
+    endif
+
+    if @wcount(%graphPath)>0 then
+    text {%eviewsrText}_graph
+    {%eviewsrText}_graph.append {%graphPath}
+    {%eviewsrText}_graph.save  {%eviewsrText}-graph
+    endif
+
+    %pagelist=@pagelist
+
+    if %pagelist1<>"" then
+    %pagelist=%pagelist1
+    endif
+
+    for %page {%pagelist}
+    pageselect {%page}
+
+
+    %figKeep=@wlookup("*","graph")
+
+    if @wcount(%figKeep)<>0 then
+    for %y {%figKeep}
+    '%figPath=%figPath+" "+%chunkName+%page+"-"+%y
+    {%y}.save({%save_options}) {%save_path}{%chunkName}{%page}-{%y}
+    next
+    endif
+
+    next
+    )'
+
+
+    graphIndex=grep("^(\\s*freeze|\\s*graph)",options$code) %>% rev()
+
+    appendCode='%currentpage=@pagename
+  %newgraph=@wlookup("*","graph")
+  %newgraph=@wdrop(%newgraph,%existing)
+  %existing=@wlookup("*","graph")
+  if @wcount(%newgraph)>0 then
+  %graphPath=%graphPath+" "+%chunkName+%currentpage+"-"+%newgraph
+  endif'
+
+
+    for (i in graphIndex) eviewsCode=append(options$code,appendCode,i)
+
+    eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(graphIndex,1)-1)
+    options$code=eviewsCode
+    # writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
+
+  }
+
+
+
   writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
 
   system_exec()
@@ -486,65 +548,9 @@ eng_eviews <- function(options) {
 
 
 
-####### GRAPH="ASIS" #####################
-
-
-
-if(identical(graph1,"asis"))  {
-  saveCocde=r'(if %save_path<>"" then
-  %save_path=%save_path+"\"
-  endif
-
-  if @wcount(%graphPath)>0 then
-  text {%eviewsrText}_graph
-  {%eviewsrText}_graph.append {%graphPath}
-  {%eviewsrText}_graph.save  {%eviewsrText}-graph
-  endif
-
-  %pagelist=@pagelist
-
-  if %pagelist1<>"" then
-  %pagelist=%pagelist1
-  endif
-
-  for %page {%pagelist}
-  pageselect {%page}
-
-
-  %figKeep=@wlookup("*","graph")
-
-  if @wcount(%figKeep)<>0 then
-  for %y {%figKeep}
-  '%figPath=%figPath+" "+%chunkName+%page+"-"+%y
-  {%y}.save({%save_options}) {%save_path}{%chunkName}{%page}-{%y}
-  next
-  endif
-
-  next
-  )'
-}
 
 
 
 
-writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
 
 
-
-
-if(any(options$graph=="asis") && options$page){
-  evi=grep("^(\\s*freeze|\\s*graph)",options$code) %>% rev()
-
-  appendCode='%currentpage=@pagename
-  %newgraph=@wlookup("*","graph")
-  %newgraph=@wdrop(%newgraph,%existing)
-  %existing=@wlookup("*","graph")
-  if @wcount(%newgraph)>0 then
-  %figPath=%figPath+" "+%chunkName+%currentpage+"-"+%newgraph
-  endif'
-
-
-  for (i in eviewsCode1) eviewsCode=append(eviewsCode,appendCode,i)
-
-  eviewsCode=append(eviewsCode,'%existing=@wlookup("*","graph")',tail(eviewsCode1,1)-1)
-}

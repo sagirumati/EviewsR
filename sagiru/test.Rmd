@@ -22,9 +22,9 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.subcap: !expr paste0(rep("Graph",6),3:1," of ",rep(c("EviewsR","Page1"),each=3)," page")
 #| graph_procs: [template bokeh, setelem(1) lcolor(green) fillcolor(green)]
 #| out.width: '30%'
-#| graph: desc
+#| graph: asis
 #| fig.align: center
-#| page: EviewsR_page
+#| page: "page1" 
 #| eval: true
 #| 
 
