@@ -397,7 +397,7 @@ eng_eviews <- function(options) {
 
 
   if(identical(graph1,"asis"))  {
-    saveCocde=r'(if %save_path<>"" then
+    saveCode=r'(if %save_path<>"" then
     %save_path=%save_path+"\"
     endif
 
@@ -430,7 +430,6 @@ eng_eviews <- function(options) {
     )'
 
 
-    graphIndex=grep("^(\\s*freeze|\\s*graph)",options$code) %>% rev()
 
     appendCode='%currentpage=@pagename
   %newgraph=@wlookup("*","graph")
@@ -440,6 +439,9 @@ eng_eviews <- function(options) {
   %graphPath=%graphPath+" "+%chunkName+%currentpage+"-"+%newgraph
   endif'
 
+    graphIndex=grep("^(\\s*freeze|\\s*graph)",options$code) %>% rev()
+
+    eviewsCode=options$code
 
     for (i in graphIndex) eviewsCode=append(options$code,appendCode,i)
 
@@ -451,7 +453,7 @@ eng_eviews <- function(options) {
 
 
 
-  writeLines(c(eviews_path(),options$code,tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
+  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,options$code,graphicsDefault,save_path,save_options,graph_procs,saveCode), fileName)
 
   system_exec()
 
