@@ -27,6 +27,7 @@ knitr::opts_chunk$set(echo = T,prompt = T,fig.align = "center",fig.pos="h",eval 
 #| fig.align: center
 #| page: page2 eviewsr3
 #| eval: true
+#| 
 
 'This is some comment in EViews program, feel free to write anything
 
@@ -90,6 +91,7 @@ eviews_import(source_description = "EviewsR_files/EviewsR_eviews_import.csv",smp
 rename_string = "x x2")
 
 ```
+
 
 
 ```{r eviews12,fig.cap='rotated'}
