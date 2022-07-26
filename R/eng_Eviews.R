@@ -30,7 +30,12 @@
 eng_eviews <- function(options) {
 
 
+  options$eval=options$eval %n% opts_chunk$get("eval")
 
+  options$echo=options$echo %n% opts_chunk$get("echo")
+
+
+if(options$eval){
 
   if(grepl('width',options$out.width) && is.null(options$fig.ncol)){
     options$fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
@@ -43,8 +48,6 @@ eng_eviews <- function(options) {
   eviewsrText1=eviewsrText
   eviewsrText %<>%
     shQuote_cmd %>% paste0('%eviewsrText=',.)
-
-  options$eval=options$eval %n% opts_chunk$get("eval")
 
 
   chunkName=options$label
@@ -527,6 +530,8 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   on.exit(unlink_eviews(),add = TRUE)
 
 
+
+
   if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist()
 
@@ -543,14 +548,22 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   on.exit(do.call(':::',list('knitr','plot_counter'))(TRUE),
           add = TRUE) # restore plot number on.exit
 
-  echoCode=engine_output(options,code = options$code, out = "")
 
 
   if(!file.exists(paste0(eviewsrText1,"-graph.txt")))  grahicsOutput=list() else grahicsOutput=list(include_graphics(eviewsGraphics))
 
   if(!file.exists(paste0(eviewsrText1,"-graph.txt"))) grahicsOutput="" else  grahicsOutput=engine_output(options,out =grahicsOutput)
 
+  echoCode=engine_output(options,code = options$code, out = "")
+
   if(options$echo) return(c(echoCode,grahicsOutput)) else return(grahicsOutput)
+
+  } # end of options$eval
+
+  if(options$echo && !options$eval){
+    echoCode=engine_output(options,code = options$code, out = "")
+    return(echoCode)
+}
 
 }
 
