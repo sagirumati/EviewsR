@@ -38,7 +38,7 @@ eng_eviews <- function(options) {
 if(options$eval){
 
   if(grepl('width',options$out.width) && is.null(options$fig.ncol)){
-    options$fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
+    options$fig.ncol=fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
   }
 
 
