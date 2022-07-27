@@ -41,14 +41,6 @@ if(options$eval){
     options$fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
   }
 
-  if(grepl('width',options$`out-width`) && is.null(options$fig.ncol)){
-    options$fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$`out-width`) %>% as.numeric %>% `%/%`(1,.)
-  }
-
-
-  if(grepl('%',options$out.width) && is.null(options$fig.ncol)){
-    options$fig.ncol=gsub('%','',options$out.width) %>% as.numeric %>% `%/%`(100,.)
-  }
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
