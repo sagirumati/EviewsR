@@ -97,7 +97,7 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
 
 # graph_procs=append(graphProcsDefault,graph_procs)
 
-  chunkName=opts_current$get("label")
+  chunkName=opts_current$get("label") %>% gsub("^fig-","",.)
 
   # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpg", ".png", ".pdf", ".tex", ".md")
 

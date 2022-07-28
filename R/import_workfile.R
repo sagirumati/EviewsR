@@ -32,7 +32,7 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
   chunkName=opts_current$get("label")
 
-  envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
+  envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
 

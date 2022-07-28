@@ -35,7 +35,7 @@ import_equation=function(wf="",page="*",equation="*"){
 
 chunkName=opts_current$get('label')
 
-    envName=chunkName %n% "eviews" %>% gsub("[._-]","",.)
+    envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
     # chunkName1=paste0(chunkName,'-') %>%

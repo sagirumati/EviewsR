@@ -51,10 +51,10 @@ if(options$eval){
 
   chunkName=options$label
 
-  envName=chunkName %>% gsub("[._-]","",.)
+  envName=chunkName %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
   assign(envName,new.env(),envir=knit_global())
 
-  chunkName %<>% shQuote_cmd %>% paste0('%chunkName=',.)
+  chunkName %<>%  gsub("^fig-","",.) %>% shQuote_cmd %>% paste0('%chunkName=',.)
 
   save_path=options$save_path %n% opts_current$get("fig.path")
 
