@@ -103,7 +103,7 @@ a=runif(100) %>% plot
 
 
 
-```{eviews biscuit,fig.cap= 'Figures automatically imported by eviews 2'}
+```{eviews biscuit,engine.path='eviews10',fig.cap= 'Figures automatically imported by eviews 2'}
 #| fig.subcap: !expr paste(rep("Figure",9),1:3,"of",rep(c("EviewsR","Page1","Page2"),each=3),"page")
 #| graph_procs: [template magazine,legend position(right)]
 #| out.width: 0.3\textwidth
