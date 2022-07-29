@@ -1,6 +1,6 @@
 %eviews_path="C:\Users\SMATI\Google Drive\GITHUB\Repos\sagirumati\EviewsR\sagiru"
 cd %eviews_path
-%eviewsrText="eviewsrText2be4b6244e3"
+%eviewsrText="eviewsrTextcb8b4e2a25"
 %wf="eviewsr_files/eviewsr_eviews_import"
 %page="*"
 %series="*"

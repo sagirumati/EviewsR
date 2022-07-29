@@ -91,10 +91,10 @@ import_series=function(wf="",page="*",series="*",type="df"){
     for (i in seriesPath){
       pageName=gsub("\\-.*","",i) %>% tolower
       dataFrame=read.csv(paste0(i,".csv"))
-      if(grepl('date',colnames(dataFrame)[1])){
+        if(grepl('date',colnames(dataFrame)[1])){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
-        if(identical(type,'xts')) dataFrame=xts:xts(dataFrame[-1],dataFrame[[1]])
+        if(identical(type,'xts')) dataFrame=xts::xts(dataFrame[-1],dataFrame[[1]])
         }
 
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
