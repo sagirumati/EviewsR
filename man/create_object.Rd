@@ -59,6 +59,7 @@ object_name="EviewsR_create_object",view_or_proc="ls",options_list="",arg_list="
 \seealso{
 Other important functions: 
 \code{\link{EviewsR}},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

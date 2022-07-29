@@ -4,28 +4,16 @@
 \alias{import_series}
 \title{Import `EViews` series object as `kable`}
 \usage{
-import_series(wf="",page="",series_name="",series_range="",format=kable_format(),
- digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
-  label = NULL, format.args = list(),escape = FALSE, series.attr = "", booktabs = TRUE,
-   longseries = FALSE, valign = "t",position = "h", centering = TRUE,
-   vline = getOption("knitr.series.vline",if (booktabs) "" else "|"),
-toprule = getOption("knitr.series.toprule",
-if (booktabs) "\\\\toprule" else "\\\\hline"),
-bottomrule = getOption("knitr.series.bottomrule",
-if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-midrule = getOption("knitr.series.midrule",
-if (booktabs) "\\\\midrule" else "\\\\hline"),
-linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
- caption.short = "",series.envir = if (!is.null(caption)) "series",...)
+import_series(wf = "", page = "*", series = "*", type = "df")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{series_range}{A vector of characters specifying the series range of rows and columns}
+\item{series}{Name(s) of `EViews` series object(s) in an `EViews` workfile}
 
-\item{series_name}{Name of an `EViews` series object in an `EViews` workfile}
+\item{series_range}{A vector of characters specifying the series range of rows and columns}
 }
 \value{
 An EViews workfile
@@ -45,6 +33,7 @@ import_series(wf="EviewsR_exec_commands",page="page",series_name="EviewsROLS",fo
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

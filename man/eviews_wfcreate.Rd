@@ -48,6 +48,7 @@ start_date = "1990",end_date = "2022")
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

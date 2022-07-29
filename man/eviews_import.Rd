@@ -60,6 +60,7 @@ frequency = "m",rename_string = "x ab",smpl_string = "1990m10 1992m10")
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_pagesave}()},

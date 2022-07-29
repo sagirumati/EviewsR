@@ -50,6 +50,7 @@ exec_commands(commands=eviewsCommands,wf="EviewsR_exec_commands")
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

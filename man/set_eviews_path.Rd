@@ -25,6 +25,7 @@ set_eviews_path('C:/Program Files (x86)/EViews 10/eviews10.exe')
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

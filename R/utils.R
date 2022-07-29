@@ -2,7 +2,7 @@
 #     IMPORTS
 #####################
 
-#' @import knitr magrittr
+#' @import knitr magrittr xts
 #' @importFrom utils write.csv read.csv  getFromNamespace tail
 #' @importFrom stats na.omit
 

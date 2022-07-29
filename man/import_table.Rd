@@ -45,6 +45,7 @@ import_table(wf="EviewsR_exec_commands",page="page",table_name="EviewsROLS",form
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

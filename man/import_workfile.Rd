@@ -7,8 +7,10 @@
 import_workfile(
   wf = "",
   page = "*",
-  series = "*",
+  equation = "*",
   graph = "*",
+  series = "*",
+  table = "*",
   graph_procs = "",
   datelabel = "",
   save_options = "",
@@ -61,6 +63,7 @@ eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overw
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
+\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},
