@@ -94,7 +94,7 @@ import_series=function(wf="",page="*",series="*",type="df"){
         if(grepl('date',colnames(dataFrame)[1])){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
-        if(identical(type,'xts')) dataFrame=xts::xts(dataFrame[-1],dataFrame[[1]])
+        if(identical(type,'xts') || identical(type,'ts')) dataFrame=xts::xts(dataFrame[-1],dataFrame[[1]])
         }
 
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
