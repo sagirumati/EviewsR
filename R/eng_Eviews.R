@@ -34,8 +34,8 @@ eng_eviews <- function(options) {
 
   options$echo=options$echo %n% opts_chunk$get("echo")
 
-  set_eviews_path()
-    if(!is.null(options$engine.path)) set_eviews_path(options$engine.path)
+  # set_eviews_path()
+    # if(!is.null(options$engine.path)) set_eviews_path(options$engine.path)
 
 if(options$eval){
 
