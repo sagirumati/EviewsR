@@ -15,7 +15,8 @@ import_workfile(
   datelabel = "",
   save_options = "",
   save_path = dirname(wf),
-  save_copy = T
+  save_copy = T,
+  class = "df"
 )
 }
 \arguments{

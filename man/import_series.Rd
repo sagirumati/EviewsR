@@ -4,7 +4,7 @@
 \alias{import_series}
 \title{Import `EViews` series object as `kable`}
 \usage{
-import_series(wf = "", page = "*", series = "*", type = "df")
+import_series(wf = "", page = "*", series = "*", class = "df")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}

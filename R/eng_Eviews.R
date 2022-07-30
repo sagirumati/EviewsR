@@ -34,6 +34,9 @@ eng_eviews <- function(options) {
 
   options$echo=options$echo %n% opts_chunk$get("echo")
 
+
+  class=options$class %n% opts_chunk$get('class')
+
   # set_eviews_path()
     # if(!is.null(options$engine.path)) set_eviews_path(options$engine.path)
 
@@ -505,6 +508,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
       if(grepl('date',colnames(dataFrame)[1])){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
+        if(identical(class,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
       }
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }

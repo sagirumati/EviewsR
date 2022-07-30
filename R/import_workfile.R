@@ -26,20 +26,20 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
+import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T,class="df"){
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
-  chunkName=opts_current$get("label")
+  chunkLabel=opts_current$get("label")
 
-  envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+  envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
 
   graph1=graph
 
 
-  chunkName=opts_current$get("label")
+  chunkLabel=opts_current$get("label")
 
   dev=opts_current$get('dev')
 
@@ -130,9 +130,9 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
 
-    if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
-        if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
-      shQuote_cmd() %>% paste0('%chunkName=',.)
+    if(is.null(chunkLabel)) chunkLabel1="" else chunkLabel1=paste0(chunkLabel,"-")
+        if(is.null(chunkLabel)) chunkLabel="" else chunkLabel=paste0(chunkLabel,'-') %>%
+      shQuote_cmd() %>% paste0('%chunkLabel=',.)
 
 
     save_path=gsub("/","\\\\",save_path)
@@ -239,8 +239,8 @@ endif
 
 if @wcount(%selectedGraphs)>0 then
 for %selectedGraph {%selectedGraphs}
-{%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
-%graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
+{%selectedGraph}.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%selectedGraph}
+%graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%selectedGraph
 next
 endif
 next
@@ -335,8 +335,8 @@ for %page {%pagelist}
 pageselect {%page}
 %series1=@wlookup(%series,"series")
 if @wcount(%series1)>0 then
-pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series1} @drop date
-%seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+pagesave {%page}-{%chunkLabel}{%eviewsrText}.csv @keep {%series1} @drop date
+%seriesPath=%seriesPath+" "+%page+"-"+%chunkLabel+%eviewsrText
 endif
 next
 
@@ -348,7 +348,7 @@ text {%eviewsrText}_series
 exit
 )'
 
-writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 
@@ -360,7 +360,7 @@ system_exec()
 # eviews_graphics=c()
 # # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
 #
-# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
+# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkLabel1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
 #
 # # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
@@ -396,6 +396,7 @@ system_exec()
       if(grepl('date',colnames(dataFrame)[1])){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
+        if(identical(type,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
       }
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
