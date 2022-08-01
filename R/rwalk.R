@@ -119,7 +119,16 @@ wf2=wf
 
     if(wf2=="") on.exit(unlink(wf1),add = TRUE)
 
-      if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
+
+    chunkName=opts_current$get('label')
+
+    envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+    if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
+    if(identical(envName,"eviews")){
+      if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+    }
+
+     # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
     dataFrame=read.csv("randomwalk_group.csv")
 
@@ -127,9 +136,10 @@ wf2=wf
     if(grepl('date',colnames(dataFrame)[1])){
       colnames(dataFrame)[1]="date"
       dataFrame$date=as.POSIXct(dataFrame$date)
+      if(identical(class,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
     }
 
-    assign(series1,dataFrame,envir = eviews)
+    assign(series1,dataFrame,envir = envir =get(envName,envir = parent.frame()))
 
 }
 
