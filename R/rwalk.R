@@ -25,7 +25,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA){
+rwalk=function(series="",wf="",page="",drift=NA,rndseed=NA,frequency="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,class="df"){
   fileName=tempfile("EviewsR", ".", ".prg")
 
 wf2=wf
@@ -139,7 +139,7 @@ wf2=wf
       if(identical(class,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
     }
 
-    assign(series1,dataFrame,envir = envir =get(envName,envir = parent.frame()))
+    assign(series1,dataFrame,envir=get(envName,envir = parent.frame()))
 
 }
 
