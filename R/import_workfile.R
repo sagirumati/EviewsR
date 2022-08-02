@@ -396,7 +396,7 @@ system_exec()
       if(grepl('date',colnames(dataFrame)[1])){
         colnames(dataFrame)[1]="date"
         dataFrame$date=as.POSIXct(dataFrame$date)
-        if(identical(type,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
+        if(identical(class,'xts')) dataFrame=xts(dataFrame[-1],dataFrame[[1]])
       }
       assign(pageName,dataFrame,envir =get(envName,envir = parent.frame()))
     }
