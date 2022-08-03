@@ -128,8 +128,6 @@ wf2=wf
       if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
     }
 
-     # if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-
     dataFrame=read.csv("randomwalk_group.csv")
 
 
@@ -143,5 +141,3 @@ wf2=wf
 
 }
 
-
-# rwalk(wf="",series="X Y Z",page="",rndseed=NA,num_observations=1)

@@ -62,18 +62,13 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
   eviewsrText %<>%
     shQuote_cmd %>% paste0('%eviewsrText=',.)
 
-
-
-
-
-
-
   dev=opts_current$get('dev')
 
   if(!is.null(dev) && dev=="png" && save_options=='') save_options="t=png,d=300"
   if(!is.null(dev) && dev=="pdf" && save_options=='') save_options="t=pdf"
   if(is.null(dev) && save_options=='') save_options="t=png,d=300"
-# Append "d=300" if "d=" (dpi) is not defined in "save_options"
+
+  # Append "d=300" if "d=" (dpi) is not defined in "save_options"
 
     save_options1=c("t=bmp","t=gif", "t=jpg", "t=png")
 
@@ -154,8 +149,6 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
     equation %<>% paste(collapse = " ") %>%
       shQuote_cmd %>% paste0("%equation=",.)
 
-    # graph %<>% paste(collapse = " ") %>%
-      # shQuote_cmd %>% paste0("%graph=",.)
 
     series %<>% paste(collapse = " ") %>%
       shQuote_cmd %>% paste0("%series=",.)
@@ -245,17 +238,6 @@ next
 endif
 next
 
-'%graphPath1=""
-'if %figKeep1="numeric" then
-'for %number {%graph}
-'!number=@val(%number)
-'!number=@val(@word(%graph,!number))
-'%graphN=@word(%graphPath,!number)
-'%graphPath1=%graphPath1+" "+%graphN
-'next
-'else
-'%graphPath1=%graphPath
-'endif
 
 if @wcount(%graphPath)>0 then
 text {%eviewsrText}_graph
@@ -351,18 +333,6 @@ exit
 writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
-
-# on.exit(unlink(paste0(eviewsrText1,c('-equation.txt','-graph.txt','-series.txt','-table.txt'))))
-
-
-
-
-# eviews_graphics=c()
-# # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-#
-# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkLabel1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-#
-# # b=list.files(paste0("^",a[1],".png","$"),path = ".")
 
 
 

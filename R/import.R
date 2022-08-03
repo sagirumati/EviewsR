@@ -81,14 +81,11 @@ pagesave({%options}) {%source_description} {%table_description} {%keep_list} {%d
 
 exit
 )'
-#path=here()
-  # path=getwd()
+
 writeLines(c(eviews_path(),wf,page,options,source_description,table_description,keep_list,drop_list,keepmap_list,dropmap_list,smpl_spec
 ,eviewsCode),fileName)
 
 system_exec()
-
-  # system2("EViews",paste0("exec ",shQuote_cmd(paste0(path,"/",fileName))))
 
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
 
@@ -102,6 +99,3 @@ assign(object_name,dataFrame,envir =eviews)
  on.exit(unlink(c(fileName,source_description_file)))
  }
 
-
-# import(wf="eviews/workfile",drop_list = "y")
-# param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).

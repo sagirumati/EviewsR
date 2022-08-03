@@ -40,7 +40,6 @@ import_kable=function(wf="",page="",table_name="",table_range="",format=kable_fo
                      "", "", "", "\\addlinespace") else "\\hline", caption.short = "", table.envir = if (!is.null(caption)) "table",...){
 
   fileName=basename(tempfile("EVIEWS", ".", ".prg"))
-  # file_name=table_name
 
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))

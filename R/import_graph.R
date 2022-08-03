@@ -28,9 +28,6 @@
 #' @export
 import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
 
-   # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
-
-
 
   chunkName=opts_current$get("label")
 
@@ -40,16 +37,6 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_
 graph1=graph
 
   if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
-
-  # if(any(graph %in% c("*","asc","desc"))) figKeep='%figKeep1="all"'
-  # if(any(graph=="first")) figKeep='%figKeep1="first"'
-  # if(any(graph=="last")) figKeep='%figKeep1="last"'
-
-  # if(!any(graph %in% c("asc","desc","first","last","asis")) || identical(graph,"*")){
-  #   graph %<>% paste(collapse = ' ') %>%
-  # shQuote_cmd %>% paste0('%graph=',.)
-  #   figKeep='%figKeep="graph"'
-  # }else graph=""
 
 graph %<>% paste(collapse = ' ') %>%
   shQuote_cmd %>% paste0('%graph=',.)
@@ -180,21 +167,6 @@ for %page {%pagelist}
 pageselect {%page}
 
 
-'if %figKeep1="first" then
-'%selectedGraphs=@wlookup("*","graph")
-'%selectedGraphs=@wleft(%selectedGraphs,1)
-'else if %figKeep1="last" then
-'%selectedGraphs=@wlookup("*","graph")
-'%selectedGraphs=@wright(%selectedGraphs,1)
-'else if %figKeep1="asc" or %figKeep1="desc" or %figKeep1="numeric"  then
-'%selectedGraphs=@wlookup("*","graph")
-'else
-'%selectedGraphs=@wlookup(%graph,"graph")
-'endif
-'endif
-'endif
-
-
 if %graph="first" then
 %selectedGraphs=@wlookup("*","graph")
 %selectedGraphs=@wleft(%selectedGraphs,1)
@@ -218,18 +190,6 @@ for %selectedGraph {%selectedGraphs}
 next
 endif
 next
-
-'%graphPath1=""
-'if %figKeep1="numeric" then
-'for %number {%graph}
-'!number=@val(%number)
-'!number=@val(@word(%graph,!number))
-'%graphN=@word(%graphPath,!number)
-'%graphPath1=%graphPath1+" "+%graphN
-'next
-'else
-'%graphPath1=%graphPath
-'endif
 
 if @wcount(%graphPath)>0 then
 text {%eviewsrText}_graph

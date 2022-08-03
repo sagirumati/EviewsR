@@ -25,8 +25,6 @@ import_series=function(wf="",page="*",series="*",class="df"){
   envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
-  # chunkName1=paste0(chunkName,'-') %>%
-  # shQuote_cmd() %>% paste0('%chunkName=',.)
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
   if(identical(envName,"eviews")){
