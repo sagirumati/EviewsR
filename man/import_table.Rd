@@ -4,19 +4,7 @@
 \alias{import_table}
 \title{Import `EViews` table object as `kable`}
 \usage{
-import_table(wf="",page="",table_name="",table_range="",format=kable_format(),
- digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
-  label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
-   longtable = FALSE, valign = "t",position = "h", centering = TRUE,
-   vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
-toprule = getOption("knitr.table.toprule",
-if (booktabs) "\\\\toprule" else "\\\\hline"),
-bottomrule = getOption("knitr.table.bottomrule",
-if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-midrule = getOption("knitr.table.midrule",
-if (booktabs) "\\\\midrule" else "\\\\hline"),
-linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
- caption.short = "",table.envir = if (!is.null(caption)) "table",...)
+import_table(wf = "", page = "*", table = "*")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
@@ -45,7 +33,6 @@ import_table(wf="EviewsR_exec_commands",page="page",table_name="EviewsROLS",form
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
-\code{\link{eng_eviews1}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},

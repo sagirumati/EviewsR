@@ -2,7 +2,6 @@
 
 export(create_object)
 export(eng_eviews)
-export(eng_eviews1)
 export(eviews_graph)
 export(eviews_import)
 export(eviews_pagesave)

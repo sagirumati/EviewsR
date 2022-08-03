@@ -40,10 +40,11 @@ eng_eviews <- function(options) {
 
 if(options$eval){
 
+  if(!is.null(options$out.width)) {
   if(grepl('width',options$out.width) && is.null(options$fig.ncol)){
     options$fig.ncol=gsub('\\\\textwidth|\\\\linewidth','',options$out.width) %>% as.numeric %>% `%/%`(1,.)
   }
-
+}
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   eviewsrText=gsub("\\.prg$",'',fileName) %>% basename

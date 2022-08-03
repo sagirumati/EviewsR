@@ -41,7 +41,6 @@ Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In 
 Other important functions: 
 \code{\link{EviewsR}},
 \code{\link{create_object}()},
-\code{\link{eng_eviews1}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},
 \code{\link{eviews_pagesave}()},

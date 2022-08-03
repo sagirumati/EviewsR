@@ -14,7 +14,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=T
+  eval=T,
+  out.width = "50%",
+  out.height = "40%",
+  fig.show="hold"
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
@@ -93,8 +96,9 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR,eval=T,fig.path='sagiru',fig.subcap=c("YY","XX"),fig.cap="Dynamic figure",page=T}
-    'This program is created in R Markdown with the help of EviewsR package
+```{eviews EviewsR,eval=T,fig.subcap=c("YY","XX"),fig.cap="Dynamic figure"}
+    
+'This program is created in R Markdown with the help of EviewsR package
   
   wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
   for %y EviewsR package page1 page2
@@ -171,7 +175,7 @@ For the OLS result only:
 
 ```{r importTable}
 # options(knitr.kable.NA = '')
-import_table(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",table_range = "r7c1:r10c5",digits=3)
+import_kable(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",table_range = "r7c1:r10c5",digits=3)
 ```
 
 # Saving EViews workfile
@@ -232,7 +236,7 @@ y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",options = "s",group =T)
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",graph_options = "s",group =T)
  
   # eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  
@@ -244,7 +248,7 @@ uu=data.frame(x,y)
 
 The demo files are included and can be accessed via demo(package="EviewsR")
 
-```{r demo}
+```{r demo,eval=F}
 demo(create_object())
 demo(eviews_graph())
 demo(eviews_wfcreate())
