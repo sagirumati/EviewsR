@@ -52,12 +52,12 @@ if(options$eval){
     shQuote_cmd %>% paste0('%eviewsrText=',.)
 
 
-  chunkName=options$label
+  chunkLabel=options$label
 
-  envName=chunkName %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+  envName=chunkLabel %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
   assign(envName,new.env(),envir=knit_global())
 
-  chunkName %<>%  gsub("^fig-","",.) %>% shQuote_cmd %>% paste0('%chunkName=',.)
+  chunkLabel %<>%  gsub("^fig-","",.) %>% shQuote_cmd %>% paste0('%chunkLabel=',.)
 
   save_path=options$save_path %n% opts_current$get("fig.path")
 
@@ -299,8 +299,8 @@ if(options$eval){
   pageselect {%page}
   %series1=@wlookup(%series,"series")
   if @wcount(%series1)>0 then
-  pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series1} @drop date
-  %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+  pagesave {%page}-{%chunkLabel}{%eviewsrText}.csv @keep {%series1} @drop date
+  %seriesPath=%seriesPath+" "+%page+"-"+%chunkLabel+%eviewsrText
   endif
   next
 
@@ -368,8 +368,8 @@ if(options$eval){
 
   if @wcount(%selectedGraphs)>0 then
   for %selectedGraph {%selectedGraphs}
-  {%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
-  %graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
+  {%selectedGraph}.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%selectedGraph}
+  %graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%selectedGraph
   next
   endif
   next
@@ -399,7 +399,7 @@ appendCode=r'(
   %newgraph=@wdrop(%newgraph,%existing)
   %existing=@wlookup("*","graph")
   if @wcount(%newgraph)>0 then
-  %graphPath=%graphPath+" "+%chunkName+"-"+%currentpage+"-"+%newgraph
+  %graphPath=%graphPath+" "+%chunkLabel+"-"+%currentpage+"-"+%newgraph
   endif
  )'
 
@@ -432,7 +432,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
 
     if @wcount(%selectedGraphs)>0 then
     for %selectedGraph {%selectedGraphs}
-    {%selectedGraph}.save{%save_options} {%save_path}{%chunkName}-{%page}-{%selectedGraph}
+    {%selectedGraph}.save{%save_options} {%save_path}{%chunkLabel}-{%page}-{%selectedGraph}
     next
     endif
     next
@@ -450,7 +450,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
 
 
 
-  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,page,equation,graph,series,table,options$code,graphicsDefault,save_path,save_options,graph_procs,graphPath,equationSeriesTablePath), fileName)
+  writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,page,equation,graph,series,table,options$code,graphicsDefault,save_path,save_options,graph_procs,graphPath,equationSeriesTablePath), fileName)
 
   system_exec()
 

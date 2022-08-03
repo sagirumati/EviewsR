@@ -120,9 +120,9 @@ wf2=wf
     if(wf2=="") on.exit(unlink(wf1),add = TRUE)
 
 
-    chunkName=opts_current$get('label')
+    chunkLabel=opts_current$get('label')
 
-    envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+    envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
     if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
     if(identical(envName,"eviews")){
       if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())

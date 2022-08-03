@@ -33,9 +33,9 @@
 #' @export
 import_equation=function(wf="",page="*",equation="*"){
 
-chunkName=opts_current$get('label')
+chunkLabel=opts_current$get('label')
 
-    envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+    envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())

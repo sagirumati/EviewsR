@@ -20,9 +20,9 @@
 #' @export
 import_series=function(wf="",page="*",series="*",class="df"){
 
-  chunkName=opts_current$get('label')
+  chunkLabel=opts_current$get('label')
 
-  envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
+  envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
 
@@ -63,8 +63,8 @@ import_series=function(wf="",page="*",series="*",class="df"){
   pageselect {%page}
   %series1=@wlookup(%series,"series")
   if @wcount(%series1)>0 then
-  pagesave {%page}-{%chunkName}{%eviewsrText}.csv @keep {%series} @drop date
-  %seriesPath=%seriesPath+" "+%page+"-"+%chunkName+%eviewsrText
+  pagesave {%page}-{%chunkLabel}{%eviewsrText}.csv @keep {%series} @drop date
+  %seriesPath=%seriesPath+" "+%page+"-"+%chunkLabel+%eviewsrText
   endif
   next
 

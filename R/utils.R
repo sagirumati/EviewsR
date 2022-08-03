@@ -10,6 +10,8 @@
 
 globalVariables(".")
 
+`%n%`=function(x,y) if(is.null(x)) y else x
+
 ###############################
 # FUNCTIONS IN ASCENDING ORDER
 ###############################
@@ -23,23 +25,7 @@ eviews_path=function(){
 }
 
 
-## eviews_string
-
-# eviews_string= \(x) x %>%  shQuote(type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.,parent.frame())
-
-# eviews_string=function(x) {for (i in x) assign(i,paste0('%',i,'=',shQuote_cmd(get(i))),envir = globalenv())}
-#
-# eviews_string=function(x) {
-#   for (i in x){
-#
-#     i %>% get %>%  shQuote_cmd %>%
-#       paste0('%',i,'=',.) %>%
-#       assign(i,.,envir =parent.frame())
-#   }
-# }
-
-
-# eviews_string=\(x) assign(x,paste0('%',x,'=',get(x)))
+# eviews_string
 
 eviews_string=\(x) x %>% get %>% shQuote_cmd %>% paste0('%',x,'=',.) %>% assign(x,.)
 
@@ -51,6 +37,11 @@ kable_format <- function(){
   if(opts_knit$get("rmarkdown.pandoc.to")=="html") format="html"
   return(format)
 }
+
+
+# shQuote_cmd
+
+shQuote_cmd= \(x) gsub('"','""',x) %>% paste0('"',.,'"')
 
 
 # system_exec
@@ -89,19 +80,6 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
   knitr::knit_engines$set(eviews=eng_eviews)
   # set_eviews_path()
   if(!exists("eviews") || !is.environment(eviews)) eviews<<-new.env()
-
-  #  if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=2)
-  # if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
-  #
-
-  # fig.cur = opts_chunk$get('fig.cur') %n% 2L
-  # fig.num = opts_chunk$get('fig.num') %n% 2L
-  # fig.ncol = opts_chunk$get('fig.ncol') %n% fig.num
-  #
-  #  if (is.null(opts_chunk$get('fig.ncol')) && is_latex_output()) opts_chunk$set(fig.ncol=fig.ncol)
-  # if(is_latex_output() && opts_chunk$get('fig.ncol')>1) opts_chunk$set(out.width="0.45\\textwidth")
-  # opts_chunk$set(opts_chunk$get())
-
   }
 
 
@@ -140,18 +118,28 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 
-# shQuote_cmd
-
-# shQuote_cmd= \(x)  shQuote(x,type="cmd")
-
-# shQuote_cmd= \(x)  paste0('"',x,'"')
-
-shQuote_cmd= \(x) gsub('"','""',x) %>% paste0('"',.,'"')
-
 
 # y=function(x){
 #   x<<-paste0('%',x,'=',shQuote(x))
 # }
 
 
-`%n%`=function(x,y) if(is.null(x)) y else x
+
+## eviews_string
+
+# eviews_string= \(x) x %>%  shQuote(type="cmd") %>% paste0('%',x,'=',.) %>%  assign(x,.,parent.frame())
+
+# eviews_string=function(x) {for (i in x) assign(i,paste0('%',i,'=',shQuote_cmd(get(i))),envir = globalenv())}
+#
+# eviews_string=function(x) {
+#   for (i in x){
+#
+#     i %>% get %>%  shQuote_cmd %>%
+#       paste0('%',i,'=',.) %>%
+#       assign(i,.,envir =parent.frame())
+#   }
+# }
+
+
+# eviews_string=\(x) assign(x,paste0('%',x,'=',get(x)))
+

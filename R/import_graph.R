@@ -29,7 +29,7 @@
 import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T){
 
 
-  chunkName=opts_current$get("label")
+  chunkLabel=opts_current$get("label")
 
   dev=opts_current$get('dev')
 
@@ -102,9 +102,9 @@ eviewsrText %<>%
 
   if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 }
-    if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
-        if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
-      shQuote_cmd() %>% paste0('%chunkName=',.)
+    if(is.null(chunkLabel)) chunkLabel1="" else chunkLabel1=paste0(chunkLabel,"-")
+        if(is.null(chunkLabel)) chunkLabel="" else chunkLabel=paste0(chunkLabel,'-') %>%
+      shQuote_cmd() %>% paste0('%chunkLabel=',.)
 
 
     save_path=gsub("/","\\\\",save_path)
@@ -185,8 +185,8 @@ endif
 
 if @wcount(%selectedGraphs)>0 then
 for %selectedGraph {%selectedGraphs}
-{%selectedGraph}.save{%save_options} {%save_path}{%chunkName}{%page}-{%selectedGraph}
-%graphPath=%graphPath+" "+%chunkName+%page+"-"+%selectedGraph
+{%selectedGraph}.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%selectedGraph}
+%graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%selectedGraph
 next
 endif
 next
@@ -199,7 +199,7 @@ endif
 exit
 )'
 
-writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkName,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)

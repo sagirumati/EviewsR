@@ -91,7 +91,7 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
   )'
 
 
-  chunkName=opts_current$get("label") %>% gsub("^fig-","",.)
+  chunkLabel=opts_current$get("label") %>% gsub("^fig-","",.)
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
@@ -108,7 +108,7 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
 
   if(is.data.frame(series)) {
 
-    wf=chunkName %n% basename(tempfile("EViewsR"))
+    wf=chunkLabel %n% basename(tempfile("EViewsR"))
     wf=gsub("[.-]","_",wf)
     wf1=wf
     page=wf
@@ -183,9 +183,9 @@ for %y {%selectedGraphs}')
 
 
 
-    if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
-        if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
-      shQuote_cmd() %>% paste0('%chunkName=',.)
+    if(is.null(chunkLabel)) chunkLabel1="" else chunkLabel1=paste0(chunkLabel,"-")
+        if(is.null(chunkLabel)) chunkLabel="" else chunkLabel=paste0(chunkLabel,'-') %>%
+      shQuote_cmd() %>% paste0('%chunkLabel=',.)
 
 
     save_path=gsub("/","\\\\",save_path)
@@ -280,8 +280,8 @@ pageselect {%page}
 
   for !k=1 to {!n}
   %x{!k}={%EviewsRGroup}.@seriesname({!k})
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%page}-{%x{!k}}
-  %graphPath=%graphPath+" "+%chunkName+%page+"-"+%x{!k}
+  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%x{!k}}
+  %graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%x{!k}
   next
   delete {%EviewsrGroup}
   endif
@@ -333,8 +333,8 @@ if (group){
       %allSeries=@wlookup(%series,"series")
       %allSeries=@wdrop(%allSeries,"DATE")
       if @wcount(%allSeries)>0 then
-      {%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkName}{%page}-{%seriesNames}
-      %graphPath=%graphPath+" "+%chunkName+%page+"-"+%seriesNames
+      {%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%seriesNames}
+      %graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%seriesNames
       endif
       delete {%EviewsrGroup}
       next
@@ -346,7 +346,7 @@ if (group){
       exit)'
       }
 
-writeLines(c(eviews_path(),chunkName,eviewsrText,EviewsRGroup,wf,page,series,graph_command,graph_options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
+writeLines(c(eviews_path(),chunkLabel,eviewsrText,EviewsRGroup,wf,page,series,graph_command,graph_options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)
 
 system_exec()
 on.exit(unlink_eviews(),add = TRUE)
