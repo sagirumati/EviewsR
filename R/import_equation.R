@@ -38,9 +38,6 @@ chunkName=opts_current$get('label')
     envName=chunkName %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
 
 
-    # chunkName1=paste0(chunkName,'-') %>%
-    # shQuote_cmd() %>% paste0('%chunkName=',.)
-
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
   if(identical(envName,"eviews")){
     if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
@@ -58,7 +55,6 @@ chunkName=opts_current$get('label')
 
 
 
-  # file_name=equation_name
 
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))

@@ -83,6 +83,3 @@ eviews_wfsave=function(wf="",page="",options="",source_description="",table_desc
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
 }
-
-
-# eviews_wfsave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")

@@ -37,8 +37,6 @@ eng_eviews <- function(options) {
 
   class=options$class %n% opts_chunk$get('class')
 
-  # set_eviews_path()
-    # if(!is.null(options$engine.path)) set_eviews_path(options$engine.path)
 
 if(options$eval){
 
@@ -71,12 +69,6 @@ if(options$eval){
   tempDir=tempDir1=tempdir()
   tempDir %<>% shQuote_cmd %>% paste0('%tempDir=',.)
 
-
-  # if(identical(getwd() %>% basename,'vignettes')) {
-  #   save_path=tempfile('EviewsR',".") %>% basename
-  #   tempDir=save_path
-  #   on.exit(unlink(tempDir,recursive = TRUE),add = TRUE)
-  # }
 
 
   equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
@@ -382,18 +374,6 @@ if(options$eval){
   endif
   next
 
-  '%graphPath1=""
-  'if %figKeep1="numeric" then
-  'for %number {%graph}
-  '!number=@val(%number)
-  '!number=@val(@word(%graph,!number))
-  '%graphN=@word(%graphPath,!number)
-  '%graphPath1=%graphPath1+" "+%graphN
-  'next
-  'else
-  '%graphPath1=%graphPath
-  'endif
-
 
   if @wcount(%graphPath)>0 then
   text {%eviewsrText}_graph
@@ -571,16 +551,3 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

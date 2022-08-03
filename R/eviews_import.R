@@ -54,7 +54,6 @@ wfSuffix=opts_current$get('label') %n% "EViewsR"
 
     fileName=tempfile("EVIEWS", ".", ".prg")
   options=paste0('%options=',shQuote_cmd(options))
-  # source_description=gsub("/","\\\\",source_description)
   source_description=paste0("%source_description=",shQuote_cmd(source_description))
   smpl_string=paste0("%smpl_string=",shQuote_cmd(smpl_string))
   genr_string=paste0("%genr_string=",shQuote_cmd(genr_string))
@@ -147,14 +146,7 @@ exit
 
 writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
 
-#
-#   if(save_path1!=""){
-#     if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-#   }
 
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
 }
-
-
-# eviews_import(source_description = "eviews/somefilename.csv",start_date = "1990",frequency = " m",rename_string = " series01 ab",smpl_string = "1990m10 1992m10")

@@ -90,6 +90,3 @@ writeLines(c(eviews_path(),wf,page,options,source_description,table_description,
   system_exec()
   on.exit(unlink_eviews(),add = TRUE)
 }
-
-
-# eviews_pagesave(wf="eviews/workfile",source_description = "eviews/path/EviewsR.csv",drop_list = "y")

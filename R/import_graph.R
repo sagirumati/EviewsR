@@ -246,13 +246,6 @@ on.exit(unlink_eviews(),add = TRUE)
 on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 
 
-
-# # eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-#
-# for (i in graph1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-#
-
-
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))){
   graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()

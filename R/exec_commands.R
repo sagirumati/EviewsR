@@ -60,6 +60,3 @@ writeLines(c(eviews_path(),save_path,wf,page,eviewsCode,commands,saveCode),fileN
     system_exec()
     on.exit(unlink_eviews(),add = TRUE)
 }
-
-# exec_commands(wf="eviews/workfile",commands = c("equation someeq.ls y ar(1)","graph grap1.line y"))
-

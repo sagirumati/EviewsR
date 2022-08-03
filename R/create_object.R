@@ -99,6 +99,3 @@ writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,op
   on.exit(unlink_eviews(),add = TRUE)
   }
 
-
-#
-# create_object(wf="eviews/workfile",action="table",action_opt="4,4",object_name="mytable",view_or_proc="",options_list="",arg_list="")

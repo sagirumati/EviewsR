@@ -47,10 +47,6 @@ if (wf!='') wf=basename(wf)
   if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
 
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
-#
-#    if(save_path1!=""){
-#      if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
-#   }
 
 if(is.data.frame(source_description)){
 
@@ -123,7 +119,3 @@ writeLines(c(eviews_path(),options,save_path,frequency,subperiod_opts,start_date
 }
 
 }
-
-
-
-# eviews_wfcreate(wf="smati",page="academy",frequency = "m",start_date = "1990",end_date = "2020",num_observations = 2,save_path = "eviews/path")

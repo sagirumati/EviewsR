@@ -29,9 +29,6 @@
 eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path=dirname(wf),frequency="m",start_date="",save_copy=F){
 
 
-   # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
-
-
   graphicsDefault=r'(
   if %page="*" then
   %pagelist=@pagelist
@@ -93,15 +90,8 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
   next
   )'
 
-# graphProcsDefault=c('textdefault font("Times",12,-b,-i,-u,-s) existing','legend font(Times New Roman,12,-i,-u,-s)','axis(a) font("Times",12,-b,-i,-u,-s)','align(2,1,1)')
-
-# graph_procs=append(graphProcsDefault,graph_procs)
 
   chunkName=opts_current$get("label") %>% gsub("^fig-","",.)
-
-  # extensions= c(".emf", ".wmf", ".eps", ".bmp", ".gif", ".jpg", ".png", ".pdf", ".tex", ".md")
-
-  # extensions= c("emf", "wmf", "eps", "bmp", "gif", "jpg", "png", "pdf", "tex", "md")
 
 
   if(is.data.frame(series)) series1=names(series) else series1=series
@@ -117,8 +107,6 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
   }
 
   if(is.data.frame(series)) {
-    # stopifnot("The 'series' object must be a dataframe"=is.data.frame(series))
-    # stopifnot("'frequency' or 'start_date' cannot be blank"=frequency!="" & start_date!="")
 
     wf=chunkName %n% basename(tempfile("EViewsR"))
     wf=gsub("[.-]","_",wf)
@@ -155,9 +143,8 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
 
     if(length(extension)==0) extension="emf"
 
-    #stopifnot("EViewsR works on Windows only"=Sys.info()["sysname"]=="Windows")
 
-    fileName=tempfile("EVIEWS", ".", ".prg")
+        fileName=tempfile("EVIEWS", ".", ".prg")
   EviewsRGroup=basename(tempfile("EviewsRGroup"))
 
   eviewsrText=gsub("\\.prg$",'',fileName) %>% basename
@@ -165,22 +152,6 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
   eviewsrText %<>%
     shQuote_cmd %>% paste0('%eviewsrText=',.)
 
-
-
-# if(datelabel==""){
-# datelabel <- '%freq=@pagefreq
-#   if %freq="m" or %freq="M" then
-#   {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-#   endif
-#   if %freq="D7" or %freq="D5"  or %freq="d5"  or %freq="d7" then
-#   {%y}.datelabel format("Mon YYYY") interval(auto, 1, 1)
-#   endif
-# if %freq="a" or %freq="A" then
-#   {%y}.datelabel format("YYYY") interval(auto, 1, 1)
-#   endif'
-# }else{
-# datelabel=paste('{%y}.datelabel',datelabel)
-# }
 
 if(group && graph_options=='m') {
   align='align(2,0.5,1)'
@@ -211,9 +182,6 @@ for %y {%selectedGraphs}')
 
 
 
-    # if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"_") %>%  gsub("[.,-]","_",.)
-    # if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'_') %>% gsub("[.,-]","_",.) %>%
-    #   shQuote_cmd() %>% paste0('%chunkName=',.)
 
     if(is.null(chunkName)) chunkName1="" else chunkName1=paste0(chunkName,"-")
         if(is.null(chunkName)) chunkName="" else chunkName=paste0(chunkName,'-') %>%
@@ -222,25 +190,15 @@ for %y {%selectedGraphs}')
 
     save_path=gsub("/","\\\\",save_path)
 
-    # if (save_path=="" & is.null(chunkName)) save_path=paste("EViewsR_files")
-     # if (save_path=="" & !is.null(chunkName)) save_path=paste0("EViewsR_files")
-     #
-     # if (save_path=="") save_path=paste("EViewsR_files")
     save_path=opts_current$get("fig.path") %n% save_path
-    # save_path=gsub("[.,-]","_",save_path)
-    if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
 
-     # dir.create(paste0("EViewsR_files/",chunkName))
+        if(save_path!="" && !dir.exists(save_path)) dir.create(save_path,recursive = TRUE)
+
     save_path1=ifelse(save_path=="",".",save_path)
-       # save_path1=paste0(save_path,"/")
     save_path=paste0("%save_path=",shQuote_cmd(save_path))
 
     save_options=paste(save_options,collapse = ",")
     save_options=paste0("%save_options=",shQuote_cmd(save_options))
-
-
-    # eviews_graphics=list.files(pattern=paste0('_graph_eviewsr'),path=save_path1,ignore.case = T)
-    # file.remove(paste0(save_path1,eviews_graphics))
 
 
 eviewsCode=r'(close @wf
@@ -396,19 +354,6 @@ on.exit(unlink_eviews(),add = TRUE)
 on.exit(unlink(paste0(eviewsrText1,"-graph.txt")),add = TRUE)
 
 
-
-eviews_graphics=c()
-# eviews_graphics=list.files(pattern=paste0('png$'),path=save_path1,ignore.case = T)
-
-# for (i in series1) eviews_graphics=append(eviews_graphics,list.files(pattern=paste0("^",chunkName1,i,"\\.",extension,"$"),path=save_path1,ignore.case = T))
-#
-# # b=list.files(paste0("^",a[1],".png","$"),path = ".")
-#
-# if(save_path1==".") save_path1="" else save_path1=paste0(save_path1,"/")
-# eviews_graphics=paste0(save_path1,eviews_graphics)
-# include_graphics(eviews_graphics)
-
-
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
   strsplit(split=" ") %>% unlist()
 
@@ -416,11 +361,4 @@ eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
 include_graphics(eviewsGraphics)
 }
 
-
-
-
-# DELETE CSV and WORKFILES
-
-# eviews_graph(wf="",page = "page",series="x y",mode = "overwrite",graph_options = "m")
-# @param end_date Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
 
