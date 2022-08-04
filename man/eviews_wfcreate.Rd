@@ -4,9 +4,19 @@
 \alias{eviews_wfcreate}
 \title{Create an `EViews` workfile from R}
 \usage{
-eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",
-subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,
-save_path="")
+eviews_wfcreate(
+  source_description = "",
+  wf = "",
+  page = "",
+  prompt = FALSE,
+  frequency = "",
+  subperiod_opts = "",
+  start_date = "",
+  end_date = "",
+  num_cross_sections = NA,
+  num_observations = NA,
+  save_path = dirname(wf)
+)
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
@@ -56,7 +66,6 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},

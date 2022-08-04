@@ -18,7 +18,7 @@ eviews_graph(
   save_path = "",
   frequency = "m",
   start_date = "",
-  save_copy = F
+  save_copy = FALSE
 )
 }
 \arguments{
@@ -78,7 +78,6 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},

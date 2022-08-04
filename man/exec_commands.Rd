@@ -4,16 +4,16 @@
 \alias{exec_commands}
 \title{Execute `EViews` commands from R}
 \usage{
-exec_commands(commands = "", wf = "", page = "", save_path = dirname(wf))
+exec_commands(commands = "", wf = "", page = "", save_path = "")
 }
 \arguments{
 \item{commands}{Object or a vector of character strings of `EViews` commands}
 
-\item{wf}{Object or a character string representing the name of a workfile to be created}
+\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
-\item{page}{Object or a character string representing the name of a workfile page to be created}
+\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{save_path}{Specify where to save the `EViews` workfile.}
+\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
 }
 \value{
 An EViews workfile
@@ -58,7 +58,6 @@ Other important functions:
 \code{\link{eviews_wfsave}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},

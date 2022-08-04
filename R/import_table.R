@@ -23,9 +23,9 @@ chunkLabel=opts_current$get('label')
 
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
-  if(identical(envName,"eviews")){
-    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
-  }
+  # if(identical(envName,"eviews")){
+  #   if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+  # }
 
   eviewsrText=tempfile("eviewsrText",".") %>%
     basename

@@ -2,8 +2,8 @@
 #'
 #' Use this function to execute `EViews` commands from R
 #'
+#' @inheritParams eviews_graph
 #' @param commands Object or a vector of character strings of `EViews` commands
-#' @inheritParams eviews_wfcreate
 #'
 #' @return An EViews workfile
 #'
@@ -33,7 +33,9 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-exec_commands=function(commands="",wf="",page="",save_path=dirname(wf)){
+exec_commands=function(commands="",wf="",page="",save_path=""){
+
+  if(wf!="" && save_path=="") save_path=dirname(wf)
 
   fileName=tempfile("EVIEWS", ".", ".prg")
   save_path %<>% shQuote_cmd %>% paste0('%save_path=',.)

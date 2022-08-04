@@ -2,9 +2,6 @@
 #'
 #' Use this function to create an `EViews` workfile from R
 #'
-#' @usage eviews_wfcreate(source_description="",wf="",page="",prompt=F,frequency="",
-#' subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,
-#' save_path="")
 #' @param wf Object or a character string representing the name of a workfile to be created
 #' @param page Object or a character string representing the name of a workfile page to be created
 #'
@@ -30,7 +27,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_wfcreate=function(source_description="",wf="",page="",prompt=F,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=dirname(wf)){
+eviews_wfcreate=function(source_description="",wf="",page="",prompt=FALSE,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=dirname(wf)){
 
 if (wf!='') wf=basename(wf)
 
@@ -62,7 +59,7 @@ if(is.data.frame(source_description)){
 
 if(wf=="") wf=basename(gsub(".prg","",fileName))
 if(page=="") page=wf
-if(prompt==T) prompt="prompt"
+if(prompt) prompt="prompt" else prompt=""
 
 wf=paste0("wf=",wf)
 page=paste0("page=",page)
@@ -82,7 +79,7 @@ page=paste0("page=",page)
   '%page=@wreplace(%page,"* ","*")
   %subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
 
-  @stripcommas(%options)
+  %options=@stripcommas(%options)
 
   if %subperiod_opts<>"" then
   %subperiod_opts="("+%subperiod_opts+")"

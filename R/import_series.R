@@ -25,9 +25,9 @@ import_series=function(wf="",page="*",series="*",class="df"){
 
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
-  if(identical(envName,"eviews")){
-    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env())
-  }
+  # if(identical(envName,"eviews")){
+  #   if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env())
+  # }
 
   eviewsrText=tempfile("eviewsrText",".") %>%
     basename

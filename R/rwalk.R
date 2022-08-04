@@ -125,9 +125,9 @@ wf2=wf
 
     envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
     if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
-    if(identical(envName,"eviews")){
-      if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
-    }
+    # if(identical(envName,"eviews")){
+    #   if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+    # }
 
     dataFrame=read.csv("randomwalk_group.csv")
 

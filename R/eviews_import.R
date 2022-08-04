@@ -2,9 +2,6 @@
 #'
 #' Use this function to import data to `EViews` workfile from R
 #'
-#' @usage eviews_import(source_description="",wf="",type="",options="",smpl_string="",
-#' genr_string="",rename_string="",frequency="",start_date="",id="",destid="",
-#' append=FALSE,save_path="")
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate
 #' @param type Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.

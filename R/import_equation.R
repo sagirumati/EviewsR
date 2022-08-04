@@ -2,8 +2,8 @@
 #'
 #' Use this function to import `EViews` equation object as `kable`
 #'
-#' @inheritParams eviews_wfcreate
-#' @param equation Name(s) of `EViews` equation object(s) in an `EViews` workfile
+#' @inheritParams eviews_graph
+#' @param equation Name(s) or wildcard expressions for `EViews` equation object(s) in an `EViews` workfile
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)
@@ -23,9 +23,9 @@ chunkLabel=opts_current$get('label')
 
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
-  if(identical(envName,"eviews")){
-    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env())
-  }
+  # if(identical(envName,"eviews")){
+  #   if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env())
+  # }
 
 
 

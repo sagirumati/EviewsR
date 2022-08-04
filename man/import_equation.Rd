@@ -7,11 +7,11 @@
 import_equation(wf = "", page = "*", equation = "*")
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of a workfile to be created}
+\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
 
-\item{page}{Object or a character string representing the name of a workfile page to be created}
+\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{equation}{Name(s) of `EViews` equation object(s) in an `EViews` workfile}
+\item{equation}{Name(s) or wildcard expressions for `EViews` equation object(s) in an `EViews` workfile}
 }
 \value{
 An EViews workfile
@@ -40,7 +40,6 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},
 \code{\link{import_series}()},

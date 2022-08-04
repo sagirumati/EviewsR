@@ -42,9 +42,9 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
-  if(identical(envName,"eviews")){
-    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
-  }
+  # if(identical(envName,"eviews")){
+  #   if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+  # }
 
 
   fileName=tempfile("EVIEWS", ".", ".prg")

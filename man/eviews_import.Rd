@@ -4,9 +4,21 @@
 \alias{eviews_import}
 \title{Import data to `EViews` workfile}
 \usage{
-eviews_import(source_description="",wf="",type="",options="",smpl_string="",
-genr_string="",rename_string="",frequency="",start_date="",id="",destid="",
-append=FALSE,save_path="")
+eviews_import(
+  source_description = "",
+  wf = "",
+  type = "",
+  options = "",
+  smpl_string = "",
+  genr_string = "",
+  rename_string = "",
+  frequency = "",
+  start_date = "",
+  id = "",
+  destid = "",
+  append = FALSE,
+  save_path = dirname(wf)
+)
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
@@ -68,7 +80,6 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},

@@ -56,7 +56,6 @@ Other important functions:
 \code{\link{exec_commands}()},
 \code{\link{export_dataframe}()},
 \code{\link{export}()},
-\code{\link{import_dataframe}()},
 \code{\link{import_equation}()},
 \code{\link{import_kable}()},
 \code{\link{import_series}()},
