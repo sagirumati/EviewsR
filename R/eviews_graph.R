@@ -96,7 +96,9 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
 
 
 
-  chunkLabel=opts_current$get("label") %>% gsub("^fig-","",.)
+  chunkLabel=opts_current$get("label")
+
+  if(!is.null(chunkLabel)) chunkLabel= gsub("^fig-","",chunkLabel)
 
   # if(wf=="") wf=page=tempfile('EviewsrR','.') %>% basename
 
@@ -116,10 +118,9 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
 
   if(is.data.frame(series)) {
 
-    wf=chunkLabel %n% basename(tempfile("EViewsR"))
+    wf=chunkLabel %n% "EViewsR"
     wf=gsub("[.-]","_",wf)
     wf1=wf
-    page=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
         eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date,save_path = save_path)
@@ -215,9 +216,6 @@ if %wf<>"" then
 wfopen {%wf}
 endif
 
-if %page<>"" then
-pageselect {%page}
-endif
 
 if %mode<>"" then
 %mode="mode="+%mode+","
