@@ -32,7 +32,7 @@
 #' @export
 eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path="",frequency="m",start_date="",save_copy=FALSE){
 
-if(wf!="" && save_path!="") save_path=dirname(wf)
+if(wf!="" && save_path=="") save_path=dirname(wf)
   graphicsDefault=r'(
   if %page="*" then
   %pagelist=@pagelist
@@ -122,7 +122,7 @@ if(wf!="" && save_path!="") save_path=dirname(wf)
     page=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
-        eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date)
+        eviews_import(wf=wf,source_description = series,frequency = frequency,start_date = start_date)
 
         series = names(series)
 
