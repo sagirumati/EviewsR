@@ -98,14 +98,16 @@ if(wf!="" && save_path!="") save_path=dirname(wf)
 
   chunkLabel=opts_current$get("label") %>% gsub("^fig-","",.)
 
-  if(wf=="") wf=page=tempfile('EviewsrR','.') %>% basename
+  # if(wf=="") wf=page=tempfile('EviewsrR','.') %>% basename
 
   if(is.data.frame(series)) series1=names(series) else series1=series
+
   if(group) {
     if(grepl("date",series1[1])) series1=series1[-1]
     series1=paste0(series1,collapse = "")
   }
-   if(group==T & length(series1)==1) series1=gsub(" ","",series1)
+
+   if(group & length(series1)==1) series1=gsub(" ","",series1)
 
   if(!group & length(series1)==1){
     series1=trimws(series1)
@@ -120,7 +122,7 @@ if(wf!="" && save_path!="") save_path=dirname(wf)
     page=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
-        eviews_import(source_description = csvFile,frequency = frequency,start_date = start_date)
+        eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date)
 
         series = names(series)
 
