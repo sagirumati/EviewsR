@@ -24,7 +24,8 @@
 #' eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",
 #' graph_options = "m")
 #'
-#'
+#' Data=data.frame(x=cumsum(rnorm(100)),y=cumsum(rnorm(100)))
+#' eviews_graph(series=Data,start_date=1990,frequency="m")
 #'}
 #' @family important functions
 #' @keywords documentation
@@ -94,8 +95,10 @@ if(wf!="" && save_path!="") save_path=dirname(wf)
   )'
 
 
+
   chunkLabel=opts_current$get("label") %>% gsub("^fig-","",.)
 
+  if(wf=="") wf=page=tempfile('EviewsrR','.') %>% basename
 
   if(is.data.frame(series)) series1=names(series) else series1=series
   if(group) {
