@@ -2,10 +2,6 @@
 #'
 #' Use this function to import `EViews` series to R as dataframe
 #'
-#' @usage import(object_name="",wf="",page="",options="",source_description="",
-#' table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
-#' smpl_spec="")
-#'
 #' @param object_name Object name to be to store the imported `EViews` series.
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile

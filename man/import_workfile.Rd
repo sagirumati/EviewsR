@@ -12,7 +12,6 @@ import_workfile(
   series = "*",
   table = "*",
   graph_procs = "",
-  datelabel = "",
   save_options = "",
   save_path = dirname(wf),
   save_copy = T,
@@ -33,6 +32,8 @@ import_workfile(
 \item{table}{Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile}
 
 \item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
+
+\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
 
 \item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
 

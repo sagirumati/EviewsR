@@ -2,6 +2,7 @@
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
+#' @inheritParams eviews_graph
 #' @param graph Name(s) or wildcard expressions of EViews graph object(S)
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
 #' @param page Object or a character string representing the name of an `EViews` workfile page.
@@ -19,7 +20,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_graph=function(wf="",page="*",graph="*",graph_procs="",datelabel="",save_options="",save_copy=T,save_path=dirname(wf)){
+import_graph=function(wf="",page="*",graph="*",graph_procs="",save_options="",save_copy=T,save_path=dirname(wf)){
 
 
   chunkLabel=opts_current$get("label")

@@ -4,7 +4,13 @@
 \alias{export}
 \title{Export R dataframe as an `EViews` workfile}
 \usage{
-export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
+export(
+  source_description = "",
+  wf = "",
+  start_date = "",
+  frequency = "",
+  save_path = ""
+)
 }
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}

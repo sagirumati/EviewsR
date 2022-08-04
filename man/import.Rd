@@ -4,9 +4,19 @@
 \alias{import}
 \title{Import \code{EViews} series to R as dataframe}
 \usage{
-import(object_name="",wf="",page="",options="",source_description="",
-table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
-smpl_spec="")
+import(
+  object_name = "",
+  wf = "",
+  page = "",
+  options = "",
+  source_description = "",
+  table_description = "",
+  keep_list = "",
+  drop_list = "",
+  keepmap_list = "",
+  dropmap_list = "",
+  smpl_spec = ""
+)
 }
 \arguments{
 \item{object_name}{Object name to be to store the imported \code{EViews} series.}

@@ -2,8 +2,6 @@
 #'
 #' Use this function to import `EViews` series object as `kable`
 #'
-#' @inheritParams knitr::kable
-#' @inheritParams kableExtra::kbl
 #' @inheritParams eviews_wfcreate
 #' @param series Name(s) of `EViews` series object(s) in an `EViews` workfile
 #' @param class Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.
@@ -28,7 +26,7 @@ import_series=function(wf="",page="*",series="*",class="df"){
 
   if(!identical(envName,"eviews")) assign(envName,new.env(),envir=knit_global())
   if(identical(envName,"eviews")){
-    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env(),envir=globalenv())
+    if(!exists("eviews") || !is.environment(eviews)) assign(envName,new.env())
   }
 
   eviewsrText=tempfile("eviewsrText",".") %>%

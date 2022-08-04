@@ -9,7 +9,6 @@ import_graph(
   page = "*",
   graph = "*",
   graph_procs = "",
-  datelabel = "",
   save_options = "",
   save_copy = T,
   save_path = dirname(wf)
@@ -23,6 +22,8 @@ import_graph(
 \item{graph}{Name(s) or wildcard expressions of EViews graph object(S)}
 
 \item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
+
+\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
 
 \item{save_copy}{Logical. Whether to save the copy of the graph objects}
 

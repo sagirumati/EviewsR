@@ -17,7 +17,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",datelabel="",save_options="",save_path=dirname(wf),save_copy=T,class="df"){
+import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",save_options="",save_path=dirname(wf),save_copy=T,class="df"){
 
    # options$fig.ncol=opts_chunk$get("fig.ncol") %n% 2
 
