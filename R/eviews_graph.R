@@ -122,8 +122,8 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
     page=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
-        eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date)
-
+        # eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date)
+export_dataframe(source_description = series,wf=wf,start_date = start_date,frequency = frequency)
         series = names(series)
 
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
