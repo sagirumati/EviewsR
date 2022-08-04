@@ -2,7 +2,6 @@
 #'
 #' Use this function to export R dataframe as an `EViews` workfile
 #'
-#' @usage export(source_description="",wf="",start_date = "",frequency = "",save_path = "")
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.

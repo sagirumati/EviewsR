@@ -4,7 +4,7 @@
 \alias{exec_commands}
 \title{Execute `EViews` commands from R}
 \usage{
-exec_commands(commands="",wf="",page="")
+exec_commands(commands = "", wf = "", page = "", save_path = dirname(wf))
 }
 \arguments{
 \item{commands}{Object or a vector of character strings of `EViews` commands}

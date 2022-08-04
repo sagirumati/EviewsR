@@ -2,9 +2,6 @@
 #'
 #' Use this function to save an `EViews` workfile page from R
 #'
-#' @usage eviews_pagesave(wf="",page="",options="",source_description="",
-#' table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
-#' smpl_spec="")
 #' @inheritParams eviews_graph
 #' @param options Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.
 #' @param source_description The path and name of the file to be saved.

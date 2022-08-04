@@ -5,6 +5,7 @@
 #' start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_import
+#' @inheritParams import_series
 #' @param series Names of series for the random walk.
 #' @param rndseed Set the `seed` for `Eviews` random number generator.
 #' @param drift Numeric value as the drift term for random walk.

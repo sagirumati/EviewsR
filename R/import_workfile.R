@@ -2,19 +2,10 @@
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
-#' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
-#' @param wf Object or a character string representing the name of an `EViews` workfile.
-#' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.
-#' @param page Object or a character string representing the name of an `EViews` workfile page.
-#' @param mode Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.
-#' @param graph_command Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.
-#' @param options Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.
-#' @param frequency Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.
-#' @param start_date Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).
-#' @param graph_procs A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}
-#' @param datelabel A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.
-#' @param save_path Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.
-#' @param group Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.
+#' @inheritParams import_equation
+#' @inheritParams import_graph
+#' @inheritParams import_series
+#' @inheritParams import_table
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)

@@ -13,7 +13,7 @@ import_series(wf = "", page = "*", series = "*", class = "df")
 
 \item{series}{Name(s) of `EViews` series object(s) in an `EViews` workfile}
 
-\item{series_range}{A vector of characters specifying the series range of rows and columns}
+\item{class}{Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.}
 }
 \value{
 An EViews workfile

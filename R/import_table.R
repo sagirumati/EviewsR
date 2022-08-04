@@ -2,11 +2,8 @@
 #'
 #' Use this function to import `EViews` table object as `kable`
 #'
-#' @inheritParams knitr::kable
-#' @inheritParams kableExtra::kbl
 #' @inheritParams eviews_wfcreate
-#' @param table_range A vector of characters specifying the table range of rows and columns
-#' @param table_name Name of an `EViews` table object in an `EViews` workfile
+#' @param table Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)

@@ -2,7 +2,6 @@
 #'
 #' Use this function to execute `EViews` commands from R
 #'
-#' @usage exec_commands(commands="",wf="",page="")
 #' @param commands Object or a vector of character strings of `EViews` commands
 #' @inheritParams eviews_wfcreate
 #'

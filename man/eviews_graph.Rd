@@ -47,6 +47,8 @@ eviews_graph(
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
 \item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
+
+\item{save_copy}{Logical. Whether to save the copy of the graph objects.}
 }
 \value{
 An EViews workfile

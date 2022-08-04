@@ -38,6 +38,8 @@ rwalk(
 \item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an `EViews` balanced panel page using integer identifiers for each of the cross-sections.}
 
 \item{num_observations}{Numeric value. Specify the number of observations if the \code{frequency="u"}.}
+
+\item{class}{Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.}
 }
 \value{
 An EViews workfile

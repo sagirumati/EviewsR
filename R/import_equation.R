@@ -2,24 +2,8 @@
 #'
 #' Use this function to import `EViews` equation object as `kable`
 #'
-#' @usage import_equation(wf="",page="",equation_name="",equation_range="",format=kable_format(),
-#'  digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
-#'   label = NULL, format.args = list(),escape = FALSE, equation.attr = "", booktabs = TRUE,
-#'    longequation = FALSE, valign = "t",position = "h", centering = TRUE,
-#'    vline = getOption("knitr.equation.vline",if (booktabs) "" else "|"),
-#' toprule = getOption("knitr.equation.toprule",
-#' if (booktabs) "\\\\toprule" else "\\\\hline"),
-#' bottomrule = getOption("knitr.equation.bottomrule",
-#' if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-#' midrule = getOption("knitr.equation.midrule",
-#' if (booktabs) "\\\\midrule" else "\\\\hline"),
-#' linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
-#'  caption.short = "",equation.envir = if (!is.null(caption)) "equation",...)
-#' @inheritParams knitr::kable
-#' @inheritParams kableExtra::kbl
 #' @inheritParams eviews_wfcreate
-#' @param equation_range A vector of characters specifying the equation range of rows and columns
-#' @param equation_name Name of an `EViews` equation object in an `EViews` workfile
+#' @param equation Name(s) of `EViews` equation object(s) in an `EViews` workfile
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)

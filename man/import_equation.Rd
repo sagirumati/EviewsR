@@ -4,28 +4,14 @@
 \alias{import_equation}
 \title{Import `EViews` equation object as `kable`}
 \usage{
-import_equation(wf="",page="",equation_name="",equation_range="",format=kable_format(),
- digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
-  label = NULL, format.args = list(),escape = FALSE, equation.attr = "", booktabs = TRUE,
-   longequation = FALSE, valign = "t",position = "h", centering = TRUE,
-   vline = getOption("knitr.equation.vline",if (booktabs) "" else "|"),
-toprule = getOption("knitr.equation.toprule",
-if (booktabs) "\\\\toprule" else "\\\\hline"),
-bottomrule = getOption("knitr.equation.bottomrule",
-if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-midrule = getOption("knitr.equation.midrule",
-if (booktabs) "\\\\midrule" else "\\\\hline"),
-linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
- caption.short = "",equation.envir = if (!is.null(caption)) "equation",...)
+import_equation(wf = "", page = "*", equation = "*")
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{equation_range}{A vector of characters specifying the equation range of rows and columns}
-
-\item{equation_name}{Name of an `EViews` equation object in an `EViews` workfile}
+\item{equation}{Name(s) of `EViews` equation object(s) in an `EViews` workfile}
 }
 \value{
 An EViews workfile

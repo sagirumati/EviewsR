@@ -11,8 +11,8 @@ import_graph(
   graph_procs = "",
   datelabel = "",
   save_options = "",
-  save_path = dirname(wf),
-  save_copy = T
+  save_copy = T,
+  save_path = dirname(wf)
 )
 }
 \arguments{
@@ -20,27 +20,13 @@ import_graph(
 
 \item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
+\item{graph}{Name(s) or wildcard expressions of EViews graph object(S)}
+
 \item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
 
-\item{datelabel}{A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.}
-
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
+\item{save_copy}{Logical. Whether to save the copy of the graph objects}
 
 \item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
-
-\item{series}{A vector of series names contained in an `EViews` workfile, or an R dataframe.}
-
-\item{mode}{Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.}
-
-\item{graph_command}{Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.}
-
-\item{options}{Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.}
-
-\item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
-
-\item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
-
-\item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.}
 }
 \value{
 An EViews workfile

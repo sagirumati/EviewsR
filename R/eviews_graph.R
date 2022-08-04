@@ -3,6 +3,7 @@
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
 #' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
+#' @param save_copy Logical. Whether to save the copy of the graph objects.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
 #' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.
 #' @param page Object or a character string representing the name of an `EViews` workfile page.

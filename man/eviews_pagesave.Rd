@@ -4,9 +4,19 @@
 \alias{eviews_pagesave}
 \title{Save an `EViews` workfile page from R}
 \usage{
-eviews_pagesave(wf="",page="",options="",source_description="",
-table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
-smpl_spec="")
+eviews_pagesave(
+  wf = "",
+  page = "",
+  options = "",
+  source_description = "",
+  table_description = "",
+  keep_list = "",
+  drop_list = "",
+  keepmap_list = "",
+  dropmap_list = "",
+  smpl_spec = "",
+  save_path = dirname(source_description)
+)
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of an `EViews` workfile.}

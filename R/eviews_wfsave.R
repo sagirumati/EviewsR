@@ -2,9 +2,6 @@
 #'
 #' Use this function to save an `EViews` workfile  from R
 #'
-#' @usage eviews_wfsave(wf="",page="",options="",source_description="",
-#' table_description="",keep_list="",drop_list="",keepmap_list="",dropmap_list="",
-#' smpl_spec="")
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.
 #'

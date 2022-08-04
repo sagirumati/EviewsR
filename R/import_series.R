@@ -5,8 +5,8 @@
 #' @inheritParams knitr::kable
 #' @inheritParams kableExtra::kbl
 #' @inheritParams eviews_wfcreate
-#' @param series_range A vector of characters specifying the series range of rows and columns
 #' @param series Name(s) of `EViews` series object(s) in an `EViews` workfile
+#' @param class Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.
 #' @return An EViews workfile
 #'
 #' @examples library(EviewsR)

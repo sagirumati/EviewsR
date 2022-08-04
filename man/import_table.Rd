@@ -11,9 +11,7 @@ import_table(wf = "", page = "*", table = "*")
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{table_range}{A vector of characters specifying the table range of rows and columns}
-
-\item{table_name}{Name of an `EViews` table object in an `EViews` workfile}
+\item{table}{Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile}
 }
 \value{
 An EViews workfile
