@@ -34,12 +34,12 @@
 #' @export
 eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=dirname(wf)){
 
-  if(!is.data.frame(source_description) && wf=='') save_path=dirname(source_description)
+  # if(!is.data.frame(source_description) && wf=='') save_path=dirname(source_description)
 
   if(is.data.frame(source_description)){
 
 wfSuffix=opts_current$get('label') %n% "EViewsR"
-    if(wf=="") wf=paste0(wfSuffix,'_',paste0(names(source_description),collapse = ""))
+    # if(wf=="") wf=paste0(wfSuffix,'_',paste0(names(source_description),collapse = ""))
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
 
@@ -61,6 +61,7 @@ wfSuffix=opts_current$get('label') %n% "EViewsR"
   destid=paste0("%destid=",shQuote_cmd(destid))
   append=paste0("%append=",shQuote_cmd(append))
   save_path1=save_path
+  if(save_path1=="") save_path1="."
   if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
   wf=paste0("%wf=",shQuote_cmd(wf))
