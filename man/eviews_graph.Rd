@@ -15,7 +15,7 @@ eviews_graph(
   graph_procs = "",
   datelabel = "",
   save_options = "",
-  save_path = dirname(wf),
+  save_path = "",
   frequency = "m",
   start_date = "",
   save_copy = F
@@ -58,7 +58,9 @@ Use this function to create an `EViews` graph in R and R Markdown
 library(EviewsR)
 \dontrun{
 demo(exec_commands)
-eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",graph_options = "m")
+eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",
+graph_options = "m")
+
 
 }
 }
