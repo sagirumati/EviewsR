@@ -4,7 +4,7 @@
 \alias{set_eviews_path}
 \title{Set `EViews` path}
 \usage{
-set_eviews_path(engine_path="eviews")
+set_eviews_path(engine_path = "eviews")
 }
 \arguments{
 \item{engine_path}{Path to the EViews executable}

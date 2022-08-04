@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_table.R
 \name{import_table}
 \alias{import_table}
-\title{Import `EViews` table object as `kable`}
+\title{Import `EViews` table objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_table(wf = "", page = "*", table = "*")
 }
@@ -17,7 +17,7 @@ import_table(wf = "", page = "*", table = "*")
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` table object as `kable`
+Use this function to import `EViews` table objects(s) into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

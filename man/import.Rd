@@ -2,7 +2,7 @@
 % Please edit documentation in R/import.R
 \name{import}
 \alias{import}
-\title{Import \code{EViews} series to R as dataframe}
+\title{Import \code{EViews} series objects as dataframe}
 \usage{
 import(
   object_name = "",
@@ -45,7 +45,7 @@ import(
 An EViews workfile
 }
 \description{
-Use this function to import \code{EViews} series to R as dataframe
+Use this function to import \code{EViews} series objects to R, R Markdown and Quarto as dataframe
 }
 \examples{
 library(EviewsR)

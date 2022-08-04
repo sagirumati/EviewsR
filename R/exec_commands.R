@@ -1,6 +1,6 @@
-#' Execute `EViews` commands from R
+#' Execute `EViews` commands.
 #'
-#' Use this function to execute `EViews` commands from R
+#' Use this function  in R, R Markdown and Quarto to execute `EViews` commands.
 #'
 #' @inheritParams eviews_graph
 #' @param commands Object or a vector of character strings of `EViews` commands

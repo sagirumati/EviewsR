@@ -45,7 +45,7 @@ eviews_pagesave(
 An EViews workfile.
 }
 \description{
-Use this function to save an `EViews` workfile page from R
+Use this function to save an `EViews` workfile page from R, R Markdown and Quarto.
 }
 \examples{
 library(EviewsR)

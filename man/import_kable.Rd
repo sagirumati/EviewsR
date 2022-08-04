@@ -4,28 +4,47 @@
 \alias{import_kable}
 \title{Import `EViews` table object as `kable`}
 \usage{
-import_kable(wf="",page="",table_name="",table_range="",format=kable_format(),
- digits = getOption("digits"), row.names = NA,col.names = NA, align,caption = NULL,
-  label = NULL, format.args = list(),escape = FALSE, table.attr = "", booktabs = TRUE,
-   longtable = FALSE, valign = "t",position = "h", centering = TRUE,
-   vline = getOption("knitr.table.vline",if (booktabs) "" else "|"),
-toprule = getOption("knitr.table.toprule",
-if (booktabs) "\\\\toprule" else "\\\\hline"),
-bottomrule = getOption("knitr.table.bottomrule",
-if (booktabs) "\\\\bottomrule" else "\\\\hline"),
-midrule = getOption("knitr.table.midrule",
-if (booktabs) "\\\\midrule" else "\\\\hline"),
-linesep = if (booktabs) c("","", "", "", "\\\\addlinespace") else "\\\\hline",
- caption.short = "",table.envir = if (!is.null(caption)) "table",...)
+import_kable(
+  wf = "",
+  page = "",
+  table = "",
+  range = "",
+  format = kable_format(),
+  digits = getOption("digits"),
+  row.names = NA,
+  col.names = NA,
+  align,
+  caption = NULL,
+  label = NULL,
+  format.args = list(),
+  escape = FALSE,
+  table.attr = "",
+  booktabs = TRUE,
+  longtable = FALSE,
+  valign = "t",
+  position = "h",
+  centering = TRUE,
+  vline = getOption("knitr.table.vline", if (booktabs) "" else "|"),
+  toprule = getOption("knitr.table.toprule", if (booktabs) "\\\\toprule" else
+    "\\\\hline"),
+  bottomrule = getOption("knitr.table.bottomrule", if (booktabs) "\\\\bottomrule" else
+    "\\\\hline"),
+  midrule = getOption("knitr.table.midrule", if (booktabs) "\\\\midrule" else
+    "\\\\hline"),
+  linesep = if (booktabs) c("", "", "", "", "\\\\addlinespace") else "\\\\hline",
+  caption.short = "",
+  table.envir = if (!is.null(caption)) "table",
+  ...
+)
 }
 \arguments{
 \item{wf}{Object or a character string representing the name of a workfile to be created}
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{table_name}{Name of an `EViews` table object in an `EViews` workfile}
+\item{table}{Name of an `EViews` table object in an `EViews` workfile}
 
-\item{table_range}{A vector of characters specifying the table range of rows and columns}
+\item{range}{A vector of characters specifying the table range of rows and columns}
 
 \item{format}{A character string. Possible values are \code{latex},
 \code{html}, \code{pipe} (Pandoc's pipe tables), \code{simple} (Pandoc's
@@ -128,7 +147,7 @@ library(EviewsR)
 \dontrun{
 demo(exec_commands)
 
-import_kable(wf="EviewsR_exec_commands",page="page",table_name="EviewsROLS",format="pandoc")
+import_kable(wf="EviewsR_exec_commands",page="page",table="EviewsROLS",format="pandoc")
 }
 }
 \seealso{

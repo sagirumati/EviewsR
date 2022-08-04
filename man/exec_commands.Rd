@@ -2,7 +2,7 @@
 % Please edit documentation in R/exec_commands.R
 \name{exec_commands}
 \alias{exec_commands}
-\title{Execute `EViews` commands from R}
+\title{Execute `EViews` commands.}
 \usage{
 exec_commands(commands = "", wf = "", page = "", save_path = "")
 }
@@ -19,7 +19,7 @@ exec_commands(commands = "", wf = "", page = "", save_path = "")
 An EViews workfile
 }
 \description{
-Use this function to execute `EViews` commands from R
+Use this function  in R, R Markdown and Quarto to execute `EViews` commands.
 }
 \examples{
 library(EviewsR)

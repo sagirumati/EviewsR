@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_equation.R
 \name{import_equation}
 \alias{import_equation}
-\title{Import `EViews` equation object as `kable`}
+\title{Import `EViews` equation data members into R, R Markdown or Quarto.}
 \usage{
 import_equation(wf = "", page = "*", equation = "*")
 }
@@ -17,7 +17,7 @@ import_equation(wf = "", page = "*", equation = "*")
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` equation object as `kable`
+Use this function to import `EViews` equation data members into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_wfsave.R
 \name{eviews_wfsave}
 \alias{eviews_wfsave}
-\title{Save an `EViews` workfile from R}
+\title{Save an `EViews` workfile.}
 \usage{
 eviews_wfsave(
   wf = "",
@@ -45,7 +45,7 @@ eviews_wfsave(
 An EViews workfile.
 }
 \description{
-Use this function to save an `EViews` workfile  from R
+Use this function  in R, R Markdown and Quarto to save an `EViews` workfile.
 }
 \examples{
 library(EviewsR)

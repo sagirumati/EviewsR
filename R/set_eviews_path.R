@@ -2,7 +2,6 @@
 #'
 #' Use this function to set `EViews` path
 #'
-#' @usage set_eviews_path(engine_path="eviews")
 #' @param engine_path Path to the EViews executable
 #' @return Character
 #'

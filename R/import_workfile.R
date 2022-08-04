@@ -1,6 +1,6 @@
-#' Create an `EViews` graph in R and R Markdown
+#' Import `EViews` equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
 #'
-#' Use this function to create an `EViews` graph in R and R Markdown
+#' Use this function to import `EViews` equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
 #'
 #' @inheritParams import_equation
 #' @inheritParams import_graph

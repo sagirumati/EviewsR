@@ -1,6 +1,6 @@
-#' Import `EViews` table object as `kable`
+#' Import `EViews` table objects(s) into R, R Markdown or Quarto.
 #'
-#' Use this function to import `EViews` table object as `kable`
+#' Use this function to import `EViews` table objects(s) into R, R Markdown or Quarto.
 #'
 #' @inheritParams eviews_wfcreate
 #' @param table Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile

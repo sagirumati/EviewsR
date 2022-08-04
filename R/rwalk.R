@@ -1,8 +1,7 @@
-#' Simulate a random walk process using an `EViews` engine from R.
+#' Simulate a random walk process using an `EViews` engine.
 #'
-#' Use this function to simulate a random walk process using an `EViews` engine.
+#' Use this function to simulate a random walk process using an `EViews` engine from R, R Markdown or Quarto.
 #'
-#' start_date="1990",end_date="2020",num_cross_sections=NA,num_observations=NA)
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_import
 #' @inheritParams import_series

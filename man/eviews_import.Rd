@@ -51,7 +51,7 @@ eviews_import(
 An EViews workfile
 }
 \description{
-Use this function to import data to `EViews` workfile from R
+Use this function  in R, R Markdown and Quarto to import data to `EViews` workfile.
 }
 \examples{
 library(EviewsR)

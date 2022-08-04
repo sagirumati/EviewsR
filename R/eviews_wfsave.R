@@ -1,6 +1,6 @@
-#' Save an `EViews` workfile from R
+#' Save an `EViews` workfile.
 #'
-#' Use this function to save an `EViews` workfile  from R
+#' Use this function  in R, R Markdown and Quarto to save an `EViews` workfile.
 #'
 #' @inheritParams eviews_pagesave
 #' @return An EViews workfile.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_graph.R
 \name{eviews_graph}
 \alias{eviews_graph}
-\title{Create an `EViews` graph in R and R Markdown}
+\title{Create an `EViews` graph in R, R Markdown and Quarto.}
 \usage{
 eviews_graph(
   wf = "",
@@ -26,7 +26,7 @@ eviews_graph(
 
 \item{page}{Object or a character string representing the name of an `EViews` workfile page.}
 
-\item{series}{A vector of series names contained in an `EViews` workfile, or an R dataframe.}
+\item{series}{A vector of names or wildcard expressions for series object(s) contained in an `EViews` workfile. An R dataframe is also acceptable.}
 
 \item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.}
 
@@ -40,7 +40,7 @@ eviews_graph(
 
 \item{datelabel}{A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.}
 
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
+\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
 
 \item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
 

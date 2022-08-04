@@ -1,6 +1,6 @@
 #' Save an `EViews` workfile page from R
 #'
-#' Use this function to save an `EViews` workfile page from R
+#' Use this function to save an `EViews` workfile page from R, R Markdown and Quarto.
 #'
 #' @inheritParams eviews_graph
 #' @param options Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.

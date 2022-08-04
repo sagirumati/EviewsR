@@ -1,6 +1,6 @@
-#' Create an `EViews` workfile from R
+#' Create an `EViews` workfile.
 #'
-#' Use this function to create an `EViews` workfile from R
+#' Use this function  in R, R Markdown and Quarto to create an `EViews` workfile.
 #'
 #' @param wf Object or a character string representing the name of a workfile to be created
 #' @param page Object or a character string representing the name of a workfile page to be created

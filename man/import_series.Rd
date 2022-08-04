@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_series.R
 \name{import_series}
 \alias{import_series}
-\title{Import `EViews` series object as `kable`}
+\title{Import `EViews` series objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_series(wf = "", page = "*", series = "*", class = "df")
 }
@@ -19,7 +19,7 @@ import_series(wf = "", page = "*", series = "*", class = "df")
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` series object as `kable`
+Use this function to import `EViews` series objects(s) into R, R Markdown or Quarto as dataframe or `xts` object.
 }
 \examples{
 library(EviewsR)

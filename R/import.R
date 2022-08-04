@@ -1,6 +1,6 @@
-#' Import `EViews` series to R as dataframe
+#' Import `EViews` series objects as dataframe
 #'
-#' Use this function to import `EViews` series to R as dataframe
+#' Use this function to import `EViews` series objects to R, R Markdown and Quarto as dataframe
 #'
 #' @param object_name Object name to be to store the imported `EViews` series.
 #' @inheritParams eviews_pagesave

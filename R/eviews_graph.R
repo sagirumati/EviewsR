@@ -1,11 +1,11 @@
-#' Create an `EViews` graph in R and R Markdown
+#' Create an `EViews` graph in R, R Markdown and Quarto.
 #'
 #' Use this function to create an `EViews` graph in R and R Markdown
 #'
-#' @param series A vector of series names contained in an `EViews` workfile, or an R dataframe.
+#' @param series A vector of names or wildcard expressions for series object(s) contained in an `EViews` workfile. An R dataframe is also acceptable.
 #' @param save_copy Logical. Whether to save the copy of the graph objects.
 #' @param wf Object or a character string representing the name of an `EViews` workfile.
-#' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.
+#' @param save_options A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.
 #' @param page Object or a character string representing the name of an `EViews` workfile page.
 #' @param mode Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.
 #' @param graph_command Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.

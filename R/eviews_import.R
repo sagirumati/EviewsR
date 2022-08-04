@@ -1,6 +1,6 @@
 #' Import data to `EViews` workfile
 #'
-#' Use this function to import data to `EViews` workfile from R
+#' Use this function  in R, R Markdown and Quarto to import data to `EViews` workfile.
 #'
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate

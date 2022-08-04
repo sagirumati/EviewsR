@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_wfcreate.R
 \name{eviews_wfcreate}
 \alias{eviews_wfcreate}
-\title{Create an `EViews` workfile from R}
+\title{Create an `EViews` workfile.}
 \usage{
 eviews_wfcreate(
   source_description = "",
@@ -45,7 +45,7 @@ eviews_wfcreate(
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` workfile from R
+Use this function  in R, R Markdown and Quarto to create an `EViews` workfile.
 }
 \examples{
 library(EviewsR)

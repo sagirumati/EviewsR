@@ -1,6 +1,6 @@
-#' Import `EViews` series object as `kable`
+#' Import `EViews` series objects(s) into R, R Markdown or Quarto.
 #'
-#' Use this function to import `EViews` series object as `kable`
+#' Use this function to import `EViews` series objects(s) into R, R Markdown or Quarto as dataframe or `xts` object.
 #'
 #' @inheritParams eviews_wfcreate
 #' @param series Name(s) of `EViews` series object(s) in an `EViews` workfile

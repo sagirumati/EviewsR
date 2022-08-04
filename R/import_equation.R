@@ -1,6 +1,6 @@
-#' Import `EViews` equation object as `kable`
+#' Import `EViews` equation data members into R, R Markdown or Quarto.
 #'
-#' Use this function to import `EViews` equation object as `kable`
+#' Use this function to import `EViews` equation data members into R, R Markdown or Quarto.
 #'
 #' @inheritParams eviews_graph
 #' @param equation Name(s) or wildcard expressions for `EViews` equation object(s) in an `EViews` workfile

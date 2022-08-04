@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_graph.R
 \name{import_graph}
 \alias{import_graph}
-\title{Create an `EViews` graph in R and R Markdown}
+\title{Import `EViews` graph objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_graph(
   wf = "",
@@ -23,7 +23,7 @@ import_graph(
 
 \item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
 
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can values like \code{"t=png"},\code{-color} and so on.}
+\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
 
 \item{save_copy}{Logical. Whether to save the copy of the graph objects}
 
@@ -33,7 +33,7 @@ import_graph(
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` graph in R and R Markdown
+Use this function to import `EViews` graph objects(s) into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)
