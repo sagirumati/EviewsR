@@ -38,8 +38,8 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   if(is.data.frame(source_description)){
 
-wfSuffix=opts_current$get('label') %n% "EViewsR"
-    # if(wf=="") wf=paste0(wfSuffix,'_',paste0(names(source_description),collapse = ""))
+wfPrefix=opts_current$get('label') %n% "EViewsR"
+   if(wf=="") wf=paste0(wfPrefix,'_',paste0(names(source_description),collapse = ""))
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
 
@@ -69,7 +69,7 @@ wfSuffix=opts_current$get('label') %n% "EViewsR"
   eviewsCode=r'(
 %wf1=%wf+".wf1"
   if @fileexist(%wf1) then
-open {%wf}
+open {%wf1}
   endif
 
   if %type<>"" then
