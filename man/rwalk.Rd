@@ -55,10 +55,10 @@ library(EviewsR)
 
 rwalk(series="a b e",rndseed=12345,start_date = 1990,frequency="m",num_observations=100)
 
-ggplot(eviews$abe,aes(x=date,color="blue"))+geom_line(aes(y=a,color="a"))+
+ggplot2::ggplot(eviews$abe,aes(x=date))+geom_line(aes(y=a,color="a"))+
 geom_line(aes(y=b,color="b"))+geom_line(aes(y=e,color="e"))+labs(colour='',x="",y="")
 
-To simulate random walk and return as an `xts` object
+# To simulate random walk and return as an `xts` object
 
 rwalk(series="X Y Z",rndseed=12345,start_date = 1990,frequency="m",num_observations=100,class="xts")
 

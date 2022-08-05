@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_object.R
 \name{create_object}
 \alias{create_object}
-\title{Create an `EViews` object on a workfile from R}
+\title{Create an `EViews` object on an existing workfile}
 \usage{
 create_object(
   wf = "",
@@ -45,7 +45,7 @@ create_object(
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` object on a workfile from R
+Use this function in R, R Markdown or Quarto to create an `EViews` object on an existing workfile.
 }
 \examples{
 library(EviewsR)

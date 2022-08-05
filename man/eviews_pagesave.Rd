@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_pagesave.R
 \name{eviews_pagesave}
 \alias{eviews_pagesave}
-\title{Save an `EViews` workfile page from R}
+\title{Save an `EViews` workfile page.}
 \usage{
 eviews_pagesave(
   wf = "",
@@ -45,7 +45,7 @@ eviews_pagesave(
 An EViews workfile.
 }
 \description{
-Use this function to save an `EViews` workfile page from R, R Markdown and Quarto.
+Use this function in  R, R Markdown and Quarto to save an `EViews` workfile page.
 }
 \examples{
 library(EviewsR)

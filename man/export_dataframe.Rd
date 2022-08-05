@@ -27,7 +27,7 @@ export_dataframe(
 An EViews workfile.
 }
 \description{
-Use this function to export R dataframe as an `EViews` workfile
+Use this function in R, R Markdown and Quarto to export an R dataframe as an `EViews` workfile
 }
 \examples{
 library(EviewsR)

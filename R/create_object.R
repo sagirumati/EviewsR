@@ -1,6 +1,6 @@
-#' Create an `EViews` object on a workfile from R
+#' Create an `EViews` object on an existing workfile
 #'
-#' Use this function to create an `EViews` object on a workfile from R
+#' Use this function in R, R Markdown or Quarto to create an `EViews` object on an existing workfile.
 #'
 #' @inheritParams eviews_graph
 #' @inheritParams eviews_wfcreate

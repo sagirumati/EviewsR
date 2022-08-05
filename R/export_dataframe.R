@@ -1,6 +1,6 @@
 #' Export R dataframe as an `EViews` workfile
 #'
-#' Use this function to export R dataframe as an `EViews` workfile
+#' Use this function in R, R Markdown and Quarto to export an R dataframe as an `EViews` workfile
 #'
 #' @inheritParams eviews_wfcreate
 #' @inheritParams eviews_pagesave

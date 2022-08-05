@@ -23,13 +23,13 @@
 #'
 #' import_graph(wf="exec_commands",graph="x*")
 #'
-#' # To access the graph objects in base R
+#' # To access the graph objects in base R:
 #'
-#' eviewspage-x_graph # graph saved in "figure/" folder
+#' # eviewspage-x_graph # graph saved in "figure/" folder
 #'
 #' # To get the graph objects in R Markdown or Quarto
 #'
-#' chunkLabel-eviewspage-x_graph # graph saved in "fig.path" folder
+#' # chunkLabel-eviewspage-x_graph # graph saved in "fig.path" folder
 #'
 #'}
 #' @family important functions

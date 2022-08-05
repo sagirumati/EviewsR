@@ -34,11 +34,11 @@ eviews$eviewspage_ols
 
 eviews$eviewspage_ols$r2
 
-# To get the values above in R Markdown or Quarto
+# To get the values above in R Markdown or Quarto:
 
-chunkLabel$eviewspage_ols
+# chunkLabel$eviewspage_ols
 
-chunkLabel$eviewspage_ols$r2
+# chunkLabel$eviewspage_ols$r2
 }
 }
 \seealso{
