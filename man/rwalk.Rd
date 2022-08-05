@@ -71,7 +71,7 @@ plot(eviews$XYZ)
 
 # To simulate random walk series on existing workfile
 
-wfcreate(wf="rwalk",page="rwalk",frequency="7",start_date=2020,end_date="2022")
+eviews_wfcreate(wf="rwalk",page="rwalk",frequency="7",start_date=2020,end_date="2022")
 rwalk(wf="rwalk",series="rw1 rw2 rw3",rndseed=12345,frequency="M")
 
 head(eviews$rw1rw2rw3)

@@ -35,8 +35,8 @@ exec_commands(c("wfcreate(wf=exec_commands,page=eviewsPage) m 2000 2022"))
 eviewsCommands=r'(pagecreate(page=eviewspage1) 7 2020 2022
 for \%page eviewspage eviewspage1
 pageselect {\%page}
-genr y=rnd
-genr x=rnd
+genr y=@cumsum(nrnd)
+genr x=@cumsum(nrnd)
 equation ols.ls y c x
 graph x_graph.line x
 graph y_graph.area y

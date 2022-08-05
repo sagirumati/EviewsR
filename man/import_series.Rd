@@ -40,7 +40,7 @@ import_series(wf="exec_commands",class="xts")
 
 # Plot the `xts` object
 
-ggplot2::autopilot(eviews$eviewspage,facet='')+xlab("")
+ggplot2::autoplot(eviews$eviewspage,facet='')+xlab("")
 
 # To import specific series objects, for example starting with Y
 
@@ -53,7 +53,7 @@ import_series(wf="exec_commands",page="eviewspage")
 
 # To access the series in base R
 
-eviews$eviewspage
+eviews$eviewspage |> head()
 
 # To get the values above in R Markdown or Quarto
 
