@@ -13,12 +13,29 @@
 #' @examples library(EviewsR)
 #' \dontrun{
 #'
-#' rwalk(series="X Y Z",rndseed=12345,frequency="M",
-#' num_observations=100)
+#' # Simulate random walk and return as a dataframe object
 #'
-#' plot(eviews$XYZ[[2]],ylab = "EViewsR",type = "l",col="red")
+#' rwalk(series="a b e",rndseed=12345,start_date = 1990,frequency="m",num_observations=100)
 #'
-#' rwalk(wf="EviewsR_exec_commands",series="rw1 rw2 rw3",rndseed=12345,frequency="M")
+#' ggplot(eviews$abe,aes(x=date,color="blue"))+geom_line(aes(y=a,color="a"))+
+#' geom_line(aes(y=b,color="b"))+geom_line(aes(y=e,color="e"))+ylab('')+xlab('')
+#'
+#' To simulate random walk and return as an `xts` object
+#'
+#' rwalk(series="X Y Z",rndseed=12345,start_date = 1990,frequency="m",num_observations=100,class="xts")
+#'
+#' plot(eviews$xyz)
+#'
+#' ggplot2::autoplot(eviews$xyz,facet="")+xlab("")
+#'
+#'
+#' plot(eviews$XYZ)
+
+#'
+#' # To simulate random walk series on existing workfile
+#'
+#' wfcreate(wf="rwalk",page="rwalk",frequency="7",start_date=2020,end_date="2022")
+#' rwalk(wf="rwalk",series="rw1 rw2 rw3",rndseed=12345,frequency="M")
 #'
 #' head(eviews$rw1rw2rw3)
 #'}
@@ -46,7 +63,7 @@ wf2=wf
   num_cross_sections=paste0("!num_cross_sections=",num_cross_sections)
 
   series1=paste(series,collapse = "")
-  series1=gsub(" ","",series1)
+  series1=gsub(" ","",series1) %>% tolower
   series=paste0("%series=",shQuote_cmd(paste(series,collapse = " ")))
 
     eviewsCode=r'(

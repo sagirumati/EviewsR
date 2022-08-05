@@ -28,14 +28,16 @@
 #' # To access the objects in base R
 #'
 #' eviews$eviewspage_ols # equation
-#' #' eviews$eviewspage_ols
+#' eviewspage-x_graph # graph saved in "figure/" folder
 #' eviews$eviewspage # series
 #' eviews$eviewspage_olstable  # table
-
 #'
 #' # To get the values above in R Markdown or Quarto
 #'
-#' chunkLabel$eviewspage
+#' chunkLabel$eviewspage_ols # equation
+#' chunkLabel-eviewspage-x_graph # graph saved in "fig.path" folder
+#' chunkLabel$eviewspage # series
+#' chunkLabel$eviewspage_olstable  # table
 #'
 #'}
 #' @family important functions
