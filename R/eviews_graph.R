@@ -43,7 +43,7 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
 
   for %page {%pagelist}
   pageselect {%page}
-  %selectedGraphs=@wlookup(%graph,"graph")
+  %selectedGraphs=@wlookup("*","graph")
   if @wcount(%selectedGraphs)>0 then
   for %y {%selectedGraphs}
   {%y}.axis(l) font(Calibri,14,-b,-i,-u,-s)
@@ -87,7 +87,6 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
-  {%y}.template midnight
   next
   endif
   next
@@ -265,7 +264,7 @@ pageselect {%page}
   %x{!k}={%EviewsRGroup}.@seriesname({!k})
 
 
-  freeze({%mode}{%x{!k}}_graph_EviewsR) {%x{!k}}.{%graph_command}{%graph_options}
+  freeze({%mode}{%x{!k}}_{%eviewsrText}) {%x{!k}}.{%graph_command}{%graph_options}
   next
   endif
   next
@@ -283,7 +282,7 @@ pageselect {%page}
 
   for !k=1 to {!n}
   %x{!k}={%EviewsRGroup}.@seriesname({!k})
-  {%x{!k}}_graph_EviewsR.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%x{!k}}
+  {%x{!k}}_{%eviewsrText}.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%x{!k}}
   %graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%x{!k}
   next
   delete {%EviewsrGroup}
@@ -316,7 +315,7 @@ if (group){
 
       %seriesNames=@replace(%allSeries," ","")
      ' %seriesNames=%seriesNames
-      freeze({%mode}{%seriesNames}_graph_EviewsR) {%EviewsRGroup}.{%graph_command}{%graph_options}
+      freeze({%mode}{%seriesNames}_{%eviewsrText}) {%EviewsRGroup}.{%graph_command}{%graph_options}
       endif
       next
       )'
@@ -336,7 +335,7 @@ if (group){
       %allSeries=@wlookup(%series,"series")
       %allSeries=@wdrop(%allSeries,"DATE")
       if @wcount(%allSeries)>0 then
-      {%seriesNames}_graph_EviewsR.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%seriesNames}
+      {%seriesNames}_{%eviewsrText}.save{%save_options} {%save_path}{%chunkLabel}{%page}-{%seriesNames}
       %graphPath=%graphPath+" "+%chunkLabel+%page+"-"+%seriesNames
       endif
       delete {%EviewsrGroup}

@@ -175,7 +175,7 @@ For the OLS result only:
 
 ```{r importTable}
 # options(knitr.kable.NA = '')
-import_kable(wf="EViewsR_workfile",page="EviewsR_page",table_name = "EViewsrOLS",table_range = "r7c1:r10c5",digits=3)
+import_kable(wf="EViewsR_workfile",page="EviewsR_page",table = "EViewsrOLS",range = "r7c1:r10c5",digits=3)
 ```
 
 # Saving EViews workfile
