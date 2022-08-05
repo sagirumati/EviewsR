@@ -2,8 +2,39 @@ library(EviewsR)
 
 demo(exec_commands)
 
-import_series(df_name="importedDataFrame",wf="EviewsR_exec_commands",drop_list = "y")
+# To import all series objects across all pages, as a dataframe object
 
-eviews$importedDataFrame
+import_series(wf="exec_commands")
 
-knitr::kable(head(eviews$importedDataFrame),format="pandoc",caption="Table from EviewsR")
+# Plot the dataframe object
+
+ggplot2::ggplot(eviews$eviewspage,aes(x=date))+geom_line(aes(y=x,color="x"))+
+  geom_line(aes(y=y,color="y"))+labs(colour='',x="",y="")
+
+# To import all series objects across all pages, as an `xts` object
+
+import_series(wf="exec_commands",class="xts")
+
+
+# Plot the `xts` object
+
+ggplot2::autopilot(eviews$eviewspage,facet='')+xlab("")
+
+# To import specific series objects, for example starting with Y
+
+import_series(wf="exec_commands",series="y*")
+
+# To import series objects on specific pages
+
+import_series(wf="exec_commands",page="eviewspage")
+
+
+# To access the series in base R
+
+eviews$eviewspage
+
+# To get the values above in R Markdown or Quarto:
+
+# chunkLabel$eviewspage
+
+

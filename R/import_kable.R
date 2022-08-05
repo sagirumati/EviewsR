@@ -19,7 +19,8 @@
 #'
 #' To import certain RANGE of the table object
 #'
-#' import_kable(wf="exec_commands",page="eviewspage",table="OLSTable",range="r7c1:r10c5",format="pandoc")
+#' import_kable(wf="exec_commands",page="eviewspage",table="OLSTable",range="r7c1:r10c5",
+#' format="pandoc")
 #'}
 #' @family important functions
 #' @keywords documentation

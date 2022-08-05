@@ -3,9 +3,7 @@ library(EviewsR)
 # The first example creates an `EViews` workfile with monthly frequency from 1990 2021,
 # then save the workfile in the current working directory
 
-exec_commands(c("wfcreate(wf=EviewsR_exec_commands,page=Page) m 2000 2022",
-                "save EviewsR_exec_commands","exit"))
-
+exec_commands(c("wfcreate(wf=exec_commands,page=eviewsPage) m 2000 2022"))
 
 # The second example opens the `EViews` workfile and then generate a random series
 # named `y` and plots its line graph. It also freezes `ols` equation as `EviewsROLS`
@@ -13,8 +11,10 @@ exec_commands(c("wfcreate(wf=EviewsR_exec_commands,page=Page) m 2000 2022",
 eviewsCommands=r'(genr y=rnd
 genr x=rnd
 equation ols.ls y c x
-freeze(EviewsROLS,mode=overwrite) ols)'
+graph x_graph.line x
+graph y_graph.area y
+freeze(OLSTable,mode=overwrite) ols)'
 
-exec_commands(commands=eviewsCommands,wf="EviewsR_exec_commands")
+exec_commands(commands=eviewsCommands,wf="exec_commands")
 
-# unlink("EviewsR_exec_commands.wf1")
+# unlink("exec_commands.wf1")

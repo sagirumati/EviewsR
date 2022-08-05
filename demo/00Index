@@ -7,9 +7,13 @@ eviews_wfcreate Create an EViews workfile from R
 eviews_wfsave Save an EViews workfile from R
 exec_commands Execute EViews commands from R
 import_series Import EViews series to R as dataframe
-import_table Import EViews table object as kable
+import_table Import EViews table object as dataframe
 rwalk Simulate a random walk process using EViews from R
 set_eviews_path Set EViews path
+import_equation Import EViews equation data members as dataframe
+import_graph Import EViews graph object(s) as dataframe
+import_kable Import EViews table object as kable
+import_workfile Import EViews equation, graph, series and table object(S)
 
 
 
