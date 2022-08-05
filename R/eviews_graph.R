@@ -30,13 +30,11 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path="",frequency="m",start_date="",save_copy=FALSE){
+eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path="",frequency="m",start_date="",save_copy=TRUE){
 
 if(wf!="" && save_path=="") save_path=dirname(wf)
   graphicsDefault=r'(
-  if %page="*" then
   %pagelist=@pagelist
-  endif
 
   if %page<>"*" then
   %pagelist=%page
@@ -89,6 +87,7 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
+  {%y}.template midnight
   next
   endif
   next
@@ -100,7 +99,6 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
 
   if(!is.null(chunkLabel)) chunkLabel= gsub("^fig-","",chunkLabel)
 
-  # if(wf=="") wf=page=tempfile('EviewsrR','.') %>% basename
 
   if(is.data.frame(series)) series1=names(series) else series1=series
 
@@ -118,13 +116,12 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
 
   if(is.data.frame(series)) {
 
-    wf=chunkLabel %n% "EViewsR"
+    wf=chunkLabel %n% basename(tempfile("EViewsR"))
     wf=gsub("[.-]","_",wf)
     wf1=wf
     csvFile=paste0(wf,".csv")
         write.csv(series,csvFile,row.names = F)
         eviews_import(wf=wf,source_description = csvFile,frequency = frequency,start_date = start_date,save_path = save_path)
-# export_dataframe(source_description = series,wf=wf,start_date = start_date,frequency = frequency)
         series = names(series)
 
         on.exit(unlink(c(csvFile,paste0(wf1,".wf1")),force = T),add = T)
@@ -365,6 +362,8 @@ if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(ev
 
 eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
 include_graphics(eviewsGraphics)
+
+if(!save_copy) on.exit(unlink(eviewsGraphics),add = TRUE)
 }
 
 
