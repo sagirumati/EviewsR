@@ -36,12 +36,11 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   # if(!is.data.frame(source_description) && wf=='') save_path=dirname(source_description)
 
-   wf1 %<>% wf %>% shQuote_cmd %>% paste0('%wf1=',.)
+   wf1= wf %>% shQuote_cmd %>% paste0('%wf1=',.)
 
   if(is.data.frame(source_description)){
 
-wfPrefix=opts_current$get('label') %n% "EViewsR"
-   if(wf=="") wf=paste0(wfPrefix,'_',paste0(names(source_description),collapse = ""))
+   if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_",tempfile("") %>% basename)
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
 
@@ -69,10 +68,10 @@ wfPrefix=opts_current$get('label') %n% "EViewsR"
   wf=paste0("%wf=",shQuote_cmd(wf))
 
   eviewsCode=r'(
-'%wf1=%wf+".wf1"
- ' if @fileexist(%wf1) then
-'open {%wf1}
- ' endif
+  %wf2=%wf+".wf1"
+ if %wf1<>"" and @fileexist(%wf2) and %start_date="" then
+open {%wf1}
+  endif
 
   if %type<>"" then
   %type="type="+%type+","   'to avoid error if %TYPE=""

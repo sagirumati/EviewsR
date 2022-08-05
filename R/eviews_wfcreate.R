@@ -49,7 +49,7 @@ if (wf!='') wf=basename(wf)
 
 if(is.data.frame(source_description)){
 
-    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_Workfile")
+    if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_",tempfile("") %>% basename)
 
     csvFile=paste0(wf,".csv")
     write.csv(source_description,csvFile,row.names = FALSE)
