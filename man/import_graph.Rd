@@ -39,7 +39,22 @@ Use this function to import `EViews` graph objects(s) into R, R Markdown or Quar
 library(EviewsR)
 \dontrun{
 demo(exec_commands)
-eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",options = "m")
+
+# To import all graph objects
+
+import_graph(wf="exec_commands")
+
+# To import only graphs that begin with x:
+
+import_graph(wf="exec_commands",graph="x*")
+
+# To access the graph objects in base R
+
+eviewspage-x_graph # graph saved in "figure/" folder
+
+# To get the graph objects in R Markdown or Quarto
+
+chunkLabel-eviewspage-x_graph # graph saved in "fig.path" folder
 
 }
 }

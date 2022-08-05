@@ -32,9 +32,10 @@ Use this function to export R dataframe as an `EViews` workfile
 \examples{
 library(EviewsR)
 \dontrun{
-x=runif(100); y=runif(100); data=data.frame(x,y)
 
-export(wf="EviewR_export",source_description=data,start_date = '1990',frequency = "m")
+Data=data.frame(x=cumsum(rnorm(100)),y=cumsum(rnorm(100)))
+
+export_dataframe(wf="export_dataframe",source_description=Data,start_date = '1990',frequency = "m")
 }
 }
 \seealso{

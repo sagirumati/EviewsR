@@ -26,7 +26,27 @@ library(EviewsR)
 \dontrun{
 demo(exec_commands)
 
-import_series(wf="EviewsR_exec_commands",page="page",series_name="EviewsROLS",format="pandoc")
+# To import all series objects across all pages
+
+import_series(wf="exec_commands")
+
+# To import specific series objects, for example starting with Y
+
+import_series(wf="exec_commands",series="y*")
+
+# To import series objects on specific pages
+
+import_series(wf="exec_commands",page="eviewspage")
+
+
+# To access the series in base R
+
+eviews$eviewspage
+
+# To get the values above in R Markdown or Quarto
+
+chunkLabel$eviewspage
+
 }
 }
 \seealso{
