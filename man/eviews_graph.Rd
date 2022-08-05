@@ -60,7 +60,8 @@ Use this function to create an `EViews` graph in R and R Markdown
 library(EviewsR)
 \dontrun{
 demo(exec_commands)
-eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",
+
+eviews_graph(wf="exec_commands",page = "eviewspage1",series="x y",mode = "overwrite",
 graph_options = "m")
 
 # Create graph(s) from dataframe

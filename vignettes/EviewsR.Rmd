@@ -248,7 +248,7 @@ uu=data.frame(x,y)
 
 The demo files are included and can be accessed via demo(package="EviewsR")
 
-```{r demo,eval=F}
+```{r demo,eval=T}
 demo(create_object())
 demo(eviews_graph())
 demo(eviews_wfcreate())
