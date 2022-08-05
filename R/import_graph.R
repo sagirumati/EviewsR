@@ -14,7 +14,14 @@
 #' @examples library(EviewsR)
 #' \dontrun{
 #' demo(exec_commands)
-#' eviews_graph(wf="EviewsR_exec_commands",page = "page",series="x y",mode = "overwrite",options = "m")
+#'
+#' # To import all graph objects
+#'
+#' import_graph(wf="exec_commands")
+#'
+#' # To import only graphs that begin with x:
+#'
+#' import_graph(wf="exec_commands",graph="x*")
 #'
 #'}
 #' @family important functions
