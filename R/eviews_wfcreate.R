@@ -21,8 +21,15 @@
 #'
 #' @examples library(EviewsR)
 #' \dontrun{
-#' eviews_wfcreate(wf="EviewsR_eviews_wfcreate",page="EviewsR_page",frequency = "m",
+#' eviews_wfcreate(wf="eviews_wfcreate",page="EviewsR_page",frequency = "m",
 #' start_date = "1990",end_date = "2022")
+#'
+#' # Create a workfile from a dataframe
+#'
+#' Data=data.frame(x=cumsum(rnorm(100)),y=cumsum(rnorm(100)))
+#'
+#' eviews_wfcreate(source_description=Data,wf="eviews_wfcreate1",page="EviewsR_page",frequency="m",
+#' start_date="1990")
 #'}
 #' @family important functions
 #' @keywords documentation
@@ -31,16 +38,11 @@ eviews_wfcreate=function(source_description="",wf="",page="",prompt=FALSE,freque
 
 if (wf!='') wf=basename(wf)
 
-  if(toupper(frequency)=="U" & is.na(num_observations)) stop("If 'frequency=\"u\"' (undated workfile),'num_observations' cannot be NA or blank")
-  if(toupper(frequency)!="U" & (start_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile),'start_date' and 'num_observations' cannot be blank or NA")
-  if(toupper(frequency)!="U" & (start_date!="" & end_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile) and 'start_date' is not blank, then 'end_date' or 'num_observations' cannot be blank or NA")
 
-  if(end_date!="" & !is.na(num_observations)) stop("Please set the value of either 'end_date=\"\"' or  'num_observations=NA'.")
-
-  if(start_date!="" && !is.na(num_observations) && end_date=="") end_date=paste0('+',num_observations)
 
   save_path=gsub("/","\\\\",save_path)
   save_path1=save_path
+  if(save_path1=="") save_path1="."
   if(!dir.exists(save_path1)) dir.create(save_path1,recursive = T)
 
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
@@ -54,6 +56,14 @@ if(is.data.frame(source_description)){
     eviews_import(wf=wf,source_description = csvFile,start_date = start_date,frequency = frequency,save_path = save_path1)
     on.exit(unlink(csvFile),add = T)
   }else{
+
+    if(toupper(frequency)=="U" & is.na(num_observations)) stop("If 'frequency=\"u\"' (undated workfile),'num_observations' cannot be NA or blank")
+    if(toupper(frequency)!="U" & (start_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile),'start_date' and 'num_observations' cannot be blank or NA")
+    if(toupper(frequency)!="U" & (start_date!="" & end_date=="" & is.na(num_observations))) stop("If 'frequency' is not equal to \"u\" (dated workfile) and 'start_date' is not blank, then 'end_date' or 'num_observations' cannot be blank or NA")
+
+    if(end_date!="" & !is.na(num_observations)) stop("Please set the value of either 'end_date=\"\"' or  'num_observations=NA'.")
+
+    if(start_date!="" && !is.na(num_observations) && end_date=="") end_date=paste0('+',num_observations)
 
   fileName=tempfile("EVIEWS", ".", ".prg")
 

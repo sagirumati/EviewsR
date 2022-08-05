@@ -36,6 +36,8 @@ eviews_import=function(source_description="",wf="",type="",options="",smpl_strin
 
   # if(!is.data.frame(source_description) && wf=='') save_path=dirname(source_description)
 
+   wf1 %<>% wf %>% shQuote_cmd %>% paste0('%wf1=',.)
+
   if(is.data.frame(source_description)){
 
 wfPrefix=opts_current$get('label') %n% "EViewsR"
@@ -67,10 +69,10 @@ wfPrefix=opts_current$get('label') %n% "EViewsR"
   wf=paste0("%wf=",shQuote_cmd(wf))
 
   eviewsCode=r'(
-%wf1=%wf+".wf1"
-  if @fileexist(%wf1) then
-open {%wf1}
-  endif
+'%wf1=%wf+".wf1"
+ ' if @fileexist(%wf1) then
+'open {%wf1}
+ ' endif
 
   if %type<>"" then
   %type="type="+%type+","   'to avoid error if %TYPE=""
@@ -142,7 +144,7 @@ open {%wf1}
 exit
   )'
 
-writeLines(c(eviews_path(),wf,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
+writeLines(c(eviews_path(),wf,wf1,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
 
 
   system_exec()
