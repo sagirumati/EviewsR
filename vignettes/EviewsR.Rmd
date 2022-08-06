@@ -211,8 +211,8 @@ Use `import` function to import data from EViews to R as a dataframe. The functi
 
 ```{r import,out.height="100%",out.width="100%"}
 
-import(object_name = "import",wf="eviewsr_workfile",keep_list = c("x","y"))
-plot(eviews$import$y,type="l",ylab="EviewsR",col="red")
+import_series(wf="eviewsr_workfile",series = c("x","y"))
+plot(import$eviewsr_page$y,type="l",ylab="EviewsR",col="red")
 ```
 
 # Exporting dataframe to EViews
