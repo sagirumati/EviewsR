@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   comment = "#>", 
   echo = T,
   eval=T,
-  out.width = "50%",
+  out.width = "45%",
   out.height = "40%",
   fig.show="hold"
 )
@@ -209,10 +209,11 @@ eviews_import(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv")
 
 Use `import` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
 
-```{r import,out.height="100%",out.width="100%"}
+```{r import,dpi=300}
 
-import_series(wf="eviewsr_workfile",series = c("x","y"))
-plot(import$eviewsr_page$y,type="l",ylab="EviewsR",col="red")
+import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
+plot(import$eviewsr_page,type="l",ylab="EviewsR",col="red")
+ggplot2::autoplot(import$eviewsr_page,facet='')
 ```
 
 # Exporting dataframe to EViews
@@ -220,7 +221,7 @@ plot(import$eviewsr_page$y,type="l",ylab="EviewsR",col="red")
 Use `export` function to export dataframe object to Eviews.
 
 ```{r export}
-export(wf="eviewr_export",source_description=eviews$import,start_date = '1990',frequency = "m")
+export_dataframe(wf="eviewr_export",source_description=import$eviewsr_page,start_date = '1990',frequency = "m")
 
 ```
 
