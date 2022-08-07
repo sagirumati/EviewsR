@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
   echo = T,
   eval=T,
   out.width = "45%",
-  out.height = "40%",
+  out.height = "20%",
   fig.show="hold"
 )
 library(EviewsR)
@@ -65,21 +65,20 @@ Please load the EviewsR package as follows:
     library(EviewsR)
     ```
 
-# Creating a workfile from R
+# Ways to use EviewsR
 
-An Eviews workfile can be created using `eviews_wfcreate` function in R.
+The package can work with base R, R Markdown or Quarto document.
 
-```{r wfcreate}
-eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",
-start_date = "1990",end_date = "2022")
+# EviewsR along with R Markdown or Quarto document
 
-```
+A chunk for Eviews can be created by supplying `eviews` as the engine name in R Markdown or Quarto document as shown below :
 
-# Eviews chunk
+    ```{eviews} `r ''`
+    #| label: fig-EviewsR
+    #| eval: true
+    #| fig.subcap: ["X graph","Y graph"]
+    #| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
 
-A chunk for Eviews can be created by supplying `eviews` as the engine name as shown below:
-
-    ```{eviews EviewsR,eval=T} `r ''`
         'This program is created in R Markdown with the help of EviewsR package
       
       wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
@@ -96,7 +95,12 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name as sh
       wfsave EviewsR_workfile
     ```  
 
-```{eviews EviewsR,eval=T,fig.subcap=c("YY","XX"),fig.cap="Dynamic figure"}
+```{eviews}
+#| label: fig-EviewsR
+#| eval: true
+#| fig.subcap: ["X graph","Y graph"]
+#| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
+#| echo: false
     
 'This program is created in R Markdown with the help of EviewsR package
   
@@ -127,6 +131,17 @@ EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
 EviewsR$eviewsrols
 ```
+
+# Creating a workfile from R
+
+An Eviews workfile can be created using `eviews_wfcreate` function in R.
+
+```{r wfcreate}
+eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",
+start_date = "1990",end_date = "2022")
+
+```
+
 # Executing EViews commands in R
 
 A set of Eviews commands can be executed with the help of `exec_commands` function in R. The above Eviews chunk can be translated using this function.
@@ -209,7 +224,10 @@ eviews_import(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv")
 
 Use `import` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
 
-```{r import,dpi=300}
+```{r}
+#| label: fig-import
+#| fig.cap: Plots of imported series
+#| dpi: 300
 
 import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
 plot(import$eviewsr_page,type="l",ylab="EviewsR",col="red")
