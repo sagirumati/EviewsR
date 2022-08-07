@@ -36,6 +36,8 @@
 #' @export
 eviews_wfcreate=function(source_description="",wf="",page="",prompt=FALSE,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=dirname(wf)){
 
+  if(is.xts(source_description)) source_description=data.frame(date=index(source_description),coredata(source_description))
+
 if (wf!='') wf=basename(wf)
 
 

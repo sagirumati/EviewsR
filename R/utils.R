@@ -2,9 +2,11 @@
 #     IMPORTS
 #####################
 
-#' @import knitr magrittr xts
+#' @import knitr magrittr
 #' @importFrom utils write.csv read.csv  getFromNamespace tail
 #' @importFrom stats na.omit
+#' @importFrom zoo index coredata
+#' @importFrom xts xts is.xts
 
 
 

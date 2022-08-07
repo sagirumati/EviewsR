@@ -18,6 +18,8 @@
 #' @export
 export_dataframe=function(source_description="",wf="",start_date = "",frequency = "",save_path = dirname(wf)){
 
+  if(is.xts(source_description)) source_description=data.frame(date=index(source_description),coredata(source_description))
+
   if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_",tempfile("") %>% basename)
 
   eviews_import(wf=wf,source_description =source_description,start_date = start_date,frequency = frequency,save_path = save_path)
