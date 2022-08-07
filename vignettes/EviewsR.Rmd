@@ -182,27 +182,32 @@ object_type="series",expression="y^2")
 ```
 
 
-# EViews graph
+# The eviews_graph() function
 
-EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
+EViews graphs can be included in R Markdown or Quarto document by `eviews_graph()` function. 
+
+To create graph from existing EViews series objects:
 
 ```{r}
 #| label: fig-eviewsGraph
-#| fig.caption: EViews graphs imported by fig-eviewsGraph chunk
+#| fig.cap: Graphs of existing EViews series objects imported by fig-eviewsGraph chunk
+#| out.width: 45%
+#| out.height: 30%
+
 eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",mode = "overwrite",
 graph_options = "m")
 
 ```
 
-We can also crea
-```{r eviewsGraph1,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
+We can also create objects from an R dataframe
 
-y=runif(100)
-x=runif(100)
-uu=data.frame(x,y)
+```{r}
+#| label: fig-eviewsGraph1
+#| fig.cap: Graphs of an R dataframe imported by fig-eviewsGraph1 chunk
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y z",mode = "overwrite",graph_options = "s",group =T)
- 
+Data=data.frame(x=cumsum(rnorm(100)),y=cumsum(rnorm(100)))
+
+eviews_graph(series=Data,group=TRUE,start_date="1990Q4",frequency="Q")
  
 ```
 
