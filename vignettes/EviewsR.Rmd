@@ -25,12 +25,20 @@ library(knitr)
 ```
 
 <style>
+img{
+border:5px solid cyan;
+}
 h1{
+text-align: center;
+border:5px solid #FFC704;
 color:DarkGreen;
 }
 h2{
 color:Green;
-}
+ border:5px solid #FFC704;
+ filter: saturate(50%);
+ }
+ 
 </style>
 
 # About EviewsR
@@ -136,10 +144,9 @@ The above chunk creates an Eviews program with the chunk's content, then automat
 The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsr_page_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsr_page_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
 ```{r}
-EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
-EviewsR$eviewsr_page_ols$aic
-EviewsR$eviewsr_page_olstable[7:9,2:5] |> kable()
+EviewsR$EviewsRPage_ols$aic
+EviewsR$EviewsRPage_olstable
 ```
 
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
@@ -154,7 +161,7 @@ EviewsR$eviews_page |> head()
 An Eviews workfile can be created using `eviews_wfcreate` function in R.
 
 ```{r wfcreate}
-eviews_wfcreate(wf="EviewsR_workfile",page="EviewsR_page",frequency = "m",
+eviews_wfcreate(wf="EviewsR_workfile",page="EviewsRPage",frequency = "m",
 start_date = "1990",end_date = "2022")
 
 ```
@@ -164,11 +171,11 @@ start_date = "1990",end_date = "2022")
 A set of Eviews commands can be executed with the help of `exec_commands` function in R. The above Eviews chunk can be translated using this function.
 
 ```{r execCommands} 
-exec_commands(c('wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
+exec_commands(c('wfcreate(page=EviewsRPage,wf=EviewsR_workfile) m 2000 2022',
   'for %y EviewsR package page1 page2',
   'pagecreate(page={%y}) EviewsR m 2000 2022',
   'next',
-'  pageselect EviewsR_page',
+'  pageselect EviewsRPage',
   'rndseed 123456',
 '  genr y=rnd',
   'genr x=rnd',
@@ -243,7 +250,7 @@ Use `import` function to import data from EViews to R as a dataframe. The functi
 
 ```{r}
 #| label: fig-import
-#| fig.cap: Plots of imported series
+#| fig.cap: Plots of imported EViews series objects
 #| dpi: 300
 
 import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
