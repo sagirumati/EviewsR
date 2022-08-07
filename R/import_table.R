@@ -14,7 +14,7 @@
 #'
 #' import_table(wf="exec_commands")
 #'
-#' # To import specific table objects, for example starting with Y
+#' # To import specific table objects, for example for example `OLSTable`
 #'
 #' import_table(wf="exec_commands",table="OLStable")
 #'

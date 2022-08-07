@@ -108,8 +108,8 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
       next
       pageselect EviewsRPage
       rndseed 123456
-      genr y=rnd
-      genr x=rnd
+      genr y=@cumsum(nrnd)
+      genr x=@cumsum(nrnd)
       equation ols.ls y c x
       freeze(OLSTable,mode=overwrite) ols
       freeze(EviewsR_Plot,mode=overwrite) y.line
@@ -131,8 +131,8 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
   next
   pageselect EviewsRPage
   rndseed 123456
-  genr y=rnd
-  genr x=rnd
+  genr y=@cumsum(nrnd)
+  genr x=@cumsum(nrnd)
   equation ols.ls y c x
 
   freeze(OLSTable,mode=overwrite) ols
@@ -356,6 +356,8 @@ import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",range =
 
 ### The import_series() function
 
+Use `import` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
+
 ```{r importSeries}
 import_series(wf="eviewsr_workfile")
 
@@ -367,7 +369,39 @@ To access the series in base R:
 eviews$eviewspage |> head()
 ```
 
+To import the series as an `xts` object:
 
+```{r importSeries1}
+import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
+
+```
+
+### The import_table() function
+
+Import EViews table objects(s) into R, R Markdown or Quarto.
+
+To import all table objects across all pages
+
+```{r importTable}
+import_table(wf="EviewsR_workfile")
+```
+
+
+To import specific table objects, for example `OLSTable`
+
+```{r importTable1}
+import_table(wf="EviewsR_workfile",table="OLStable")
+
+```
+
+To import table objects on specific pages
+
+
+
+```{r importTable1}
+import_table(wf="EviewsR_workfile",page=" EviewsRPage",tabl)
+
+```
 
 # Simulation of random walk 
 
@@ -387,17 +421,6 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 
 # Import data from EViews
 
-Use `import` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
-
-```{r}
-#| label: fig-import
-#| fig.cap: Plots of imported EViews series objects
-#| dpi: 300
-
-import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
-plot(import$eviewsrpage,type="l",ylab="EviewsR",col="red")
-ggplot2::autoplot(import$eviewsrpage,facet='')
-```
 
 
 
