@@ -398,21 +398,47 @@ To import table objects on specific pages
 
 
 
-```{r importTable1}
-import_table(wf="EviewsR_workfile",page=" EviewsRPage",tabl)
+```{r importTable2}
+import_table(wf="EviewsR_workfile",page=" EviewsRPage")
 
 ```
 
-# Simulation of random walk 
+To access the table in base R
+
+```{r,echo=TRUE,eval=FALSE}
+eviews$eviewspage_olstable
+```
+
+### The import_workfile() function
+
+Import EViews equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
+
+
+
+### Simulation of random walk 
 
 A set of random walk series can be simulated in R using EViews engine, thanks to `rwalk` function.
 
 
 ```{r rwalk}
-rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100)
+
+rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",num_observations=100,class='xts')
 
 ```
 
+
+```{r}
+#| label: fig-rwalk
+#| fig.cap: Plots of imported EViews series objects
+#| dpi: 300
+#| out.width: 45%
+#| fig.asp: 0.65
+
+
+xts::plot.xts(rwalk$xyz,type="l",main = "")
+
+ggplot2::autoplot(rwalk$xyz,facet='')
+```
 
 
 

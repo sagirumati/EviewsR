@@ -28,7 +28,7 @@
 #'
 #' # To get the values above in R Markdown or Quarto
 #'
-#' chunkLabel$eviewspage_olstable
+#' # chunkLabel$eviewspage_olstable
 #'
 #'}
 #' @family important functions
