@@ -24,6 +24,15 @@ library(EviewsR)
 library(knitr)
 ```
 
+<style>
+h1{
+color:DarkGreen;
+}
+h2{
+color:Green;
+}
+</style>
+
 # About EviewsR
 
 EviewsR is an R package that can run Eviews program from R. It also adds `eviews` as knit-engine to `knitr` package.
@@ -69,9 +78,9 @@ Please load the EviewsR package as follows:
 
 The package can work with base R, R Markdown or Quarto document.
 
-# EviewsR along with R Markdown or Quarto document
+## EviewsR along with R Markdown or Quarto document
 
-A chunk for Eviews can be created by supplying `eviews` as the engine name in R Markdown or Quarto document as shown below :
+After loading the package, a chunk for Eviews can be created by supplying `eviews` as the engine name in R Markdown or Quarto document as shown below :
 
     ```{eviews} `r ''`
     #| label: fig-EviewsR
@@ -90,7 +99,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name in R 
       genr y=rnd
       genr x=rnd
       equation ols.ls y c x
-      freeze(EviewsROLS,mode=overwrite) ols
+      freeze(OLSTable,mode=overwrite) ols
       freeze(EviewsR_Plot,mode=overwrite) y.line
       wfsave EviewsR_workfile
     ```  
@@ -114,7 +123,7 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name in R 
   genr x=rnd
   equation ols.ls y c x
 
-  freeze(EviewsROLS,mode=overwrite) ols
+  freeze(OLSTable,mode=overwrite) ols
   freeze(yy,mode=overwrite) y.line
   freeze(xx,mode=overwrite) x.line
   wfsave EviewsR_workfile
@@ -124,12 +133,13 @@ A chunk for Eviews can be created by supplying `eviews` as the engine name in R 
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkName$equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$ols$r2[1]')` ``. `r EviewsR$ols$r2`
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkName$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$viewsr_page_ols$r2')` ``. 
 
 ```{r}
 EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
-EviewsR$eviewsrols
+EviewsR$eviewsr_page_ols$aic
+EviewsR$eviewsr_page_olstable[7:9,1:5] |> as.matrix()
 ```
 
 # Creating a workfile from R
@@ -156,7 +166,7 @@ exec_commands(c('wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022',
 '  genr y=rnd',
   'genr x=rnd',
   'equation ols.ls y c x',
-  'freeze(EviewsROLS,mode=overwrite) ols',
+  'freeze(OLSTable,mode=overwrite) ols',
   'freeze(EviewsR_Plot,mode=overwrite) y.line',
   'wfsave EviewsR_workfile',
   'exit'))
@@ -190,7 +200,7 @@ For the OLS result only:
 
 ```{r importTable}
 # options(knitr.kable.NA = '')
-import_kable(wf="EViewsR_workfile",page="EviewsR_page",table = "EViewsrOLS",range = "r7c1:r10c5",digits=3)
+import_kable(wf="EViewsR_workfile",page="EviewsR_page",table = "OLSTable",range = "r7c1:r10c5",digits=3)
 ```
 
 # Saving EViews workfile
