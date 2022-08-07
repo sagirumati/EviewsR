@@ -182,7 +182,7 @@ object_type="series",expression="y^2")
 ```
 
 
-# The eviews_graph() function
+### The eviews_graph() function
 
 EViews graphs can be included in R Markdown or Quarto document by `eviews_graph()` function. 
 
@@ -204,6 +204,7 @@ We can also create objects from an R dataframe
 ```{r}
 #| label: fig-eviewsGraph1
 #| fig.cap: Graphs of an R dataframe imported by fig-eviewsGraph1 chunk
+#| out.width: 90%
 
 Data=data.frame(x=cumsum(rnorm(100)),y=cumsum(rnorm(100)))
 
@@ -211,36 +212,90 @@ eviews_graph(series=Data,group=TRUE,start_date="1990Q4",frequency="Q")
  
 ```
 
+# The eviews_import() function
+
+Data can be imported from external sources by `eviews_import()` function.
+
+```{r,eval=TRUE,echo=FALSE}
+write.csv(Data,"eviews_import.csv",row.names = FALSE)
+
+```
 
 
-### Creating a workfile from R
+```{r eviewsImport}
+eviews_import(source_description = "eviews_import.csv",start_date = "1990",frequency = "m",
+rename_string = "x ab",smpl_string = "1990m10 1992m10")
+```
 
-An Eviews workfile can be created using `eviews_wfcreate` function in R.
+Alternatively, use the dataframe as the `source_description`.
+
+
+```{r}
+eviews_import(source_description = Data,wf="eviews_import1",start_date = "1990",
+frequency = "m",rename_string = "x ab",smpl_string = "1990m10 1992m10")
+```
+
+
+### The eviews_pagesave() function 
+
+Similar to Eviews workfile, an Eviews page can be saved in various formats by `eviews_pagesave()` function.
+
+```{r pagesave}
+eviews_pagesave(wf="eviewsr_workfile",page="EviewsRPage",source_description = "pagesave.csv",drop_list = "y")
+
+```
+
+### The eviews_wfcreate() function 
+
+An Eviews workfile can be created using `eviews_wfcreate()` function in R.
 
 ```{r wfcreate}
-eviews_wfcreate(wf="EviewsR_workfile",page="EviewsRPage",frequency = "m",
+eviews_wfcreate(wf="eviews_wfcreate",page="EviewsRPage",frequency = "m",
 start_date = "1990",end_date = "2022")
 
 ```
 
-# Executing EViews commands in R
+Create a workfile from a dataframe
 
-A set of Eviews commands can be executed with the help of `exec_commands` function in R. The above Eviews chunk can be translated using this function.
+```{r}
+
+eviews_wfcreate(source_description=Data,wf="eviews_wfcreate1",page="EviewsR_page",frequency="m",
+start_date="1990")
+
+```
+
+### The eviews_wfsave() function
+
+An EViews workfile can be saved various output formats using `eviews_wfsave()` in function in R.
+
+```{r wfsave}
+eviews_wfsave(wf="eviewsr_workfile",source_description = "wfsave.csv")
+```
+
+
+# The exec_commands() function
+
+A set of Eviews commands can be executed with the help of `exec_commands()` function in R.
 
 ```{r execCommands} 
-exec_commands(c('wfcreate(page=EviewsRPage,wf=EviewsR_workfile) m 2000 2022',
-  'for %y EviewsR package page1 page2',
-  'pagecreate(page={%y}) EviewsR m 2000 2022',
-  'next',
-'  pageselect EviewsRPage',
-  'rndseed 123456',
-'  genr y=rnd',
-  'genr x=rnd',
-  'equation ols.ls y c x',
-  'freeze(OLSTable,mode=overwrite) ols',
-  'freeze(EviewsR_Plot,mode=overwrite) y.line',
-  'wfsave EviewsR_workfile',
-  'exit'))
+exec_commands(c("wfcreate(wf=exec_commands,page=eviewsPage) m 2000 2022"))
+
+```
+
+```{r}
+eviewsCommands=r'(pagecreate(page=eviewspage1) 7 2020 2022
+for %page eviewspage eviewspage1
+pageselect {%page}
+genr y=@cumsum(nrnd)
+genr x=@cumsum(nrnd)
+equation ols.ls y c x
+graph x_graph.line x
+graph y_graph.area y
+freeze(OLSTable,mode=overwrite) ols
+next
+)'
+
+exec_commands(commands=eviewsCommands,wf="exec_commands")
 
 ```
 
@@ -267,31 +322,8 @@ For the OLS result only:
 import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",range = "r7c1:r10c5",digits=3)
 ```
 
-# Saving EViews workfile
 
-An EViews workfile can be saved various output formats using `eviews_wfsave` in function in R.
 
-```{r wfsave}
-eviews_wfsave(wf="eviewsr_workfile",source_description = "EviewsR_wfsave.csv")
-```
-
-# Saving EViews page
-
-Similar to Eviews workfile, an Eviews page can be saved in various formats by `eviews_pagesave` function.
-
-```{r pagesave}
-eviews_pagesave(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv",drop_list = "y")
-
-```
-
-# Importing data to EViews
-
-Data can be imported from external sources by `eviews_import` function.
-
-```{r eviewsImport}
-eviews_import(wf="eviewsr_workfile",source_description = "EviewsR_pagesave.csv")
-
-```
 
 
 # Import data from EViews
