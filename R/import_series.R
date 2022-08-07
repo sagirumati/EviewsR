@@ -40,9 +40,9 @@
 #'
 #' eviews$eviewspage |> head()
 #'
-#' # To get the values above in R Markdown or Quarto
+#' # To get the values above in R Markdown or Quarto:
 #'
-#' chunkLabel$eviewspage
+#' # chunkLabel$eviewspage
 #'
 #'}
 #' @family important functions
