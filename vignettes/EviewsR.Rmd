@@ -37,6 +37,10 @@ h2{
 color:Green;
  border:5px solid #FFC704;
  filter: saturate(50%);
+h3{
+color:Green;
+ border:3px solid yellow;
+ filter: saturate(70%); 
  }
  
 </style>
@@ -139,7 +143,7 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 ```
 
 
-The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
+The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an EViews workfile named `EviewsR_workfile` in the current directory.
 
 The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsrpage_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
@@ -148,17 +152,63 @@ EviewsR$eviewsrpage_ols$r2
 EviewsR$eviewsrpage_ols$aic
 K=EviewsR$eviewsrpage_olstable[c(6,8,9),1:5] 
 colnames(K)=NULL 
-knitr::kable(K,row.names = F,caption = 'Selected cell of  EViews table object')
+knitr::kable(K,row.names = F,caption = 'Selected cells of  EViews table object')
 ```
 
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
 
 ```{r}
-EviewsR$eviews_page |> head()
+EviewsR$eviewsrpage |> head()
 
 ```
 
-# Creating a workfile from R
+
+## EviewsR along with base R
+
+
+### The create_object() function
+
+The function `create_object()` can be used to create an Eviews object in the existing EViews workfile.
+
+```{r object}
+create_object(wf="EviewsR_workfile",action="equation",action_opt="",object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
+
+```
+
+```{r object1}
+create_object(wf="EviewsR_workfile",object_name="x1",
+object_type="series",expression="y^2")
+
+```
+
+
+# EViews graph
+
+EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
+
+```{r}
+#| label: fig-eviewsGraph
+#| fig.caption: EViews graphs imported by fig-eviewsGraph chunk
+eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",mode = "overwrite",
+graph_options = "m")
+
+```
+
+We can also crea
+```{r eviewsGraph1,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
+
+y=runif(100)
+x=runif(100)
+uu=data.frame(x,y)
+
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y z",mode = "overwrite",graph_options = "s",group =T)
+ 
+ 
+```
+
+
+
+### Creating a workfile from R
 
 An Eviews workfile can be created using `eviews_wfcreate` function in R.
 
@@ -199,14 +249,7 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 
 ```
 
-# Creating EViews object
 
-The function `create_object` can be used to create an Eviews object in the existing EViews workfile.
-
-```{r object}
-create_object(wf="EviewsR_workfile",action="equation",action_opt="",object_name="eviews_equation",view_or_proc="ls",options_list="",arg_list="y ar(1)")
-
-```
 
 # Importing table as kable
 
@@ -270,21 +313,6 @@ export_dataframe(wf="eviewr_export",source_description=import$eviewsrpage,start_
 ```
 
 <br><br><br><br>
-
-# EViews graph
-
-EViews graph can be included in R Markdown or Quarto document by `eviews_graph` function. 
-
-```{r eviewsGraph,fig.cap="EviewsR example figure",out.width='80%',out.height='80%'}
-
-y=runif(100)
-x=runif(100)
-uu=data.frame(x,y)
-
- eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y z",mode = "overwrite",graph_options = "s",group =T)
- 
- 
-```
 
 
 
