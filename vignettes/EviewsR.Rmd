@@ -98,11 +98,11 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
         'This program is created in R Markdown with the help of EviewsR package
       
-      wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+      wfcreate(page=EviewsRPage,wf=EviewsR_workfile) m 2000 2022
       for %y EviewsR package page1 page2
       pagecreate(page={%y}) EviewsR m 2000 2022
       next
-      pageselect EviewsR_page
+      pageselect EviewsRPage
       rndseed 123456
       genr y=rnd
       genr x=rnd
@@ -121,11 +121,11 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
     
 'This program is created in R Markdown with the help of EviewsR package
   
-  wfcreate(page=EviewsR_page,wf=EviewsR_workfile) m 2000 2022
+  wfcreate(page=EviewsRPage,wf=EviewsR_workfile) m 2000 2022
   for %y EviewsR package page1 page2
   pagecreate(page={%y}) EviewsR m 2000 2022
   next
-  pageselect EviewsR_page
+  pageselect EviewsRPage
   rndseed 123456
   genr y=rnd
   genr x=rnd
@@ -141,12 +141,14 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsr_page_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsr_page_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsrpage_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
 ```{r}
-EviewsR$eviewsr_page_ols$r2
-EviewsR$EviewsRPage_ols$aic
-EviewsR$EviewsRPage_olstable
+EviewsR$eviewsrpage_ols$r2
+EviewsR$eviewsrpage_ols$aic
+K=EviewsR$eviewsrpage_olstable[c(6,8,9),1:5] 
+colnames(K)=NULL 
+knitr::kable(K,row.names = F,caption = 'Selected cell of  EViews table object')
 ```
 
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
@@ -214,7 +216,7 @@ For the OLS result only:
 
 ```{r importTable}
 # options(knitr.kable.NA = '')
-import_kable(wf="EViewsR_workfile",page="EviewsR_page",table = "OLSTable",range = "r7c1:r10c5",digits=3)
+import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",range = "r7c1:r10c5",digits=3)
 ```
 
 # Saving EViews workfile
@@ -254,8 +256,8 @@ Use `import` function to import data from EViews to R as a dataframe. The functi
 #| dpi: 300
 
 import_series(wf="eviewsr_workfile",series = c("x","y"),class='xts')
-plot(import$eviewsr_page,type="l",ylab="EviewsR",col="red")
-ggplot2::autoplot(import$eviewsr_page,facet='')
+plot(import$eviewsrpage,type="l",ylab="EviewsR",col="red")
+ggplot2::autoplot(import$eviewsrpage,facet='')
 ```
 
 # Exporting dataframe to EViews
@@ -263,7 +265,7 @@ ggplot2::autoplot(import$eviewsr_page,facet='')
 Use `export` function to export dataframe object to Eviews.
 
 ```{r export}
-export_dataframe(wf="eviewr_export",source_description=import$eviewsr_page,start_date = '1990',frequency = "m")
+export_dataframe(wf="eviewr_export",source_description=import$eviewsrpage,start_date = '1990',frequency = "m")
 
 ```
 
@@ -279,7 +281,7 @@ y=runif(100)
 x=runif(100)
 uu=data.frame(x,y)
 
- eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",graph_options = "s",group =T)
+ eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y z",mode = "overwrite",graph_options = "s",group =T)
  
  
 ```
