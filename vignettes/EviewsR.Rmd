@@ -133,13 +133,20 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an Eviews workfile named `EviewsR` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkName$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$viewsr_page_ols$r2')` ``. 
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsr_page_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsr_page_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsr_page_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
 ```{r}
 EviewsR$ols$r2
 EviewsR$eviewsr_page_ols$r2
 EviewsR$eviewsr_page_ols$aic
-EviewsR$eviewsr_page_olstable[7:9,1:5] |> as.matrix()
+EviewsR$eviewsr_page_olstable[7:9,2:5] |> kable()
+```
+
+The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
+
+```{r}
+EviewsR$eviews_page |> head()
+
 ```
 
 # Creating a workfile from R
@@ -267,7 +274,6 @@ uu=data.frame(x,y)
 
  eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y z",mode = "overwrite",graph_options = "s",group =T)
  
-  # eviews_graph(wf="EviewsR_workfile",page = "EviewsR_page",series="x y",mode = "overwrite",options = "m",merge_graphs =F,start_date="1",frequency="5",save_path = '')
  
 ```
 
@@ -277,7 +283,7 @@ uu=data.frame(x,y)
 
 The demo files are included and can be accessed via demo(package="EviewsR")
 
-```{r demo,eval=T}
+```{r demo,eval=F}
 demo(create_object())
 demo(eviews_graph())
 demo(eviews_wfcreate())
