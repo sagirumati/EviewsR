@@ -3,28 +3,6 @@ EviewsR: A Seamless Integration of Eviews and R
 Sagiru Mati
 August 8, 2022
 
-<style>
-img{
-border:5px solid cyan;
-}
-h1{
-text-align: center;
-border:5px solid #FFC704;
-color:DarkGreen;
-}
-h2{
-color:Green;
- border:5px solid #FFC704;
- filter: saturate(50%);
-}
-h3{
-color:Green;
- border:3px solid #FFC704;
- filter: saturate(75%);
- }
- 
-</style>
-
 # EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
 <!-- badges: start -->
