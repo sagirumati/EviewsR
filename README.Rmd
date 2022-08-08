@@ -1,7 +1,7 @@
 ---
 title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
-date: "`r Sys.Date()`"
+date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
 output: bookdown::github_document2
 ---
 
@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
   fig.align = "center",
   tidy = TRUE,
   tidy.opts = list(blank = FALSE, width.cutoff = 60),
-  fig.ncol= 2
+  fig.ncol= 2,
+  fig.path = 'inst/figures/'
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
@@ -44,7 +45,8 @@ Department of Economics, Yusuf Maitama Sule (Northwest) University,
 Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more
 details.
 
-Please follow his publications on **ORCID: 0000-0003-1413-3974**
+Please follow his publications on [**ORCID: 0000-0003-1413-3974**](https://orcid.org/0000-0003-1413-3974)
+
 
 
 
