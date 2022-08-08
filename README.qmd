@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
   fig.align = "center",
   tidy = TRUE,
   tidy.opts = list(blank = FALSE, width.cutoff = 60),
-  fig.ncol= 2
+  fig.ncol= 2,
+  fig.path = "inst/figures"
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
