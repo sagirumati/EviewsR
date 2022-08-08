@@ -1,4 +1,5 @@
 library(EviewsR)
+library(ggplot2)
 
 # Simulate random walk and return as a dataframe object
 
@@ -13,7 +14,7 @@ rwalk(series="X Y Z",rndseed=12345,start_date = 1990,frequency="m",num_observati
 
 plot(eviews$xyz)
 
-ggplot2::autoplot(eviews$xyz,facet="")+xlab("")
+autoplot(eviews$xyz,facet="")+xlab("")
 
 
 plot(eviews$XYZ)
