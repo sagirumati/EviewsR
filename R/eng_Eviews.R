@@ -519,7 +519,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
 
 
   if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
-    strsplit(split=" ") %>% unlist()
+    strsplit(split=" ") %>% unlist() %>% tolower()
 
   if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
   if(any(graph1=="asc")) graphPath %<>% sort
@@ -527,6 +527,8 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   if(identical(graph1,"asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
 
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
+
+
   eviewsGraphics=paste0(save_path1,'/',graphPath,'.',extension)
 
 }

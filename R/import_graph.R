@@ -217,7 +217,7 @@ on.exit(unlink(paste0(eviewsrText1,'-graph.txt')),add = TRUE)
 
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))){
   graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
-  strsplit(split=" ") %>% unlist()
+  strsplit(split=" ") %>% unlist() %>% tolower()
 
 
 if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)

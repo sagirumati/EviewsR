@@ -367,7 +367,7 @@ on.exit(unlink(paste0(eviewsrText1,"-graph.txt")),add = TRUE)
 
 
 if(file.exists(paste0(eviewsrText1,"-graph.txt"))) graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
-  strsplit(split=" ") %>% unlist()
+  strsplit(split=" ") %>% unlist() %>% tolower()
 
 if(!save_copy) on.exit(unlink(eviewsGraphics),add = TRUE)
 
