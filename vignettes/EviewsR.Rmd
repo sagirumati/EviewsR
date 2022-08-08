@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=T,
+  eval=F,
   out.width = "45%",
   out.height = "20%",
   fig.show="hold"
