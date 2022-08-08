@@ -472,22 +472,22 @@ ggplot2::autoplot(rwalk$xyz,facet='')
 
 The demo files are included and can be accessed via `demo(package="EviewsR")`
 
-```{r demo,eval=T}
-# demo(create_object())
-# demo(eviews_graph())
-# demo(eviews_import())
-# demo(eviews_pagesave())
-# demo(eviews_wfcreate())
-# demo(eviews_wfsave())
-# demo(exec_commands())
-#  demo(export_dataframe())
+```{r demo,eval=F}
+demo(create_object())
+demo(eviews_graph())
+demo(eviews_import())
+demo(eviews_pagesave())
+demo(eviews_wfcreate())
+demo(eviews_wfsave())
+demo(exec_commands())
+demo(export_dataframe())
 # demo(import_equation())
 # demo(import_graph())
 # demo(import_kable())
 # demo(import_series())
 # demo(import_table())
 # demo(import_workfile())
- demo(rwalk())
+  # demo(rwalk())
  demo(set_eviews_path())
 ```
 

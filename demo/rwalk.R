@@ -17,7 +17,6 @@ plot(eviews$xyz)
 autoplot(eviews$xyz,facet="")+xlab("")
 
 
-plot(eviews$XYZ)
 
 # To simulate random walk series on existing workfile
 
