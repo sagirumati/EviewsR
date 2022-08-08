@@ -121,14 +121,14 @@ as shown below :
     ```  
 
 <figure>
-<img src="README_files/figure-gfm//EviewsREviewsRPage-XX.png"
+<img src="README_files/figure-gfm/EviewsREviewsRPage-XX.png"
 id="fig-EviewsR-1" data-fig-align="center"
 style="width:45.0%;height:20.0%" alt="Figure 1: X graph" />
 <figcaption aria-hidden="true">Figure 1: X graph</figcaption>
 </figure>
 
 <figure>
-<img src="README_files/figure-gfm//EviewsREviewsRPage-YY.png"
+<img src="README_files/figure-gfm/EviewsREviewsRPage-YY.png"
 id="fig-EviewsR-2" data-fig-align="center"
 style="width:45.0%;height:20.0%" alt="Figure 2: Y graph" />
 <figcaption aria-hidden="true">Figure 2: Y graph</figcaption>
@@ -217,7 +217,7 @@ eviews_graph(wf = "EviewsR_workfile", page = "EviewsRPage", series = "x y",
 ```
 
 <figure>
-<img src="README_files/figure-gfm//eviewsGraph-EviewsRPage-X.png"
+<img src="README_files/figure-gfm/eviewsGraph-EviewsRPage-X.png"
 id="fig-eviewsGraph-1" data-fig-align="center"
 style="width:45.0%;height:30.0%"
 alt="Figure 3: Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" />
@@ -226,7 +226,7 @@ series objects imported by fig-eviewsGraph chunk</figcaption>
 </figure>
 
 <figure>
-<img src="README_files/figure-gfm//eviewsGraph-EviewsRPage-Y.png"
+<img src="README_files/figure-gfm/eviewsGraph-EviewsRPage-Y.png"
 id="fig-eviewsGraph-2" data-fig-align="center"
 style="width:45.0%;height:30.0%"
 alt="Figure 4: Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" />
@@ -243,7 +243,7 @@ eviews_graph(series = Data, group = TRUE, start_date = "1990Q4",
 ```
 
 <figure>
-<img src="README_files/figure-gfm//eviewsGraph1-Eviewsgraph1-XY.png"
+<img src="README_files/figure-gfm/eviewsGraph1-Eviewsgraph1-XY.png"
 id="fig-eviewsGraph1" data-fig-align="center"
 style="width:90.0%;height:70.0%"
 alt="Figure 5: Graphs of an R dataframe imported by fig-eviewsGraph1 chunk" />
@@ -358,7 +358,7 @@ import_graph(wf = "eviewsr_workfile")
 ```
 
 <figure>
-<img src="README_files/figure-gfm//fig-importGraph-EviewsRPage-XX.png"
+<img src="README_files/figure-gfm/fig-importGraph-EviewsRPage-XX.png"
 id="fig-importGraph-1" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 6: EViews graphs imported using import_graph() function" />
@@ -367,7 +367,7 @@ import_graph() function</figcaption>
 </figure>
 
 <figure>
-<img src="README_files/figure-gfm//fig-importGraph-EviewsRPage-YY.png"
+<img src="README_files/figure-gfm/fig-importGraph-EviewsRPage-YY.png"
 id="fig-importGraph-2" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 7: EViews graphs imported using import_graph() function" />
@@ -383,7 +383,7 @@ import_graph(wf = "exec_commands", graph = "x*")
 
 <figure>
 <img
-src="README_files/figure-gfm//fig-importGraph1-eviewsPage-X_GRAPH.png"
+src="README_files/figure-gfm/fig-importGraph1-eviewsPage-X_GRAPH.png"
 id="fig-importGraph1-1" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 8: EViews graphs that begin with X imported using import_graph() function" />
@@ -393,7 +393,7 @@ imported using import_graph() function</figcaption>
 
 <figure>
 <img
-src="README_files/figure-gfm//fig-importGraph1-eviewspage1-X_GRAPH.png"
+src="README_files/figure-gfm/fig-importGraph1-eviewspage1-X_GRAPH.png"
 id="fig-importGraph1-2" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 9: EViews graphs that begin with X imported using import_graph() function" />
@@ -506,7 +506,7 @@ import_workfile(wf = "EviewsR_workfile")
 
 <figure>
 <img
-src="README_files/figure-gfm//fig-importWorkfile-EviewsRPage-XX.png"
+src="README_files/figure-gfm/fig-importWorkfile-EviewsRPage-XX.png"
 id="fig-importWorkfile-1" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 10: EViews graphs automatically imported by import_workfile() function" />
@@ -516,7 +516,7 @@ imported by import_workfile() function</figcaption>
 
 <figure>
 <img
-src="README_files/figure-gfm//fig-importWorkfile-EviewsRPage-YY.png"
+src="README_files/figure-gfm/fig-importWorkfile-EviewsRPage-YY.png"
 id="fig-importWorkfile-2" data-fig-align="center"
 style="width:45.0%;height:20.0%"
 alt="Figure 11: EViews graphs automatically imported by import_workfile() function" />
