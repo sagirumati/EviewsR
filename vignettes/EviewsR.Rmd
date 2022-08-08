@@ -26,6 +26,22 @@ library(ggplot2)
 ```
 
 <style>
+
+img1 {
+  border:5px solid red;
+  animation: myanimation 2s infinite;
+}
+
+@keyframes myanimation {
+  from {
+     border:5px solid red;
+  }
+  to {
+     border:5px solid yellow;
+  }
+}
+
+
 img{
 border:5px solid cyan;
 }
