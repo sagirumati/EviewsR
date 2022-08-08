@@ -1,7 +1,7 @@
 EviewsR: A Seamless Integration of Eviews and R
 ================
 Sagiru Mati
-2022-08-08
+August 8, 2022
 
 <style>
 img{
