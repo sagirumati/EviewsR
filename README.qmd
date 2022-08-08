@@ -2,9 +2,7 @@
 title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
-output: 
-  bookdown::pdf_document2:
-    extra_dependencies: 'subfig'
+format: gfm
 ---
 
 
@@ -19,7 +17,8 @@ knitr::opts_chunk$set(
   fig.show="hold",
   fig.align = "center",
   tidy = TRUE,
-  tidy.opts = list(blank = FALSE, width.cutoff = 60)
+  tidy.opts = list(blank = FALSE, width.cutoff = 60),
+  fig.ncol= 2
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
@@ -49,9 +48,32 @@ color:Green;
  
 </style>
 
+
+# EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
+
+<!-- badges: start -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
+[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/grand-total/EviewsR?color=49C31B)](https://cranlogs.r-pkg.org/badges/grand-total/EviewsR?color=49C31B)
+[![](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)
+
+<!-- badges: end -->
+
+
+# About the Author
+
+The author of this package, **Sagiru Mati**, obtained his PhD in
+Economics from the Near East University, North Cyprus. He works at the
+Department of Economics, Yusuf Maitama Sule (Northwest) University,
+Kano, Nigeria. Please visit his [website](https://smati.com.ng) for more
+details.
+
+Please follow his publications on **ORCID: 0000-0003-1413-3974**
+
+
+
 # About EviewsR
 
-EviewsR is an R package that can run Eviews program from R. It also adds `eviews` as knit-engine to `knitr` package.
+EviewsR is an R package that can run EViews program in R. It also adds `eviews` as a knit-engine to `knitr` package, so that users can embed EViews codes in  R Markdown and Quarto document.
 
 # Installation
 
@@ -355,9 +377,9 @@ import_graph(wf="exec_commands",graph="x*")
 
 Eviews tables can be imported as `kable` object by `import_kable()` function. Therefore, we can include the 
 
-```{r importKable,tidy=FALSE}
-import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",
-caption = "Selected cells of EViews table imported using import\\_kable() function",
+```{r importKable}
+import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",format = "html",
+caption = "Selected cells of EViews table imported using import_kable() function",
 range = "r7c1:r10c5",digits=3)
 ```
 
@@ -460,6 +482,7 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 #| dpi: 300
 #| out.width: 45%
 #| fig.dim: [7,4]
+#| fig.show: hold
 
 
 xts::plot.xts(rwalk$xyz,type="l",main = "")
