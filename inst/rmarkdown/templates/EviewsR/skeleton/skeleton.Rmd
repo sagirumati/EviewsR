@@ -5,15 +5,17 @@ date: "`r Sys.Date()`"
 output: bookdown::html_document2
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F,
+  eval=T,
   out.width = "45%",
   out.height = "20%",
-  fig.show="hold"
+  fig.show="hold",
+  fig.align = "center"
 )
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
