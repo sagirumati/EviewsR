@@ -1,6 +1,5 @@
 ---
 title: "EviewsR: A Seamless Integration of Eviews and R"
-author: "Sagiru Mati"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
 output: bookdown::github_document2
 ---

@@ -1,6 +1,5 @@
 EviewsR: A Seamless Integration of Eviews and R
 ================
-Sagiru Mati
 Monday: August 08, 2022
 
 # 1 EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />

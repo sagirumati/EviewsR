@@ -55,9 +55,9 @@ import_series(wf="exec_commands",page="eviewspage")
 
 eviews$eviewspage |> head()
 
-# To get the values above in R Markdown or Quarto
+# To get the values above in R Markdown or Quarto:
 
-chunkLabel$eviewspage
+# chunkLabel$eviewspage
 
 }
 }

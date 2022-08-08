@@ -28,7 +28,7 @@ demo(exec_commands)
 
 import_table(wf="exec_commands")
 
-# To import specific table objects, for example starting with Y
+# To import specific table objects, for example for example `OLSTable`
 
 import_table(wf="exec_commands",table="OLStable")
 
@@ -42,7 +42,7 @@ eviews$eviewspage_olstable
 
 # To get the values above in R Markdown or Quarto
 
-chunkLabel$eviewspage_olstable
+# chunkLabel$eviewspage_olstable
 
 }
 }
