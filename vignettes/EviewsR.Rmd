@@ -1,10 +1,10 @@
 ---
-title: "EviewsR: Seamless Integration of Eviews and R"
+title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{EviewsR: Seamless Integration of Eviews and R}
+  %\VignetteIndexEntry{EviewsR: A Seamless Integration of Eviews and R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -356,11 +356,10 @@ import_kable(wf="EViewsR_workfile",page="EviewsRPage",table = "OLSTable",range =
 
 ### The import_series() function
 
-Use `import` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$object_name`.
+Use `import_series()` function to import data from EViews to R as a dataframe. The function creates a new environment `eviews`, whose objects can be accessed via `eviews$pageName`.
 
 ```{r importSeries}
 import_series(wf="eviewsr_workfile")
-
 ```
 
 To access the series in base R:
