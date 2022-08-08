@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=T,
+  eval=F,
   out.width = "45%",
   out.height = "20%",
   fig.show="hold"
@@ -218,7 +218,7 @@ eviews_graph(series=Data,group=TRUE,start_date="1990Q4",frequency="Q")
 
 Data can be imported from external sources by `eviews_import()` function.
 
-```{r,eval=TRUE,echo=FALSE}
+```{r,echo=FALSE}
 write.csv(Data,"eviews_import.csv",row.names = FALSE)
 
 ```
@@ -470,25 +470,25 @@ ggplot2::autoplot(rwalk$xyz,facet='')
 
 ### Demo
 
-The demo files are included and can be accessed via demo(package="EviewsR")
+The demo files are included and can be accessed via `demo(package="EviewsR")`
 
 ```{r demo,eval=T}
-demo(create_object())
-demo(eviews_graph())
-demo(eviews_import())
-demo(eviews_pagesave())
-demo(eviews_wfcreate())
-demo(eviews_wfsave())
-demo(exec_commands())
-demo(export_dataframe())
-demo(import_equation())
-demo(import_graph())
-demo(import_kable())
-demo(import_series())
-demo(import_table())
-demo(import_workfile())
-demo(rwalk())
-demo(set_eviews_path())
+# demo(create_object())
+# demo(eviews_graph())
+# demo(eviews_import())
+# demo(eviews_pagesave())
+# demo(eviews_wfcreate())
+# demo(eviews_wfsave())
+# demo(exec_commands())
+#  demo(export_dataframe())
+# demo(import_equation())
+# demo(import_graph())
+# demo(import_kable())
+# demo(import_series())
+# demo(import_table())
+# demo(import_workfile())
+ demo(rwalk())
+ demo(set_eviews_path())
 ```
 
 # Template
