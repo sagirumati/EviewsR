@@ -183,7 +183,7 @@ eviews_graph(wf = "EviewsR_workfile", page = "EviewsRPage", series = "x y",
 
 <img src="inst/figures//eviewsgraph-eviewsrpage-x.png" title="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" style="display: block; margin: auto;" /><img src="inst/figures//eviewsgraph-eviewsrpage-y.png" title="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" style="display: block; margin: auto;" />
 
-We can also create objects from an R dataframe
+We can also create graph objects from an R dataframe
 
 ``` r
 Data = data.frame(x = cumsum(rnorm(100)), y = cumsum(rnorm(100)))
@@ -508,8 +508,6 @@ ggplot2::autoplot(rwalk$xyz, facet = "")
 ```
 
 <img src="inst/figures/fig-rwalk-1.png" title="Plots of imported EViews random walk series objects" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" style="display: block; margin: auto;" /><img src="inst/figures/fig-rwalk-2.png" title="Plots of imported EViews random walk series objects" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" style="display: block; margin: auto;" />
-
-<br><br><br><br>
 
 ### 7.2.16 Demo
 

@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   out.height = "20%",
   fig.show="hold",
   fig.align = "center",
+  dpi = 300,
   tidy = TRUE,
   tidy.opts = list(blank = FALSE, width.cutoff = 60),
   fig.ncol= 2,
@@ -203,7 +204,7 @@ graph_options = "m")
 
 ```
 
-We can also create objects from an R dataframe
+We can also create graph objects from an R dataframe
 
 ```{r}
 #| label: fig-eviewsGraph1
@@ -467,11 +468,6 @@ xts::plot.xts(rwalk$xyz,type="l",main = "")
 
 ggplot2::autoplot(rwalk$xyz,facet='')
 ```
-
-
-
-<br><br><br><br>
-
 
 
 ### Demo
