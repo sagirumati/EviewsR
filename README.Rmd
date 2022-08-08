@@ -2,7 +2,7 @@
 title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: "`r Sys.Date()`"
-output: md_document
+output: bookdown::github_document2
 ---
 
 
