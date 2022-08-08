@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F,
+  eval=T,
   out.width = "45%",
   out.height = "20%",
   fig.show="hold"
@@ -454,7 +454,7 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 #| fig.cap: Plots of imported EViews random walk series objects
 #| dpi: 300
 #| out.width: 45%
-#| fig.asp: 0.65
+#| fig.dim: [7,4]
 
 
 xts::plot.xts(rwalk$xyz,type="l",main = "")
@@ -472,7 +472,7 @@ ggplot2::autoplot(rwalk$xyz,facet='')
 
 The demo files are included and can be accessed via `demo(package="EviewsR")`
 
-```{r fig-eviews,eval=T,dpi=300,out.width="90%",fig.asp=0.7}
+```{r fig-eviews,eval=F,fig.dim=c(7,4),dpi=300,out.width="45%"}
 demo(create_object())
 demo(eviews_graph())
 demo(eviews_import())
