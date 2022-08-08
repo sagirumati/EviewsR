@@ -3,9 +3,7 @@ title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: today
 date-format: long
-format: 
-  gfm:
-    number-sections: true
+format: hugo
 ---
 
 
