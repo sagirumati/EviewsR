@@ -37,10 +37,11 @@ h2{
 color:Green;
  border:5px solid #FFC704;
  filter: saturate(50%);
+}
 h3{
 color:Green;
- border:3px solid yellow;
- filter: saturate(70%); 
+ border:3px solid #FFC704;
+ filter: saturate(75%);
  }
  
 </style>
@@ -395,14 +396,12 @@ import_table(wf="EviewsR_workfile",table="OLStable")
 
 To import table objects on specific pages
 
-
-
 ```{r importTable2}
 import_table(wf="EviewsR_workfile",page=" EviewsRPage")
 
 ```
 
-To access the table in base R
+To access the table in base R (`eviews$pageName_tableName`)
 
 ```{r,echo=TRUE,eval=FALSE}
 eviews$eviewspage_olstable
@@ -412,11 +411,34 @@ eviews$eviewspage_olstable
 
 Import EViews equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
 
+To import all equation, graph, series and table objects across all pages
+
+```{r}
+#| label: fig-importWorkfile
+#| fig.cap: EViews graphs automatically imported by import_workfile() function
+
+import_workfile(wf="EviewsR_workfile")
+
+```
 
 
-### Simulation of random walk 
+To import specific objects
 
-A set of random walk series can be simulated in R using EViews engine, thanks to `rwalk` function.
+```{r importWorfile1,eval=FALSE,echo=TRUE}
+import_workfile(wf="exec_commands",equation="ols",graph="x*",series="y*",table="ols*")
+```
+
+
+To import objects on specific page(s)
+
+
+```{r importWorfile2,eval=FALSE,echo=TRUE}
+import_workfile(wf="exec_commands",page="eviewspage eviewspage1")
+```
+
+### The rwalk() function
+
+A set of random walk series can be simulated in R using EViews engine, thanks to `rwalk()` function.
 
 
 ```{r rwalk}
@@ -428,7 +450,7 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 
 ```{r}
 #| label: fig-rwalk
-#| fig.cap: Plots of imported EViews series objects
+#| fig.cap: Plots of imported EViews random walk series objects
 #| dpi: 300
 #| out.width: 45%
 #| fig.asp: 0.65
@@ -441,26 +463,31 @@ ggplot2::autoplot(rwalk$xyz,facet='')
 
 
 
-
-
-
-# Import data from EViews
-
-
-
-
 <br><br><br><br>
 
 
 
-# Demo
+### Demo
 
 The demo files are included and can be accessed via demo(package="EviewsR")
 
-```{r demo,eval=F}
+```{r demo,eval=T}
 demo(create_object())
 demo(eviews_graph())
+demo(eviews_import())
+demo(eviews_pagesave())
 demo(eviews_wfcreate())
+demo(eviews_wfsave())
+demo(exec_commands())
+demo(export_dataframe())
+demo(import_equation())
+demo(import_graph())
+demo(import_kable())
+demo(import_series())
+demo(import_table())
+demo(import_workfile())
+demo(rwalk())
+demo(set_eviews_path())
 ```
 
 # Template
