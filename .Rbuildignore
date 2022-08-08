@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 ^.*\.qmd$
 ^.*\.Rmd$
+^sagiru$

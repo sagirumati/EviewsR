@@ -469,7 +469,9 @@ eviews$eviewspage_olstable
 ### 7.2.14 The import_workfile() function
 
 Import EViews equation data members, graph, series and table objects(s)
-into R, R Markdown or Quarto.
+into R, R Markdown or Quarto. This function is a blend of
+`import_equation()`, `import_graph()`, `import_series()` and
+`import_table()` functions.
 
 To import all equation, graph, series and table objects across all pages
 
@@ -490,6 +492,16 @@ To import objects on specific page(s)
 
 ``` r
 import_workfile(wf = "exec_commands", page = "eviewspage eviewspage1")
+```
+
+To access the objects in base R:
+
+``` r
+eviews$eviewspage_ols  # equation
+# eviewspage-x_graph # graph saved in 'figure/' folder
+eviews$eviewspage |>
+    head()  # series
+eviews$eviewspage_olstable  # table
 ```
 
 ### 7.2.15 The rwalk() function

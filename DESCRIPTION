@@ -19,8 +19,8 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 7.2.1
 NeedsCompilation: no
-Packaged: 2020-05-08 15:31:44 UTC; Sagiru
+Packaged: 2022-08-08 15:31:44 UTC; Sagiru
 Repository: CRAN
 LazyData: false
-Date/Publication: 2020-05-08 17:10:03 UTC
+Date/Publication: 2022-08-08 17:10:03 UTC
 Config/testthat/edition: 3
