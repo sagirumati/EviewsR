@@ -58,33 +58,41 @@ EviewsR is an R package that can run EViews program in R. It also adds `eviews` 
 
 While the ecosystem of R is great, it cannot run EViews codes, not talk of handling EViews objects dynamically and reproducibly. Even though, EViews can communicate with R, users still need to switch to type-setting application to embed the EViews outputs. Specifically:
 
-* I wish I could dynamically import EViews outputs (graphs, tables, equation and series) into R, R Markdown or Quarto document without switching between these applications back and forth.
+* I wish I could embed EViews codes in R Markdown or Quarto document
 
-* I wish I could graph EViews series objects in R, R Markdown or Quarto.
+* I wish I could dynamically import the EViews outputs (graphs, tables, equation and series) individually or at once into R, R Markdown or Quarto document without switching between these applications back and forth.
 
-* I wish I could graph an R dataframe using EViews in R, R Markdown or Quarto without opening EViews!
+* I could use an R function in R, R Markdown or Quarto to:
+  
+  * graph EViews series objects.
 
+  * graph an R dataframe using EViews.
 
-* I wish I could use an R function in R, R Markdown or Quarto to import data as a new EViews workfile or into an existing workfile.
+  * import data from external sources such as `csv`, `xlsx` as a new EViews workfile or into an existing workfile.
 
+  * create an EViews workfile from an R dataframe
 
-* I wish I could use R function to create a workfile
+  * save an EViews workfile page as a workfile or another file format.
 
-* I wish I could use R function to save an EViews workfile page as a workfile or another file format.
+  * execute EViews codes.
 
-* I wish I could use an R function in R, R Markdown or Quarto to execute EViews codes.
+  * export an R dataframe as a new EViews workfile or to an existing EViews workfile.
 
-* I wish I could use R function to export an R dataframe a new EViews workfile or to an existing EViews workfile.
+  * save an EViews workfile as a workfile or another file format.
+  
+  * import EViews table object as `kable`.
+  
+  * import EViews series objects as a dataframe or `xts` object
+  
+  * import equation data members such as coefficients, standard errors, $R^2$ and so on.
+  
+  * import graph EViews graph objects
+  
+  * import equation data members, graph, series and table objects all at once.
 
+  * simulate a random walk process using EViews.
 
-
-
-* I wish I could use R function to save an EViews workfile as a workfile or another file format.
-
-
-* I wish I could simulate a random walk process using EViews in R, R Markdown or Quarto.
-
-
+* I wish I could do all of the above without opening the EViews!!!
 
 # Installation
 

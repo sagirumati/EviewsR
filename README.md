@@ -1,6 +1,6 @@
 EviewsR: A Seamless Integration of Eviews and R
 ================
-Monday: August 08, 2022
+Tuesday: August 09, 2022
 
 # 1 EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
@@ -29,7 +29,60 @@ EviewsR is an R package that can run EViews program in R. It also adds
 `eviews` as a knit-engine to `knitr` package, so that users can embed
 EViews codes in R Markdown and Quarto document.
 
-# 4 Installation
+# 4 Why EviewsR?
+
+While the ecosystem of R is great, it cannot run EViews codes, not talk
+of handling EViews objects dynamically and reproducibly. Even though,
+EViews can communicate with R, users still need to switch to
+type-setting application to embed the EViews outputs. Specifically:
+
+-   I wish I could embed EViews codes on R Markdown or Quarto document
+
+-   I wish I could dynamically import the EViews outputs (graphs,
+    tables, equation and series) individually or at once into R, R
+    Markdown or Quarto document without switching between these
+    applications back and forth.
+
+-   I could use an R function in R, R Markdown or Quarto to:
+
+    -   graph EViews series objects.
+
+    -   graph an R dataframe using EViews.
+
+    -   import data from external sources such as `csv`, `xlsx` as a new
+        EViews workfile or into an existing workfile.
+
+    -   create an EViews workfile from an R dataframe
+
+    -   save an EViews workfile page as a workfile or another file
+        format.
+
+    -   execute EViews codes.
+
+    -   export an R dataframe as a new EViews workfile or to an existing
+        EViews workfile.
+
+    -   save an EViews workfile as a workfile or another file format.
+
+    -   import EViews table object as `kable`.
+
+    -   import EViews series objects as a dataframe or `xts` object
+
+    -   import equation data members such as coefficients, standard
+        errors,
+        ![R^2](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;R%5E2 "R^2")
+        and so on.
+
+    -   import graph EViews graph objects
+
+    -   import equation data members, graph, series and table objects
+        all at once.
+
+    -   simulate a random walk process using EViews.
+
+-   I wish I could do all of the above without opening the EViews!!!
+
+# 5 Installation
 
 EviewsR can be installed using the following commands in R.
 
@@ -39,7 +92,7 @@ OR
 devtools::install_github("sagirumati/EviewsR")
 ```
 
-# 5 Setup
+# 6 Setup
 
 To run the package successfully, you need to do one of the following
 
@@ -58,7 +111,7 @@ To run the package successfully, you need to do one of the following
 set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
 ```
 
-# 6 Usage
+# 7 Usage
 
 Please load the EviewsR package as follows:
 
@@ -66,11 +119,11 @@ Please load the EviewsR package as follows:
     library(EviewsR)
     ```
 
-# 7 Ways to use EviewsR
+# 8 Ways to use EviewsR
 
 The package can work with base R, R Markdown or Quarto document.
 
-## 7.1 EviewsR along with R Markdown or Quarto document
+## 8.1 EviewsR along with R Markdown or Quarto document
 
 After loading the package, a chunk for Eviews can be created by
 supplying `eviews` as the engine name in R Markdown or Quarto document
@@ -133,7 +186,7 @@ knitr::kable(K, row.names = F, caption = "Selected cells of  EViews table object
 | C        | -0.301413   | 0.260956   | -1.155033   | 0.2491 |
 | X        | -0.051410   | 0.014316   | -3.591137   | 0.0004 |
 
-Table 7.1: Selected cells of EViews table object
+Table 8.1: Selected cells of EViews table object
 
 The EViews series objects are also imported automatically as dataframe
 (by default) or `xts` objects (if we use chunk option `class="xts"`).
@@ -151,9 +204,9 @@ EviewsR$eviewsrpage |>
 #> 6 2000-06-01  0.96869514 0.61693341
 ```
 
-## 7.2 EviewsR along with base R
+## 8.2 EviewsR along with base R
 
-### 7.2.1 The create_object() function
+### 8.2.1 The create_object() function
 
 The function `create_object()` can be used to create an Eviews object in
 the existing EViews workfile.
@@ -169,7 +222,7 @@ create_object(wf = "EviewsR_workfile", object_name = "x1", object_type = "series
     expression = "y^2")
 ```
 
-### 7.2.2 The eviews_graph() function
+### 8.2.2 The eviews_graph() function
 
 EViews graphs can be included in R Markdown or Quarto document by
 `eviews_graph()` function.
@@ -193,7 +246,7 @@ eviews_graph(series = Data, group = TRUE, start_date = "1990Q4",
 
 <img src="inst/figures//eviewsgraph1-eviewsgraph1-xy.png" title="Graphs of an R dataframe imported by fig-eviewsGraph1 chunk" alt="Graphs of an R dataframe imported by fig-eviewsGraph1 chunk" width="90%" height="70%" style="display: block; margin: auto;" />
 
-### 7.2.3 The eviews_import() function
+### 8.2.3 The eviews_import() function
 
 Data can be imported from external sources by `eviews_import()`
 function.
@@ -211,7 +264,7 @@ eviews_import(source_description = Data, wf = "eviews_import1",
     smpl_string = "1990m10 1992m10")
 ```
 
-### 7.2.4 The eviews_pagesave() function
+### 8.2.4 The eviews_pagesave() function
 
 Similar to Eviews workfile, an Eviews page can be saved in various
 formats by `eviews_pagesave()` function.
@@ -221,7 +274,7 @@ eviews_pagesave(wf = "eviewsr_workfile", page = "EviewsRPage",
     source_description = "pagesave.csv", drop_list = "y")
 ```
 
-### 7.2.5 The eviews_wfcreate() function
+### 8.2.5 The eviews_wfcreate() function
 
 An Eviews workfile can be created using `eviews_wfcreate()` function in
 R.
@@ -238,7 +291,7 @@ eviews_wfcreate(source_description = Data, wf = "eviews_wfcreate1",
     page = "EviewsR_page", frequency = "m", start_date = "1990")
 ```
 
-### 7.2.6 The eviews_wfsave() function
+### 8.2.6 The eviews_wfsave() function
 
 An EViews workfile can be saved various output formats using
 `eviews_wfsave()` in function in R.
@@ -247,7 +300,7 @@ An EViews workfile can be saved various output formats using
 eviews_wfsave(wf = "eviewsr_workfile", source_description = "wfsave.csv")
 ```
 
-### 7.2.7 The exec_commands() function
+### 8.2.7 The exec_commands() function
 
 A set of Eviews commands can be executed with the help of
 `exec_commands()` function in R.
@@ -271,7 +324,7 @@ next
 exec_commands(commands = eviewsCommands, wf = "exec_commands")
 ```
 
-### 7.2.8 The export_dataframe() function
+### 8.2.8 The export_dataframe() function
 
 Use `export_dataframe()` function to export dataframe object to Eviews.
 
@@ -280,7 +333,7 @@ export_dataframe(wf = "export_dataframe", source_description = Data,
     start_date = "1990", frequency = "m")
 ```
 
-### 7.2.9 The import_equation() function
+### 8.2.9 The import_equation() function
 
 Import EViews equation data members into R, R Markdown or Quarto.
 
@@ -291,7 +344,7 @@ import_equation(wf = "EviewsR_workfile", page = "EviewsRPage",
 
 To access the imported equation in base R:
 
-### 7.2.10 The import_graph() function
+### 8.2.10 The import_graph() function
 
 Import EViews graph objects(s) into R, R Markdown or Quarto.
 
@@ -309,7 +362,7 @@ import_graph(wf = "exec_commands", graph = "x*")
 
 <img src="inst/figures//fig-importgraph1-eviewspage-x_graph.png" title="EViews graphs that begin with X imported using import\_graph() function" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" style="display: block; margin: auto;" /><img src="inst/figures//fig-importgraph1-eviewspage1-x_graph.png" title="EViews graphs that begin with X imported using import\_graph() function" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" style="display: block; margin: auto;" />
 
-### 7.2.11 The import_kable() function
+### 8.2.11 The import_kable() function
 
 Eviews tables can be imported as `kable` object by `import_kable()`
 function. Therefore, we can include the
@@ -323,7 +376,7 @@ import_kable(wf = "EViewsR_workfile", page = "EviewsRPage", table = "OLSTable",
 <table>
 <caption>
 
-Table 7.2: Selected cells of EViews table imported using import_kable()
+Table 8.2: Selected cells of EViews table imported using import_kable()
 function
 
 </caption>
@@ -414,7 +467,7 @@ X
 </tbody>
 </table>
 
-### 7.2.12 The import_series() function
+### 8.2.12 The import_series() function
 
 Use `import_series()` function to import data from EViews to R as a
 dataframe. The function creates a new environment `eviews`, whose
@@ -438,7 +491,7 @@ import_series(wf = "eviewsr_workfile", series = c("x", "y"),
     class = "xts")
 ```
 
-### 7.2.13 The import_table() function
+### 8.2.13 The import_table() function
 
 Import EViews table objects(s) into R, R Markdown or Quarto.
 
@@ -466,7 +519,7 @@ To access the table in base R (`eviews$pageName_tableName`)
 eviews$eviewspage_olstable
 ```
 
-### 7.2.14 The import_workfile() function
+### 8.2.14 The import_workfile() function
 
 Import EViews equation data members, graph, series and table objects(s)
 into R, R Markdown or Quarto. This function is a blend of
@@ -504,7 +557,7 @@ eviews$eviewspage |>
 eviews$eviewspage_olstable  # table
 ```
 
-### 7.2.15 The rwalk() function
+### 8.2.15 The rwalk() function
 
 A set of random walk series can be simulated in R using EViews engine,
 thanks to `rwalk()` function.
@@ -521,7 +574,7 @@ ggplot2::autoplot(rwalk$xyz, facet = "")
 
 <img src="inst/figures/fig-rwalk-1.png" title="Plots of imported EViews random walk series objects" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" style="display: block; margin: auto;" /><img src="inst/figures/fig-rwalk-2.png" title="Plots of imported EViews random walk series objects" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" style="display: block; margin: auto;" />
 
-### 7.2.16 Demo
+### 8.2.16 Demo
 
 The demo files are included and can be accessed via
 `demo(package="EviewsR")`
@@ -545,7 +598,7 @@ demo(rwalk())
 demo(set_eviews_path())
 ```
 
-# 8 Template
+# 9 Template
 
 Template for R Markdown is created. Go to
 `file->New File->R Markdown-> From Template->EviewsR`.
