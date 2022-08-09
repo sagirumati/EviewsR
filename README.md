@@ -603,6 +603,16 @@ demo(set_eviews_path())
 Template for R Markdown is created. Go to
 `file->New File->R Markdown-> From Template->EviewsR`.
 
+# 10 Similar Packages
+
+You might be interested in the following packages:
+
+-   [DynareR](https://github.com/sagirumati/DynareR): A Seamless
+    Integration of Dynare and R.
+
+-   [gretlR](https://github.com/sagirumati/gretlR): A Seamless
+    Integration of gretl and R.
+
 <br><br><br><br>
 
 Please download the example files from
