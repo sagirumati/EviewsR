@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
   fig.show="hold"
 )
 library(EviewsR)
-# set_eviews_path('EViews12_X64')
 library(knitr)
 ```
 
@@ -89,7 +88,7 @@ To run the package successfully, you need to do one of the following
 * Alternatively, you can use `set_eviews_path()` function to set the path the EViews executable as follows:
 
 ```{r eval=F}
-# set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
+set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
 ```
 
 
@@ -134,10 +133,10 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
 ```{eviews}
 #| label: fig-EviewsR
-#| eval: true
 #| fig.subcap: ["X graph","Y graph"]
 #| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
 #| echo: false
+#| eval: false
     
 'This program is created in R Markdown with the help of EviewsR package
   
@@ -161,7 +160,7 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an EViews workfile named `EviewsR_workfile` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsrpage_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r 0.423`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
 ```{r}
 EviewsR$eviewsrpage_ols$r2
@@ -488,11 +487,11 @@ demo(export_dataframe())
 demo(import_equation())
 demo(import_graph())
 demo(import_kable())
-# demo(import_series())
+demo(import_series())
 demo(import_table())
 demo(import_workfile())
-# demo(rwalk())
-# demo(set_eviews_path())
+demo(rwalk())
+demo(set_eviews_path())
 ```
 
 # Template
