@@ -1,5 +1,7 @@
 library(EviewsR)
 
+library(ggplot2)
+
 demo(exec_commands)
 
 # To import all series objects across all pages, as a dataframe object

@@ -43,7 +43,7 @@ type-setting application to embed the EViews outputs. Specifically:
     Markdown or Quarto document without switching between these
     applications back and forth.
 
--   I could use an R function in R, R Markdown or Quarto to:
+-   I wish I could use an R function in R, R Markdown or Quarto to:
 
     -   graph EViews series objects.
 
@@ -73,7 +73,7 @@ type-setting application to embed the EViews outputs. Specifically:
         ![R^2](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;R%5E2 "R^2")
         and so on.
 
-    -   import graph EViews graph objects
+    -   import EViews graph objects
 
     -   import equation data members, graph, series and table objects
         all at once.
@@ -104,7 +104,7 @@ To run the package successfully, you need to do one of the following
 
 -   Rename the Eviews executable to `eviews` or one of the names above.
 
--   Alternatively, you can use `set_eviews_path` function to set the
+-   Alternatively, you can use `set_eviews_path()` function to set the
     path the EViews executable as follows:
 
 ``` r

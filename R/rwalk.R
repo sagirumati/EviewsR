@@ -17,7 +17,9 @@
 #'
 #' rwalk(series="a b e",rndseed=12345,start_date = 1990,frequency="m",num_observations=100)
 #'
-#' ggplot2::ggplot(eviews$abe,aes(x=date))+geom_line(aes(y=a,color="a"))+
+#' library(ggplot2)
+#'
+#' ggplot(eviews$abe,aes(x=date))+geom_line(aes(y=a,color="a"))+
 #' geom_line(aes(y=b,color="b"))+geom_line(aes(y=e,color="e"))+labs(colour='',x="",y="")
 #'
 #' # To simulate random walk and return as an `xts` object
@@ -26,7 +28,7 @@
 #'
 #' plot(eviews$xyz)
 #'
-#' ggplot2::autoplot(eviews$xyz,facet="")+xlab("")
+#' autoplot(eviews$xyz,facet="")+xlab("")
 #'
 #'
 #' plot(eviews$XYZ)
