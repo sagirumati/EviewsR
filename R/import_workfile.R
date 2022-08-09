@@ -45,6 +45,11 @@
 #' @export
 import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table="*",graph_procs="",save_options="",save_path=dirname(wf),save_copy=T,class="df"){
 
+  table %<>% paste0(collapse = " ")
+  series %<>% paste0(collapse = " ")
+  page %<>% paste0(collapse = " ")
+  equation %<>% paste0(collapse = " ")
+  save_options %<>% paste0(collapse = ",")
 
   chunkLabel=opts_current$get("label")
 

@@ -31,6 +31,9 @@
 #' @export
 import_equation=function(wf="",page="*",equation="*"){
 
+  equation %<>% paste0(collapse = " ")
+  page %<>% paste0(collapse = " ")
+
 chunkLabel=opts_current$get('label')
 
     envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)

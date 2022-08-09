@@ -37,8 +37,6 @@
 #' @export
 import_graph=function(wf="",page="*",graph="*",graph_procs="",save_options="",save_copy=T,save_path=dirname(wf)){
 
-  table %<>% paste0(collapse = " ")
-  series %<>% paste0(collapse = " ")
   page %<>% paste0(collapse = " ")
   save_options %<>% paste0(collapse = ",")
 
