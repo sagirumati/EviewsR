@@ -36,7 +36,7 @@ of handling EViews objects dynamically and reproducibly. Even though,
 EViews can communicate with R, users still need to switch to
 type-setting application to embed the EViews outputs. Specifically:
 
--   I wish I could embed EViews codes on R Markdown or Quarto document
+-   I wish I could embed EViews codes in R Markdown or Quarto document
 
 -   I wish I could dynamically import the EViews outputs (graphs,
     tables, equation and series) individually or at once into R, R

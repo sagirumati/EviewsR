@@ -64,33 +64,33 @@ While the ecosystem of R is great, it cannot run EViews codes, not talk of handl
 
 * I could use an R function in R, R Markdown or Quarto to:
   
-  * graph EViews series objects.
+    * graph EViews series objects.
 
-  * graph an R dataframe using EViews.
+    * graph an R dataframe using EViews.
 
-  * import data from external sources such as `csv`, `xlsx` as a new EViews workfile or into an existing workfile.
+    * import data from external sources such as `csv`, `xlsx` as a new EViews workfile or into an existing workfile.
 
-  * create an EViews workfile from an R dataframe
+    * create an EViews workfile from an R dataframe
 
-  * save an EViews workfile page as a workfile or another file format.
+    * save an EViews workfile page as a workfile or another file format.
 
-  * execute EViews codes.
+    * execute EViews codes.
 
-  * export an R dataframe as a new EViews workfile or to an existing EViews workfile.
+    * export an R dataframe as a new EViews workfile or to an existing EViews workfile.
 
-  * save an EViews workfile as a workfile or another file format.
+    * save an EViews workfile as a workfile or another file format.
   
-  * import EViews table object as `kable`.
+    * import EViews table object as `kable`.
   
-  * import EViews series objects as a dataframe or `xts` object
+    * import EViews series objects as a dataframe or `xts` object
   
-  * import equation data members such as coefficients, standard errors, $R^2$ and so on.
+    * import equation data members such as coefficients, standard errors, $R^2$ and so on.
   
-  * import graph EViews graph objects
+    * import EViews graph objects
   
-  * import equation data members, graph, series and table objects all at once.
+    * import equation data members, graph, series and table objects all at once.
 
-  * simulate a random walk process using EViews.
+    * simulate a random walk process using EViews.
 
 * I wish I could do all of the above without opening the EViews!!!
 
