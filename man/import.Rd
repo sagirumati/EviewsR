@@ -21,25 +21,25 @@ import(
 \arguments{
 \item{object_name}{Object name to be to store the imported \code{EViews} series.}
 
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
-\item{options}{Object or a character string of any of the acceptable `EViews` \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.}
+\item{options}{Object or a character string of any of the acceptable \code{EViews} \code{pagesave} options, such as \code{noid}, \code{nomapval}, \code{nonames}.}
 
 \item{source_description}{The path and name of the file to be saved.}
 
 \item{table_description}{Further description of the \code{source_description} such as specifying the \code{range=arg}, \code{byrow}.}
 
-\item{keep_list}{Optional. Specify the list of `EViews` object to be saved.}
+\item{keep_list}{Optional. Specify the list of \code{EViews} object to be saved.}
 
-\item{drop_list}{Optional. Specify the list of `EViews` object to be dropped.}
+\item{drop_list}{Optional. Specify the list of \code{EViews} object to be dropped.}
 
-\item{keepmap_list}{Optional. Specify the list of patterns of `EViews` object to be saved.}
+\item{keepmap_list}{Optional. Specify the list of patterns of \code{EViews} object to be saved.}
 
-\item{dropmap_list}{Optional. Specify the list of patterns of `EViews` object to be dropped.}
+\item{dropmap_list}{Optional. Specify the list of patterns of \code{EViews} object to be dropped.}
 
-\item{smpl_spec}{Optional. Specify the `EViews` sample string}
+\item{smpl_spec}{Optional. Specify the \code{EViews} sample string}
 }
 \value{
 An EViews workfile

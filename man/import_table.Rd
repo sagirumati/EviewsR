@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_table.R
 \name{import_table}
 \alias{import_table}
-\title{Import `EViews` table objects(s) into R, R Markdown or Quarto.}
+\title{Import \code{EViews} table objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_table(wf = "", page = "*", table = "*")
 }
@@ -11,13 +11,13 @@ import_table(wf = "", page = "*", table = "*")
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{table}{Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile}
+\item{table}{Name(s) or wildcard expressions for \code{EViews} table object(s) in an \code{EViews} workfile}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` table objects(s) into R, R Markdown or Quarto.
+Use this function to import \code{EViews} table objects(s) into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

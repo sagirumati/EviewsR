@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_workfile.R
 \name{import_workfile}
 \alias{import_workfile}
-\title{Import `EViews` equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.}
+\title{Import \code{EViews} equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_workfile(
   wf = "",
@@ -19,33 +19,33 @@ import_workfile(
 )
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
-\item{equation}{Name(s) or wildcard expressions for `EViews` equation object(s) in an `EViews` workfile}
+\item{equation}{Name(s) or wildcard expressions for \code{EViews} equation object(s) in an \code{EViews} workfile}
 
 \item{graph}{Name(s) or wildcard expressions of EViews graph object(S)}
 
-\item{series}{Name(s) of `EViews` series object(s) in an `EViews` workfile}
+\item{series}{Name(s) of \code{EViews} series object(s) in an \code{EViews} workfile}
 
-\item{table}{Name(s) or wildcard expressions for `EViews` table object(s) in an `EViews` workfile}
+\item{table}{Name(s) or wildcard expressions for \code{EViews} table object(s) in an \code{EViews} workfile}
 
-\item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
+\item{graph_procs}{A vector containing \code{EViews} graph \code{procs} such as \code{datelabel}, \code{align}}
 
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
+\item{save_options}{A vector of options to be passed to \code{EViews} \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
 
-\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
+\item{save_path}{Object or a character string representing the path to the folder to save the \code{EViews} graphs. The current working directory is the default \code{save_path}. Specify the \code{save_path} only if you want the \code{EViews} graphs to live in different path from the current working directory.}
 
 \item{save_copy}{Logical. Whether to save the copy of the graph objects}
 
-\item{class}{Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.}
+\item{class}{Class of the R object: \code{df} for dataframe, or \code{xts} for extendable time-series object.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
+Use this function to import \code{EViews} equation data members, graph, series and table objects(s) into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

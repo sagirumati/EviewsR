@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_series.R
 \name{import_series}
 \alias{import_series}
-\title{Import `EViews` series objects(s) into R, R Markdown or Quarto.}
+\title{Import \code{EViews} series objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_series(wf = "", page = "*", series = "*", class = "df")
 }
@@ -11,15 +11,15 @@ import_series(wf = "", page = "*", series = "*", class = "df")
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{series}{Name(s) of `EViews` series object(s) in an `EViews` workfile}
+\item{series}{Name(s) of \code{EViews} series object(s) in an \code{EViews} workfile}
 
-\item{class}{Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.}
+\item{class}{Class of the R object: \code{df} for dataframe, or \code{xts} for extendable time-series object.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` series objects(s) into R, R Markdown or Quarto as dataframe or `xts` object.
+Use this function to import \code{EViews} series objects(s) into R, R Markdown or Quarto as dataframe or \code{xts} object.
 }
 \examples{
 library(EviewsR)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/export_dataframe.R
 \name{export_dataframe}
 \alias{export_dataframe}
-\title{Export R dataframe as an `EViews` workfile}
+\title{Export R dataframe as an \code{EViews} workfile}
 \usage{
 export_dataframe(
   source_description = "",
@@ -21,13 +21,13 @@ export_dataframe(
 
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
-\item{save_path}{Specify where to save the `EViews` workfile.}
+\item{save_path}{Specify where to save the \code{EViews} workfile.}
 }
 \value{
 An EViews workfile.
 }
 \description{
-Use this function in R, R Markdown and Quarto to export an R dataframe as an `EViews` workfile
+Use this function in R, R Markdown and Quarto to export an R dataframe as an \code{EViews} workfile
 }
 \examples{
 library(EviewsR)

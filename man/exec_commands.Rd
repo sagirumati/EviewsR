@@ -2,24 +2,24 @@
 % Please edit documentation in R/exec_commands.R
 \name{exec_commands}
 \alias{exec_commands}
-\title{Execute `EViews` commands.}
+\title{Execute \code{EViews} commands.}
 \usage{
 exec_commands(commands = "", wf = "", page = "", save_path = "")
 }
 \arguments{
-\item{commands}{Object or a vector of character strings of `EViews` commands}
+\item{commands}{Object or a vector of character strings of \code{EViews} commands}
 
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
-\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
+\item{save_path}{Object or a character string representing the path to the folder to save the \code{EViews} graphs. The current working directory is the default \code{save_path}. Specify the \code{save_path} only if you want the \code{EViews} graphs to live in different path from the current working directory.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function  in R, R Markdown and Quarto to execute `EViews` commands.
+Use this function  in R, R Markdown and Quarto to execute \code{EViews} commands.
 }
 \examples{
 library(EviewsR)

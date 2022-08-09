@@ -2,22 +2,22 @@
 % Please edit documentation in R/import_equation.R
 \name{import_equation}
 \alias{import_equation}
-\title{Import `EViews` equation data members into R, R Markdown or Quarto.}
+\title{Import \code{EViews} equation data members into R, R Markdown or Quarto.}
 \usage{
 import_equation(wf = "", page = "*", equation = "*")
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
-\item{equation}{Name(s) or wildcard expressions for `EViews` equation object(s) in an `EViews` workfile}
+\item{equation}{Name(s) or wildcard expressions for \code{EViews} equation object(s) in an \code{EViews} workfile}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` equation data members into R, R Markdown or Quarto.
+Use this function to import \code{EViews} equation data members into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

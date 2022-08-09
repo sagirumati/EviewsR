@@ -2,7 +2,7 @@
 % Please edit documentation in R/rwalk.R
 \name{rwalk}
 \alias{rwalk}
-\title{Simulate a random walk process using an `EViews` engine.}
+\title{Simulate a random walk process using an \code{EViews} engine.}
 \usage{
 rwalk(
   series = "",
@@ -27,7 +27,7 @@ rwalk(
 
 \item{drift}{Numeric value as the drift term for random walk.}
 
-\item{rndseed}{Set the `seed` for `Eviews` random number generator.}
+\item{rndseed}{Set the \code{seed} for \code{Eviews} random number generator.}
 
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
@@ -35,17 +35,17 @@ rwalk(
 
 \item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
-\item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an `EViews` balanced panel page using integer identifiers for each of the cross-sections.}
+\item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an \code{EViews} balanced panel page using integer identifiers for each of the cross-sections.}
 
 \item{num_observations}{Numeric value. Specify the number of observations if the \code{frequency="u"}.}
 
-\item{class}{Class of the R object: `df` for dataframe, or `xts` for extendable time-series object.}
+\item{class}{Class of the R object: \code{df} for dataframe, or \code{xts} for extendable time-series object.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to simulate a random walk process using an `EViews` engine from R, R Markdown or Quarto.
+Use this function to simulate a random walk process using an \code{EViews} engine from R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

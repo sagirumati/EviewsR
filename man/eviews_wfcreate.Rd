@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_wfcreate.R
 \name{eviews_wfcreate}
 \alias{eviews_wfcreate}
-\title{Create an `EViews` workfile.}
+\title{Create an \code{EViews} workfile.}
 \usage{
 eviews_wfcreate(
   source_description = "",
@@ -25,7 +25,7 @@ eviews_wfcreate(
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{prompt}{Logical, whether to force the dialog to appear from within an `EViews` program}
+\item{prompt}{Logical, whether to force the dialog to appear from within an \code{EViews} program}
 
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
@@ -35,17 +35,17 @@ eviews_wfcreate(
 
 \item{end_date}{Object or a character string representing the \code{end date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
-\item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an `EViews` balanced panel page using integer identifiers for each of the cross-sections.}
+\item{num_cross_sections}{Optional integer value. Include \code{num_cross_sections} in order to create an \code{EViews} balanced panel page using integer identifiers for each of the cross-sections.}
 
 \item{num_observations}{Numeric value. Specify the number of observations if the \code{frequency="u"}.}
 
-\item{save_path}{Specify where to save the `EViews` workfile.}
+\item{save_path}{Specify where to save the \code{EViews} workfile.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function  in R, R Markdown and Quarto to create an `EViews` workfile.
+Use this function  in R, R Markdown and Quarto to create an \code{EViews} workfile.
 }
 \examples{
 library(EviewsR)

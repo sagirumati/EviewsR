@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_graph.R
 \name{eviews_graph}
 \alias{eviews_graph}
-\title{Create an `EViews` graph in R, R Markdown and Quarto.}
+\title{Create an \code{EViews} graph in R, R Markdown and Quarto.}
 \usage{
 eviews_graph(
   wf = "",
@@ -22,27 +22,27 @@ eviews_graph(
 )
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
-\item{series}{A vector of names or wildcard expressions for series object(s) contained in an `EViews` workfile. An R dataframe is also acceptable.}
+\item{series}{A vector of names or wildcard expressions for series object(s) contained in an \code{EViews} workfile. An R dataframe is also acceptable.}
 
-\item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces `EViews` graph for each series separately.}
+\item{group}{Logical, whether to use group view in EViews, that is merge two or more graphs on one page. Setting \code{group=FALSE} produces \code{EViews} graph for each series separately.}
 
-\item{graph_command}{Object or a character string of any of the acceptable `EViews` graphical commands, such as \code{line}, \code{bar}, \code{pie}.}
+\item{graph_command}{Object or a character string of any of the acceptable \code{EViews} graphical commands, such as \code{line}, \code{bar}, \code{pie}.}
 
-\item{graph_options}{Object or a character string of any of the acceptable `EViews` graphical options, such as \code{""}, \code{m}, \code{s}.}
+\item{graph_options}{Object or a character string of any of the acceptable \code{EViews} graphical options, such as \code{""}, \code{m}, \code{s}.}
 
-\item{mode}{Set `mode="overwrite"` to overwrite existing `EViews` graph objects that match the new `EViews` graph object to be created on the workfile. Set `mode=""` to avoid overwriting exising `EViews` graph object.}
+\item{mode}{Set \code{mode="overwrite"} to overwrite existing \code{EViews} graph objects that match the new \code{EViews} graph object to be created on the workfile. Set \code{mode=""} to avoid overwriting exising \code{EViews} graph object.}
 
-\item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
+\item{graph_procs}{A vector containing \code{EViews} graph \code{procs} such as \code{datelabel}, \code{align}}
 
-\item{datelabel}{A vector containing `EViews` axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.}
+\item{datelabel}{A vector containing \code{EViews} axis label formats such as \code{format("YY")}. Using \code{datelabel} in \code{graph_procs} overwrites this argument.}
 
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
+\item{save_options}{A vector of options to be passed to \code{EViews} \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
 
-\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
+\item{save_path}{Object or a character string representing the path to the folder to save the \code{EViews} graphs. The current working directory is the default \code{save_path}. Specify the \code{save_path} only if you want the \code{EViews} graphs to live in different path from the current working directory.}
 
 \item{frequency}{Object or a character string representing the frequency of a workfile page to be created. Only letters accepted by EViews are allowed. For example \code{u} for undated, \code{a} for annual, \code{m} for monthly and so on.}
 
@@ -54,7 +54,7 @@ eviews_graph(
 An EViews workfile
 }
 \description{
-Use this function to create an `EViews` graph in R and R Markdown
+Use this function to create an \code{EViews} graph in R and R Markdown
 }
 \examples{
 library(EviewsR)

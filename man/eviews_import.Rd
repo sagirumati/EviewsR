@@ -2,7 +2,7 @@
 % Please edit documentation in R/eviews_import.R
 \name{eviews_import}
 \alias{eviews_import}
-\title{Import data to `EViews` workfile}
+\title{Import data to \code{EViews} workfile}
 \usage{
 eviews_import(
   source_description = "",
@@ -23,15 +23,15 @@ eviews_import(
 \arguments{
 \item{source_description}{Description of the file from which the data is to be imported. The specification of the description is usually just the path and file name of the file.}
 
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{type}{Optional. Specify the file type, it can values allowed by `EViews` \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.}
+\item{type}{Optional. Specify the file type, it can values allowed by \code{EViews} \code{import} commands like \code{access}, \code{text}. For the most part, you should not need to specify a “type=” option as EViews will automatically determine the type from the filename.}
 
-\item{options}{Optional.Specify the `EViews` \code{options} for \code{import} command like \code{resize}, \code{link}, \code{page=page_name}.}
+\item{options}{Optional.Specify the \code{EViews} \code{options} for \code{import} command like \code{resize}, \code{link}, \code{page=page_name}.}
 
 \item{smpl_string}{Optional. Specify the sample to be used for the data import.}
 
-\item{genr_string}{Optional. Any valid `EViews` series creation expression to be used to generate a new series in the workfile as part of the import procedure.}
+\item{genr_string}{Optional. Any valid \code{EViews} series creation expression to be used to generate a new series in the workfile as part of the import procedure.}
 
 \item{rename_string}{Optional. Pairs of old object names followed by the new name to be used to rename some of the imported series.}
 
@@ -39,19 +39,19 @@ eviews_import(
 
 \item{start_date}{Object or a character string representing the \code{start date}. It should be left blank for undated (when the \code{frequency} is \code{u}).}
 
-\item{id}{Name of `EViews` ID series. Required for `EViews` \code{Match-Merge Import}.}
+\item{id}{Name of \code{EViews} ID series. Required for \code{EViews} \code{Match-Merge Import}.}
 
-\item{destid}{Name of the destination ID.  Required for `EViews` \code{Match-Merge Import}.}
+\item{destid}{Name of the destination ID.  Required for \code{EViews} \code{Match-Merge Import}.}
 
-\item{append}{Logical, whether to append to the bottom of the `EViews` workfile page or not.}
+\item{append}{Logical, whether to append to the bottom of the \code{EViews} workfile page or not.}
 
-\item{save_path}{Specify the path to save the `Eviews` workfile}
+\item{save_path}{Specify the path to save the \code{Eviews} workfile}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function  in R, R Markdown and Quarto to import data to `EViews` workfile.
+Use this function  in R, R Markdown and Quarto to import data to \code{EViews} workfile.
 }
 \examples{
 library(EviewsR)

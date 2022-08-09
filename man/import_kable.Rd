@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_kable.R
 \name{import_kable}
 \alias{import_kable}
-\title{Import `EViews` table object as `kable`}
+\title{Import \code{EViews} table object as \code{kable}}
 \usage{
 import_kable(
   wf = "",
@@ -42,7 +42,7 @@ import_kable(
 
 \item{page}{Object or a character string representing the name of a workfile page to be created}
 
-\item{table}{Name of an `EViews` table object in an `EViews` workfile}
+\item{table}{Name of an \code{EViews} table object in an \code{EViews} workfile}
 
 \item{range}{A vector of characters specifying the table range of rows and columns}
 
@@ -140,7 +140,7 @@ caption is provided.}
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` table object as `kable`
+Use this function to import \code{EViews} table object as \code{kable}
 }
 \examples{
 library(EviewsR)

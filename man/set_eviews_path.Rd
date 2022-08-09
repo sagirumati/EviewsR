@@ -2,7 +2,7 @@
 % Please edit documentation in R/set_eviews_path.R
 \name{set_eviews_path}
 \alias{set_eviews_path}
-\title{Set `EViews` path}
+\title{Set \code{EViews} path}
 \usage{
 set_eviews_path(engine_path = "eviews")
 }
@@ -13,7 +13,7 @@ set_eviews_path(engine_path = "eviews")
 Character
 }
 \description{
-Use this function to set `EViews` path. It is only useful when the `EViews` is not installed in standard directory, or when there are multiple `EViews` executables and the user wants to use older version of `EViews`.
+Use this function to set \code{EViews} path. It is only useful when the \code{EViews} is not installed in standard directory, or when there are multiple \code{EViews} executables and the user wants to use older version of \code{EViews}.
 }
 \examples{
 library(EviewsR)

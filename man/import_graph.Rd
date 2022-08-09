@@ -2,7 +2,7 @@
 % Please edit documentation in R/import_graph.R
 \name{import_graph}
 \alias{import_graph}
-\title{Import `EViews` graph objects(s) into R, R Markdown or Quarto.}
+\title{Import \code{EViews} graph objects(s) into R, R Markdown or Quarto.}
 \usage{
 import_graph(
   wf = "",
@@ -15,25 +15,25 @@ import_graph(
 )
 }
 \arguments{
-\item{wf}{Object or a character string representing the name of an `EViews` workfile.}
+\item{wf}{Object or a character string representing the name of an \code{EViews} workfile.}
 
-\item{page}{Object or a character string representing the name of an `EViews` workfile page.}
+\item{page}{Object or a character string representing the name of an \code{EViews} workfile page.}
 
 \item{graph}{Name(s) or wildcard expressions of EViews graph object(S)}
 
-\item{graph_procs}{A vector containing `EViews` graph \code{procs} such as \code{datelabel}, \code{align}}
+\item{graph_procs}{A vector containing \code{EViews} graph \code{procs} such as \code{datelabel}, \code{align}}
 
-\item{save_options}{A vector of options to be passed to `EViews` \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
+\item{save_options}{A vector of options to be passed to \code{EViews} \code{save} command. It can take values like \code{"t=png"},\code{-c} and so on.}
 
 \item{save_copy}{Logical. Whether to save the copy of the graph objects}
 
-\item{save_path}{Object or a character string representing the path to the folder to save the `EViews` graphs. The current working directory is the default `save_path`. Specify the `save_path` only if you want the `EViews` graphs to live in different path from the current working directory.}
+\item{save_path}{Object or a character string representing the path to the folder to save the \code{EViews} graphs. The current working directory is the default \code{save_path}. Specify the \code{save_path} only if you want the \code{EViews} graphs to live in different path from the current working directory.}
 }
 \value{
 An EViews workfile
 }
 \description{
-Use this function to import `EViews` graph objects(s) into R, R Markdown or Quarto.
+Use this function to import \code{EViews} graph objects(s) into R, R Markdown or Quarto.
 }
 \examples{
 library(EviewsR)

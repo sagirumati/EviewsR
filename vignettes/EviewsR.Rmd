@@ -22,7 +22,6 @@ knitr::opts_chunk$set(
 library(EviewsR)
 # set_eviews_path('EViews12_X64')
 library(knitr)
-library(ggplot2)
 ```
 
 <style>
@@ -87,11 +86,10 @@ To run the package successfully, you need to do one of the following
 
 * Rename the Eviews executable to `eviews` or one of the names above.
 
-* Alternatively, you can use `set_eviews_path` function to set the path the EViews executable as follows:
+* Alternatively, you can use `set_eviews_path()` function to set the path the EViews executable as follows:
 
 ```{r eval=F}
 set_eviews_path("C:/Program Files (x86)/EViews 10/EViews10.exe")
-
 ```
 
 
@@ -474,25 +472,6 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 ```
 
 
-```{r}
-#| label: fig-rwalk
-#| fig.cap: Plots of imported EViews random walk series objects
-#| dpi: 300
-#| out.width: 45%
-#| fig.dim: [7,4]
-
-
-xts::plot.xts(rwalk$xyz,type="l",main = "")
-
-ggplot2::autoplot(rwalk$xyz,facet='')
-```
-
-
-
-<br><br><br><br>
-
-
-
 ### Demo
 
 The demo files are included and can be accessed via `demo(package="EviewsR")`
@@ -509,11 +488,11 @@ demo(export_dataframe())
 demo(import_equation())
 demo(import_graph())
 demo(import_kable())
-demo(import_series())
+# demo(import_series())
 demo(import_table())
 demo(import_workfile())
-demo(rwalk())
-demo(set_eviews_path())
+# demo(rwalk())
+# demo(set_eviews_path())
 ```
 
 # Template
