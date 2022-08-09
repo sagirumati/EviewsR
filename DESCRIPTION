@@ -24,3 +24,4 @@ Repository: CRAN
 LazyData: false
 Date/Publication: 2022-08-08 17:10:03 UTC
 Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
