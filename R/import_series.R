@@ -53,6 +53,9 @@
 #' @export
 import_series=function(wf="",page="*",series="*",class="df"){
 
+  series %<>% paste0(collapse = " ")
+  page %<>% paste0(collapse = " ")
+
   chunkLabel=opts_current$get('label')
 
   envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)

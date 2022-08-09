@@ -72,16 +72,16 @@ if(options$eval){
 
 
 
-  equation=opts_current$get("equation") %n% "*" %>% shQuote_cmd %>% paste0('%equation=',.)
+  equation=opts_current$get("equation") %n% "*" %>% paste0(collapse = " ") %>% shQuote_cmd %>% paste0('%equation=',.)
    graph=options$graph %n% "*"
    if(is.numeric(graph)) figKeep='%figKeep1="numeric"' else figKeep='%figKeep1=""'
    graph1=graph
    graph %<>% shQuote_cmd %>% paste0('%graph=',.)
 
 
-  series=opts_current$get("series") %n% "*" %>% shQuote_cmd %>% paste0('%series=',.)
-   table=opts_current$get("table") %n% "*" %>% shQuote_cmd %>% paste0('%table=',.)
-  page=page1=opts_current$get("page") %n% "*"
+  series=opts_current$get("series") %n% "*" %>% paste0(collapse = " ") %>% shQuote_cmd %>% paste0('%series=',.)
+   table=opts_current$get("table") %n% "*" %>% paste0(collapse = " ") %>% shQuote_cmd %>% paste0('%table=',.)
+  page=page1=opts_current$get("page") %n% "*" %>% paste0(collapse = " ")
 
   pagePattern=page %>%   strsplit(split=" ") %>%
     unlist() %>% paste0(collapse='|') %>% paste0('-(',.,')-')

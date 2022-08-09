@@ -36,6 +36,9 @@
 #' @export
 import_table=function(wf="",page="*",table="*"){
 
+  table %<>% paste0(collapse = " ")
+  page %<>% paste0(collapse = " ")
+
 chunkLabel=opts_current$get('label')
 
     envName=chunkLabel %n% "eviews" %>% gsub("^fig-","",.) %>% gsub("[._-]","",.)
