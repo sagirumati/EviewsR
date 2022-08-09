@@ -54,6 +54,38 @@ Please follow his publications on [**ORCID: 0000-0003-1413-3974**](https://orcid
 
 EviewsR is an R package that can run EViews program in R. It also adds `eviews` as a knit-engine to `knitr` package, so that users can embed EViews codes in  R Markdown and Quarto document.
 
+# Why EviewsR?
+
+While the ecosystem of R is great, it cannot run EViews codes, not talk of handling EViews objects dynamically and reproducibly. Even though, EViews can communicate with R, users still need to switch to type-setting application to embed the EViews outputs. Specifically:
+
+* I wish I could dynamically import EViews outputs (graphs, tables, equation and series) into R, R Markdown or Quarto document without switching between these applications back and forth.
+
+* I wish I could graph EViews series objects in R, R Markdown or Quarto.
+
+* I wish I could graph an R dataframe using EViews in R, R Markdown or Quarto without opening EViews!
+
+
+* I wish I could use an R function in R, R Markdown or Quarto to import data as a new EViews workfile or into an existing workfile.
+
+
+* I wish I could use R function to create a workfile
+
+* I wish I could use R function to save an EViews workfile page as a workfile or another file format.
+
+* I wish I could use an R function in R, R Markdown or Quarto to execute EViews codes.
+
+* I wish I could use R function to export an R dataframe a new EViews workfile or to an existing EViews workfile.
+
+
+
+
+* I wish I could use R function to save an EViews workfile as a workfile or another file format.
+
+
+* I wish I could simulate a random walk process using EViews in R, R Markdown or Quarto.
+
+
+
 # Installation
 
 EviewsR can be installed using the following commands in R.
