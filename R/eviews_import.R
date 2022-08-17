@@ -32,7 +32,7 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_import=function(source_description="",wf="",type="",options="",smpl_string="",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
+eviews_import=function(source_description="",wf="",type="",options="",smpl_string="@all",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
 
   if(save_path=="" && wf!="") save_path=dirname(wf)
   if(!is.data.frame(source_description) && save_path=="") save_path=dirname(source_description)
