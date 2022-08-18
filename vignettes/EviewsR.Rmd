@@ -25,7 +25,7 @@ library(knitr)
 
 <style>
 
-.title,code{
+.title{
 color: red !important;
 }
 img1 {
@@ -61,7 +61,7 @@ color:Green;
  border:3px solid #FFC704;
  filter: saturate(75%);
  }
- 
+
 </style>
 
 # 1 EviewsR <img src="../inst/EVIEWS/EviewsR.png" align="right" width="120" />
