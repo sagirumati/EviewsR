@@ -34,7 +34,9 @@ import_kable=function(wf="",page="",table="",range="",format=kable_format(), dig
                      "", "", "", "\\addlinespace") else "\\hline", caption.short = "", table.envir = if (!is.null(caption)) "table",...){
 
   fileName=basename(tempfile("EVIEWS", ".", ".prg"))
-
+  eviewsr_text=fileName %>% gsub('(\\.prg|EVIEWS)','',.)
+  eviewsr_text1=eviewsr_text
+  eviewsr_text %<>% shQuote_cmd %>% paste0('%eviewsr_text=',.)
   wf=paste0('%wf=',shQuote_cmd(wf))
   page=paste0('%page=',shQuote_cmd(page))
   table.csv=paste0(table,".csv")
@@ -52,12 +54,12 @@ import_kable=function(wf="",page="",table="",range="",format=kable_format(), dig
   %range=",r="+%range
   endif
 
-  {%table}.save(t=csv{%range}) {%table})'
+  {%table}.save(t=csv{%range}) {%table}_{%eviewsr_text})'
 
-  writeLines(c(eviews_path(),wf,page,table,range,eviewsCode,"exit"),fileName)
+  writeLines(c(eviews_path(),eviewsr_text,wf,page,table,range,eviewsCode,"exit"),fileName)
 
   system_exec()
-  #on.exit(unlink(c(paste0(path,"/",fileName),paste0(path,"/",table.csv))))
+  on.exit(unlink(paste0(table,"_",eviewsr_text1,".csv")),add = TRUE)
   on.exit(unlink_eviews(),add = TRUE)
 
   table= readLines(table.csv)
