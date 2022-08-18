@@ -16,9 +16,13 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-export_dataframe=function(source_description="",wf="",start_date = "",frequency = "",save_path = dirname(wf)){
+export_dataframe=function(source_description="",wf="",start_date = "",frequency = "",save_path = ""){
 
   if(is.xts(source_description)) source_description=data.frame(date=index(source_description),coredata(source_description))
+
+  if(save_path=="" && wf!="") save_path=dirname(wf)
+  if(!is.data.frame(source_description) && save_path=="") save_path=dirname(source_description)
+
 
   if(wf=="") wf=paste0(paste0(names(source_description),collapse = ""),"_",tempfile("") %>% basename)
 

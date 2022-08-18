@@ -111,7 +111,7 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
     if(!identical(graph_procs,'')){
       graph_procs=paste0("{%y}.",graph_procs)
 
-      prefixGraphProcs=r'(
+      prefixGraphProcs='
       for %page {%pagelist}
       pageselect {%page}
 
@@ -130,14 +130,12 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
       endif
 
       if @wcount(%selectedGraphs)>0 then
-      for %y {%selectedGraphs}
-      )'
+      for %y {%selectedGraphs}'
 
-      suffixGraphProcs=r'(
+      suffixGraphProcs='
       next
       endif
-      next
-      )'
+      next'
 
   graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
 
@@ -185,7 +183,7 @@ import_workfile=function(wf="",page="*",equation="*",graph="*",series="*",table=
 
 
 
-eviewsCode=r'(
+eviewsCode='
 if %wf<>"" then
 wfopen {%wf}
 endif
@@ -195,20 +193,18 @@ endif
 
 if %page<>"*" then
 %pagelist=%page
-endif
+endif'
 
-)'
-
-saveCode=r'(%save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
+saveCode='%save_path=@wreplace(%save_path,"* ","*")
+%save_path=@wreplace(%save_path,"/","\\")
 
 
 if %save_path<>"" then
-%save_path=%save_path+"\"
+%save_path=%save_path+"\\"
 endif
 
 
-'####################### GRAPHS #################
+\'####################### GRAPHS #################
 
 
 if %figKeep1="numeric" then
@@ -216,11 +212,11 @@ if %figKeep1="numeric" then
 endif
 
 %save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
+%save_path=@wreplace(%save_path,"/","\)
 
 
 if %save_path<>"" then
-%save_path=%save_path+"\"
+%save_path=%save_path+"\\"
 endif
 
 
@@ -267,7 +263,7 @@ text {%eviewsrText}_graph
 endif
 
 
-'####################### TABLES #################
+\'####################### TABLES #################
 
 
 %tablePath=""
@@ -289,7 +285,7 @@ text {%eviewsrText}_table
 {%eviewsrText}_table.save {%eviewsrText}-table
 
 
-'####################### EQUATIONS #################
+\'####################### EQUATIONS #################
 
 %equationPath=""
 
@@ -331,7 +327,7 @@ text {%eviewsrText}_equation
 {%eviewsrText}_equation.append {%equationPath}
 {%eviewsrText}_equation.save {%eviewsrText}-equation
 
-'####################### SERIES #################
+\'####################### SERIES #################
 
 %seriesPath=""
 for %page {%pagelist}
@@ -348,8 +344,7 @@ text {%eviewsrText}_series
 {%eviewsrText}_series.save {%eviewsrText}-series
 
 
-exit
-)'
+exit'
 
 writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,wf,page,equation,graph,series,table,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 

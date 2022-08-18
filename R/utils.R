@@ -29,7 +29,7 @@ eviews_path=function(){
 
 # eviews_string
 
-eviews_string=\(x) x %>% get %>% shQuote_cmd %>% paste0('%',x,'=',.) %>% assign(x,.)
+eviews_string=function(x) x %>% get %>% shQuote_cmd %>% paste0('%',x,'=',.) %>% assign(x,.)
 
 # kable_format
 
@@ -43,7 +43,7 @@ kable_format <- function(){
 
 # shQuote_cmd
 
-shQuote_cmd= \(x) gsub('"','""',x) %>% paste0('"',.,'"')
+shQuote_cmd= function(x) gsub('"','""',x) %>% paste0('"',.,'"')
 
 
 # system_exec

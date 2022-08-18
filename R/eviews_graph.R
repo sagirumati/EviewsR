@@ -43,7 +43,7 @@ eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line"
 if(is.xts(series)) series=data.frame(date=index(series),coredata(series))
 
 if(wf!="" && save_path=="") save_path=dirname(wf)
-  graphicsDefault=r'(
+  graphicsDefault='
   %pagelist=@pagelist
 
   if %page<>"*" then
@@ -100,7 +100,7 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
   next
   endif
   next
-  )'
+  '
 
 
 
@@ -216,7 +216,7 @@ for %y {%selectedGraphs}')
     save_options=paste0("%save_options=",shQuote_cmd(save_options))
 
 
-eviewsCode=r'(close @wf
+eviewsCode='close @wf
 
 if %wf<>"" then
 wfopen {%wf}
@@ -233,11 +233,11 @@ endif
 %graph_command=@wreplace(%graph_command,"* ","*")
 %mode=@wreplace(%mode,"* ","*")
 %save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
+%save_path=@wreplace(%save_path,"/","\\")
 
 
 if %save_path<>"" then
-%save_path=%save_path+"\"
+%save_path=%save_path+"\\"
 endif
 
 %save_options=@wreplace(%save_options,"* ","*")
@@ -248,13 +248,13 @@ endif
 
 if %graph_options<>"" then
 %graph_options="("+%graph_options+")"
-endif)'
+endif'
 
 
 
 if (!group){
 
-  freezeCode=r'(if %page="*" then
+  freezeCode='if %page="*" then
   %pagelist=@pagelist
   endif
 
@@ -277,11 +277,10 @@ pageselect {%page}
   freeze({%mode}{%x{!k}}_{%eviewsrText}) {%x{!k}}.{%graph_command}{%graph_options}
   next
   endif
-  next
-  )'
+  next'
 
 
-  saveCode=r'(%graphPath=""
+  saveCode='%graphPath=""
   for %page {%pagelist}
   pageselect {%page}
   %allSeries=@wlookup(%series,"series")
@@ -303,12 +302,12 @@ pageselect {%page}
   text {%eviewsrText}_graph
   {%eviewsrText}_graph.append {%graphPath}
   {%eviewsrText}_graph.save  {%eviewsrText}-graph
-  exit)'
+  exit'
 }
 
 if (group){
 
-      freezeCode=r'(if %page="*" then
+      freezeCode='if %page="*" then
       %pagelist=@pagelist
       endif
 
@@ -324,13 +323,11 @@ if (group){
       group {%EviewsRGroup} {%allSeries}
 
       %seriesNames=@replace(%allSeries," ","")
-     ' %seriesNames=%seriesNames
       freeze({%mode}{%seriesNames}_{%eviewsrText}) {%EviewsRGroup}.{%graph_command}{%graph_options}
       endif
-      next
-      )'
+      next'
 
-      saveCode=r'(if %page="*" then
+      saveCode='if %page="*" then
       %pagelist=@pagelist
       endif
 
@@ -355,7 +352,7 @@ if (group){
       text {%eviewsrText}_graph
       {%eviewsrText}_graph.append {%graphPath}
       {%eviewsrText}_graph.save  {%eviewsrText}-graph
-      exit)'
+      exit'
       }
 
 writeLines(c(eviews_path(),chunkLabel,eviewsrText,EviewsRGroup,wf,page,series,graph_command,graph_options,mode,save_path,save_options,eviewsCode,freezeCode,graphicsDefault,graph_procs,saveCode), fileName)

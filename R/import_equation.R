@@ -62,7 +62,7 @@ chunkLabel=opts_current$get('label')
   equation=paste0('%equation=',shQuote_cmd(equation))
 
 
-  saveCode=r'(open {%wf}
+  saveCode='open {%wf}
 
 
 
@@ -113,8 +113,7 @@ chunkLabel=opts_current$get('label')
   {%eviewsrText}_equation.append {%equationPath}
   {%eviewsrText}_equation.save {%eviewsrText}-equation
 
-  exit
-  )'
+  exit'
 
 
 

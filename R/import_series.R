@@ -83,7 +83,7 @@ import_series=function(wf="",page="*",series="*",class="df"){
   series=paste0('%series=',shQuote_cmd(series))
 
 
-  saveCode=r'(open {%wf}
+  saveCode='open {%wf}
 
 
 
@@ -107,8 +107,7 @@ import_series=function(wf="",page="*",series="*",class="df"){
   text {%eviewsrText}_series
   {%eviewsrText}_series.append {%seriesPath}
   {%eviewsrText}_series.save {%eviewsrText}-series
-  exit
-  )'
+  exit'
 
 
 

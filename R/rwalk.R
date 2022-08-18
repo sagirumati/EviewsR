@@ -67,7 +67,7 @@ wf2=wf
   series1=gsub(" ","",series1) %>% tolower
   series=paste0("%series=",shQuote_cmd(paste(series,collapse = " ")))
 
-    eviewsCode=r'(
+    eviewsCode='
     if %wf<>"" then
     open {%wf}
     endif
@@ -86,12 +86,12 @@ wf2=wf
 
 
     if !rndseed<>NA then
-    ' White noise
-    'Seed the generator, so each run is the same
+    \' White noise
+    \'Seed the generator, so each run is the same
     rndseed {!rndseed}
     endif
 
-    'Generate a white noise series (in this case, of normals)
+    \'Generate a white noise series (in this case, of normals)
     for !i=1 to !n
     series wn{!i}=nrnd
     next
@@ -99,10 +99,10 @@ wf2=wf
 
     for !k=1 to {!n}
     %x{!k}=randomwalk_group.@seriesname({!k})
-    ' Random walks
-    ' Declare new series, set equal to wn1
+    \' Random walks
+    \' Declare new series, set equal to wn1
     series {%x{!k}}=wn{!k}
-    ' Change sample period
+    \' Change sample period
     smpl @first+1 @last
 
 
@@ -127,8 +127,8 @@ wf2=wf
     if %save="save" then
     wfsave {%wf}
     endif
-'    delete(noerr) wn* randomwalk_group*
-    exit)'
+\'    delete(noerr) wn* randomwalk_group*
+    exit'
 
   writeLines(c(eviews_path(),save,wf,page,rndseed,drift,series,eviewsCode),fileName)
     system_exec()

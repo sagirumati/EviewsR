@@ -34,9 +34,13 @@
 #' @family important functions
 #' @keywords documentation
 #' @export
-eviews_wfcreate=function(source_description="",wf="",page="",prompt=FALSE,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=dirname(wf)){
+eviews_wfcreate=function(source_description="",wf="",page="",prompt=FALSE,frequency="",subperiod_opts="",start_date="",end_date="",num_cross_sections=NA,num_observations=NA,save_path=""){
 
   if(is.xts(source_description)) source_description=data.frame(date=index(source_description),coredata(source_description))
+
+  if(save_path=="" && wf!="") save_path=dirname(wf)
+  if(!is.data.frame(source_description) && save_path=="") save_path=dirname(source_description)
+
 
 if (wf!='') wf=basename(wf)
 
@@ -87,8 +91,8 @@ page=paste0("page=",page)
   num_observations=paste0("!num_observations=",num_observations)
 
 
-  eviewsCode=r'(%wf=@wreplace(%wf,"* ","*")
-  '%page=@wreplace(%page,"* ","*")
+  eviewsCode='%wf=@wreplace(%wf,"* ","*")
+  \'%page=@wreplace(%page,"* ","*")
   %subperiod_opts=@wreplace(%subperiod_opts,"* ","*")
 
   %options=@stripcommas(%options)
@@ -111,13 +115,12 @@ page=paste0("page=",page)
   %wf=@wfname
 
   if %save_path<>"" then
-  %save_path=%save_path+"\"
+  %save_path=%save_path+"\\"
   endif
 
   wfsave {%save_path}{%wf}
 
-  exit
-  )'
+  exit'
 
 writeLines(c(eviews_path(),options,save_path,frequency,subperiod_opts,start_date,end_date,num_cross_sections,num_observations,save_path,eviewsCode),fileName)
 

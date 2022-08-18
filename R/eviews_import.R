@@ -34,6 +34,8 @@
 #' @export
 eviews_import=function(source_description="",wf="",type="",options="resize",smpl_string="@all",genr_string="",rename_string="",frequency="",start_date="",id="",destid="",append=FALSE,save_path=""){
 
+  if(is.xts(source_description)) source_description=data.frame(date=index(source_description),coredata(source_description))
+
   if(save_path=="" && wf!="") save_path=dirname(wf)
   if(!is.data.frame(source_description) && save_path=="") save_path=dirname(source_description)
 
@@ -70,23 +72,23 @@ eviews_import=function(source_description="",wf="",type="",options="resize",smpl
   save_path=paste0("%save_path=",shQuote_cmd(save_path))
   wf=paste0("%wf=",shQuote_cmd(wf))
 
-  eviewsCode=r'(
+  eviewsCode='
   %wf2=%wf+".wf1"
  if %wf1<>"" and @fileexist(%wf2) and %start_date="" then
 open {%wf1}
   endif
 
   if %type<>"" then
-  %type="type="+%type+","   'to avoid error if %TYPE=""
+  %type="type="+%type+","   \'to avoid error if %TYPE=""
   endif
 
 
   if %option<>"" then
-  %option="option="+%option   'to avoid error if %option=""
+  %option="option="+%option   \'to avoid error if %option=""
   endif
 
   if %smpl_string<>"" then
-  %smpl_string="@smpl "+%smpl_string 'change %SMPL_STRING to @SMPL %SMPL_STRING if %SMPL_STRING<>""
+  %smpl_string="@smpl "+%smpl_string \'change %SMPL_STRING to @SMPL %SMPL_STRING if %SMPL_STRING<>""
   endif
 
   if %genr_string<>"" then
@@ -97,7 +99,7 @@ open {%wf1}
   %rename_string="@rename "+%rename_string
   endif
 
-  'Determine the IMPORT_SPECIFICATION for DATED
+  \'Determine the IMPORT_SPECIFICATION for DATED
 
   if %frequency<>"" and %start_date<>"" then
   %import_type="dated"
@@ -106,33 +108,33 @@ open {%wf1}
 
   if %id<>"" and %destid<>"" then
   %import_type="match-merged"
-  'open {%wf}
+  \'open {%wf}
   %import_specification="@id "+%id+" @destid"+" "+%destid
   endif
 
   if (%append="T" or %append="TRUE") and %id="" and %destid="" and %frequency="" and %start_date="" then
   %import_type="appended"
-  'open {%wf}
+  \'open {%wf}
     %import_specification="@append"
   endif
 
   if %id="" and %destid="" and %import_specification=""  then
   %import_type="sequential"
-  'open {%wf}
+  \'open {%wf}
   %import_specification=""
   endif
 
 
 
-  'OPTIONAL_ARGUMENTS=@smpl {%smpl_string} @genr {%genr_string} @rename {%rename_string}
+  \'OPTIONAL_ARGUMENTS=@smpl {%smpl_string} @genr {%genr_string} @rename {%rename_string}
 
 
   %optional_arguments=%smpl_string+" "+%genr_string+" "+%rename_string
   if %import_type="appended" then
- 'open {%wf}
-  %optional_arguments=%genr_string+" "+%rename_string 'APPENDED syntax does not contain @SMPL_STRING
+ \'open {%wf}
+  %optional_arguments=%genr_string+" "+%rename_string \'APPENDED syntax does not contain @SMPL_STRING
   endif
-  'GENERAL
+  \'GENERAL
   import({%type}{%options}) {%source_description} {%import_specification} {%optional_arguments}
 
   %wf=@wfname
@@ -143,8 +145,7 @@ open {%wf1}
 
   wfsave {%save_path}{%wf}
 
-exit
-  )'
+exit'
 
 writeLines(c(eviews_path(),wf,wf1,save_path,type,options,source_description,smpl_string,genr_string,rename_string,frequency,start_date,id,destid,append,eviewsCode),fileName)
 

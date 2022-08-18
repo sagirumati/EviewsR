@@ -83,7 +83,7 @@ eviewsrText %<>%
   if(!identical(graph_procs,'')){
     graph_procs=paste0("{%y}.",graph_procs)
 
-    prefixGraphProcs=r'(
+    prefixGraphProcs='
     for %page {%pagelist}
     pageselect {%page}
 
@@ -102,14 +102,13 @@ eviewsrText %<>%
     endif
 
     if @wcount(%selectedGraphs)>0 then
-    for %y {%selectedGraphs}
-    )'
+    for %y {%selectedGraphs}'
 
-    suffixGraphProcs=r'(
+    suffixGraphProcs='
     next
     endif
-    next
-    )'
+    next'
+
   graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
 
   if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
@@ -141,7 +140,7 @@ eviewsrText %<>%
 
 
 
-eviewsCode=r'(
+eviewsCode='
 if %wf<>"" then
 wfopen {%wf}
 endif
@@ -150,21 +149,19 @@ endif
 
 if %page<>"*" then
 %pagelist=%page
-endif
+endif'
 
-)'
-
-saveCode=r'(
+saveCode='
 if %figKeep1="numeric" then
 %save_path=%tempDir
 endif
 
 %save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\")
+%save_path=@wreplace(%save_path,"/","\\")
 
 
 if %save_path<>"" then
-%save_path=%save_path+"\"
+%save_path=%save_path+"\\"
 endif
 
 
@@ -208,8 +205,7 @@ text {%eviewsrText}_graph
 {%eviewsrText}_graph.append {%graphPath}
 {%eviewsrText}_graph.save  {%eviewsrText}-graph
 endif
-exit
-)'
+exit'
 
 writeLines(c(eviews_path(),tempDir,figKeep,eviewsrText,chunkLabel,wf,page,graph,save_path,save_options,eviewsCode,graph_procs,saveCode), fileName)
 

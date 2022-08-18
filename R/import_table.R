@@ -64,7 +64,7 @@ chunkLabel=opts_current$get('label')
   table=paste0('%table=',shQuote_cmd(table))
 
 
-  saveCode=r'(open {%wf}
+  saveCode='open {%wf}
 
 
 
@@ -93,8 +93,7 @@ chunkLabel=opts_current$get('label')
   {%eviewsrText}_table.append {%tablePath}
   {%eviewsrText}_table.save {%eviewsrText}-table
 
-  exit
-  )'
+  exit'
 
 
 

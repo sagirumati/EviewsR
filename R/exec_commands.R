@@ -52,13 +52,13 @@ exec_commands=function(commands="",wf="",page="",save_path=""){
   endif)'
 
 
-  saveCode=r"(%wf=@wfname
+  saveCode='%wf=@wfname
   if %save_path<>"" then
-  %save_path=%save_path+"\"
+  %save_path=%save_path+"\\"
   endif
 
   wfsave {%save_path}{%wf}
-  exit)"
+  exit'
 
 writeLines(c(eviews_path(),save_path,wf,page,eviewsCode,commands,saveCode),fileName)
     system_exec()

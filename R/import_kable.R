@@ -44,7 +44,7 @@ import_kable=function(wf="",page="",table="",range="",format=kable_format(), dig
   table=paste0('%table=',shQuote_cmd(table))
 
 
-  eviewsCode=r'(open {%wf}
+  eviewsCode='open {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -54,7 +54,7 @@ import_kable=function(wf="",page="",table="",range="",format=kable_format(), dig
   %range=",r="+%range
   endif
 
-  {%table}.save(t=csv{%range}) {%table}_{%eviewsr_text})'
+  {%table}.save(t=csv{%range}) {%table}_{%eviewsr_text}'
 
   writeLines(c(eviews_path(),eviewsr_text,wf,page,table,range,eviewsCode,"exit"),fileName)
 
@@ -62,16 +62,16 @@ import_kable=function(wf="",page="",table="",range="",format=kable_format(), dig
   on.exit(unlink(table.csv),add = TRUE)
   on.exit(unlink_eviews(),add = TRUE)
 
-  EViewsTable= readLines(table.csv)
+  eviewsTable= readLines(table.csv)
 
 
 
-   if(any(grepl("^,.*,$", EViewsTable))) EViewsTable=EViewsTable[-grep("^,.*,$", EViewsTable)]
+   if(any(grepl("^,.*,$", eviewsTable))) eviewsTable=eviewsTable[-grep("^,.*,$", eviewsTable)]
 
-  EViewsTable=read.csv(text=EViewsTable,allowEscapes = T,header = T,check.names = FALSE)
+  eviewsTable=read.csv(text=eviewsTable,allowEscapes = T,header = T,check.names = FALSE)
 
 
-  kable(x = EViewsTable, format = format, digits = digits,
+  kable(x = eviewsTable, format = format, digits = digits,
         row.names = row.names, col.names = col.names,
         align = align, caption = caption, label = label,
         format.args = format.args, escape = escape,
