@@ -114,9 +114,7 @@ if(options$eval){
 
 
 
-  graphicsDefault=r'(
-
-  %pagelist=@pagelist
+  graphicsDefault='%pagelist=@pagelist
 
   if %page<>"*" then
   %pagelist=%page
@@ -184,8 +182,7 @@ if(options$eval){
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
   next
   endif
-  next
-  )'
+  next'
 
 
 
@@ -194,7 +191,7 @@ if(options$eval){
   if(!is.null(graph_procs)){
     graph_procs=paste0("{%y}.",graph_procs)
 
-    prefixGraphProcs=r'(
+    prefixGraphProcs='
     for %page {%pagelist}
     pageselect {%page}
 
@@ -213,14 +210,12 @@ if(options$eval){
     endif
 
     if @wcount(%selectedGraphs)>0 then
-    for %y {%selectedGraphs}
-    )'
+    for %y {%selectedGraphs}'
 
-    suffixGraphProcs=r'(
+    suffixGraphProcs='
     next
     endif
-    next
-    )'
+    next'
 
     graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
 
@@ -228,8 +223,8 @@ if(options$eval){
   }
 
 
-  equationSeriesTablePath=r'(
-  '####################### TABLES #################
+  equationSeriesTablePath='
+  \'####################### TABLES #################
 
 
   %tablePath=""
@@ -251,7 +246,7 @@ if(options$eval){
   {%eviewsrText}_table.save {%eviewsrText}-table
 
 
-  '####################### EQUATIONS #################
+  \'####################### EQUATIONS #################
 
   %equationPath=""
 
@@ -293,7 +288,7 @@ if(options$eval){
   {%eviewsrText}_equation.append {%equationPath}
   {%eviewsrText}_equation.save {%eviewsrText}-equation
 
-  '####################### SERIES #################
+  \'####################### SERIES #################
 
   %seriesPath=""
   for %page {%pagelist}
@@ -310,21 +305,20 @@ if(options$eval){
   {%eviewsrText}_series.save {%eviewsrText}-series
 
 
-  exit
-  )'
+  exit'
 
 
   if(!identical(graph1,'asis')){
-  graphPath=r'(%save_path=@wreplace(%save_path,"* ","*")
-  %save_path=@wreplace(%save_path,"/","\")
+  graphPath='%save_path=@wreplace(%save_path,"* ","*")
+  %save_path=@wreplace(%save_path,"/","\\")
 
 
   if %save_path<>"" then
-  %save_path=%save_path+"\"
+  %save_path=%save_path+"\\"
   endif
 
 
-  '####################### GRAPHS #################
+  \'####################### GRAPHS #################
 
 
   if %figKeep1="numeric" then
@@ -332,11 +326,11 @@ if(options$eval){
   endif
 
   %save_path=@wreplace(%save_path,"* ","*")
-  %save_path=@wreplace(%save_path,"/","\")
+  %save_path=@wreplace(%save_path,"/","\\")
 
 
   if %save_path<>"" then
-  %save_path=%save_path+"\"
+  %save_path=%save_path+"\\"
   endif
 
 
@@ -380,7 +374,7 @@ if(options$eval){
   text {%eviewsrText}_graph
   {%eviewsrText}_graph.append {%graphPath}
   {%eviewsrText}_graph.save  {%eviewsrText}-graph
-  endif)'
+  endif'
 }
 
 
@@ -394,15 +388,14 @@ if(options$eval){
 
 #### Generate graphPath from the options$code
 
-appendCode=r'(
+appendCode='
   %currentpage=@pagename
   %newgraph=@wlookup("*","graph")
   %newgraph=@wdrop(%newgraph,%existing)
   %existing=@wlookup("*","graph")
   if @wcount(%newgraph)>0 then
   %graphPath=%graphPath+" "+%chunkLabel+"-"+%currentpage+"-"+%newgraph
-  endif
- )'
+  endif'
 
 
     eviewsCode=options$code %>% strsplit(split="\n") %>%
@@ -416,8 +409,8 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
     options$code=eviewsCode
 
 
-    graphPath=r'(if %save_path<>"" then
-    %save_path=%save_path+"\"
+    graphPath='if %save_path<>"" then
+    %save_path=%save_path+"\\"
     endif
 
     %save_options=@wreplace(%save_options,"* ","*")
@@ -443,10 +436,7 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
     text {%eviewsrText}_graph
     {%eviewsrText}_graph.append {%graphPath}
     {%eviewsrText}_graph.save  {%eviewsrText}-graph
-    endif
-
-
-    )'
+    endif'
 }
 
 

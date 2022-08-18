@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>", 
   echo = T,
-  eval=F,
+  eval=T,
   out.width = "45%",
   out.height = "20%",
   fig.show="hold"
@@ -136,7 +136,6 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 #| fig.subcap: ["X graph","Y graph"]
 #| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
 #| echo: false
-#| eval: false
     
 'This program is created in R Markdown with the help of EviewsR package
   
@@ -173,7 +172,7 @@ knitr::kable(K,row.names = F,caption = 'Selected cells of  EViews table object')
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
 
 ```{r}
-EviewsR$eviewsrpage |> head()
+EviewsR$eviewsrpage %>% head()
 
 ```
 
@@ -299,7 +298,7 @@ exec_commands(c("wfcreate(wf=exec_commands,page=eviewsPage) m 2000 2022"))
 
 
 ```{r}
-eviewsCommands=r'(pagecreate(page=eviewspage1) 7 2020 2022
+eviewsCommands='pagecreate(page=eviewspage1) 7 2020 2022
 for %page eviewspage eviewspage1
 pageselect {%page}
 genr y=@cumsum(nrnd)
@@ -308,8 +307,7 @@ equation ols.ls y c x
 graph x_graph.line x
 graph y_graph.area y
 freeze(OLSTable,mode=overwrite) ols
-next
-)'
+next'
 
 exec_commands(commands=eviewsCommands,wf="exec_commands")
 
@@ -380,7 +378,7 @@ import_series(wf="eviewsr_workfile")
 To access the series in base R:
 
 ```{r,eval=FALSE,echo=TRUE}
-eviews$eviewspage |> head()
+eviews$eviewspage %>% head()
 ```
 
 To import the series as an `xts` object:
@@ -455,7 +453,7 @@ To access the objects in base R:
 ```{r,eval=FALSE,echo=TRUE}
 eviews$eviewspage_ols # equation
 # eviewspage-x_graph # graph saved in "figure/" folder
-eviews$eviewspage |> head() # series
+eviews$eviewspage %>% head() # series
 eviews$eviewspage_olstable  # table
 ```
 

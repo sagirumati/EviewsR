@@ -58,7 +58,7 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
 
 
 
-  eviewsCode=r'(wfopen {%wf}
+  eviewsCode='wfopen {%wf}
 
   if %page<>"" then
   pageselect {%page}
@@ -96,8 +96,8 @@ create_object=function(wf="",page="",action="",action_opt="",object_name="",view
   endif
 
   wfsave {%wf}
-  exit
-  )'
+  exit'
+
 writeLines(c(eviews_path(),wf,page,action,action_opt,object_name,view_or_proc,options_list,arg_list,object_type,options,expression,eviewsCode),fileName)
 
   system_exec()
