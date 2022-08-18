@@ -212,7 +212,7 @@ if %figKeep1="numeric" then
 endif
 
 %save_path=@wreplace(%save_path,"* ","*")
-%save_path=@wreplace(%save_path,"/","\)
+%save_path=@wreplace(%save_path,"/","\\")
 
 
 if %save_path<>"" then
