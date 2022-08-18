@@ -2,7 +2,7 @@
 title: "EviewsR: A Seamless Integration of Eviews and R"
 author: "Sagiru Mati"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
-output: knitr::html_vignette
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{EviewsR: A Seamless Integration of Eviews and R}
   %\VignetteEngine{knitr::rmarkdown}
@@ -25,6 +25,9 @@ library(knitr)
 
 <style>
 
+.title,code{
+color: red !important;
+}
 img1 {
   border:5px solid red;
   animation: myanimation 2s infinite;
