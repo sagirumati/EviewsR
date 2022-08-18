@@ -270,7 +270,7 @@ The EViews series objects are also imported automatically as dataframe
 (by default) or `xts` objects (if we use chunk option `class="xts"`).
 They are accessed via `chunkLabel$pageName`.
 
-    EviewsR$eviewsrpage |>
+    EviewsR$eviewsrpage %>%
         head()
     #>         date           x          y
     #> 1 2000-01-01 -0.06062345 0.34705763
@@ -501,7 +501,7 @@ objects can be accessed via `eviews$pageName`.
 
 To access the series in base R:
 
-    eviews$eviewspage |>
+    eviews$eviewspage %>%
         head()
 
 To import the series as an `xts` object:
@@ -559,7 +559,7 @@ To access the objects in base R:
 
     eviews$eviewspage_ols  # equation
     # eviewspage-x_graph # graph saved in 'figure/' folder
-    eviews$eviewspage |>
+    eviews$eviewspage %>%
         head()  # series
     eviews$eviewspage_olstable  # table
 
