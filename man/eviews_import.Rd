@@ -8,8 +8,8 @@ eviews_import(
   source_description = "",
   wf = "",
   type = "",
-  options = "",
-  smpl_string = "",
+  options = "resize",
+  smpl_string = "@all",
   genr_string = "",
   rename_string = "",
   frequency = "",
@@ -17,7 +17,7 @@ eviews_import(
   id = "",
   destid = "",
   append = FALSE,
-  save_path = dirname(wf)
+  save_path = ""
 )
 }
 \arguments{

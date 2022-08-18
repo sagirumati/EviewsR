@@ -15,7 +15,7 @@ eviews_wfcreate(
   end_date = "",
   num_cross_sections = NA,
   num_observations = NA,
-  save_path = dirname(wf)
+  save_path = ""
 )
 }
 \arguments{

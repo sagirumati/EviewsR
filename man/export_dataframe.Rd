@@ -9,7 +9,7 @@ export_dataframe(
   wf = "",
   start_date = "",
   frequency = "",
-  save_path = dirname(wf)
+  save_path = ""
 )
 }
 \arguments{

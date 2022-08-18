@@ -203,7 +203,7 @@ knitr::kable(K,row.names = F,caption = 'Selected cells of  EViews table object')
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
 
 ```{r}
-EviewsR$eviewsrpage |> head()
+EviewsR$eviewsrpage %>% head()
 
 ```
 
@@ -413,7 +413,7 @@ import_series(wf="eviewsr_workfile")
 To access the series in base R:
 
 ```{r,eval=FALSE,echo=TRUE}
-eviews$eviewspage |> head()
+eviews$eviewspage %>% head()
 ```
 
 To import the series as an `xts` object:
@@ -488,7 +488,7 @@ To access the objects in base R:
 ```{r,eval=FALSE,echo=TRUE}
 eviews$eviewspage_ols # equation
 # eviewspage-x_graph # graph saved in "figure/" folder
-eviews$eviewspage |> head() # series
+eviews$eviewspage %>% head() # series
 eviews$eviewspage_olstable  # table
 ```
 
