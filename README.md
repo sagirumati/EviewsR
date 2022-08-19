@@ -9,7 +9,7 @@
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)
 [![CRAN\_Status\_Badge](https://cranlogs.r-pkg.org/badges/grand-total/EviewsR?color=49C31B)](https://cranlogs.r-pkg.org/badges/grand-total/EviewsR?color=49C31B)
 [![](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)
-
+[![R-CMD-check](https://github.com/sagirumati/EviewsR/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/sagirumati/EviewsR/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
 # 1 About the Author
@@ -318,8 +318,7 @@ A set of Eviews commands can be executed with the help of
     graph x_graph.line x
     graph y_graph.area y
     freeze(OLSTable,mode=overwrite) ols
-    next
-    "
+    next"
     exec_commands(commands = eviewsCommands, wf = "exec_commands")
 
 ### 7.2.8 The export\_dataframe() function
