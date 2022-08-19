@@ -29,14 +29,14 @@
 #'
 #' eviews$eviewspage_ols # equation
 #' # eviewspage-x_graph # graph saved in "figure/" folder
-#' eviews$eviewspage |> head() # series
+#' eviews$eviewspage %>% head() # series
 #' eviews$eviewspage_olstable  # table
 #'
 #' # To get the values above in R Markdown or Quarto:
 #'
 #' # chunkLabel$eviewspage_ols # equation
 #' # chunkLabel-eviewspage-x_graph # graph saved in "fig.path" folder
-#' # chunkLabel$eviewspage |> head() # series
+#' # chunkLabel$eviewspage %>% head() # series
 #' # chunkLabel$eviewspage_olstable  # table
 #'
 #'}
