@@ -2,8 +2,9 @@
 title: "EviewsR: A Seamless Integration of Eviews and R"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
 output: 
-  bookdown::github_document2:
-    number_sections: true
+  bookdown::markdown_document2:
+    preserve_yaml: true
+format: complete
 ---
 
 
