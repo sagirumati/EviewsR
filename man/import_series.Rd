@@ -56,7 +56,7 @@ import_series(wf="exec_commands",page="eviewspage")
 
 # To access the series in base R
 
-eviews$eviewspage |> head()
+eviews$eviewspage \%>\% head()
 
 # To get the values above in R Markdown or Quarto:
 
