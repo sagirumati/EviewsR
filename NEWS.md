@@ -2,7 +2,7 @@
 
 What's new?
 
-* Removed R 4.X features (thanks, @yihui #2)
+* Removed R 4.X features so that the package can be installed in older R versions (thanks, @yihui #2)
 
 * Updated vignettes
 
