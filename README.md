@@ -1,6 +1,6 @@
 EviewsR: A Seamless Integration of Eviews and R
 ================
-Thursday: August 18, 2022
+Friday: August 19, 2022
 
 # 1 EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
@@ -190,7 +190,7 @@ The EViews series objects are also imported automatically as dataframe
 They are accessed via `chunkLabel$pageName`.
 
 ``` r
-EviewsR$eviewsrpage |>
+EviewsR$eviewsrpage %>%
     head()
 #>         date           x          y
 #> 1 2000-01-01 -0.06062345 0.34705763
@@ -477,7 +477,7 @@ import_series(wf = "eviewsr_workfile")
 To access the series in base R:
 
 ``` r
-eviews$eviewspage |>
+eviews$eviewspage %>%
     head()
 ```
 
@@ -549,7 +549,7 @@ To access the objects in base R:
 ``` r
 eviews$eviewspage_ols  # equation
 # eviewspage-x_graph # graph saved in 'figure/' folder
-eviews$eviewspage |>
+eviews$eviewspage %>%
     head()  # series
 eviews$eviewspage_olstable  # table
 ```
