@@ -1,12 +1,13 @@
 ---
 title: "EviewsR: A Seamless Integration of Eviews and R"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
-output: 
-  bookdown::markdown_document2:
-    preserve_yaml: true
-format: complete
+output: bookdown::markdown_document2
 ---
 
+
+# EviewsR: A Seamless Integration of Eviews and R {-}
+
+# `r format(Sys.Date(), "%A: %B %d,  %Y")` {-}
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(

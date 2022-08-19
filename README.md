@@ -1,11 +1,6 @@
----
-title: "EviewsR: A Seamless Integration of Eviews and R"
-date: 'Friday: August 19,  2022'
-output: 
-  bookdown::markdown_document2:
-    preserve_yaml: true
-format: complete
----
+# EviewsR: A Seamless Integration of Eviews and R
+
+# Friday: August 19, 2022
 
 # 1 EviewsR <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
