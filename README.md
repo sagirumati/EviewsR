@@ -267,7 +267,7 @@ To plot a scatter graph and histogram on the same frame:
         group = T, graph_command = "scat(ab=histogram) linefit()",
         mode = "overwrite", graph_procs = "setelem(1) lcolor(green) lwidth(2)")
 
-<img src="inst/figures//eviewsgraph2-eviewsrpage-xy.png" alt="Scatter graph along with histogram" width="45%" height="30%" />
+<img src="inst/figures//eviewsgraph2-eviewsrpage-xy.png" alt="Scatter graph along with histogram" width="90%" height="80%" />
 <p class="caption">
 Figure 7.4: Scatter graph along with histogram
 </p>
