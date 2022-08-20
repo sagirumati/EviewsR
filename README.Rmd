@@ -1,11 +1,11 @@
 ---
-title: "EviewsR: A Seamless Integration of Eviews and R"
+title: "EviewsR: A Seamless Integration of EViews and R"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
 output: bookdown::markdown_document2
 ---
 
 
-# EviewsR: A Seamless Integration of Eviews and R {-}
+# EviewsR: A Seamless Integration of EViews and R {-}
 
 # `r format(Sys.Date(), "%A: %B %d,  %Y")` {-}
 

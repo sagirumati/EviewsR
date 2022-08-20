@@ -1,8 +1,10 @@
-# EviewsR 0.1.4
+# EviewsR 0.1.5
 
 What's new?
 
 * Updated vignettes and readme
+
+* Bugs fixes
 
 # EviewsR 0.1.4
 

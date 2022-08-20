@@ -1,10 +1,10 @@
 ---
-title: "EviewsR: A Seamless Integration of Eviews and R"
+title: "EviewsR: A Seamless Integration of EViews and R"
 author: "Sagiru Mati, PhD"
 date: '`r format(Sys.Date(), "%A: %B %d,  %Y")`'
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{EviewsR: A Seamless Integration of Eviews and R}
+  %\VignetteIndexEntry{EviewsR: A Seamless Integration of EViews and R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
