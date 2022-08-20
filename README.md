@@ -3,7 +3,7 @@
 # Saturday: August 20, 2022
 
 <img src="inst/figures/EviewsR.png" align="right" width="120" />
-
+  
 <!-- badges: start -->
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/EviewsR)](https://cran.r-project.org/package=EviewsR)

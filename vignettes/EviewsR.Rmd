@@ -30,6 +30,7 @@ text-align: center;
 .title{
 color: red !important;
 width:100% !important;
+text-align: center !important;
 }
 img1 {
   border:5px solid red;
@@ -50,26 +51,30 @@ img{
 border:5px solid cyan;
 }
 h1{
-text-align: center;
+text-align: left;
 border:5px solid #FFC704;
 color:DarkGreen;
-width:50%;
-align: center;
+width:60%;
+display: block;
 }
 h2{
 color:Green;
  border:5px solid yellow;
  filter: saturate(70%);
- width:50%;
- align: center;
+ width:60%;
+ align: left;
 }
 h3{
 color:Green;
  border:3px solid #FFC704;
  filter: saturate(75%);
- width:50%;
+ width:60%;
  }
 
+h2,h3{
+padding: 10px
+with: auto
+}
 </style>
 
 <img src="../inst/figures/EviewsR.png" align="right" width="120" />
