@@ -32,6 +32,11 @@ color: red !important;
 width:100% !important;
 text-align: center !important;
 }
+
+#about-the-author{
+width: 79%;
+}
+
 img1 {
   border:5px solid red;
   animation: myanimation 2s infinite;
@@ -48,32 +53,27 @@ img1 {
 
 
 img{
-border:5px solid cyan;
+border:5px solid #008753;
 }
 h1{
-text-align: left;
+text-align: center;
 border:5px solid #FFC704;
 color:DarkGreen;
-width:60%;
 display: block;
 }
 h2{
 color:Green;
  border:5px solid yellow;
  filter: saturate(70%);
- width:60%;
- align: left;
+ width:80%;
 }
 h3{
 color:Green;
  border:3px solid #FFC704;
  filter: saturate(75%);
- width:60%;
+ width:44%;
  }
 
-h2,h3{
-padding: 10px
-with: auto
 }
 </style>
 
