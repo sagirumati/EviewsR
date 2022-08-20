@@ -93,10 +93,10 @@ EviewsR can be installed using the following commands in R.
 To run the package successfully, you need to do one of the following
 
 -   Don’t do anything if the name of EViews executable is one of the
-    following: `EViews13_x64`, `EViews13_x86`,`EViews12_x64`,
-    `EViews12_x86`, `EViews11_x64`, `EViews11_x86`,`EViews10_x64`,
-    `EViews10_x86`,`EViews9_x64`, `EViews9_x86`, `EViews10`. The package
-    will find the executable automatically.
+    following: `EViews13_x64`, `EViews13_x86`, `EViews12_x64`,
+    `EViews12_x86`, `EViews11_x64`, `EViews11_x86`, `EViews10_x64`,
+    `EViews10_x86`, `EViews9_x64`, `EViews9_x86`, `EViews10`. The
+    package will find the executable automatically.
 
 -   Rename the Eviews executable to `eviews` or one of the names above.
 
