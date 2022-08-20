@@ -24,9 +24,12 @@ library(knitr)
 ```
 
 <style>
-
+.caption{
+text-align: center;
+}
 .title{
 color: red !important;
+width:100% !important;
 }
 img1 {
   border:5px solid red;
@@ -50,21 +53,26 @@ h1{
 text-align: center;
 border:5px solid #FFC704;
 color:DarkGreen;
+width:50%;
+align: center;
 }
 h2{
 color:Green;
  border:5px solid yellow;
  filter: saturate(70%);
+ width:50%;
+ align: center;
 }
 h3{
 color:Green;
  border:3px solid #FFC704;
  filter: saturate(75%);
+ width:50%;
  }
 
 </style>
 
-<img src="../inst/EVIEWS/EviewsR.png" align="right" width="120" />
+<img src="../inst/figures/EviewsR.png" align="right" width="120" />
 
 <!-- badges: start -->
 
@@ -223,7 +231,7 @@ The `eviews` chunk automatically returns the outputs of each equation
 object as a dataframe, accessible via
 `chunkLabel$pageName_equationName`. For example, The *R*<sup>2</sup> of
 the `ols` equation object is 0.044951, which can be accessed using
-`` `r EviewsR$eviewsrpage_ols$r2` ``. We can obtain the table object by
+`` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by
 `chunkLabel$pageName_tableName`. Therefore,
 `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as
 dataframe. Note the underscore (`_`) between the `pageName` and
@@ -618,4 +626,4 @@ You might be interested in the following packages:
 <br><br><br><br>
 
 Please download the example files from
-[Github](https://github.com/sagirumati/EviewsR/tree/master/../inst/Examples/).
+[Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).
