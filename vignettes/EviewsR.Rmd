@@ -28,7 +28,7 @@ library(knitr)
 color: #008753;
 font-weight: bold;
 }
-code{color:red;}
+code{color:magenta;}
 .caption{
 text-align: center;
 }
@@ -80,7 +80,11 @@ color:Green;
  }
 
 }
+
 </style>
+
+
+
 
 <img src="../inst/figures/EviewsR.png" align="right" width="120" />
 

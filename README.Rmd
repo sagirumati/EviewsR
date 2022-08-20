@@ -243,8 +243,8 @@ To create graph from existing EViews series objects:
 #| out.width: 45%
 #| out.height: 30%
 
-eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",mode = "overwrite",
-graph_options = "m",graph_command="line(ab=boxplot)")
+eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",mode = "overwrite",graph_procs = "setelem(1) lcolor(red) lwidth(4)",
+graph_options = "m")
 
 ```
 
