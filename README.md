@@ -1,8 +1,10 @@
 EviewsR: A Seamless Integration of Eviews and R
 ================
-Friday: August 19, 2022
+Saturday: August 20, 2022
 
+# EviewsR: A Seamless Integration of Eviews and R
 
+# Saturday: August 20, 2022
 
 <img src="inst/EVIEWS/EviewsR.png" align="right" width="120" />
 
