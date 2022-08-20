@@ -24,7 +24,6 @@ library(knitr)
 ```
 
 <style>
-&quot{color: yellow;}
 .author,.date{
 color: #008753;
 font-weight: bold;

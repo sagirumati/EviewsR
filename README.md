@@ -241,7 +241,7 @@ EViews graphs can be included in R Markdown or Quarto document by
 To create graph from existing EViews series objects:
 
     eviews_graph(wf = "EviewsR_workfile", page = "EviewsRPage", series = "x y",
-        mode = "overwrite", graph_options = "m")
+        mode = "overwrite", graph_options = "m", graph_command = "line(ab=boxplot)")
 
 <img src="inst/figures//eviewsgraph-eviewsrpage-x.png" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" /><img src="inst/figures//eviewsgraph-eviewsrpage-y.png" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" />
 <p class="caption">
