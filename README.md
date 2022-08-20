@@ -261,6 +261,17 @@ We can also create graph objects from an R dataframe
 Figure 7.3: Graphs of an R dataframe imported by fig-eviewsGraph1 chunk
 </p>
 
+To plot a scatter graph and histogram on the same frame:
+
+    eviews_graph(wf = "EviewsR_workfile", page = "EviewsRPage", series = "x y",
+        group = T, graph_command = "scat(ab=histogram) linefit()",
+        mode = "overwrite", graph_procs = "setelem(1) lcolor(green) lwidth(2)")
+
+<img src="inst/figures//eviewsgraph2-eviewsrpage-xy.png" alt="Scatter graph along with histogram" width="45%" height="30%" />
+<p class="caption">
+Figure 7.4: Scatter graph along with histogram
+</p>
+
 ### 7.2.3 The eviews\_import() function
 
 Data can be imported from external sources by `eviews_import()`
@@ -346,7 +357,7 @@ Import EViews graph objects(s) into R, R Markdown or Quarto.
 
 <img src="inst/figures//fig-importgraph-eviewsrpage-xx.png" alt="EViews graphs imported using import\_graph() function" width="45%" height="20%" /><img src="inst/figures//fig-importgraph-eviewsrpage-yy.png" alt="EViews graphs imported using import\_graph() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.4: EViews graphs imported using import\_graph() function
+Figure 7.5: EViews graphs imported using import\_graph() function
 </p>
 
 To import only graphs that begin with x:
@@ -355,7 +366,7 @@ To import only graphs that begin with x:
 
 <img src="inst/figures//fig-importgraph1-eviewspage-x_graph.png" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" /><img src="inst/figures//fig-importgraph1-eviewspage1-x_graph.png" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.5: EViews graphs that begin with X imported using
+Figure 7.6: EViews graphs that begin with X imported using
 import\_graph() function
 </p>
 
@@ -481,7 +492,7 @@ To import all equation, graph, series and table objects across all pages
 
 <img src="inst/figures//fig-importworkfile-eviewsrpage-xx.png" alt="EViews graphs automatically imported by import\_workfile() function" width="45%" height="20%" /><img src="inst/figures//fig-importworkfile-eviewsrpage-yy.png" alt="EViews graphs automatically imported by import\_workfile() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.6: EViews graphs automatically imported by import\_workfile()
+Figure 7.7: EViews graphs automatically imported by import\_workfile()
 function
 </p>
 
@@ -515,7 +526,7 @@ thanks to `rwalk()` function.
 
 <img src="inst/figures/fig-rwalk-1.png" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" /><img src="inst/figures/fig-rwalk-2.png" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" />
 <p class="caption">
-Figure 7.7: Plots of imported EViews random walk series objects
+Figure 7.8: Plots of imported EViews random walk series objects
 </p>
 
 ### 7.2.16 Demo

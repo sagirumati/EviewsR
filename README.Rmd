@@ -262,6 +262,18 @@ eviews_graph(series=Data,group=TRUE,start_date="1990Q4",frequency="Q")
  
 ```
 
+To plot a scatter graph and histogram on the same frame:
+
+```{r}
+#| label: fig-eviewsGraph2
+#| fig.cap: Scatter graph along with histogram
+#| out.width: 45%
+#| out.height: 30%
+
+eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",group=T,graph_command="scat(ab=histogram) linefit()",mode = "overwrite",graph_procs = "setelem(1) lcolor(green) lwidth(2)")
+
+```
+
 ### The eviews_import() function
 
 Data can be imported from external sources by `eviews_import()` function.
