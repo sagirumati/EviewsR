@@ -186,7 +186,7 @@ if(options$eval){
 
 
 
-  graph_procs=options$graph_procs %n% opts_current$get('graph_procs')
+  graph_procs=opts_current$get('graph_procs')
 
   if(!is.null(graph_procs)){
     graph_procs=paste0("{%y}.",graph_procs)
@@ -217,7 +217,7 @@ if(options$eval){
     endif
     next'
 
-    graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
+    graph_procs=paste0(c(prefixGraphProcs,graph_procs,suffixGraphProcs),collapse = '\n')
 
     if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
   }

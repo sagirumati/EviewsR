@@ -1,3 +1,14 @@
+# EviewsR 0.1.6
+
+What's new?
+
+
+* Bug fixes: `graph_procs` is now working in chunk options  
+
+* Updated vignettes and readme
+
+
+
 # EviewsR 0.1.5
 
 What's new?
