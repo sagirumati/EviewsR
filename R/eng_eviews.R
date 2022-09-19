@@ -186,7 +186,7 @@ if(options$eval){
 
 
 
-  graph_procs=opts_current$get('graph_procs')
+  graph_procs=options$graph_procs %n% opts_current$get('graph_procs')
 
   if(!is.null(graph_procs)){
     graph_procs=paste0("{%y}.",graph_procs)

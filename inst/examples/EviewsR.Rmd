@@ -125,6 +125,7 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 #| eval: true
 #| fig.subcap: ["X graph","Y graph"]
 #| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
+#| graph_procs: template midnight
 #| echo: false
     
 'This program is created in R Markdown with the help of EviewsR package
