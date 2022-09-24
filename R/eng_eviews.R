@@ -32,6 +32,8 @@ eng_eviews <- function(options) {
 
   options$eval=options$eval %n% opts_chunk$get("eval")
 
+if(!options$eval) options$fig.cap=NULL # Quarto evaluates caption even if eval=F
+
   options$echo=options$echo %n% opts_chunk$get("echo")
 
 
