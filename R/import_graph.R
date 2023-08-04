@@ -109,7 +109,7 @@ eviewsrText %<>%
     endif
     next'
 
-  graph_procs=paste0(prefixGraphProcs,graph_procs,suffixGraphProcs,collapse = '\n')
+  graph_procs=paste0(c(prefixGraphProcs,graph_procs,suffixGraphProcs),collapse = '\n')
 
   if(any(grepl("^\\s*$", graph_procs))) graph_procs=graph_procs[-grep("^\\s*$",graph_procs)]
 }

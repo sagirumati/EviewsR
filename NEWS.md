@@ -2,6 +2,7 @@
 
 What's new?
 
+* Bug fixes: `graph_procs` is now working in import_graph function
 
 * Bug fixes: `graph_procs` is now working in chunk options  
 
