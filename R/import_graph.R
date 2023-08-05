@@ -44,7 +44,7 @@ import_graph=function(wf="",page="*",graph="*",graph_procs="",save_options="",sa
   chunkLabel=opts_current$get("label")
 
   dev=opts_current$get('dev')
-  if(graph_procs=="" && opts_current$get('graph_procs')!="") graph_procs=opts_current$get('graph_procs')
+  if(graph_procs=="" && !is.null(opts_current$get('graph_procs'))) graph_procs=opts_current$get('graph_procs')
 
 graph1=graph
 
