@@ -128,13 +128,13 @@ if(options$eval){
   for %page {%pagelist}
   pageselect {%page}
 
-  if %graph="first" then
+  if %graph="@first" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wleft(%selectedGraphs,1)
-  else if %graph="last" then
+  else if %graph="@last" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wright(%selectedGraphs,1)
-  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+  else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
   %selectedGraphs=@wlookup("*","graph")
   else
   %selectedGraphs=@wlookup(%graph,"graph")
@@ -200,13 +200,13 @@ if(options$eval){
     for %page {%pagelist}
     pageselect {%page}
 
-    if %graph="first" then
+    if %graph="@first" then
     %selectedGraphs=@wlookup("*","graph")
     %selectedGraphs=@wleft(%selectedGraphs,1)
-    else if %graph="last" then
+    else if %graph="@last" then
     %selectedGraphs=@wlookup("*","graph")
     %selectedGraphs=@wright(%selectedGraphs,1)
-    else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+    else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
     %selectedGraphs=@wlookup("*","graph")
     else
     %selectedGraphs=@wlookup(%graph,"graph")
@@ -313,7 +313,7 @@ if(options$eval){
   exit'
 
 
-  if(!identical(graph1,'asis')){
+  if(!identical(graph1,'@asis')){
   graphPath='%save_path=@wreplace(%save_path,"* ","*")
   %save_path=@wreplace(%save_path,"/","\\")
 
@@ -350,13 +350,13 @@ if(options$eval){
   pageselect {%page}
 
 
-  if %graph="first" then
+  if %graph="@first" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wleft(%selectedGraphs,1)
-  else if %graph="last" then
+  else if %graph="@last" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wright(%selectedGraphs,1)
-  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+  else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
   %selectedGraphs=@wlookup("*","graph")
   else
   %selectedGraphs=@wlookup(%graph,"graph")
@@ -385,11 +385,11 @@ if(options$eval){
 
 
 
-  ####### GRAPH="ASIS" #####################
+  ####### GRAPH="@asis" #####################
 
 
 
-  if(identical(graph1,"asis"))  {
+  if(identical(graph1,"@asis"))  {
 
 #### Generate graphPath from the options$code
 
@@ -516,10 +516,10 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist() %>% tolower()
 
-  if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
-  if(any(graph1=="asc")) graphPath %<>% sort
+  if(any(graph1=="@desc")) graphPath %<>% sort(decreasing = TRUE)
+  if(any(graph1=="@asc")) graphPath %<>% sort
   if(is.numeric(graph1)) graphPath=graphPath[graph1]
-  if(identical(graph1,"asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
+  if(identical(graph1,"@asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
 
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
 
