@@ -32,10 +32,10 @@ eng_eviews <- function(options) {
 
   options$eval=options$eval %n% opts_chunk$get("eval")
 
-if(!options$eval) {
-  options$fig.cap=options$fig.subcap=NULL # Quarto evaluates caption even if eval=F
-opts_current$set(fig.cap=NULL,fig.subcap=NULL)
-}
+# if(!options$eval) {
+#   options$fig.cap=options$fig.subcap=NULL # Quarto evaluates caption even if eval=F
+# opts_current$set(fig.cap=NULL,fig.subcap=NULL)
+# }
 
   options$echo=options$echo %n% opts_chunk$get("echo")
 
