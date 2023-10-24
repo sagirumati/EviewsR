@@ -1,10 +1,10 @@
 Package: EviewsR
 Type: Package
 Title: A Seamless Integration of 'EViews' and R
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
-    person("Sagiru", "Mati", role = c("aut", "cre"), email = "smati@smati.com.ng",comment=c(ORCID="0000-0003-1413-3974")))
-Maintainer: Sagiru Mati <smati@smati.com.ng>
+    person("Sagiru", "Mati", role = c("aut", "cre"), email = "sagirumati@gmail.com",comment=c(ORCID="0000-0003-1413-3974")))
+Maintainer: Sagiru Mati <sagirumati@gmail.com>
 Description: It allows running 'EViews'(<https://eviews.com>) program from R, R Markdown and Quarto documents. 'EViews' (Econometric Views) is a statistical software for Econometric analysis.  This package integrates 'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'EViews' commands in R, R Markdown or Quarto documents.
 Depends: R (>= 3.4.0)
 Imports: knitr (>= 1.20), magrittr, xts, zoo
@@ -15,7 +15,7 @@ URL: https://CRAN.R-project.org/package=EviewsR
 BugReports: https://github.com/sagirumati/EviewsR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 NeedsCompilation: no
 Packaged: 2022-08-08 15:31:44 UTC; Sagiru
 Repository: CRAN

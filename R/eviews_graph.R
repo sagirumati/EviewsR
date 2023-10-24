@@ -40,6 +40,8 @@
 #' @export
 eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path="",frequency="m",start_date="",save_copy=TRUE){
 
+  if(identical(graph_procs,"") && !is.null(opts_current$get('graph_procs'))) graph_procs=opts_current$get('graph_procs')
+
 if(is.xts(series)) series=data.frame(date=index(series),coredata(series))
 
 if(wf!="" && save_path=="") save_path=dirname(wf)

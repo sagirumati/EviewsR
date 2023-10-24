@@ -2,8 +2,7 @@
 
 What's new?
 
-* `import_graph`function now uses chunk option `graph_procs`, however the chunk option is overwritten by `graph_procs` function  argument.
-* Bug fixes: `graph_procs` is now working in import_graph function
+* `import_graph()` and `eviews_graph()` functions now use chunk option `graph_procs`, if the function  argument `graph_procs=""`.
 
 * Bug fixes: `graph_procs` is now working in chunk options  
 
