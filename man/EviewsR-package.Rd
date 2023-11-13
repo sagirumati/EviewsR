@@ -38,7 +38,7 @@ Other important functions:
 \code{\link{set_eviews_path}()}
 }
 \author{
-\strong{Maintainer}: Sagiru Mati \email{smati@smati.com.ng} (\href{https://orcid.org/0000-0003-1413-3974}{ORCID})
+\strong{Maintainer}: Sagiru Mati \email{sagirumati@gmail.com} (\href{https://orcid.org/0000-0003-1413-3974}{ORCID})
 
 }
 \concept{important functions}

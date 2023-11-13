@@ -32,10 +32,10 @@ eng_eviews <- function(options) {
 
   options$eval=options$eval %n% opts_chunk$get("eval")
 
-if(!options$eval) {
-  options$fig.cap=options$fig.subcap=NULL # Quarto evaluates caption even if eval=F
-opts_current$set(fig.cap=NULL,fig.subcap=NULL)
-}
+# if(!options$eval) {
+#   options$fig.cap=options$fig.subcap=NULL # Quarto evaluates caption even if eval=F
+# opts_current$set(fig.cap=NULL,fig.subcap=NULL)
+# }
 
   options$echo=options$echo %n% opts_chunk$get("echo")
 
@@ -128,13 +128,13 @@ if(options$eval){
   for %page {%pagelist}
   pageselect {%page}
 
-  if %graph="first" then
+  if %graph="@first" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wleft(%selectedGraphs,1)
-  else if %graph="last" then
+  else if %graph="@last" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wright(%selectedGraphs,1)
-  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+  else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
   %selectedGraphs=@wlookup("*","graph")
   else
   %selectedGraphs=@wlookup(%graph,"graph")
@@ -153,9 +153,9 @@ if(options$eval){
   {%y}.options size(6,3)
   {%y}.options -background frameaxes(all) framewidth(0.5)
   {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(1.5)
-  {%y}.setelem(2) linecolor(@rgb(218,124,48)) linewidth(1.5)
+  {%y}.setelem(2) linecolor(@rgb(204,37,41)) linewidth(1.5)
   {%y}.setelem(3) linecolor(@rgb(62,150,81)) linewidth(1.5)
-  {%y}.setelem(4) linecolor(@rgb(204,37,41)) linewidth(1.5)
+  {%y}.setelem(4) linecolor(@rgb(218,124,48)) linewidth(1.5)
   {%y}.setelem(5) linecolor(@rgb(83,81,84)) linewidth(1.5)
   {%y}.setelem(6) linecolor(@rgb(107,76,154)) linewidth(1.5)
   {%y}.setelem(7) linecolor(@rgb(146,36,40)) linewidth(1.5)
@@ -185,6 +185,7 @@ if(options$eval){
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
+  {%y}.datelabel format("YYYY")
   next
   endif
   next'
@@ -200,13 +201,13 @@ if(options$eval){
     for %page {%pagelist}
     pageselect {%page}
 
-    if %graph="first" then
+    if %graph="@first" then
     %selectedGraphs=@wlookup("*","graph")
     %selectedGraphs=@wleft(%selectedGraphs,1)
-    else if %graph="last" then
+    else if %graph="@last" then
     %selectedGraphs=@wlookup("*","graph")
     %selectedGraphs=@wright(%selectedGraphs,1)
-    else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+    else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
     %selectedGraphs=@wlookup("*","graph")
     else
     %selectedGraphs=@wlookup(%graph,"graph")
@@ -313,7 +314,7 @@ if(options$eval){
   exit'
 
 
-  if(!identical(graph1,'asis')){
+  if(!identical(graph1,'@asis')){
   graphPath='%save_path=@wreplace(%save_path,"* ","*")
   %save_path=@wreplace(%save_path,"/","\\")
 
@@ -350,13 +351,13 @@ if(options$eval){
   pageselect {%page}
 
 
-  if %graph="first" then
+  if %graph="@first" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wleft(%selectedGraphs,1)
-  else if %graph="last" then
+  else if %graph="@last" then
   %selectedGraphs=@wlookup("*","graph")
   %selectedGraphs=@wright(%selectedGraphs,1)
-  else if %graph="asis" or %graph="asc" or %graph="desc" or %figKeep1="numeric"  then
+  else if %graph="@asis" or %graph="@asc" or %graph="@desc" or %figKeep1="numeric"  then
   %selectedGraphs=@wlookup("*","graph")
   else
   %selectedGraphs=@wlookup(%graph,"graph")
@@ -385,11 +386,11 @@ if(options$eval){
 
 
 
-  ####### GRAPH="ASIS" #####################
+  ####### GRAPH="@asis" #####################
 
 
 
-  if(identical(graph1,"asis"))  {
+  if(identical(graph1,"@asis"))  {
 
 #### Generate graphPath from the options$code
 
@@ -516,10 +517,10 @@ for (i in graphIndex) eviewsCode=append(eviewsCode,appendCode,i)
   if(file.exists(paste0(eviewsrText1,"-graph.txt"))){ graphPath=readLines(paste0(eviewsrText1,"-graph.txt")) %>%
     strsplit(split=" ") %>% unlist() %>% tolower()
 
-  if(any(graph1=="desc")) graphPath %<>% sort(decreasing = TRUE)
-  if(any(graph1=="asc")) graphPath %<>% sort
+  if(any(graph1=="@desc")) graphPath %<>% sort(decreasing = TRUE)
+  if(any(graph1=="@asc")) graphPath %<>% sort
   if(is.numeric(graph1)) graphPath=graphPath[graph1]
-  if(identical(graph1,"asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
+  if(identical(graph1,"@asis") && !identical(page1,"*")) graphPath=graphPath[grep(pagePattern,graphPath,ignore.case = TRUE)]
 
   if(is.numeric(graph1)) file.copy(paste0(tempDir1,'/',graphPath,'.',extension),paste0(save_path1,'/',graphPath,'.',extension),overwrite = TRUE)
 

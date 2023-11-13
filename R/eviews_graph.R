@@ -40,6 +40,8 @@
 #' @export
 eviews_graph=function(wf="",page="*",series="*",group=FALSE,graph_command="line",graph_options="",mode="overwrite",graph_procs="",datelabel="",save_options='',save_path="",frequency="m",start_date="",save_copy=TRUE){
 
+  if(identical(graph_procs,"") && !is.null(opts_current$get('graph_procs'))) graph_procs=opts_current$get('graph_procs')
+
 if(is.xts(series)) series=data.frame(date=index(series),coredata(series))
 
 if(wf!="" && save_path=="") save_path=dirname(wf)
@@ -65,9 +67,9 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
   {%y}.options size(6,3)
   {%y}.options -background frameaxes(all) framewidth(0.5)
   {%y}.setelem(1) linecolor(@rgb(57,106,177)) linewidth(1.5)
-  {%y}.setelem(2) linecolor(@rgb(218,124,48)) linewidth(1.5)
+  {%y}.setelem(2) linecolor(@rgb(204,37,41)) linewidth(1.5)
   {%y}.setelem(3) linecolor(@rgb(62,150,81)) linewidth(1.5)
-  {%y}.setelem(4) linecolor(@rgb(204,37,41)) linewidth(1.5)
+  {%y}.setelem(4) linecolor(@rgb(218,124,48)) linewidth(1.5)
   {%y}.setelem(5) linecolor(@rgb(83,81,84)) linewidth(1.5)
   {%y}.setelem(6) linecolor(@rgb(107,76,154)) linewidth(1.5)
   {%y}.setelem(7) linecolor(@rgb(146,36,40)) linewidth(1.5)
@@ -97,6 +99,7 @@ if(wf!="" && save_path=="") save_path=dirname(wf)
   {%y}.setfont legend(Calibri,12,-b,-i,-u,-s) text(Calibri,14,-b,-i,-u,-s) obs(Calibri,14,-b,-i,-u,-s) axis(Calibri,14,-b,-i,-u,-s)
   {%y}.setfont obs(Calibri,14,-b,-i,-u,-s)
   {%y}.textdefault font(Calibri,14,-b,-i,-u,-s)
+  {%y}.datelabel format("YYYY")
   next
   endif
   next
