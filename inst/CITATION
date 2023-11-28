@@ -9,8 +9,8 @@ author=c("Sagiru Mati","Irfan Civcir","S. I. Abba")
 doi='10.32614/RJ-2023-045'
 url = 'https://journal.r-project.org/articles/RJ-2023-045/'
 
-citEntry(
-  entry = 'article',
+bibentry(
+  bibtype = 'article',
   title = title,
   key="Mati2023",
   #author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
