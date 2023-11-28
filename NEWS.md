@@ -10,7 +10,7 @@ What's new?
 
 * Maintainer's email changed to <sagirumati@gmail.com>
 
-* Chunk options `graph` now takes `@asis`, `@last`, `@first`. See Mati S., Civcir I. and Abba S.I (2023) <10.32614/RJ-2023-045> for details
+* Chunk options `graph` now takes `@asis`, `@last`, `@first`. See Mati S., Civcir I. and Abba S.I (2023) <doi:10.32614/RJ-2023-045> for details
 
 
 
