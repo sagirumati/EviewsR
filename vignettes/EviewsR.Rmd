@@ -248,7 +248,6 @@ as shown below :
 
     ```{eviews} 
     #| label: fig-EviewsR
-    #| eval: true
     #| fig.subcap: ["X graph","Y graph"]
     #| fig.cap: "EViews graphs imported automatically by fig-EviewsR chunk"
 
@@ -283,8 +282,7 @@ in the current directory.
 The `eviews` chunk automatically returns the outputs of each equation
 object as a dataframe, accessible via
 `chunkLabel$pageName_equationName`. For example, The *R*<sup>2</sup> of
-the `ols` equation object is 0.044951, which can be accessed using
-`` `r EviewsR$eviewsrpage_ols$r2` ``. We can obtain the table object by
+the `ols` equation object is 0.044951, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by
 `chunkLabel$pageName_tableName`. Therefore,
 `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as
 dataframe. Note the underscore (`_`) between the `pageName` and
