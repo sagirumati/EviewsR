@@ -1,14 +1,28 @@
 citHeader("To cite the 'EviewsR' package in publications use:")
 
-year = sub('.*(2[[:digit:]]{3})-.*', '\\1', meta$Date, perl = TRUE)
+# year = sub('.*(2[[:digit:]]{3})-.*', '\\1', meta$Date, perl = TRUE)
+
+year = 2023
 vers = paste('R package version', meta$Version)
+title='EviewsR: An R Package for Dynamic and Reproducible Research Using EViews, R, R Markdown and Quarto'
+author=c("Sagiru Mati","Irfan Civcir","S. I. Abba")
+doi='10.32614/RJ-2023-045'
+url = 'https://journal.r-project.org/articles/RJ-2023-045/'
 
 citEntry(
-  entry = 'manual',
-  title = paste('EviewsR:', meta$Title),
-  author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
+  entry = 'article',
+  title = title,
+  key="Mati2023",
+  #author = Filter(function(p) 'aut' %in% p$role, as.person(meta$Author)),
+  author= author,
   year = year,
-  note = vers,
-  url = meta$URL,
-  textVersion = paste('Sagiru Mati (', year, '). EviewsR: ', meta$Title, '. ', vers, '.', sep = '')
+  journal="The R Journal",
+  volume="15",
+  issue="2",
+  page="169-205",
+  note = 'https://doi.org/10.32614/RJ-2023-045',
+  url = url,
+  doi='10.32614/RJ-2023-045',
+  issn='2073-4859',
+  textVersion = paste0('Mati S., Civcir I., Abba S.I',' (', year, '). ',title, '. ','The R Journal','. doi:',doi,', url: ',url)
 )
