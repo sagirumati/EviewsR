@@ -6,7 +6,7 @@
 \alias{EviewsR-package}
 \title{EviewsR: A Seamless Integration of 'EViews' and R}
 \description{
-It allows running 'EViews'(\url{https://eviews.com}) program from R, R Markdown and Quarto documents. 'EViews' (Econometric Views) is a statistical software for Econometric analysis. This package integrates 'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'EViews' commands in R, R Markdown or Quarto documents.
+It allows running 'EViews'(\url{https://eviews.com}) program from R, R Markdown and Quarto documents. 'EViews' (Econometric Views) is a statistical software for Econometric analysis. This package integrates 'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'EViews' commands in R, R Markdown or Quarto documents. For details, please consult our peer-review article [10.32614/RJ-2023-045](https://doi.org/10.32614/RJ-2023-045)
 }
 \seealso{
 Useful links:
