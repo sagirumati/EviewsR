@@ -6,3 +6,7 @@ CODE_OF_CONDUCT.md
 LICENCE
 inst/EVIEWS
 ^\.github$
+^EviewsR\.qmd$
+^EviewsR\.pdf$
+^EviewsR-
+_extensions
