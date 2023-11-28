@@ -86,7 +86,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
 
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("Thank you for using DynareR!
+  packageStartupMessage("Thank you for using EviewsR!
 
           To acknowledge our work, please cite the package:
 
@@ -102,13 +102,26 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
               BIBTEX:
 
 
-  @Article{Mati2019,
+  @Article{Mati2020,
     title = {EviewsR: A Seamless Integration of EViews and R},
     author = {Sagiru Mati},
-    year = {2019},
+    year = {2020},
     journal = {CRAN},
-    url = {https://CRAN.R-project.org/package=DynareR},
-  }")
+    url = {https://CRAN.R-project.org/package=EviewsR},
+  }
+
+  @article{Mati2023,
+  author = {Mati, Sagiru and Civcir, Irfan and Abba, S. I.},
+  title = {EviewsR: An R Package for Dynamic and Reproducible Research Using EViews, R, R Markdown and Quarto},
+  journal = {The R Journal},
+  year = {2023},
+  note = {https://doi.org/10.32614/RJ-2023-045},
+  doi = {10.32614/RJ-2023-045},
+  volume = {15},
+  issue = {2},
+  issn = {2073-4859},
+  pages = {169-205},
+}")
 }
 
 

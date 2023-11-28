@@ -41,6 +41,49 @@ library(ggplot2)
 <!-- badges: end -->
 
 
+**Thank you for using EviewsR!**
+
+To acknowledge our work, please cite the package:
+
+                        PLAIN TEXT:
+
+ 1. Mati S. (2020). EviewsR: A Seamless Integration of EViews and R. CRAN. https://CRAN.R-project.org/package=DynareR
+
+ 2.  Mati S., Civcir I., Abba S.I (2023). EviewsR: An R Package for Dynamic
+  and Reproducible Research Using EViews, R, R Markdown and Quarto. The R
+  Journal. doi:10.32614/RJ-2023-045, url:
+  https://journal.r-project.org/articles/RJ-2023-045/
+
+              BIBTEX:
+
+```
+  @Article{Mati2020,
+    title = {EviewsR: A Seamless Integration of EViews and R},
+    author = {Sagiru Mati},
+    year = {2020},
+    journal = {CRAN},
+    url = {https://CRAN.R-project.org/package=EviewsR},
+  }
+```
+
+```
+  @article{Mati2023,
+  author = {Mati, Sagiru and Civcir, Irfan and Abba, S. I.},
+  title = {EviewsR: An R Package for Dynamic and Reproducible Research Using EViews, R, R Markdown and Quarto},
+  journal = {The R Journal},
+  year = {2023},
+  note = {https://doi.org/10.32614/RJ-2023-045},
+  doi = {10.32614/RJ-2023-045},
+  volume = {15},
+  issue = {2},
+  issn = {2073-4859},
+  pages = {169-205},
+}
+```
+
+For details,  please consult our peer-review article [10.32614/RJ-2023-045](https://doi.org/10.32614/RJ-2023-045)
+
+
 # About the Author
 
 The author of this package, **Sagiru Mati**, obtained his PhD in
@@ -207,7 +250,7 @@ knitr::kable(K,row.names = F,caption = 'Selected cells of  EViews table object')
 The EViews series objects are also imported automatically as dataframe (by default) or `xts` objects (if we use chunk option `class="xts"`). They are accessed via `chunkLabel$pageName`.
 
 ```{r}
-EviewsR$eviewsrpage %>% head()
+head(EviewsR$eviewsrpage)
 
 ```
 
@@ -532,7 +575,7 @@ rwalk(wf="eviewsr_workfile",series="X Y Z",page="",rndseed=12345,frequency="M",n
 
 xts::plot.xts(rwalk$xyz,type="l",main = "")
 
-ggplot2::autoplot(rwalk$xyz,facet='')
+ggplot2::autoplot(rwalk$xyz)
 ```
 
 
@@ -568,9 +611,12 @@ Template for R Markdown is created. Go to `file->New File->R Markdown-> From Tem
 
 You might be interested in the following packages:
 
-* [DynareR](https://github.com/sagirumati/DynareR): A Seamless Integration of Dynare and R.
+* [DynareR](https://github.com/sagirumati/DynareR): DynareR: Bringing the Power of Dynare to R, R Markdown, and Quarto
 
 * [gretlR](https://github.com/sagirumati/gretlR): A Seamless Integration of gretl and R.
+
+
+* [URooTab](https://github.com/sagirumati/URooTab): A Seamless Integration of gretl and R.
 
 <br><br><br><br>
 

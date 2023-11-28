@@ -1,6 +1,6 @@
-# EviewsR: A Seamless Integration of Eviews and R
+# EviewsR: A Seamless Integration of EViews and R
 
-# Saturday: August 20, 2022
+# Tuesday: November 28, 2023
 
 <img src="inst/figures/EviewsR.png" align="right" width="120" />
 
@@ -11,6 +11,48 @@
 [![](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)](https://cranlogs.r-pkg.org/badges/EviewsR?color=49C31B)
 [![R-CMD-check](https://github.com/sagirumati/EviewsR/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/sagirumati/EviewsR/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
+
+**Thank you for using EviewsR!**
+
+To acknowledge our work, please cite the package:
+
+                        PLAIN TEXT:
+
+1.  Mati S. (2020). EviewsR: A Seamless Integration of EViews and R.
+    CRAN. <https://CRAN.R-project.org/package=DynareR>
+
+2.  Mati S., Civcir I., Abba S.I (2023). EviewsR: An R Package for
+    Dynamic and Reproducible Research Using EViews, R, R Markdown and
+    Quarto. The R Journal. <doi:10.32614/RJ-2023-045>, url:
+    <https://journal.r-project.org/articles/RJ-2023-045/>
+
+             BIBTEX:
+
+<!-- -->
+
+      @Article{Mati2020,
+        title = {EviewsR: A Seamless Integration of EViews and R},
+        author = {Sagiru Mati},
+        year = {2020},
+        journal = {CRAN},
+        url = {https://CRAN.R-project.org/package=EviewsR},
+      }
+
+      @article{Mati2023,
+      author = {Mati, Sagiru and Civcir, Irfan and Abba, S. I.},
+      title = {EviewsR: An R Package for Dynamic and Reproducible Research Using EViews, R, R Markdown and Quarto},
+      journal = {The R Journal},
+      year = {2023},
+      note = {https://doi.org/10.32614/RJ-2023-045},
+      doi = {10.32614/RJ-2023-045},
+      volume = {15},
+      issue = {2},
+      issn = {2073-4859},
+      pages = {169-205},
+    }
+
+For details, please consult our peer-review article
+[10.32614/RJ-2023-045](https://doi.org/10.32614/RJ-2023-045)
 
 # 1 About the Author
 
@@ -149,7 +191,8 @@ as shown below :
 
 <img src="inst/figures//eviewsreviewsrpage-xx.png" alt="EViews graphs imported automatically by fig-EviewsR chunk" width="45%" height="20%" /><img src="inst/figures//eviewsreviewsrpage-yy.png" alt="EViews graphs imported automatically by fig-EviewsR chunk" width="45%" height="20%" />
 <p class="caption">
-Figure 7.1: EViews graphs imported automatically by fig-EviewsR chunk
+<span id="fig:fig-EviewsR"></span>Figure 7.1: EViews graphs imported
+automatically by fig-EviewsR chunk
 </p>
 
 The above chunk creates an Eviews program with the chunk’s content, then
@@ -177,7 +220,8 @@ dataframe. Note the underscore (`_`) between the `pageName` and
     knitr::kable(K, row.names = F, caption = "Selected cells of  EViews table object")
 
 <table>
-<caption>Table 7.1: Selected cells of EViews table object</caption>
+<caption><span id="tab:unnamed-chunk-3"></span>Table 7.1: Selected cells
+of EViews table object</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Variable</td>
@@ -203,14 +247,14 @@ dataframe. Note the underscore (`_`) between the `pageName` and
 </tbody>
 </table>
 
-Table 7.1: Selected cells of EViews table object
+<span id="tab:unnamed-chunk-3"></span>Table 7.1: Selected cells of
+EViews table object
 
 The EViews series objects are also imported automatically as dataframe
 (by default) or `xts` objects (if we use chunk option `class="xts"`).
 They are accessed via `chunkLabel$pageName`.
 
-    EviewsR$eviewsrpage %>%
-        head()
+    head(EviewsR$eviewsrpage)
     #>         date           x          y
     #> 1 2000-01-01 -0.06062345 0.34705763
     #> 2 2000-02-01  0.40287977 0.04959103
@@ -246,8 +290,8 @@ To create graph from existing EViews series objects:
 
 <img src="inst/figures//eviewsgraph-eviewsrpage-x.png" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" /><img src="inst/figures//eviewsgraph-eviewsrpage-y.png" alt="Graphs of existing EViews series objects imported by fig-eviewsGraph chunk" width="45%" height="30%" />
 <p class="caption">
-Figure 7.2: Graphs of existing EViews series objects imported by
-fig-eviewsGraph chunk
+<span id="fig:fig-eviewsGraph"></span>Figure 7.2: Graphs of existing
+EViews series objects imported by fig-eviewsGraph chunk
 </p>
 
 We can also create graph objects from an R dataframe
@@ -258,7 +302,8 @@ We can also create graph objects from an R dataframe
 
 <img src="inst/figures//eviewsgraph1-eviewsgraph1-xy.png" alt="Graphs of an R dataframe imported by fig-eviewsGraph1 chunk" width="90%" height="70%" />
 <p class="caption">
-Figure 7.3: Graphs of an R dataframe imported by fig-eviewsGraph1 chunk
+<span id="fig:fig-eviewsGraph1"></span>Figure 7.3: Graphs of an R
+dataframe imported by fig-eviewsGraph1 chunk
 </p>
 
 To plot a scatter graph and histogram on the same frame:
@@ -269,7 +314,8 @@ To plot a scatter graph and histogram on the same frame:
 
 <img src="inst/figures//eviewsgraph2-eviewsrpage-xy.png" alt="Scatter graph along with histogram" width="90%" height="80%" />
 <p class="caption">
-Figure 7.4: Scatter graph along with histogram
+<span id="fig:fig-eviewsGraph2"></span>Figure 7.4: Scatter graph along
+with histogram
 </p>
 
 ### 7.2.3 The eviews\_import() function
@@ -357,7 +403,8 @@ Import EViews graph objects(s) into R, R Markdown or Quarto.
 
 <img src="inst/figures//fig-importgraph-eviewsrpage-xx.png" alt="EViews graphs imported using import\_graph() function" width="45%" height="20%" /><img src="inst/figures//fig-importgraph-eviewsrpage-yy.png" alt="EViews graphs imported using import\_graph() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.5: EViews graphs imported using import\_graph() function
+<span id="fig:fig-importGraph"></span>Figure 7.5: EViews graphs imported
+using import\_graph() function
 </p>
 
 To import only graphs that begin with x:
@@ -366,8 +413,8 @@ To import only graphs that begin with x:
 
 <img src="inst/figures//fig-importgraph1-eviewspage-x_graph.png" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" /><img src="inst/figures//fig-importgraph1-eviewspage1-x_graph.png" alt="EViews graphs that begin with X imported using import\_graph() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.6: EViews graphs that begin with X imported using
-import\_graph() function
+<span id="fig:fig-importGraph1"></span>Figure 7.6: EViews graphs that
+begin with X imported using import\_graph() function
 </p>
 
 ### 7.2.11 The import\_kable() function
@@ -381,8 +428,8 @@ function. Therefore, we can include the
 
 <table>
 <caption>
-Table 7.2: Selected cells of EViews table imported using import\_kable()
-function
+<span id="tab:importKable"></span>Table 7.2: Selected cells of EViews
+table imported using import\_kable() function
 </caption>
 <thead>
 <tr>
@@ -492,8 +539,8 @@ To import all equation, graph, series and table objects across all pages
 
 <img src="inst/figures//fig-importworkfile-eviewsrpage-xx.png" alt="EViews graphs automatically imported by import\_workfile() function" width="45%" height="20%" /><img src="inst/figures//fig-importworkfile-eviewsrpage-yy.png" alt="EViews graphs automatically imported by import\_workfile() function" width="45%" height="20%" />
 <p class="caption">
-Figure 7.7: EViews graphs automatically imported by import\_workfile()
-function
+<span id="fig:fig-importWorkfile"></span>Figure 7.7: EViews graphs
+automatically imported by import\_workfile() function
 </p>
 
 To import specific objects
@@ -522,11 +569,12 @@ thanks to `rwalk()` function.
         frequency = "M", num_observations = 100, class = "xts")
 
     xts::plot.xts(rwalk$xyz, type = "l", main = "")
-    ggplot2::autoplot(rwalk$xyz, facet = "")
+    ggplot2::autoplot(rwalk$xyz)
 
 <img src="inst/figures/fig-rwalk-1.png" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" /><img src="inst/figures/fig-rwalk-2.png" alt="Plots of imported EViews random walk series objects" width="45%" height="20%" />
 <p class="caption">
-Figure 7.8: Plots of imported EViews random walk series objects
+<span id="fig:fig-rwalk"></span>Figure 7.8: Plots of imported EViews
+random walk series objects
 </p>
 
 ### 7.2.16 Demo
@@ -560,10 +608,13 @@ Template for R Markdown is created. Go to
 
 You might be interested in the following packages:
 
--   [DynareR](https://github.com/sagirumati/DynareR): A Seamless
-    Integration of Dynare and R.
+-   [DynareR](https://github.com/sagirumati/DynareR): DynareR: Bringing
+    the Power of Dynare to R, R Markdown, and Quarto
 
 -   [gretlR](https://github.com/sagirumati/gretlR): A Seamless
+    Integration of gretl and R.
+
+-   [URooTab](https://github.com/sagirumati/URooTab): A Seamless
     Integration of gretl and R.
 
 <br><br><br><br>
