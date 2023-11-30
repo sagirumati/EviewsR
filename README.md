@@ -619,6 +619,8 @@ Civcir, and Abba (2023).
 Please download the example files from
 [Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).
 
+# 10 References
+
 Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to
 <span class="nocase">R, R Markdown, and Quarto</span>.” *CRAN*.
 <https://CRAN.R-project.org/package=DynareR>.
@@ -630,16 +632,16 @@ Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to
 <https://CRAN.R-project.org/package=gretlR>.
 
 ———. 2022a. “Package ‘DynareR’.”
-<https://mirror.niser.ac.in/cran/web/packages/DynareR/DynareR.pdf>.
+<https://cran.r-project.org/web/packages/DynareR/DynareR.pdf>.
 
 ———. 2022b. “Package ‘EviewsR’.”
-<https://mirror.niser.ac.in/cran/web/packages/EviewsR/EviewsR.pdf>.
+<https://cran.r-project.org/web/packages/EviewsR/EviewsR.pdf>.
 
 ———. 2022c. “Package ‘gretlR’.”
-<https://mirror.niser.ac.in/cran/web/packages/gretlR/gretlR.pdf>.
+<https://cran.r-project.org/web/packages/gretlR/gretlR.pdf>.
 
 ———. 2023a. “Package ‘URooTab’.”
-<https://mirror.niser.ac.in/cran/web/packages/URooTab/URooTab.pdf>.
+<https://cran.r-project.org/web/packages/URooTab/URooTab.pdf>.
 
 ———. 2023b. *URooTab: Tabular Reporting of EViews Unit Root Tests*.
 <https://github.com/sagirumati/URooTab>.
