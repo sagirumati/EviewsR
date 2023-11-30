@@ -181,7 +181,9 @@ Please load the EviewsR package as follows:
 
 # Ways to use EviewsR
 
-The package can work with base R, R Markdown or Quarto document.
+The package can work with base R, R Markdown or Quarto document. 
+The package has been used in @Mati2019, @Mati2021, @Mati2023b, @Mati2023c and @Mati2019.
+
 
 ## EviewsR along with R Markdown or Quarto document
 
@@ -254,6 +256,8 @@ The EViews series objects are also imported automatically as dataframe (by defau
 head(EviewsR$eviewsrpage)
 
 ```
+
+
 
 
 ## EviewsR along with base R
