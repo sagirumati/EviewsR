@@ -3,9 +3,11 @@ title: "EviewsR: A Seamless Integration of EViews and R"
 date: "2022/06/04"
 author: Sagiru Mati
 format: pdf
+bibliography: references.bib
 execute: 
   echo: fenced
-  cache: true
+  cache: false
+link-citations: true
 ---
 
 
@@ -26,6 +28,7 @@ knitr::opts_chunk$set(
   fig.path = 'inst/figures/'
 )
 library(EviewsR)
+library(magrittr)
 # set_eviews_path('EViews12_X64')
 library(knitr)
 library(ggplot2)
@@ -186,7 +189,7 @@ After loading the package, a chunk for Eviews can be created by supplying `eview
 
 The above chunk creates an Eviews program with the chunk's content, then automatically open Eviews and run the program, which will create an Eviews workfile with pages containing monthly sample from 2000 to 2022. The program will also save an EViews workfile named `EviewsR_workfile` in the current directory.
 
-The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is `r EviewsR$eviewsrpage_ols$r2`, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
+The `eviews` chunk automatically returns the outputs of each equation object as a dataframe, accessible via `chunkLabel$pageName_equationName`. For example, The $R^2$ of the `ols` equation object is  0.044951, which can be accessed using `` `r knitr::inline_expr('EviewsR$eviewsrpage_ols$r2')` ``. We can obtain the table object by `chunkLabel$pageName_tableName`. Therefore, `EviewsR$eviewsrpage_olstable` will give us the `OLSTable` object as dataframe. Note the underscore (`_`) between the `pageName` and `equationName`, and between the `pageName` and `tableName`.  
 
 ```{r}
 EviewsR$eviewsrpage_ols$r2
@@ -234,6 +237,7 @@ To create graph from existing EViews series objects:
 #| fig.cap: Graphs of existing EViews series objects imported by fig-eviewsGraph chunk
 #| out.width: 45%
 #| out.height: 30%
+#| layout-ncol: 2
 
 eviews_graph(wf="EviewsR_workfile",page = "EviewsRPage",series="x y",mode = "overwrite",graph_procs = "setelem(1) lcolor(red) lwidth(4)",
 graph_options = "m")
@@ -555,14 +559,13 @@ demo(set_eviews_path())
 
 Template for R Markdown is created. Go to `file->New File->R Markdown-> From Template->EviewsR`.
 
+ 
 
 # Similar Packages
 
-You might be interested in the following packages:
+Similar packages include [DynareR](https://github.com/sagirumati/DynareR) [@Mati2020;@mati2022dynarer], [gretlR](https://github.com/sagirumati/gretlR) [@Mati2020b;@mati2022gretlr], and  [URooTab](https://github.com/sagirumati/URooTab) [@Mati2023a;@mati2023urootab]
 
-* [DynareR](https://github.com/sagirumati/DynareR): A Seamless Integration of Dynare and R.
-
-* [gretlR](https://github.com/sagirumati/gretlR): A Seamless Integration of gretl and R.
+For further details, consult @mati2022eviewsr, @Mati2020a and @Mati2023.
 
 <br><br><br><br>
 
@@ -575,3 +578,6 @@ x = dir(pattern = "\\.(csv|wf1|inp)")
 unlink(x)
 
 ```
+
+
+# References

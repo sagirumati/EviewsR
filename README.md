@@ -1,6 +1,6 @@
 # EviewsR: A Seamless Integration of EViews and R
 
-# Tuesday: November 28, 2023
+# Thursday: November 30, 2023
 
 <img src="inst/figures/EviewsR.png" align="right" width="120" />
 
@@ -606,18 +606,45 @@ Template for R Markdown is created. Go to
 
 # 9 Similar Packages
 
-You might be interested in the following packages:
+Similar packages include
+[DynareR](https://github.com/sagirumati/DynareR) (Mati 2020a, 2022a),
+[gretlR](https://github.com/sagirumati/gretlR) (Mati 2020c, 2022c), and
+[URooTab](https://github.com/sagirumati/URooTab) (Mati 2023b, 2023a)
 
--   [DynareR](https://github.com/sagirumati/DynareR): DynareR: Bringing
-    the Power of Dynare to R, R Markdown, and Quarto
-
--   [gretlR](https://github.com/sagirumati/gretlR): A Seamless
-    Integration of gretl and R.
-
--   [URooTab](https://github.com/sagirumati/URooTab): A Seamless
-    Integration of gretl and R.
+For further details, consult Mati (2022b), Mati (2020b) and Mati,
+Civcir, and Abba (2023).
 
 <br><br><br><br>
 
 Please download the example files from
 [Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).
+
+Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to
+<span class="nocase">R, R Markdown, and Quarto</span>.” *CRAN*.
+<https://CRAN.R-project.org/package=DynareR>.
+
+———. 2020b. *EviewsR: A Seamless Integration of EViews and R*.
+<https://CRAN.R-project.org/package=EviewsR>.
+
+———. 2020c. *gretlR: A Seamless Integration of Gretl and R*.
+<https://CRAN.R-project.org/package=gretlR>.
+
+———. 2022a. “Package ‘DynareR’.”
+<https://mirror.niser.ac.in/cran/web/packages/DynareR/DynareR.pdf>.
+
+———. 2022b. “Package ‘EviewsR’.”
+<https://mirror.niser.ac.in/cran/web/packages/EviewsR/EviewsR.pdf>.
+
+———. 2022c. “Package ‘gretlR’.”
+<https://mirror.niser.ac.in/cran/web/packages/gretlR/gretlR.pdf>.
+
+———. 2023a. “Package ‘URooTab’.”
+<https://mirror.niser.ac.in/cran/web/packages/URooTab/URooTab.pdf>.
+
+———. 2023b. *URooTab: Tabular Reporting of EViews Unit Root Tests*.
+<https://github.com/sagirumati/URooTab>.
+
+Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package
+for Dynamic and Reproducible Research Using EViews, r, r Markdown and
+Quarto.” *The R Journal* 15 (2): 169–205.
+<https://doi.org/10.32614/rj-2023-045>.
