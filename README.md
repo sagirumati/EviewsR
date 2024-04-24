@@ -159,7 +159,10 @@ Please load the EviewsR package as follows:
 
 # 7 Ways to use EviewsR
 
-The package can work with base R, R Markdown or Quarto document.
+The package can work with base R, R Markdown or Quarto document. The
+package has been used in Mati, Civcir, and Ozdeser (2019), Mati (2021),
+Mati et al. (2023), Mati, Civcir, and Özdeşer (2023) and Mati, Civcir,
+and Ozdeser (2019).
 
 ## 7.1 EviewsR along with R Markdown or Quarto document
 
@@ -619,6 +622,8 @@ Civcir, and Abba (2023).
 Please download the example files from
 [Github](https://github.com/sagirumati/EviewsR/tree/master/inst/examples/).
 
+# 10 References
+
 Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to
 <span class="nocase">R, R Markdown, and Quarto</span>.” *CRAN*.
 <https://CRAN.R-project.org/package=DynareR>.
@@ -629,17 +634,22 @@ Mati, Sagiru. 2020a. “DynareR: Bringing the Power of Dynare to
 ———. 2020c. *gretlR: A Seamless Integration of Gretl and R*.
 <https://CRAN.R-project.org/package=gretlR>.
 
+———. 2021. “Do as Your Neighbours Do? Assessing the Impact of Lockdown
+and Reopening on the Active COVID-19 Cases in Nigeria.” *Social Science
+&Amp; Medicine* 270 (February): 113645.
+<https://doi.org/10.1016/j.socscimed.2020.113645>.
+
 ———. 2022a. “Package ‘DynareR’.”
-<https://mirror.niser.ac.in/cran/web/packages/DynareR/DynareR.pdf>.
+<https://cran.r-project.org/web/packages/DynareR/DynareR.pdf>.
 
 ———. 2022b. “Package ‘EviewsR’.”
-<https://mirror.niser.ac.in/cran/web/packages/EviewsR/EviewsR.pdf>.
+<https://cran.r-project.org/web/packages/EviewsR/EviewsR.pdf>.
 
 ———. 2022c. “Package ‘gretlR’.”
-<https://mirror.niser.ac.in/cran/web/packages/gretlR/gretlR.pdf>.
+<https://cran.r-project.org/web/packages/gretlR/gretlR.pdf>.
 
 ———. 2023a. “Package ‘URooTab’.”
-<https://mirror.niser.ac.in/cran/web/packages/URooTab/URooTab.pdf>.
+<https://cran.r-project.org/web/packages/URooTab/URooTab.pdf>.
 
 ———. 2023b. *URooTab: Tabular Reporting of EViews Unit Root Tests*.
 <https://github.com/sagirumati/URooTab>.
@@ -648,3 +658,17 @@ Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package
 for Dynamic and Reproducible Research Using EViews, r, r Markdown and
 Quarto.” *The R Journal* 15 (2): 169–205.
 <https://doi.org/10.32614/rj-2023-045>.
+
+Mati, Sagiru, Irfan Civcir, and Hüseyin Ozdeser. 2019. “ECOWAS COMMON
+CURRENCY: HOW PREPARED ARE ITS MEMBERS?” *Investigación Económica* 78
+(308): 89. <https://doi.org/10.22201/fe.01851667p.2019.308.69625>.
+
+Mati, Sagiru, Irfan Civcir, and Hüseyin Özdeşer. 2023. “ECOWAS Common
+Currency, a Mirage or Possibility?” *Panoeconomicus* 70 (2): 239–60.
+<https://doi.org/10.2298/pan191119015m>.
+
+Mati, Sagiru, Magdalena Radulescu, Najia Saqib, Ahmed Samour, Goran
+Yousif Ismael, and Nazifi Aliyu. 2023. “Incorporating Russo-Ukrainian
+War in Brent Crude Oil Price Forecasting: A Comparative Analysis of
+ARIMA, TARMA and ENNReg Models.” *Heliyon* 9 (11): e21439.
+<https://doi.org/10.1016/j.heliyon.2023.e21439>.

@@ -7,7 +7,7 @@ Authors@R: c(
 Maintainer: Sagiru Mati <sagirumati@gmail.com>
 Description: It allows running 'EViews' (<https://eviews.com>) program from R, R Markdown and Quarto documents. 'EViews' (Econometric Views) is a statistical software for Econometric analysis.  This package integrates 'EViews' and R and also serves as an 'EViews' Knit-Engine for 'knitr' package. Write all your 'EViews' commands in R, R Markdown or Quarto documents. For details,  please consult our peer-review article Mati S., Civcir I. and Abba S.I (2023) <doi:10.32614/RJ-2023-045>.
 Depends: R (>= 3.4.0)
-Imports: knitr (>= 1.20), magrittr, xts, zoo
+Imports: knitr (>= 1.20), magrittr, xts, zoo, Rdpack
 Suggests: rmarkdown, testthat
 SystemRequirements: EViews (>= 8)
 License: GPL
@@ -22,4 +22,5 @@ Repository: CRAN
 LazyData: false
 Date/Publication: 2022-08-08 17:10:03 UTC
 Config/testthat/edition: 3
+RdMacros: Rdpack
 Roxygen: list(markdown = TRUE)

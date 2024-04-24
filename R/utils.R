@@ -7,6 +7,8 @@
 #' @importFrom stats na.omit
 #' @importFrom zoo index coredata
 #' @importFrom xts xts is.xts
+#' @importFrom Rdpack reprompt
+
 
 
 
