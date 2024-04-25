@@ -45,13 +45,11 @@ Yihui Xie (2019). knitr: A General-Purpose Package for Dynamic Report Generation
 Yihui Xie (2015) Dynamic Documents with R and knitr. 2nd edition. Chapman and Hall/CRC. ISBN 978-1498716963
 
 Yihui Xie (2014) knitr: A Comprehensive Tool for Reproducible Research in R. In Victoria Stodden, Friedrich Leisch and Roger D. Peng, editors, Implementing Reproducible Computational Research. Chapman and Hall/CRC. ISBN 978-1466561595
-#\insertRef{Dyanre}{DynareR}
-#\insertRef{Rpack:bibtex}{Rdpack}
 #insertAllCited{}
 }
 \seealso{
 Other important functions: 
-\code{\link{EviewsR}},
+\code{\link{EviewsR-package}},
 \code{\link{create_object}()},
 \code{\link{eviews_graph}()},
 \code{\link{eviews_import}()},
@@ -59,15 +57,15 @@ Other important functions:
 \code{\link{eviews_wfcreate}()},
 \code{\link{eviews_wfsave}()},
 \code{\link{exec_commands}()},
-\code{\link{export_dataframe}()},
 \code{\link{export}()},
+\code{\link{export_dataframe}()},
+\code{\link{import}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import_workfile}()},
-\code{\link{import}()},
 \code{\link{rwalk}()},
 \code{\link{set_eviews_path}()}
 }

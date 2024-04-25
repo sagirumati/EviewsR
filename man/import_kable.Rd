@@ -71,11 +71,12 @@ are left-aligned. If \code{length(align) == 1L}, the string will be
 expanded to a vector of individual letters, e.g. \code{'clc'} becomes
 \code{c('c', 'l', 'c')}, unless the output format is LaTeX.}
 
-\item{caption}{The table caption.}
+\item{caption}{The table caption. By default, it is retrieved from the chunk
+option \code{tab.cap}.}
 
 \item{label}{The table reference label. By default, the label is obtained
-from \code{knitr::\link[knitr]{opts_current}$get('label')}. To disable the label,
-use \code{label = NA}.}
+from \code{knitr::\link[knitr]{opts_current}$get('label')} (i.e., the current
+chunk label). To disable the label, use \code{label = NA}.}
 
 \item{format.args}{A list of arguments to be passed to \code{\link{format}()}
 to format table values, e.g. \code{list(big.mark = ',')}.}
@@ -96,8 +97,8 @@ some special cases.}
 table that will span over two or more pages, you will have to turn this on.}
 
 \item{valign}{You probably won't need to adjust this latex option very often.
-If you are familar with latex tables, this is the optional position for the
-tabular environment controling the vertical position of the table relative
+If you are familiar with latex tables, this is the optional position for the
+tabular environment controlling the vertical position of the table relative
 to the baseline of the surrounding text. Possible choices are \code{b}, \code{c} and
 \code{t} (default).}
 
@@ -159,7 +160,7 @@ format="pandoc")
 }
 \seealso{
 Other important functions: 
-\code{\link{EviewsR}},
+\code{\link{EviewsR-package}},
 \code{\link{create_object}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
@@ -168,14 +169,14 @@ Other important functions:
 \code{\link{eviews_wfcreate}()},
 \code{\link{eviews_wfsave}()},
 \code{\link{exec_commands}()},
-\code{\link{export_dataframe}()},
 \code{\link{export}()},
+\code{\link{export_dataframe}()},
+\code{\link{import}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import_workfile}()},
-\code{\link{import}()},
 \code{\link{rwalk}()},
 \code{\link{set_eviews_path}()}
 }

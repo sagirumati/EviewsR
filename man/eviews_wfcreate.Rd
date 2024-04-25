@@ -63,7 +63,7 @@ start_date="1990")
 }
 \seealso{
 Other important functions: 
-\code{\link{EviewsR}},
+\code{\link{EviewsR-package}},
 \code{\link{create_object}()},
 \code{\link{eng_eviews}()},
 \code{\link{eviews_graph}()},
@@ -71,15 +71,15 @@ Other important functions:
 \code{\link{eviews_pagesave}()},
 \code{\link{eviews_wfsave}()},
 \code{\link{exec_commands}()},
-\code{\link{export_dataframe}()},
 \code{\link{export}()},
+\code{\link{export_dataframe}()},
+\code{\link{import}()},
 \code{\link{import_equation}()},
 \code{\link{import_graph}()},
 \code{\link{import_kable}()},
 \code{\link{import_series}()},
 \code{\link{import_table}()},
 \code{\link{import_workfile}()},
-\code{\link{import}()},
 \code{\link{rwalk}()},
 \code{\link{set_eviews_path}()}
 }

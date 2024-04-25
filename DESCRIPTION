@@ -15,7 +15,7 @@ URL: https://CRAN.R-project.org/package=EviewsR
 BugReports: https://github.com/sagirumati/EviewsR/issues
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.1
 NeedsCompilation: no
 Packaged: 2022-08-08 15:31:44 UTC; Sagiru
 Repository: CRAN
