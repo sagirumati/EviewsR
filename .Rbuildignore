@@ -10,3 +10,7 @@ inst/EVIEWS
 ^EviewsR\.pdf$
 ^EviewsR-
 _extensions
+^.*\.csv$
+^.*\.wf1$
+^.*\.bib$
+^.*\.csl$
