@@ -601,9 +601,10 @@ Template for R Markdown is created. Go to
 # 9 Similar Packages
 
 Similar packages include
-[DynareR](https://github.com/sagirumati/DynareR) (Mati 2020a, 2022a),
-[gretlR](https://github.com/sagirumati/gretlR) (Mati 2020c, 2022c), and
-[URooTab](https://github.com/sagirumati/URooTab) (Mati 2023b, 2023a)
+[DynareR](https://CRAN.R-project.org/package=DynareR) (Mati 2020a,
+2022a), [gretlR](https://CRAN.R-project.org/package=gretlR) (Mati 2020c,
+2022c), and [URooTab](https://CRAN.R-project.org/package=URooTab) (Mati
+2023b, 2023a)
 
 For further details, consult Mati (2022b), Mati (2020b) and Mati,
 Civcir, and Abba (2023).
@@ -631,19 +632,19 @@ and Reopening on the Active COVID-19 Cases in Nigeria.” *Social Science
 <https://doi.org/10.1016/j.socscimed.2020.113645>.
 
 ———. 2022a. “Package ‘DynareR’.”
-<https://cran.r-project.org/web/packages/DynareR/DynareR.pdf>.
+<https://CRAN.R-project.org/package=DynareR>.
 
 ———. 2022b. “Package ‘EviewsR’.”
-<https://cran.r-project.org/web/packages/EviewsR/EviewsR.pdf>.
+<https://CRAN.R-project.org/package=EviewsR>.
 
 ———. 2022c. “Package ‘gretlR’.”
-<https://cran.r-project.org/web/packages/gretlR/gretlR.pdf>.
+<https://CRAN.R-project.org/package=gretlR>.
 
 ———. 2023a. “Package ‘URooTab’.”
-<https://cran.r-project.org/web/packages/URooTab/URooTab.pdf>.
+<https://CRAN.R-project.org/package=URooTab>.
 
 ———. 2023b. *URooTab: Tabular Reporting of EViews Unit Root Tests*.
-<https://github.com/sagirumati/URooTab>.
+<https://CRAN.R-project.org/package=URooTab>.
 
 Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package
 for Dynamic and Reproducible Research Using EViews, r, r Markdown and

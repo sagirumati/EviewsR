@@ -614,7 +614,7 @@ Template for R Markdown is created. Go to `file->New File->R Markdown-> From Tem
 
 # Similar Packages
 
-Similar packages include [DynareR](https://github.com/sagirumati/DynareR) [@Mati2020;@mati2022dynarer], [gretlR](https://github.com/sagirumati/gretlR) [@Mati2020b;@mati2022gretlr], and  [URooTab](https://github.com/sagirumati/URooTab) [@Mati2023a;@mati2023urootab]
+Similar packages include [DynareR](https://CRAN.R-project.org/package=DynareR) [@Mati2020;@mati2022dynarer], [gretlR](https://CRAN.R-project.org/package=gretlR) [@Mati2020b;@mati2022gretlr], and  [URooTab](https://CRAN.R-project.org/package=URooTab) [@Mati2023a;@mati2023urootab]
 
 For further details, consult @mati2022eviewsr, @Mati2020a and @Mati2023.
 
