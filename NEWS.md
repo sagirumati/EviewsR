@@ -2,6 +2,14 @@
 
 What's new?
 
+* Added ggplot2 as a dependency
+
+* updated the link to EviewsR package
+
+# EviewsR 0.1.6
+
+What's new?
+
 * `import_graph()` and `eviews_graph()` functions now use chunk option `graph_procs`, if the function  argument `graph_procs=""`.
 
 * Bug fixes: `graph_procs` is now working in chunk options  

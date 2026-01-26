@@ -94,7 +94,7 @@ if(exists('table_name.csv',envir = parent.frame()))  table_name.csv=eval(express
 
                         PLAIN TEXT:
 
- 1. Mati S. (2020). EviewsR: A Seamless Integration of EViews and R. CRAN. https://CRAN.R-project.org/package=DynareR
+ 1. Mati S. (2020). EviewsR: A Seamless Integration of EViews and R. CRAN. https://CRAN.R-project.org/package=EviewsR
 
  2.  Mati S., Civcir I., Abba S.I (2023). EviewsR: An R Package for Dynamic
   and Reproducible Research Using EViews, R, R Markdown and Quarto. The R
