@@ -13,7 +13,7 @@
 #' @param options Chunk options, as provided by \code{knitr} during chunk execution. Chunk option for this is \code{eviews}
 #' @return Set of \code{EViews} codes
 #' @author Sagiru Mati, ORCID: [0000-0003-1413-3974](https://orcid.org/0000-0003-1413-3974), <https://smati.com.ng>
-#' * Yusuf Maitama Sule (Northwest) University Kano, Nigeria
+#' * Northwest University Kano, Nigeria
 #' * SMATI Academy
 #' @examples knitr::knit_engines$set(eviews = EviewsR::eng_eviews)
 #' library(EviewsR)
@@ -28,7 +28,7 @@
 #'
 #' Mati, Sagiru. 2023b. URooTab: Tabular Reporting of EViews Unit Root Tests. <https://CRAN.R-project.org/package=URooTab>.
 #'
-#' Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package for Dynamic and Reproducible Research Using EViews, r, r Markdown and Quarto.” The R Journal 15 (2): 169–205. <https://doi.org/10.32614/rj-2023-045>.
+#' Mati, Sagiru, Irfan Civcir, and S. I. Abba. 2023. “EviewsR: An r Package for Dynamic and Reproducible Research Using EViews, R, R Markdown and Quarto.” The R Journal 15 (2): 169–205. <doi:10.32614/RJ-2023-045>.
 #'
 #' Bob Rudis (2015).Running Go language chunks in R Markdown (Rmd) files. Available at:  https://gist.github.com/hrbrmstr/9accf90e63d852337cb7
 #'
